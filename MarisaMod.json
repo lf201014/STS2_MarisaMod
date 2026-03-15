@@ -1,0 +1,13 @@
+{
+	"id": "MarisaMod",
+	"name": "Marisa Mod",
+	"author": "Flynn,Hell,Hohner_257,Kishin,Samsara",
+	"description": "Marisa Mod.",
+	"version": "0.1.0",
+	"hasPck": true,
+	"hasDll": true,
+	"dependencies": [
+		"BaseLib"
+	],
+	"affectsGameplay": true
+}

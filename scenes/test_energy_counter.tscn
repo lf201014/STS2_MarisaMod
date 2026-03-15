@@ -1,0 +1,153 @@
+[gd_scene load_steps=14 format=3 uid="uid://vy34u6rskeme"]
+
+[ext_resource type="Texture2D" uid="uid://bhur1aw3i2yv2" path="res://icon.svg" id="1_85qf2"]
+[ext_resource type="Texture2D" uid="uid://dr6vx7a8ujfmo" path="res://img/UI/EPanel/layer5.png" id="2_krgn1"]
+[ext_resource type="Texture2D" uid="uid://dglyrni0b0lw1" path="res://img/UI/EPanel/layer4d.png" id="3_588k6"]
+[ext_resource type="Texture2D" uid="uid://b5e6hhq1c7v1h" path="res://img/UI/EPanel/layer3d.png" id="4_dkyt4"]
+[ext_resource type="Texture2D" uid="uid://1syffslxuooe" path="res://img/UI/EPanel/layer2d.png" id="5_2kw8d"]
+[ext_resource type="Texture2D" uid="uid://5kuamsjpf1wn" path="res://img/UI/EPanel/layer1d.png" id="6_hjhov"]
+[ext_resource type="Texture2D" uid="uid://bf8ws8ivtyoa8" path="res://img/UI/EPanel/layer4.png" id="7_idyms"]
+[ext_resource type="Texture2D" uid="uid://dip1ajbc8w6di" path="res://img/UI/EPanel/layer3.png" id="8_5aixa"]
+[ext_resource type="Texture2D" uid="uid://0ui2ov2thl4i" path="res://img/UI/EPanel/layer2.png" id="9_ob01n"]
+[ext_resource type="Texture2D" uid="uid://4c0fjd76xcsq" path="res://img/UI/EPanel/layer1.png" id="10_ysqg0"]
+[ext_resource type="Texture2D" uid="uid://bpmn3bmx1emha" path="res://img/UI/EPanel/layer0.png" id="11_so8cr"]
+
+[sub_resource type="Curve" id="Curve_85qf2"]
+_data = [Vector2(0.006, 0.031), 0.0, 4.464, 0, 0, Vector2(0.298, 0.736), 0.832, 0.832, 0, 0, Vector2(0.99, 0.933), -0.247, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="Gradient" id="Gradient_1ytbd"]
+offsets = PackedFloat32Array(0, 0.35164836, 0.64835167, 1)
+colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0)
+
+[node name="TestEnergyCounter" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 128.0
+offset_bottom = 128.0
+metadata/_edit_lock_ = true
+
+[node name="BurstBack" type="CPUParticles2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(64, 64)
+emitting = false
+amount = 1
+texture = ExtResource("1_85qf2")
+one_shot = true
+local_coords = true
+gravity = Vector2(0, 0)
+radial_accel_max = 10.0
+angle_max = 260.0
+scale_amount_min = 1.5
+scale_amount_max = 1.5
+scale_amount_curve = SubResource("Curve_85qf2")
+color = Color(1, 0.49411765, 0.48235294, 0.6)
+color_ramp = SubResource("Gradient_1ytbd")
+
+[node name="Layers" type="Control" parent="."]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Layer5" type="Sprite2D" parent="Layers"]
+position = Vector2(65, 64)
+texture = ExtResource("2_krgn1")
+
+[node name="RotationLayers" type="Control" parent="Layers"]
+unique_name_in_owner = true
+layout_mode = 1
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -64.0
+offset_top = -64.0
+offset_right = -24.0
+offset_bottom = -24.0
+
+[node name="Layer4d" type="Sprite2D" parent="Layers/RotationLayers"]
+visible = false
+position = Vector2(-79, 60)
+texture = ExtResource("3_588k6")
+
+[node name="Layer3d" type="Sprite2D" parent="Layers/RotationLayers"]
+visible = false
+position = Vector2(-79, 60)
+texture = ExtResource("4_dkyt4")
+
+[node name="Layer2d" type="Sprite2D" parent="Layers/RotationLayers"]
+visible = false
+position = Vector2(-79, 60)
+texture = ExtResource("5_2kw8d")
+
+[node name="Layer1d" type="Sprite2D" parent="Layers/RotationLayers"]
+visible = false
+position = Vector2(-79, 60)
+texture = ExtResource("6_hjhov")
+
+[node name="Layer4" type="Sprite2D" parent="Layers/RotationLayers"]
+position = Vector2(65, 64)
+texture = ExtResource("7_idyms")
+
+[node name="Layer3" type="Sprite2D" parent="Layers/RotationLayers"]
+position = Vector2(65, 64)
+texture = ExtResource("8_5aixa")
+
+[node name="Layer2" type="Sprite2D" parent="Layers/RotationLayers"]
+position = Vector2(65, 64)
+texture = ExtResource("9_ob01n")
+
+[node name="Layer1" type="Sprite2D" parent="Layers/RotationLayers"]
+position = Vector2(65, 64)
+texture = ExtResource("10_ysqg0")
+
+[node name="Layer0" type="Sprite2D" parent="Layers"]
+position = Vector2(65, 64)
+texture = ExtResource("11_so8cr")
+
+[node name="BurstFront" type="CPUParticles2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(64, 64)
+emitting = false
+amount = 1
+texture = ExtResource("1_85qf2")
+lifetime = 0.5
+one_shot = true
+local_coords = true
+gravity = Vector2(0, 0)
+angular_velocity_min = 30.0
+angular_velocity_max = 30.0
+radial_accel_max = 10.0
+angle_max = 260.0
+scale_amount_min = 1.5
+scale_amount_max = 1.5
+scale_amount_curve = SubResource("Curve_85qf2")
+color = Color(1, 0.49411765, 0.48235294, 0.6)
+color_ramp = SubResource("Gradient_1ytbd")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 19.0
+offset_top = -28.0
+offset_right = -13.0
+offset_bottom = 30.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 0.9647059, 0.8862745, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.1882353)
+theme_override_colors/font_outline_color = Color(0.1, 0.1, 0.8, 1)
+theme_override_constants/shadow_offset_x = 3
+theme_override_constants/shadow_offset_y = 2
+theme_override_constants/outline_size = 16
+theme_override_constants/shadow_outline_size = 16
+theme_override_font_sizes/font_size = 36
+text = "3/3"
+horizontal_alignment = 1
+vertical_alignment = 1
