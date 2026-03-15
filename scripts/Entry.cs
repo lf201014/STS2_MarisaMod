@@ -17,7 +17,7 @@ namespace MarisaMod.scripts
             // 传入参数随意，只要不和其他人撞车即可
             _harmony = new Harmony("MarisaMod");
             _harmony.PatchAll();
-            Log.Debug("Mod initialized!");
+            Log.Info("Mod initialized!");
             ScriptManagerBridge.LookupScriptsInAssembly(typeof(Entry).Assembly);
         }
     }

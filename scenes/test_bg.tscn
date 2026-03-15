@@ -29,8 +29,8 @@ color = Color(0.44705883, 0.49803922, 1, 1)
 metadata/_edit_lock_ = true
 
 [node name="MarisaPortrait" type="Sprite2D" parent="."]
-position = Vector2(1755.9999, 1090)
-scale = Vector2(1.8999999, 1.9000001)
+position = Vector2(1784, 1035)
+scale = Vector2(1.8649997, 1.865)
 texture = ExtResource("1_ifk2y")
 
 [node name="Icon" type="TextureRect" parent="."]
@@ -38,10 +38,10 @@ layout_mode = 1
 anchors_preset = -1
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 31.0
-offset_top = 63.0
-offset_right = -3002.0
-offset_bottom = -1476.0
+offset_left = 632.0
+offset_top = 1492.0
+offset_right = -2401.0
+offset_bottom = -47.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("1_c8lhi")
