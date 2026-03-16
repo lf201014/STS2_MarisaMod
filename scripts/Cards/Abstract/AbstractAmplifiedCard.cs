@@ -1,4 +1,3 @@
-using BaseLib.Abstracts;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Models;
@@ -6,25 +5,21 @@ using MarisaMod.scripts.PatchesNModels;
 
 namespace MarisaMod.scripts.Cards.Abstract
 {
-    public abstract class AbstractAmplifiedCard : AbstractMarisaModCard
+    public abstract class AbstractAmplifiedCard(int baseCost, int kickerCost, CardType type, CardRarity rarity, TargetType target, bool showInCardLibrary = true, bool autoAdd = true)
+        : AbstractMarisaModCard(baseCost, type, rarity, target, showInCardLibrary, autoAdd)
     {
-        public int KickerCost { get; protected set; }
+        public int KickerCost { get; } = kickerCost;
 
         public bool IsAmplified { get; protected set; }
 
-        protected AbstractAmplifiedCard(int baseCost, int kickerCost, CardType type, CardRarity rarity, TargetType target, bool showInCardLibrary = true, bool autoAdd = true) 
-        : base(baseCost, type, rarity, target, showInCardLibrary, autoAdd)
-        {
-            KickerCost = kickerCost;
-        }
-
-        public override IEnumerable<CardKeyword> CanonicalKeywords => [
+        public override IEnumerable<CardKeyword> CanonicalKeywords =>
+        [
             CustomKeywords.Amplify
         ];
 
         public virtual void ValidateAmplify()
         {
-            if (Owner != null && Owner.PlayerCombatState != null)
+            if (Owner.PlayerCombatState != null)
             {
                 if (Owner.Creature.HasPower<PulseMagicePower>() || Owner.Creature.HasPower<MillisecondPulsarsPower>())
                 {
@@ -40,6 +35,7 @@ namespace MarisaMod.scripts.Cards.Abstract
                         EnergyCost.AddThisTurnOrUntilPlayed(-KickerCost);
                         //TODO CardText update
                     }
+
                     if (!IsAmplified && Owner.PlayerCombatState.Energy >= EnergyCost.GetWithModifiers(CostModifiers.All) + KickerCost)
                     {
                         IsAmplified = true;

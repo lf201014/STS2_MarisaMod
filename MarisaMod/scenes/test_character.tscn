@@ -1,0 +1,29 @@
+[gd_scene load_steps=3 format=3 uid="uid://c4dnpxxd6ldei"]
+
+[ext_resource type="Script" uid="uid://b8ejae83revrh" path="res://scripts/Nodes/NMarisaCharacter.cs" id="1_137rp"]
+[ext_resource type="Texture2D" uid="uid://3xgp7cp6u5os" path="res://MarisaMod/img/char/Marisa/MarisaModelv3-Idle.png" id="2_vh11w"]
+
+[node name="TestCharacter" type="Node2D"]
+script = ExtResource("1_137rp")
+
+[node name="Visuals" type="Sprite2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(0, -73)
+texture = ExtResource("2_vh11w")
+
+[node name="Bounds" type="Control" parent="."]
+unique_name_in_owner = true
+layout_mode = 3
+anchors_preset = 0
+offset_left = -220.0
+offset_top = -445.0
+offset_right = 170.0
+offset_bottom = 368.0
+
+[node name="IntentPos" type="Marker2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(0, -159)
+
+[node name="CenterPos" type="Marker2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(0, -72)

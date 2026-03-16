@@ -1,0 +1,17 @@
+{
+  "MARISAMOD-MARISA_CHARACTER.aromaPrinciple": "[sine][blue]...[/blue][/sine]",
+  "MARISAMOD-MARISA_CHARACTER.banter.alive.endTurnPing": "...",
+  "MARISAMOD-MARISA_CHARACTER.banter.dead.endTurnPing": "...",
+  "MARISAMOD-MARISA_CHARACTER.cardsModifierDescription": "Marisa cards will now appear in rewards and shops.",
+  "MARISAMOD-MARISA_CHARACTER.cardsModifierTitle": "Marisa Cards",
+  "MARISAMOD-MARISA_CHARACTER.description": "The little blonde witch living in Forest of Magic.",
+  "MARISAMOD-MARISA_CHARACTER.eventDeathPrevention": "Gotta live to take my pillages out...",
+  "MARISAMOD-MARISA_CHARACTER.goldMonologue": "[sine]Gold!I'm wondering if there's other treasures...[/sine]",
+  "MARISAMOD-MARISA_CHARACTER.possessiveAdjective": "her",
+  "MARISAMOD-MARISA_CHARACTER.pronounObject": "her",
+  "MARISAMOD-MARISA_CHARACTER.pronounPossessive": "hers",
+  "MARISAMOD-MARISA_CHARACTER.pronounSubject": "her",
+  "MARISAMOD-MARISA_CHARACTER.title": "The Ordinary Magician",
+  "MARISAMOD-MARISA_CHARACTER.titleObject": "The Ordinary Magician",
+  "MARISAMOD-MARISA_CHARACTER.unlockText": "Play a single run with [pink]{Prerequisite}[/pink] to unlock this character."
+}

@@ -13,7 +13,7 @@ namespace MarisaMod.scripts.Cards
         {
         }
 
-        public override string PortraitPath => $"res://img/cards/ChargeUpSpray_p.png";
+        //public override string PortraitPath => $"res://img/cards/ChargeUpSpray_p.png";
 
         protected override IEnumerable<DynamicVar> CanonicalVars => [
             new DamageVar(8m, ValueProp.Move),
@@ -22,7 +22,7 @@ namespace MarisaMod.scripts.Cards
 
         protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
         {
-            ArgumentNullException.ThrowIfNull(cardPlay.Target, "cardPlay.Target");
+            ArgumentNullException.ThrowIfNull(cardPlay.Target);
             await DamageCmd.Attack(DynamicVars.Damage.BaseValue).FromCard(this).Targeting(cardPlay.Target)
                 .WithHitFx("vfx/vfx_attack_lightning").Execute(choiceContext);
             if (Owner.Creature.HasPower<ChargeUpPower>() && Owner.Creature.GetPower<ChargeUpPower>()!.Amount > 8)

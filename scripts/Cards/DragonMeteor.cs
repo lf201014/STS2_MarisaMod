@@ -15,17 +15,17 @@ namespace MarisaMod.scripts.Cards
         {
         }
 
-        public override string PortraitPath => $"res://img/cards/DragonMeteor_p.png";
+        //public override string PortraitPath => $"res://img/cards/DragonMeteor_p.png";
 
         protected override IEnumerable<DynamicVar> CanonicalVars => [
             new CalculationBaseVar(14m),
         new ExtraDamageVar(1m),
-        new CalculatedDamageVar(ValueProp.Move).WithMultiplier((CardModel card, Creature? _)=> PileType.Exhaust.GetPile(card.Owner).Cards.Count)
+        new CalculatedDamageVar(ValueProp.Move).WithMultiplier((card, _)=> PileType.Exhaust.GetPile(card.Owner).Cards.Count)
         ];
         protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
         {
-            ArgumentNullException.ThrowIfNull(cardPlay.Target, "cardPlay.Target");
-            await DamageCmd.Attack(base.DynamicVars.CalculatedDamage).FromCard(this).Targeting(cardPlay.Target)
+            ArgumentNullException.ThrowIfNull(cardPlay.Target);
+            await DamageCmd.Attack(DynamicVars.CalculatedDamage).FromCard(this).Targeting(cardPlay.Target)
                 .WithHitFx("vfx/vfx_attack_slash", null, "blunt_attack.mp3")
                 .Execute(choiceContext);
         }

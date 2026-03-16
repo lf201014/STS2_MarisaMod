@@ -5,7 +5,7 @@ using MegaCrit.Sts2.Core.Modding;
 
 namespace MarisaMod.scripts
 {
-    [ModInitializer("Init")]
+    [ModInitializer(nameof(Initialize))]
     public class Entry
     {
         // 打patch（即修改游戏代码的功能）用
@@ -19,6 +19,18 @@ namespace MarisaMod.scripts
             _harmony.PatchAll();
             Log.Info("Mod initialized!");
             ScriptManagerBridge.LookupScriptsInAssembly(typeof(Entry).Assembly);
+        }
+
+        public const string ModId = "MarisaMod"; //Used for resource filepath
+
+        public static Logger Logger { get; } = new(ModId, LogType.Generic);
+
+        public static void Initialize()
+        {
+            Harmony harmony = new(ModId);
+
+            harmony.PatchAll();
+            Logger.Info($"{ModId} initialized!");
         }
     }
 }

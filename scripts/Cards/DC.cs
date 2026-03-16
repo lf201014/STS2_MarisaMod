@@ -15,17 +15,17 @@ namespace MarisaMod.scripts.Cards
         {
         }
 
-        public override string PortraitPath => $"res://img/cards/DC_p.png";
+        //public override string PortraitPath => $"res://img/cards/DC_p.png";
 
         protected override IEnumerable<DynamicVar> CanonicalVars => [
             new CalculationBaseVar(0m),
         new ExtraDamageVar(8m),
-        new CalculatedDamageVar(ValueProp.Move).WithMultiplier((CardModel card, Creature? _)=>Owner.PlayerCombatState!.DiscardPile.Cards.Count == 0 ? 2 : 1)
+        new CalculatedDamageVar(ValueProp.Move).WithMultiplier((card, _)=>Owner.PlayerCombatState!.DiscardPile.Cards.Count == 0 ? 2 : 1)
             ];
 
         protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
         {
-            ArgumentNullException.ThrowIfNull(cardPlay.Target, "cardPlay.Target");
+            ArgumentNullException.ThrowIfNull(cardPlay.Target);
             await DamageCmd.Attack(DynamicVars.CalculatedDamage).FromCard(this).Targeting(cardPlay.Target)
                 .WithHitFx("vfx/vfx_attack_slash")
                 .Execute(choiceContext);

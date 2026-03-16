@@ -14,7 +14,7 @@ namespace MarisaMod.scripts.Cards
         {
         }
 
-        public override string PortraitPath => $"res://img/cards/DeepEcoBomb_p.png";
+        //public override string PortraitPath => $"res://img/cards/DeepEcoBomb_p.png";
 
         protected override IEnumerable<DynamicVar> CanonicalVars => [
             new DamageVar(7,ValueProp.Move),
@@ -43,7 +43,7 @@ namespace MarisaMod.scripts.Cards
             }
         }
 
-        override protected void OnUpgrade()
+        protected override void OnUpgrade()
         {
             DynamicVars.Damage.UpgradeValueBy(2);
             DynamicVars["Power"].UpgradeValueBy(1m);

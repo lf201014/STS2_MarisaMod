@@ -35,6 +35,14 @@
 
   </ItemGroup>
 
+  <ItemGroup>
+    <Compile Remove="MarisaMod\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Remove="MarisaMod\**" />
+  </ItemGroup>
+
   <!-- 自动复制dll -->
   <Target Name="Copy Mod" AfterTargets="PostBuildEvent">
     <Message Text="Copying mod to Slay the Spire 2 mods folder..." Importance="high" />

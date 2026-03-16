@@ -14,7 +14,7 @@ namespace MarisaMod.scripts.Cards
         {
         }
 
-        public override string PortraitPath => $"res://img/cards/darkSpark_p.png";
+        //public override string PortraitPath => $"res://img/cards/darkSpark_p.png";
 
         protected override IEnumerable<DynamicVar> CanonicalVars => [
             new DamageVar(7m, ValueProp.Move),
@@ -26,7 +26,7 @@ namespace MarisaMod.scripts.Cards
             DynamicVars.Cards.UpgradeValueBy(3m);
         }
 
-        override protected async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
+        protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
         {
             CardPile drawPile = PileType.Draw.GetPile(Owner);
             int countOfAttacks = 0;

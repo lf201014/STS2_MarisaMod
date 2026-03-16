@@ -11,7 +11,7 @@ namespace MarisaMod.scripts.Cards
         {
         }
 
-        public override string PortraitPath => $"res://img/cards/MillisecondPulsars_p.png";
+        //public override string PortraitPath => $"res://img/cards/MillisecondPulsars_p.png";
 
         protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
         {

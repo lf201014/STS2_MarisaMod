@@ -13,11 +13,12 @@ namespace MarisaMod.scripts.Cards
         {
         }
 
-        public override string PortraitPath => $"res://img/cards/GuidingStar_p.png";
+        //public override string PortraitPath => $"res://img/cards/GuidingStar_p.png";
 
-        protected override IEnumerable<DynamicVar> CanonicalVars => [
-                new CardsVar(1),
-                new EnergyVar(1)
+        protected override IEnumerable<DynamicVar> CanonicalVars =>
+        [
+            new CardsVar(1),
+            new EnergyVar(1)
         ];
 
         protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
@@ -31,7 +32,7 @@ namespace MarisaMod.scripts.Cards
             }
         }
 
-        override protected void OnUpgrade()
+        protected override void OnUpgrade()
         {
             DynamicVars.Cards.UpgradeValueBy(1);
         }

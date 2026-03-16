@@ -1,4 +1,3 @@
-using System.Runtime.InteropServices;
 using BaseLib.Abstracts;
 using Godot;
 using MarisaMod.scripts.Cards;
@@ -11,13 +10,12 @@ namespace MarisaMod.Scripts.Characters
 {
     public class MarisaCharacter : PlaceholderCharacterModel
     {
-        public override string CustomVisualPath => "res://scenes/test_character.tscn";
+        public override string CustomVisualPath => "res://MarisaMod/scenes/test_character.tscn";
         // public override string CustomTrailPath => "res://scenes/vfx/card_trail_ironclad.tscn";
-        public override string CustomIconTexturePath => "res://img/charSelectMarisaButton.png";
+        public override string CustomIconTexturePath => "res://MarisaMod/img/charSelect/MarisaButton.png";
         // public override string CustomIconPath => "res://scenes/ui/character_icons/ironclad_icon.tscn";
 
-        //TODO
-        public override string CustomEnergyCounterPath => "res://scenes/test_energy_counter.tscn";
+        public override string CustomEnergyCounterPath => "res://MarisaMod/scenes/test_energy_counter.tscn";
         // public override string CustomRestSiteAnimPath => "res://scenes/rest_site/characters/ironclad_rest_site.tscn";
         // public override string CustomMerchantAnimPath => "res://scenes/merchant/characters/ironclad_merchant.tscn";
         // public override string CustomArmPointingTexturePath => null;
@@ -25,10 +23,9 @@ namespace MarisaMod.Scripts.Characters
         // public override string CustomArmPaperTexturePath => null;
         // public override string CustomArmScissorsTexturePath => null;
 
-        //TODO
-        public override string CustomCharacterSelectBg => "res://scenes/test_bg.tscn";
-        public override string CustomCharacterSelectIconPath => "res://img/charSelect/char_select_marisa.png";
-        public override string CustomCharacterSelectLockedIconPath => "res://img/charSelect/char_select_marisa_locked.png";
+        public override string CustomCharacterSelectBg => "res://MarisaMod/scenes/test_bg.tscn";
+        public override string CustomCharacterSelectIconPath => "res://MarisaMod/img/charSelect/char_select_marisa.png";
+        public override string CustomCharacterSelectLockedIconPath => "res://MarisaMod/img/charSelect/char_select_marisa_locked.png";
         // public override string CustomCharacterSelectTransitionPath => "res://materials/transitions/ironclad_transition_mat.tres";
         // public override string CustomMapMarkerPath => null;
         // public override string CustomAttackSfx => null;

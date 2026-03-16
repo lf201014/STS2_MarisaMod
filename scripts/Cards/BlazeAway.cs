@@ -16,55 +16,58 @@ namespace MarisaMod.scripts.Cards
         {
         }
 
-        CardModel? cardSource = null;
+        private CardModel? _cardSource;
 
-        public override string PortraitPath => $"res://img/cards/blazeAway_p.png";
+        //public override string PortraitPath => $"res://img/cards/blazeAway_p.png";
         protected override IEnumerable<DynamicVar> CanonicalVars => [new CardsVar(1)];
 
         //TODO CardPreview
 
-        override protected void OnUpgrade()
+        protected override void OnUpgrade()
         {
             DynamicVars.Cards.UpgradeValueBy(1);
         }
 
-        protected override IEnumerable<IHoverTip> ExtraHoverTips => cardSource != null ? [HoverTipFactory.FromCard(cardSource)] : [];
+        protected override IEnumerable<IHoverTip> ExtraHoverTips => _cardSource != null ? [HoverTipFactory.FromCard(_cardSource)] : [];
 
-        override protected async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
+        protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
         {
-            if (cardSource == null)
+            if (_cardSource == null)
             {
                 GetLastAttackForTurn();
             }
-            if (cardSource != null)
+
+            if (_cardSource != null)
             {
-                await CardCmd.AutoPlay(choiceContext, cardSource.CreateDupe(), null);
+                await CardCmd.AutoPlay(choiceContext, _cardSource.CreateDupe(), null);
             }
         }
 
-        override public Task AfterCardPlayed(PlayerChoiceContext context, CardPlay cardPlay)
+        public override Task AfterCardPlayed(PlayerChoiceContext context, CardPlay cardPlay)
         {
             if (cardPlay.Card != this && cardPlay.Card.Type == CardType.Attack && cardPlay.Card.Owner == Owner)
             {
-                cardSource = cardPlay.Card;
+                _cardSource = cardPlay.Card;
             }
+
             return base.AfterCardPlayed(context, cardPlay);
         }
 
-        override public Task AfterCardEnteredCombat(CardModel card)
+        public override Task AfterCardEnteredCombat(CardModel card)
         {
             if (card == this)
             {
                 GetLastAttackForTurn();
             }
+
             return base.AfterCardEnteredCombat(card);
         }
 
         private void GetLastAttackForTurn()
         {
-            CardModel? res = CombatManager.Instance.History.CardPlaysFinished.LastOrDefault((CardPlayFinishedEntry e) =>
-             e.HappenedThisTurn(Owner.Creature.CombatState) && e.CardPlay.Card.Type == CardType.Attack && e.CardPlay.Card.Owner == Owner)?.CardPlay.Card;
-            cardSource = res;
+            CardModel? res = CombatManager.Instance.History.CardPlaysFinished.LastOrDefault(e =>
+                e.HappenedThisTurn(Owner.Creature.CombatState) && e.CardPlay.Card.Type == CardType.Attack && e.CardPlay.Card.Owner == Owner)?.CardPlay.Card;
+            _cardSource = res;
         }
     }
 }

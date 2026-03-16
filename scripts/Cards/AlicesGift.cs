@@ -14,24 +14,24 @@ namespace MarisaMod.scripts.Cards
         public AlicesGift() : base(0, 1, CardType.Attack, CardRarity.Uncommon, TargetType.AnyEnemy)
         {
         }
-        public override string PortraitPath => $"res://img/cards/GiftDoll_v2_p.png";
+        //public override string PortraitPath => $"res://img/cards/GiftDoll_v2_p.png";
 
         protected override IEnumerable<DynamicVar> CanonicalVars => [
             new CalculationBaseVar(0m),
             new ExtraDamageVar(5m),
-            new CalculatedDamageVar(ValueProp.Move).WithMultiplier((CardModel card, Creature? _)=>IsAmplified ? 3 : 1),
+            new CalculatedDamageVar(ValueProp.Move).WithMultiplier((card, _)=>IsAmplified ? 3 : 1),
             new EnergyVar(1)
         ];
 
         protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
         {
-            ArgumentNullException.ThrowIfNull(cardPlay.Target, "cardPlay.Target");
+            ArgumentNullException.ThrowIfNull(cardPlay.Target);
             await DamageCmd.Attack(DynamicVars.CalculatedDamage).FromCard(this).Targeting(cardPlay.Target)
                 .WithHitFx("vfx/vfx_attack_slash")
                 .Execute(choiceContext);
         }
 
-        override protected void OnUpgrade()
+        protected override void OnUpgrade()
         {
             DynamicVars.Damage.UpgradeValueBy(2m);
         }

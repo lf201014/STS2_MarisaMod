@@ -15,17 +15,18 @@ namespace MarisaMod.scripts.Cards
         {
         }
 
-        public override string PortraitPath => $"res://img/cards/DoubleSpark_p.png";
+        //public override string PortraitPath => $"res://img/cards/DoubleSpark_p.png";
 
-        protected override IEnumerable<DynamicVar> CanonicalVars => [
+        protected override IEnumerable<DynamicVar> CanonicalVars =>
+        [
             new DamageVar(6m, ValueProp.Move)
         ];
-        
+
         protected override IEnumerable<IHoverTip> ExtraHoverTips => [HoverTipFactory.FromCard<Spark>(IsUpgraded)];
 
         protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
         {
-            ArgumentNullException.ThrowIfNull(cardPlay.Target, "cardPlay.Target");
+            ArgumentNullException.ThrowIfNull(cardPlay.Target);
             await DamageCmd.Attack(DynamicVars.Damage.BaseValue).FromCard(this).Targeting(cardPlay.Target)
                 .WithHitFx("vfx/vfx_attack_slash")
                 .Execute(choiceContext);

@@ -29,7 +29,7 @@ namespace MarisaMod.scripts.Cards
             }
         }
 
-        override protected void OnUpgrade()
+        protected override void OnUpgrade()
         {
             DynamicVars["GainEnergy"].UpgradeValueBy(1);
         }

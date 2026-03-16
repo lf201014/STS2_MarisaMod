@@ -1,5 +1,6 @@
 using BaseLib.Abstracts;
 using BaseLib.Utils;
+using MarisaMod.scripts.Cards.Abstract;
 using MegaCrit.Sts2.Core.Combat;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
@@ -13,21 +14,22 @@ using MegaCrit.Sts2.Core.ValueProps;
 namespace MarisaMod.Scripts.Cards.Colorless
 {
     [Pool(typeof(ColorlessCardPool))]
-    public class Spark : CustomCardModel
+    public class Spark : AbstractMarisaModCard
     {
         public Spark() : base(0, CardType.Attack, CardRarity.Token, TargetType.AnyEnemy)
         {
         }
 
-        public override string PortraitPath => $"res://img/cards/Spark_p.png";
+        //public override string PortraitPath => $"res://MarisaMod/img/cards/Spark_p.png";
 
-        protected override IEnumerable<DynamicVar> CanonicalVars => [
+        protected override IEnumerable<DynamicVar> CanonicalVars =>
+        [
             new DamageVar(4m, ValueProp.Move)
         ];
 
         protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
         {
-            ArgumentNullException.ThrowIfNull(cardPlay.Target, "cardPlay.Target");
+            ArgumentNullException.ThrowIfNull(cardPlay.Target);
             await DamageCmd.Attack(DynamicVars.Damage.BaseValue).FromCard(this).Targeting(cardPlay.Target)
                 .WithHitFx("vfx/vfx_attack_slash")
                 .Execute(choiceContext);
@@ -44,15 +46,18 @@ namespace MarisaMod.Scripts.Cards.Colorless
             {
                 return [];
             }
+
             if (CombatManager.Instance.IsOverOrEnding)
             {
                 return [];
             }
+
             List<CardModel> sparks = [];
             for (int i = 0; i < count; i++)
             {
                 sparks.Add(combatState.CreateCard<Spark>(owner));
             }
+
             await CardPileCmd.AddGeneratedCardsToCombat(sparks, PileType.Hand, addedByPlayer: true);
             return sparks;
         }

@@ -12,7 +12,7 @@ namespace MarisaMod.scripts.Cards
         {
         }
 
-        public override string PortraitPath => $"res://img/cards/ChargingUp_p.png";
+        //public override string PortraitPath => $"res://img/cards/ChargingUp_p.png";
 
         protected override IEnumerable<DynamicVar> CanonicalVars => [new DynamicVar("Power", 5)];
 

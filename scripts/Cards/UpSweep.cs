@@ -22,14 +22,14 @@ namespace MarisaMod.scripts.Cards
 
         protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
         {
-            ArgumentNullException.ThrowIfNull(cardPlay.Target, "cardPlay.Target");
+            ArgumentNullException.ThrowIfNull(cardPlay.Target);
             await DamageCmd.Attack(DynamicVars.Damage.BaseValue).FromCard(this).Targeting(cardPlay.Target)
                 .WithHitFx("vfx/vfx_attack_slash")
                 .Execute(choiceContext);
-            await PowerCmd.Apply<ChargeUpPower>(base.Owner.Creature, DynamicVars.Strength.BaseValue, base.Owner.Creature, this);
+            await PowerCmd.Apply<ChargeUpPower>(Owner.Creature, DynamicVars.Strength.BaseValue, Owner.Creature, this);
         }
 
-        override protected void OnUpgrade()
+        protected override void OnUpgrade()
         {
             DynamicVars.Damage.UpgradeValueBy(1m);
             DynamicVars["Power"].UpgradeValueBy(1m);

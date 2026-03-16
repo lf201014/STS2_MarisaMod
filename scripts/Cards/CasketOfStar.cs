@@ -1,4 +1,3 @@
-using BaseLib.Abstracts;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
@@ -15,7 +14,7 @@ namespace MarisaMod.Scripts.Cards
         {
         }
 
-        public override string PortraitPath => $"res://img/cards/CasketOfStar_p.png";
+        //public override string PortraitPath => $"res://img/cards/CasketOfStar_p.png";
 
         protected override IEnumerable<IHoverTip> ExtraHoverTips => [HoverTipFactory.FromCard<Spark>(IsUpgraded)];
 
