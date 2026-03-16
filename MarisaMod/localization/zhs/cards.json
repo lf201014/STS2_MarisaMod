@@ -1,4 +1,6 @@
 {
+    "MARISAMOD-TEST_MARISA_CARD.title": "测试卡牌",
+    "MARISAMOD-TEST_MARISA_CARD.description": "造成{Damage:diff()}点伤害,抽{Cards:diff()}张牌。",
     "MARISAMOD-SPARK_STRIKE.title": "火花打击",
     "MARISAMOD-SPARK_STRIKE.description": "造成{Damage:diff()}点伤害。",
     "MARISAMOD-DEFEND_MARISA.title": "防御",
@@ -35,4 +37,5 @@
     "MARISAMOD-DOUBLE_SPARK.description": "造成{Damage:diff()}点伤害，将一张[gold]火花[/gold]添加到你的[gold]手牌[/gold]。",
     "MARISAMOD-DRAGON_METEOR.title": "龙陨星",
     "MARISAMOD-DRAGON_METEOR.description": "造成{CalculatedDamage:diff()}点伤害。\n你的[gold]消耗牌堆[/gold]中每有一张牌，伤害增加{ExtraDamage:diff()}。"
+
 }

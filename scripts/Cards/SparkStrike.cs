@@ -1,4 +1,4 @@
-using MarisaMod.scripts.Cards.Abstract;
+using marisamod.Scripts.Cards.Abstract;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
@@ -7,13 +7,11 @@ using MegaCrit.Sts2.Core.ValueProps;
 
 namespace MarisaMod.scripts.Cards
 {
-    public class SparkStrike : AbstractMarisaModCard
+    public class SparkStrike : AbstractMarisaCard
     {
         public SparkStrike() : base(1, CardType.Attack, CardRarity.Basic, TargetType.AnyEnemy)
         {
         }
-
-        public override string PortraitPath => $"res://img/cards/SimpleSpark_p.png";
 
         protected override HashSet<CardTag> CanonicalTags => [CardTag.Strike];
 

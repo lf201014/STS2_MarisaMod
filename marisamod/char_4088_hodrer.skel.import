@@ -1,0 +1,13 @@
+[remap]
+
+importer="spine.skel"
+type="SpineSkeletonFileResource"
+uid="uid://chkm8yqfkgtrs"
+valid=false
+
+[deps]
+
+source_file="res://test/char_4088_hodrer.skel"
+
+[params]
+

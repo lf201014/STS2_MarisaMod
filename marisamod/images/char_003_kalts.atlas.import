@@ -1,0 +1,16 @@
+[remap]
+
+importer="spine.atlas"
+type="SpineAtlasResource"
+uid="uid://d1j0d37ipvqc6"
+path="res://.godot/imported/char_003_kalts.atlas-75a9f5f5f88fd21151f0254626acab6d.spatlas"
+
+[deps]
+
+source_file="res://marisamod/images/char_003_kalts.atlas"
+dest_files=["res://.godot/imported/char_003_kalts.atlas-75a9f5f5f88fd21151f0254626acab6d.spatlas"]
+
+[params]
+
+normal_map_prefix="n"
+specular_map_prefix="s"

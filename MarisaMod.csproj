@@ -6,10 +6,12 @@
     <Nullable>enable</Nullable>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
 
-    <!-- 改成你的杀戮尖塔2目录 -->
+    <!--  -->
     <Sts2Dir>C:/Program Files (x86)/Steam/steamapps/common/Slay the Spire 2</Sts2Dir>
-    <Sts2DataDir>$(Sts2Dir)/data_sts2_windows_x86_64</Sts2DataDir>
+    <!--  -->
+    
     <GodotExe>C:\megadot\MegaDot_v4.5.1-stable_mono_win64.exe</GodotExe>
+    <Sts2DataDir>$(Sts2Dir)/data_sts2_windows_x86_64</Sts2DataDir>
   </PropertyGroup>
 
   <ItemGroup>
@@ -23,37 +25,26 @@
       <Private>false</Private>
     </Reference>
 
-    <Reference Include="Steamworks.NET">
-      <HintPath>$(Sts2DataDir)/Steamworks.NET.dll</HintPath>
-      <Private>false</Private>
-    </Reference>
-
+    <!-- 本地引用，注意路径是否正确 -->
     <Reference Include="BaseLib">
       <HintPath>$(Sts2Dir)/mods/BaseLib/BaseLib.dll</HintPath>
       <Private>false</Private>
     </Reference>
-
+    <!-- NuGet获取，注意版本是否一致 -->
+    <!-- <PackageReference Include="Alchyr.Sts2.BaseLib" Version="0.0.4.0" /> -->
   </ItemGroup>
 
-  <ItemGroup>
-    <Compile Remove="MarisaMod\**" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <EmbeddedResource Remove="MarisaMod\**" />
-  </ItemGroup>
-
-  <!-- 自动复制dll -->
+  <!--  -->
   <Target Name="Copy Mod" AfterTargets="PostBuildEvent">
     <Message Text="Copying mod to Slay the Spire 2 mods folder..." Importance="high" />
     <MakeDir Directories="$(Sts2Dir)/mods/" />
     <Copy SourceFiles="$(TargetPath)" DestinationFolder="$(Sts2Dir)/mods/$(MSBuildProjectName)/" />
+    <Copy SourceFiles="$(MSBuildProjectName).json" DestinationFolder="$(Sts2Dir)/mods/$(MSBuildProjectName)/" />
   </Target>
 
   <Target Name="ExportPck">
     <Message Text="Copying PCK to Slay the Spire 2 mods folder..." Importance="high" />
-    <Exec
-      Command="&quot;$(GodotExe)&quot; --headless --export-pack &quot;Windows Desktop&quot; &quot;$(Sts2Dir)/mods/$(MSBuildProjectName)/$(MSBuildProjectName).pck&quot;"
+    <Exec Command="&quot;$(GodotExe)&quot; --headless --export-pack &quot;Windows Desktop&quot; &quot;$(Sts2Dir)/mods/$(MSBuildProjectName)/$(MSBuildProjectName).pck&quot;"
       EnvironmentVariables="IsInnerGodotExport=true;MSBUILDDISABLENODEREUSE=1"
       ContinueOnError="WarnAndContinue" />
   </Target>

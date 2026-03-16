@@ -1,0 +1,16 @@
+[remap]
+
+importer="spine.atlas"
+type="SpineAtlasResource"
+uid="uid://t28q536gc105"
+path="res://.godot/imported/token_10002_kalts_mon3tr.atlas-63b8de36c1b737e526c3feb74fd72a70.spatlas"
+
+[deps]
+
+source_file="res://marisamod/images/token_10002_kalts_mon3tr.atlas"
+dest_files=["res://.godot/imported/token_10002_kalts_mon3tr.atlas-63b8de36c1b737e526c3feb74fd72a70.spatlas"]
+
+[params]
+
+normal_map_prefix="n"
+specular_map_prefix="s"

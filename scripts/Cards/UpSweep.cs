@@ -1,4 +1,4 @@
-using MarisaMod.scripts.Cards.Abstract;
+using marisamod.Scripts.Cards.Abstract;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
@@ -7,13 +7,11 @@ using MegaCrit.Sts2.Core.ValueProps;
 
 namespace MarisaMod.scripts.Cards
 {
-    public class UpSweep : AbstractMarisaModCard
+    public class UpSweep : AbstractMarisaCard
     {
-        public UpSweep() : base(0, CardType.Attack, CardRarity.Basic, TargetType.AnyEnemy, true, true)
+        public UpSweep() : base(0, CardType.Attack, CardRarity.Basic, TargetType.AnyEnemy)
         {
         }
-
-        public override string PortraitPath => $"res://img/cards/UpSweep_p.png";
 
         protected override IEnumerable<DynamicVar> CanonicalVars => [
           new DamageVar(4m, ValueProp.Move),

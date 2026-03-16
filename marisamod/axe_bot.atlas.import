@@ -1,0 +1,16 @@
+[remap]
+
+importer="spine.atlas"
+type="SpineAtlasResource"
+uid="uid://dgle2l8fl8j8"
+path="res://.godot/imported/axe_bot.atlas-6fe8c03b494bc3a5eec8838b4900000f.spatlas"
+
+[deps]
+
+source_file="res://marisamod/axe_bot.atlas"
+dest_files=["res://.godot/imported/axe_bot.atlas-6fe8c03b494bc3a5eec8838b4900000f.spatlas"]
+
+[params]
+
+normal_map_prefix="n"
+specular_map_prefix="s"

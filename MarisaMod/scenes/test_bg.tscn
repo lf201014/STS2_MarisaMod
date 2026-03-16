@@ -1,8 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://dp568o1xhnjh3"]
+[gd_scene load_steps=3 format=3 uid="uid://cejqjeipgqe0n"]
 
-[ext_resource type="Texture2D" uid="uid://bhur1aw3i2yv2" path="res://icon.svg" id="1_c8lhi"]
-[ext_resource type="Texture2D" uid="uid://cpbdvev0r8nun" path="res://MarisaMod/img/charSelect/marisaPortrait.jpg" id="1_ifk2y"]
-
+[ext_resource type="Texture2D" uid="uid://ddxmxgyyfy8mn" path="res://icon.svg" id="1_c8lhi"]
+[ext_resource type="Texture2D" uid="uid://c8481txgeonie" path="res://marisamod/images/marisaPortrait.jpg" id="1_mr767"]
 
 [node name="TestBg" type="Control"]
 layout_mode = 3
@@ -26,25 +25,25 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0.44705883, 0.49803922, 1, 1)
+color = Color(6.0644747e-06, 0.060858257, 0.42894205, 1)
 metadata/_edit_lock_ = true
 
 [node name="MarisaPortrait" type="Sprite2D" parent="."]
-position = Vector2(1784, 1035)
-scale = Vector2(1.8649997, 1.865)
-texture = ExtResource("1_ifk2y")
+position = Vector2(1804, 1061)
+texture = ExtResource("1_mr767")
 
 [node name="Icon" type="TextureRect" parent="."]
 layout_mode = 1
 anchors_preset = -1
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 632.0
-offset_top = 1492.0
-offset_right = -2401.0
-offset_bottom = -47.0
+offset_left = 889.0
+offset_top = 499.0
+offset_right = -2144.0
+offset_bottom = -1040.0
 grow_horizontal = 2
 grow_vertical = 2
+scale = Vector2(0.5, 0.5)
 texture = ExtResource("1_c8lhi")
 
 [node name="ash1" type="CPUParticles2D" parent="."]

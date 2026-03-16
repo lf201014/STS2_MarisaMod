@@ -1,0 +1,7 @@
+[gd_resource type="AtlasTexture" load_steps=2 format=3 uid="uid://yhlx2txpbdcr"]
+
+[ext_resource type="Texture2D" uid="uid://c88i8sb0w1eyp" path="res://marisamod/images/ui/cardOrb.png" id="1_yirft"]
+
+[resource]
+atlas = ExtResource("1_yirft")
+region = Rect2(0, 0, 164, 164)

@@ -1,0 +1,13 @@
+[remap]
+
+importer="spine.skel"
+type="SpineSkeletonFileResource"
+uid="uid://dq33014fj4xh6"
+valid=false
+
+[deps]
+
+source_file="res://test/images/char_003_kalts.skel"
+
+[params]
+

@@ -1,0 +1,16 @@
+[remap]
+
+importer="spine.atlas"
+type="SpineAtlasResource"
+uid="uid://bq0ovsoc7p62t"
+path="res://.godot/imported/char_4088_hodrer.atlas-9827ce67b52291af4a0e01d73f9338ab.spatlas"
+
+[deps]
+
+source_file="res://marisamod/char_4088_hodrer.atlas"
+dest_files=["res://.godot/imported/char_4088_hodrer.atlas-9827ce67b52291af4a0e01d73f9338ab.spatlas"]
+
+[params]
+
+normal_map_prefix="n"
+specular_map_prefix="s"

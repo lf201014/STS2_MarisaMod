@@ -1,0 +1,14 @@
+[remap]
+
+importer="spine.skel"
+type="SpineSkeletonFileResource"
+uid="uid://bjk6oebeu653o"
+path="res://.godot/imported/axe_bot.skel-e81b7322ed00463e423b8e195fbd5f46.spskel"
+
+[deps]
+
+source_file="res://marisamod/axe_bot.skel"
+dest_files=["res://.godot/imported/axe_bot.skel-e81b7322ed00463e423b8e195fbd5f46.spskel"]
+
+[params]
+

@@ -10,13 +10,17 @@ config_version=5
 
 [application]
 
-config/name="MarisaMod"
-config/features=PackedStringArray("4.5", "C#", "Mobile")
+config/name="marisamod"
+config/features=PackedStringArray("4.5", "C#", "GL Compatibility")
 config/icon="res://icon.svg"
 
 [dotnet]
 
-project/assembly_name="MarisaMod"
+project/assembly_name="marisamod"
+
+[editor]
+
+export/convert_text_resources_to_binary=false
 
 [rendering]
 

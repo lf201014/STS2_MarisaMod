@@ -1,32 +1,22 @@
+using marisamod.Scripts.Cards.Abstract;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Models;
-using MarisaMod.scripts.PatchesNModels;
 
-namespace MarisaMod.scripts.Cards.Abstract
+namespace marisamod.scripts.Cards.Abstract
 {
     public abstract class AbstractAmplifiedCard(int baseCost, int kickerCost, CardType type, CardRarity rarity, TargetType target, bool showInCardLibrary = true, bool autoAdd = true)
-        : AbstractMarisaModCard(baseCost, type, rarity, target, showInCardLibrary, autoAdd)
+        : AbstractMarisaCard(baseCost, type, rarity, target, showInCardLibrary)
     {
         public int KickerCost { get; } = kickerCost;
 
         public bool IsAmplified { get; protected set; }
 
-        public override IEnumerable<CardKeyword> CanonicalKeywords =>
-        [
-            CustomKeywords.Amplify
-        ];
 
         public virtual void ValidateAmplify()
         {
             if (Owner.PlayerCombatState != null)
             {
-                if (Owner.Creature.HasPower<PulseMagicePower>() || Owner.Creature.HasPower<MillisecondPulsarsPower>())
-                {
-                    IsAmplified = true;
-                    return;
-                }
-
                 if (Owner.PlayerCombatState.Hand.Cards.Contains(this))
                 {
                     if (IsAmplified && Owner.PlayerCombatState.Energy < EnergyCost.GetWithModifiers(CostModifiers.All))
