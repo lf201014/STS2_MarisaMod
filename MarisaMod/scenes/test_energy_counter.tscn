@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://ddxmxgyyfy8mn" path="res://icon.svg" id="1_85qf2"]
 [ext_resource type="Texture2D" uid="uid://7g1xbdpxs2hj" path="res://marisamod/images/ui/layer5.png" id="1_c7xp2"]
-[ext_resource type="Script" uid="uid://bsixvr3dsqgn6" path="res://Scripts/Nodes/MehMegaLabel.cs" id="1_hjd6e"]
+[ext_resource type="Script" uid="uid://bsixvr3dsqgn6" path="res://scripts/Nodes/MehMegaLabel.cs" id="1_hjd6e"]
 [ext_resource type="Texture2D" uid="uid://b7galxhii653h" path="res://marisamod/images/ui/layer4.png" id="2_hjd6e"]
 [ext_resource type="Texture2D" uid="uid://bbhmkdmj50qad" path="res://marisamod/images/ui/layer3.png" id="3_n0h1o"]
 [ext_resource type="Texture2D" uid="uid://e5odt8lj0b4b" path="res://marisamod/images/ui/layer2.png" id="4_f1lyq"]

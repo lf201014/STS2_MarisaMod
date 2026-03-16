@@ -17,9 +17,9 @@ namespace MarisaMod.scripts.Cards
 
         protected override IEnumerable<DynamicVar> CanonicalVars => [
             new CalculationBaseVar(8m),
-        new ExtraDamageVar(7m),
-        new CalculatedDamageVar(ValueProp.Move).WithMultiplier((card, target) => card is AbstractAmplifiedCard { IsAmplified: true } ? 1 : 0),
-        new EnergyVar(1)
+            new ExtraDamageVar(7m),
+            new CalculatedDamageVar(ValueProp.Move).WithMultiplier((card, target) => card is AbstractAmplifiedCard { IsAmplified: true } ? 1 : 0),
+            new EnergyVar(1)
             ];
 
         protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)

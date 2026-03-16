@@ -6,6 +6,7 @@ using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.Entities.Creatures;
 using MegaCrit.Sts2.Core.Entities.Powers;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
+using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.ValueProps;
 
@@ -14,6 +15,10 @@ public class ChargeUpPower : AbstractMarisaPower
     public override PowerType Type => PowerType.Buff;
 
     public override PowerStackType StackType => PowerStackType.Counter;
+
+    protected override IEnumerable<DynamicVar> CanonicalVars => [
+        new DynamicVar("Mult", 1m)
+    ];
 
     public override decimal ModifyDamageMultiplicative(Creature? target, decimal amount, ValueProp props, Creature? dealer, CardModel? cardSource)
     {
@@ -29,6 +34,21 @@ public class ChargeUpPower : AbstractMarisaPower
         {
             return 1m;
         }
+        //TODO temp threshold 8
+        return CalculateMult();
+    }
+
+    public override Task AfterPowerAmountChanged(PowerModel power, decimal amount, Creature? applier, CardModel? cardSource)
+    {
+        if (power == this)
+        {
+            DynamicVars["Mult"].BaseValue = CalculateMult();
+        }
+        return Task.CompletedTask;
+    }
+
+    private decimal CalculateMult()
+    {
         //TODO temp threshold 8
         if (Amount < 8)
         {

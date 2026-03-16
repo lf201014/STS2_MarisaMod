@@ -46,7 +46,7 @@ public class TestMarisaCard : AbstractMarisaCard
             .FromCard(this) // 伤害来源于这张卡牌
             .Targeting(cardPlay.Target) // 伤害目标是玩家选择的目标
             .Execute(choiceContext);
-        await CardPileCmd.Draw(choiceContext, base.DynamicVars.Cards.BaseValue, base.Owner);
+        await CardPileCmd.Draw(choiceContext, DynamicVars.Cards.BaseValue, Owner);
     }
 
     // 升级后的效果逻辑

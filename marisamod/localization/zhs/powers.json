@@ -1,0 +1,5 @@
+{
+    "CHARGE_UP_POWER.title": "蓄力" ,   
+    "CHARGE_UP_POWER.description": "每[gold]8[/gold]层蓄力使{OnPlayer:你的|[gold]{OwnerName}的[/gold]}下一张攻击牌伤害翻倍。" ,
+    "CHARGE_UP_POWER.smartDescription": "{OnPlayer:你的|[gold]{OwnerName}的[/gold]}下一张攻击牌将造成[blue]{Mult}[/blue]倍伤害。" 
+}

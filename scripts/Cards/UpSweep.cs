@@ -14,9 +14,9 @@ namespace MarisaMod.scripts.Cards
         }
 
         protected override IEnumerable<DynamicVar> CanonicalVars => [
-          new DamageVar(4m, ValueProp.Move),
-          new DynamicVar("Power", 1m)
-          ];
+            new DamageVar(4m, ValueProp.Move),
+            new DynamicVar("Power", 1m)
+        ];
 
         protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
         {
@@ -24,7 +24,7 @@ namespace MarisaMod.scripts.Cards
             await DamageCmd.Attack(DynamicVars.Damage.BaseValue).FromCard(this).Targeting(cardPlay.Target)
                 .WithHitFx("vfx/vfx_attack_slash")
                 .Execute(choiceContext);
-            await PowerCmd.Apply<ChargeUpPower>(Owner.Creature, DynamicVars.Strength.BaseValue, Owner.Creature, this);
+            await PowerCmd.Apply<ChargeUpPower>(Owner.Creature, DynamicVars["Power"].BaseValue, Owner.Creature, this);
         }
 
         protected override void OnUpgrade()

@@ -1,0 +1,5 @@
+{
+    "CHARGE_UP_POWER.title": "Charge-Up" ,   
+    "CHARGE_UP_POWER.description": "For every [gold]8[/gold] stacks of Charge-Up,double the damage of {OnPlayer:your|[gold]{OwnerName}'s[/gold]} next Attack." ,
+    "CHARGE_UP_POWER.smartDescription": "{OnPlayer:Your|[gold]{OwnerName}'s[/gold]} next Attack will deal [blue]{Mult}[/blue] times damage." 
+}
