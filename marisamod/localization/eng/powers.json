@@ -1,5 +1,17 @@
 {
     "CHARGE_UP_POWER.title": "Charge-Up" ,   
     "CHARGE_UP_POWER.description": "For every [gold]8[/gold] stacks of Charge-Up,double the damage of {OnPlayer:your|[gold]{OwnerName}'s[/gold]} next Attack." ,
-    "CHARGE_UP_POWER.smartDescription": "{OnPlayer:Your|[gold]{OwnerName}'s[/gold]} next Attack will deal [blue]{Mult}[/blue] times damage." 
+    "CHARGE_UP_POWER.smartDescription": "{OnPlayer:Your|[gold]{OwnerName}'s[/gold]} next Attack will deal [blue]{Mult}[/blue] times damage." ,
+    "CASKET_OF_STAR_POWER.title": "Casket of Stars" ,   
+    "CASKET_OF_STAR_POWER.description": "Whenever {OnPlayer:you|[gold]{OwnerName}[/gold]} gain [gold]Block[/gold], also gain a [gold]Spark[/gold] card." ,
+    "CASKET_OF_STAR_POWER.smartDescription": "Whenever {OnPlayer:you|[gold]{OwnerName}[/gold]} gain [gold]Block[/gold], add a [gold]Spark[/gold] card to {OnPlayer:your|[gold]{OwnerName}'s[/gold]} hand." ,
+    "CASKET_OF_STAR_PLUS_POWER.title": "Casket of Stars" ,   
+    "CASKET_OF_STAR_PLUS_POWER.description": "Whenever {OnPlayer:you|[gold]{OwnerName}[/gold]} gain [gold]Block[/gold], also gain an upgraded [gold]Spark[/gold] card." ,
+    "CASKET_OF_STAR_PLUS_POWER.smartDescription": "Whenever {OnPlayer:you|[gold]{OwnerName}[/gold]} gain [gold]Block[/gold], add an upgraded [gold]Spark[/gold] card to {OnPlayer:your|[gold]{OwnerName}'s[/gold]} hand." ,
+    "MILLISECOND_PULSARS_POWER.title": "Millisecond Pulsars" ,   
+    "MILLISECOND_PULSARS_POWER.description": "{OnPlayer:Your|[gold]{OwnerName}'s[/gold]} [gold]Amplify[/gold] effects no longer need additional energy." ,
+    "MILLISECOND_PULSARS_POWER.smartDescription": "{OnPlayer:Your|[gold]{OwnerName}'s[/gold]} [gold]Amplify[/gold] effects no longer need additional energy." ,
+    "PULSE_MAGIC_POWER.title": "Pulse Magic" ,   
+    "PULSE_MAGIC_POWER.description": "This turn, {OnPlayer:your|[gold]{OwnerName}'s[/gold]} [gold]Amplify[/gold] effects no longer need additional energy." ,
+    "PULSE_MAGIC_POWER.smartDescription": "This turn, {OnPlayer:your|[gold]{OwnerName}'s[/gold]} [gold]Amplify[/gold] effects no longer need additional energy." 
 }

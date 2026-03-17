@@ -1,4 +1,4 @@
-using MarisaMod.scripts.Cards.Abstract;
+using marisamod.scripts.Cards.Abstract;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
@@ -6,7 +6,7 @@ using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.Models.Powers;
 using MegaCrit.Sts2.Core.ValueProps;
 
-namespace MarisaMod.scripts.Cards
+namespace marisamod.scripts.Cards
 {
     public class AsteroidBelt : AbstractAmplifiedCard
     {

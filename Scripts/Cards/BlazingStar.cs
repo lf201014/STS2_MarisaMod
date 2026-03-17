@@ -1,4 +1,4 @@
-using MarisaMod.scripts.Cards.Abstract;
+using marisamod.scripts.Cards.Abstract;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
@@ -7,7 +7,7 @@ using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.Models.Cards;
 using MegaCrit.Sts2.Core.ValueProps;
 
-namespace MarisaMod.scripts.Cards
+namespace marisamod.scripts.Cards
 {
     public class BlazingStar : AbstractAmplifiedCard
     {
@@ -21,7 +21,7 @@ namespace MarisaMod.scripts.Cards
             new CalculationBaseVar(0m),
             new ExtraDamageVar(8m),
             new CalculatedDamageVar(ValueProp.Move).WithMultiplier((card, _) =>
-                (Owner.PlayerCombatState!.Hand.Cards.Count(IsBurn) + 2) * (IsAmplified ? 2 : 1)),
+                (Owner.PlayerCombatState!.Hand.Cards.Count(IsBurn) + 2) * (card is AbstractAmplifiedCard { IsAmplified: true } ? 2 : 1)),
             new EnergyVar(1)
         ];
 

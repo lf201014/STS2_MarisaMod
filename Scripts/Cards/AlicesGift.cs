@@ -1,4 +1,4 @@
-using MarisaMod.scripts.Cards.Abstract;
+using marisamod.scripts.Cards.Abstract;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.Entities.Creatures;
@@ -7,7 +7,7 @@ using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.ValueProps;
 
-namespace MarisaMod.scripts.Cards
+namespace marisamod.scripts.Cards
 {
     public class AlicesGift : AbstractAmplifiedCard
     {
@@ -16,12 +16,16 @@ namespace MarisaMod.scripts.Cards
         }
         //public override string PortraitPath => $"res://img/cards/GiftDoll_v2_p.png";
 
+        public override IEnumerable<CardKeyword> CanonicalKeywords => base.CanonicalKeywords.Concat([CardKeyword.Retain]);
+
         protected override IEnumerable<DynamicVar> CanonicalVars => [
             new CalculationBaseVar(0m),
             new ExtraDamageVar(5m),
-            new CalculatedDamageVar(ValueProp.Move).WithMultiplier((card, _)=>IsAmplified ? 3 : 1),
+            new CalculatedDamageVar(ValueProp.Move).WithMultiplier((card, _)=>card is AbstractAmplifiedCard { IsAmplified: true } ? 3 : 1),
             new EnergyVar(1)
         ];
+
+        
 
         protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
         {

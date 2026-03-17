@@ -2,13 +2,13 @@ using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.HoverTips;
-using MarisaMod.Scripts.Cards.Colorless;
-using MarisaMod.scripts.Powers;
-using MarisaMod.scripts.Cards.Abstract;
+using marisamod.Scripts.Cards.Colorless;
+using marisamod.scripts.Powers;
+using marisamod.Scripts.Cards.Abstract;
 
-namespace MarisaMod.Scripts.Cards
+namespace marisamod.scripts.Cards
 {
-    public class CasketOfStar : AbstractMarisaModCard
+    public class CasketOfStar : AbstractMarisaCard
     {
         public CasketOfStar() : base(2, CardType.Power, CardRarity.Rare, TargetType.Self)
         {

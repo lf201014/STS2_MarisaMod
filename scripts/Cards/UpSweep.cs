@@ -1,3 +1,4 @@
+using marisamod.scripts.Powers;
 using marisamod.Scripts.Cards.Abstract;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;

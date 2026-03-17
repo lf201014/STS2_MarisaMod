@@ -12,13 +12,14 @@
     "MARISAMOD-ABSOLUTE_MAGNITUDE.title": "绝对星等",
     "MARISAMOD-ABSOLUTE_MAGNITUDE.description": "造成{CalculatedDamage:diff()}点伤害。\n你身上每有一层[gold]蓄力[/gold]就造成{ExtraDamage:diff()}点伤害。",
     "MARISAMOD-ACCELERATION.title": "加速",
-    "MARISAMOD-ACCELERATION.description": "抽取抽牌堆顶至多2张牌。\n增幅{Energy:energyIcons()}：然后抽{Cards:diff()}张牌。",
+    "MARISAMOD-ACCELERATION.description": "抽{Cards:diff()}张牌。\n将一张[gold]灼伤[/gold]加入你的[gold]手牌[/gold]。",
     "MARISAMOD-ALICES_GIFT.title": "友人之赠",
     "MARISAMOD-ALICES_GIFT.description": "造成{CalculatedDamage:diff()}点伤害。\n增幅{Energy:energyIcons()}{Energy:energyIcons()}：造成三倍伤害。",
     "MARISAMOD-ASTEROID_BELT.title": "小行星带",
     "MARISAMOD-ASTEROID_BELT.description": "获得{Block:diff()}点[gold]格挡[/gold]。\n增幅{Energy:energyIcons()}:下回合开始时获得{Block:diff()}点[gold]格挡[/gold]。",
     "MARISAMOD-BLAZE_AWAY.title": "连续发射",
-    "MARISAMOD-BLAZE_AWAY.description": "打出本回合最后使用过的攻击卡的{Cards:diff()}次。",
+    "MARISAMOD-BLAZE_AWAY.selectionScreenPrompt": "选择一张牌复制。",
+    "MARISAMOD-BLAZE_AWAY.description": "选择一张攻击牌或能力牌。将一张此牌的复制品加入你的[gold]手牌[/gold],并获得等同于该牌费用{IsUpgraded:show:加上其[gold]增幅[/gold]费用|}的{Energy:energyIcons()}。",
     "MARISAMOD-BLAZING_STAR.title": "彗星",
     "MARISAMOD-BLAZING_STAR.description": "造成{CalculatedDamage:diff()}点伤害，你手牌中每有一张[gold]灼伤[/gold]就额外造成{ExtraDamage:diff()}点伤害。\n增幅{Energy:energyIcons()}:造成双倍伤害。",
     "MARISAMOD-CASKET_OF_STAR.title": "星之器",
@@ -28,7 +29,7 @@
     "MARISAMOD-CHARGING_UP.title": "魔炮准备",
     "MARISAMOD-CHARGING_UP.description": "获得{Power:diff()}层[gold]蓄力[/gold]。",
     "MARISAMOD-DARK_SPARK.title": "暗色火花",
-    "MARISAMOD-DARK_SPARK.description": "[gold]消耗[/gold][gold]抽牌堆[/gold]顶部的{Cards:diff()}张牌。\n其中每有一张攻击牌，对所有敌人造成{Damage:diff()}点伤害。",
+    "MARISAMOD-DARK_SPARK.description": "对所有敌人造成等于你[gold]消耗牌堆[/gold]中牌数{ExtraDamage:diff()}倍的伤害。{InCombat:\n（造成{CalculatedDamage:diff()}点伤害）|}",
     "MARISAMOD-DC.title": "迎头痛击",
     "MARISAMOD-DC.description": "造成{Damage:diff()}点伤害。\n若此时你的[gold]弃牌堆[/gold]里没有牌，造成双倍伤害。",
     "MARISAMOD-DEEP_ECOLOGICAL_BOMB.title": "重生态炸弹",
@@ -36,6 +37,9 @@
     "MARISAMOD-DOUBLE_SPARK.title": "双重火花",
     "MARISAMOD-DOUBLE_SPARK.description": "造成{Damage:diff()}点伤害，将一张[gold]火花[/gold]添加到你的[gold]手牌[/gold]。",
     "MARISAMOD-DRAGON_METEOR.title": "龙陨星",
-    "MARISAMOD-DRAGON_METEOR.description": "造成{CalculatedDamage:diff()}点伤害。\n你的[gold]消耗牌堆[/gold]中每有一张牌，伤害增加{ExtraDamage:diff()}。"
-
+    "MARISAMOD-DRAGON_METEOR.description": "造成{CalculatedDamage:diff()}点伤害。\n如果你的[gold]手牌[/gold]中有已[gold]附魔[/gold]的牌，获得{Energy:energyIcons()}。",
+    "MARISAMOD-MILLISECOUND_PULSARS.title": "毫秒脉冲星",
+    "MARISAMOD-MILLISECOUND_PULSARS.description": "本场战斗不再需要支付额外能量来发动[gold]增幅[/gold]。",
+    "MARISAMOD-PULSE_MAGIC.title": "脉冲魔术",
+    "MARISAMOD-PULSE_MAGIC.description": "下个回合，获得{GainEnergy:energyIcons()}。\n增幅{LossEnergy:energyIcons()}:这个回合不需要支付能量来发动[gold]增幅[/gold]效果。"
 }

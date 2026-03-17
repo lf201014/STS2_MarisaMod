@@ -3,11 +3,12 @@ using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.ValueProps;
-using MarisaMod.scripts.Cards.Abstract;
+using marisamod.scripts.Powers;
+using marisamod.Scripts.Cards.Abstract;
 
 namespace MarisaMod.scripts.Cards
 {
-    public class ChargeUpSpray : AbstractMarisaModCard
+    public class ChargeUpSpray : AbstractMarisaCard
     {
         public ChargeUpSpray() : base(1, CardType.Attack, CardRarity.Uncommon, TargetType.AnyEnemy)
         {
@@ -25,7 +26,7 @@ namespace MarisaMod.scripts.Cards
             ArgumentNullException.ThrowIfNull(cardPlay.Target);
             await DamageCmd.Attack(DynamicVars.Damage.BaseValue).FromCard(this).Targeting(cardPlay.Target)
                 .WithHitFx("vfx/vfx_attack_lightning").Execute(choiceContext);
-            if (Owner.Creature.HasPower<ChargeUpPower>() && Owner.Creature.GetPower<ChargeUpPower>()!.Amount > 8)
+            if (Owner.Creature.HasPower<ChargeUpPower>() && Owner.Creature.GetPower<ChargeUpPower>()!.CalculateMult() > 1)
             {
                 await CardPileCmd.Draw(choiceContext, 2, Owner);
                 await PlayerCmd.GainEnergy(DynamicVars.Energy.IntValue, Owner);

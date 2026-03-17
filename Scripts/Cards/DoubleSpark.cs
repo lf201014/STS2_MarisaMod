@@ -3,13 +3,13 @@ using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.ValueProps;
-using MarisaMod.Scripts.Cards.Colorless;
 using MegaCrit.Sts2.Core.HoverTips;
-using MarisaMod.scripts.Cards.Abstract;
+using marisamod.Scripts.Cards.Abstract;
+using marisamod.Scripts.Cards.Colorless;
 
 namespace MarisaMod.scripts.Cards
 {
-    public class DoubleSpark : AbstractMarisaModCard
+    public class DoubleSpark : AbstractMarisaCard
     {
         public DoubleSpark() : base(1, CardType.Attack, CardRarity.Common, TargetType.AnyEnemy)
         {

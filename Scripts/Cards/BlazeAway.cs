@@ -1,16 +1,15 @@
-using MegaCrit.Sts2.Core.Combat;
-using MegaCrit.Sts2.Core.Combat.History.Entries;
+using marisamod.scripts.Cards.Abstract;
+using marisamod.Scripts.Cards.Abstract;
+using MegaCrit.Sts2.Core.CardSelection;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
-using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.Models;
-using MarisaMod.scripts.Cards.Abstract;
 
 namespace MarisaMod.scripts.Cards
 {
-    public class BlazeAway : AbstractMarisaModCard
+    public class BlazeAway : AbstractMarisaCard
     {
         public BlazeAway() : base(1, CardType.Skill, CardRarity.Uncommon, TargetType.Self)
         {
@@ -19,55 +18,39 @@ namespace MarisaMod.scripts.Cards
         private CardModel? _cardSource;
 
         //public override string PortraitPath => $"res://img/cards/blazeAway_p.png";
-        protected override IEnumerable<DynamicVar> CanonicalVars => [new CardsVar(1)];
+        protected override IEnumerable<DynamicVar> CanonicalVars => [
+            new EnergyVar(1)
+            ];
 
         //TODO CardPreview
 
-        protected override void OnUpgrade()
-        {
-            DynamicVars.Cards.UpgradeValueBy(1);
-        }
-
-        protected override IEnumerable<IHoverTip> ExtraHoverTips => _cardSource != null ? [HoverTipFactory.FromCard(_cardSource)] : [];
-
         protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
         {
-            if (_cardSource == null)
+
+            CardModel selection = (await CardSelectCmd.FromHand(prefs: new CardSelectorPrefs(base.SelectionScreenPrompt, 1), context: choiceContext, player: base.Owner, filter: delegate (CardModel c)
             {
-                GetLastAttackForTurn();
-            }
+                CardType type = c.Type;
+                return (type == CardType.Attack) ? true : false;
+            }, source: this)).FirstOrDefault();
 
-            if (_cardSource != null)
+
+            if (selection != null)
             {
-                await CardCmd.AutoPlay(choiceContext, _cardSource.CreateDupe(), null);
+                CardModel card = selection.CreateClone();
+                await CardPileCmd.AddGeneratedCardToCombat(card, PileType.Hand, addedByPlayer: true);
+                int energyGain = card.EnergyCost.GetWithModifiers(CostModifiers.All);
+                if (IsUpgraded)
+                {
+                    if (card is AbstractAmplifiedCard amplifiedCard)
+                    {
+                        energyGain += amplifiedCard.KickerCost;
+                    }
+                }
+                if (energyGain > 0)
+                {
+                    await PlayerCmd.GainEnergy(energyGain, Owner);
+                }
             }
-        }
-
-        public override Task AfterCardPlayed(PlayerChoiceContext context, CardPlay cardPlay)
-        {
-            if (cardPlay.Card != this && cardPlay.Card.Type == CardType.Attack && cardPlay.Card.Owner == Owner)
-            {
-                _cardSource = cardPlay.Card;
-            }
-
-            return base.AfterCardPlayed(context, cardPlay);
-        }
-
-        public override Task AfterCardEnteredCombat(CardModel card)
-        {
-            if (card == this)
-            {
-                GetLastAttackForTurn();
-            }
-
-            return base.AfterCardEnteredCombat(card);
-        }
-
-        private void GetLastAttackForTurn()
-        {
-            CardModel? res = CombatManager.Instance.History.CardPlaysFinished.LastOrDefault(e =>
-                e.HappenedThisTurn(Owner.Creature.CombatState) && e.CardPlay.Card.Type == CardType.Attack && e.CardPlay.Card.Owner == Owner)?.CardPlay.Card;
-            _cardSource = res;
         }
     }
 }

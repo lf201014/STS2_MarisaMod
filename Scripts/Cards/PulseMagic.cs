@@ -1,11 +1,12 @@
-using MarisaMod.scripts.Cards.Abstract;
+using marisamod.scripts.Cards.Abstract;
+using marisamod.scripts.Powers;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.Models.Powers;
 
-namespace MarisaMod.scripts.Cards
+namespace marisamod.scripts.Cards
 {
     public class PulseMagic : AbstractAmplifiedCard
     {
@@ -17,7 +18,7 @@ namespace MarisaMod.scripts.Cards
 
         protected override IEnumerable<DynamicVar> CanonicalVars => [
             new EnergyVar("GainEnergy", 1),
-        new EnergyVar("LoseEnergy", 1)
+            new EnergyVar("LoseEnergy", 1)
         ];
 
         protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)

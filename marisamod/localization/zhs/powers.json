@@ -1,5 +1,17 @@
 {
     "CHARGE_UP_POWER.title": "蓄力" ,   
     "CHARGE_UP_POWER.description": "每[gold]8[/gold]层蓄力使{OnPlayer:你的|[gold]{OwnerName}的[/gold]}下一张攻击牌伤害翻倍。" ,
-    "CHARGE_UP_POWER.smartDescription": "{OnPlayer:你的|[gold]{OwnerName}的[/gold]}下一张攻击牌将造成[blue]{Mult}[/blue]倍伤害。" 
+    "CHARGE_UP_POWER.smartDescription": "{OnPlayer:你的|[gold]{OwnerName}的[/gold]}下一张攻击牌将造成[blue]{Mult}[/blue]倍伤害。" ,
+    "CASKET_OF_STAR_POWER.title": "星之器" ,   
+    "CASKET_OF_STAR_POWER.description": "每当{OnPlayer:你|[gold]{OwnerName}[/gold]}获得[gold]格挡[/gold],也会获得[gold]火花[/gold]牌。" ,
+    "CASKET_OF_STAR_POWER.smartDescription": "每当{OnPlayer:你|[gold]{OwnerName}获得[gold]格挡[/gold]时，将一张[gold]火花[/gold]添加到{OnPlayer:你的|[gold]{OwnerName}的[gold]手牌[/gold]。" ,
+    "CASKET_OF_STAR_PLUS_POWER.title": "星之器" ,   
+    "CASKET_OF_STAR_PLUS_POWER.description": "每当{OnPlayer:你|[gold]{OwnerName}[/gold]}获得[gold]格挡[/gold],也会获得升级过的[gold]火花[/gold]牌。" ,
+    "CASKET_OF_STAR_PLUS_POWER.smartDescription": "每当{OnPlayer:你|[gold]{OwnerName}获得[gold]格挡[/gold]时，将一张升级过的[gold]火花[/gold]添加到{OnPlayer:你的|[gold]{OwnerName}的[gold]手牌[/gold]。" ,
+    "MILLISECOND_PULSARS_POWER.title": "毫秒脉冲星" ,   
+    "MILLISECOND_PULSARS_POWER.description": "{OnPlayer:你的|[gold]{OwnerName}的[/gold]}的[gold]增幅[/gold]牌不再消耗额外的能量。" ,
+    "MILLISECOND_PULSARS_POWER.smartDescription": "{OnPlayer:你的|[gold]{OwnerName}的[/gold]}的[gold]增幅[/gold]牌不再消耗额外的能量。" ,
+    "PULSE_MAGIC_POWER.title": "脉冲魔术" ,   
+    "PULSE_MAGIC_POWER.description": "本回合，{OnPlayer:你的|[gold]{OwnerName}的[/gold]}的[gold]增幅[/gold]牌不再消耗额外的能量。" ,
+    "PULSE_MAGIC_POWER.smartDescription": "本回合，{OnPlayer:你的|[gold]{OwnerName}的[/gold]}的[gold]增幅[/gold]牌不再消耗额外的能量。" 
 }

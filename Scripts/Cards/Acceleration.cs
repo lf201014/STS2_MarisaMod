@@ -1,15 +1,16 @@
 using Godot;
-using MarisaMod.scripts.Cards.Abstract;
+using marisamod.scripts.Cards.Abstract;
+using marisamod.Scripts.Cards.Abstract;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 
-namespace MarisaMod.scripts.Cards
+namespace marisamod.scripts.Cards
 {
-    public class Acceleration : AbstractAmplifiedCard
+    public class Acceleration : AbstractMarisaCard
     {
-        public Acceleration() : base(0, 1, CardType.Skill, CardRarity.Common, TargetType.Self)
+        public Acceleration() : base(1, CardType.Skill, CardRarity.Common, TargetType.Self)
         {
         }
 
@@ -17,8 +18,7 @@ namespace MarisaMod.scripts.Cards
 
         protected override IEnumerable<DynamicVar> CanonicalVars =>
         [
-            new CardsVar(1),
-            new EnergyVar(1)
+            new CardsVar(3)
         ];
 
         protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
@@ -27,8 +27,6 @@ namespace MarisaMod.scripts.Cards
             if (draw > 0 && Owner != null)
             {
                 await CardPileCmd.Draw(choiceContext, draw, Owner);
-                if (IsAmplified)
-                    await CardPileCmd.Draw(choiceContext, draw, Owner);
             }
         }
 

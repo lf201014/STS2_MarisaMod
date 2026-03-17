@@ -1,4 +1,5 @@
 using marisamod.scripts.Cards.Abstract;
+using marisamod.scripts.PatchesNModels;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
@@ -13,7 +14,9 @@ namespace MarisaMod.scripts.Cards
         {
         }
 
-        protected override HashSet<CardTag> CanonicalTags => [CardTag.Strike];
+        protected override HashSet<CardTag> CanonicalTags => [MarisaCardKeyWords.Spark];
+        public override IEnumerable<CardKeyword> CanonicalKeywords => base.CanonicalKeywords.Concat([MarisaCardKeyWords.SPARK]);
+
 
         protected override IEnumerable<DynamicVar> CanonicalVars => [
             new CalculationBaseVar(8m),

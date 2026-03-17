@@ -1,6 +1,6 @@
 using BaseLib.Abstracts;
 using BaseLib.Utils;
-using MarisaMod.scripts.Cards.Abstract;
+using marisamod.Scripts.Cards.Abstract;
 using MegaCrit.Sts2.Core.Combat;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
@@ -11,10 +11,10 @@ using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.Models.CardPools;
 using MegaCrit.Sts2.Core.ValueProps;
 
-namespace MarisaMod.Scripts.Cards.Colorless
+namespace marisamod.Scripts.Cards.Colorless
 {
     [Pool(typeof(ColorlessCardPool))]
-    public class Spark : AbstractMarisaModCard
+    public class Spark : AbstractMarisaCard
     {
         public Spark() : base(0, CardType.Attack, CardRarity.Token, TargetType.AnyEnemy)
         {

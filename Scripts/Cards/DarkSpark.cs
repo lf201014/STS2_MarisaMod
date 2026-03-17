@@ -1,52 +1,35 @@
-using MarisaMod.scripts.Cards.Abstract;
+using marisamod.Scripts.Cards.Abstract;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
-using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.ValueProps;
 
 namespace MarisaMod.scripts.Cards
 {
-    public class DarkSpark : AbstractMarisaModCard
+    public class DarkSpark : AbstractMarisaCard
     {
-        public DarkSpark() : base(2, CardType.Attack, CardRarity.Uncommon, TargetType.AllEnemies)
+        public DarkSpark() : base(2, CardType.Attack, CardRarity.Rare, TargetType.AllEnemies)
         {
         }
 
-        //public override string PortraitPath => $"res://img/cards/darkSpark_p.png";
-
         protected override IEnumerable<DynamicVar> CanonicalVars => [
-            new DamageVar(7m, ValueProp.Move),
-            new CardsVar(5)
+            new CalculationBaseVar(0m),
+        new ExtraDamageVar(3m),
+        new CalculatedDamageVar(ValueProp.Move).WithMultiplier((card, _)=> PileType.Exhaust.GetPile(card.Owner).Cards.Count)
             ];
 
         protected override void OnUpgrade()
         {
-            DynamicVars.Cards.UpgradeValueBy(3m);
+            DynamicVars.ExtraDamage.UpgradeValueBy(1m);
         }
 
         protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
         {
-            CardPile drawPile = PileType.Draw.GetPile(Owner);
-            int countOfAttacks = 0;
-            for (int i = 0; i < DynamicVars.Cards.IntValue; i++)
-            {
-                await CardPileCmd.ShuffleIfNecessary(choiceContext, Owner);
-                CardModel? cardModel = drawPile.Cards.FirstOrDefault();
-                if (cardModel != null)
-                {
-                    if (cardModel.Type == CardType.Attack)
-                    {
-                        countOfAttacks++;
-                    }
-                    await CardCmd.Exhaust(choiceContext, cardModel);
-                }
-            }
-            if (countOfAttacks > 0 && CombatState != null)
-                await DamageCmd.Attack(DynamicVars.Damage.BaseValue).WithHitCount(countOfAttacks).FromCard(this).TargetingAllOpponents(CombatState)
-                    .WithHitFx("vfx/vfx_attack_slash")
-                    .Execute(choiceContext);
+            ArgumentNullException.ThrowIfNull(cardPlay.Target);
+            await DamageCmd.Attack(DynamicVars.CalculatedDamage).FromCard(this).Targeting(cardPlay.Target)
+                .WithHitFx("vfx/vfx_attack_slash", null, "blunt_attack.mp3")
+                .Execute(choiceContext);
         }
     }
 }

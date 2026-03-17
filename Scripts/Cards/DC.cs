@@ -1,4 +1,4 @@
-using MarisaMod.scripts.Cards.Abstract;
+using marisamod.Scripts.Cards.Abstract;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.Entities.Creatures;
@@ -9,18 +9,18 @@ using MegaCrit.Sts2.Core.ValueProps;
 
 namespace MarisaMod.scripts.Cards
 {
-    public class DC : AbstractMarisaModCard
+    public class DC : AbstractMarisaCard
     {
-        public DC() : base(1, CardType.Attack, CardRarity.Uncommon, TargetType.AnyEnemy)
+        public DC() : base(0, CardType.Attack, CardRarity.Uncommon, TargetType.AnyEnemy)
         {
         }
 
-        //public override string PortraitPath => $"res://img/cards/DC_p.png";
+        public override IEnumerable<CardKeyword> CanonicalKeywords => [CardKeyword.Innate];
 
         protected override IEnumerable<DynamicVar> CanonicalVars => [
             new CalculationBaseVar(0m),
-        new ExtraDamageVar(8m),
-        new CalculatedDamageVar(ValueProp.Move).WithMultiplier((card, _)=>Owner.PlayerCombatState!.DiscardPile.Cards.Count == 0 ? 2 : 1)
+            new ExtraDamageVar(5m),
+            new CalculatedDamageVar(ValueProp.Move).WithMultiplier((card, _)=>card.Owner.PlayerCombatState!.DiscardPile.Cards.Count == 0 ? 2 : 1)
             ];
 
         protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
@@ -33,7 +33,7 @@ namespace MarisaMod.scripts.Cards
 
         protected override void OnUpgrade()
         {
-            DynamicVars.ExtraDamage.UpgradeValueBy(3m);
+            DynamicVars.ExtraDamage.UpgradeValueBy(2m);
         }
     }
 }

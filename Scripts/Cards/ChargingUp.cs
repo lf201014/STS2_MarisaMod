@@ -1,4 +1,5 @@
-using MarisaMod.scripts.Cards.Abstract;
+using marisamod.scripts.Powers;
+using marisamod.Scripts.Cards.Abstract;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
@@ -6,7 +7,7 @@ using MegaCrit.Sts2.Core.Localization.DynamicVars;
 
 namespace MarisaMod.scripts.Cards
 {
-    public class ChargingUp : AbstractMarisaModCard
+    public class ChargingUp : AbstractMarisaCard
     {
         public ChargingUp() : base(1, CardType.Skill, CardRarity.Uncommon, TargetType.Self)
         {
