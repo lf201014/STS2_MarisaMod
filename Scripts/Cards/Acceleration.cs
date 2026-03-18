@@ -1,10 +1,10 @@
-using Godot;
-using marisamod.scripts.Cards.Abstract;
 using marisamod.Scripts.Cards.Abstract;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
+using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
+using MegaCrit.Sts2.Core.Models.Cards;
 
 namespace marisamod.scripts.Cards
 {
@@ -14,7 +14,7 @@ namespace marisamod.scripts.Cards
         {
         }
 
-        //public override string PortraitPath => $"res://img/cards/GuidingStar_p.png";
+        protected override IEnumerable<IHoverTip> ExtraHoverTips => [HoverTipFactory.FromCard<Burn>()];
 
         protected override IEnumerable<DynamicVar> CanonicalVars =>
         [
@@ -23,11 +23,8 @@ namespace marisamod.scripts.Cards
 
         protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
         {
-            decimal draw = Mathf.Min(Owner?.PlayerCombatState?.DrawPile.Cards.Count ?? 0, 2);
-            if (draw > 0 && Owner != null)
-            {
-                await CardPileCmd.Draw(choiceContext, draw, Owner);
-            }
+            await CardPileCmd.Draw(choiceContext, DynamicVars.Cards.BaseValue, Owner);
+            await CardPileCmd.AddGeneratedCardToCombat(CombatState!.CreateCard<Burn>(Owner), PileType.Hand, addedByPlayer: true);
         }
 
         protected override void OnUpgrade()

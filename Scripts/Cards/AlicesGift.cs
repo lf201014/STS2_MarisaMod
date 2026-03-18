@@ -1,10 +1,8 @@
 using marisamod.scripts.Cards.Abstract;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
-using MegaCrit.Sts2.Core.Entities.Creatures;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
-using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.ValueProps;
 
 namespace marisamod.scripts.Cards
@@ -14,14 +12,13 @@ namespace marisamod.scripts.Cards
         public AlicesGift() : base(0, 1, CardType.Attack, CardRarity.Uncommon, TargetType.AnyEnemy)
         {
         }
-        //public override string PortraitPath => $"res://img/cards/GiftDoll_v2_p.png";
 
         public override IEnumerable<CardKeyword> CanonicalKeywords => base.CanonicalKeywords.Concat([CardKeyword.Retain]);
 
         protected override IEnumerable<DynamicVar> CanonicalVars => [
-            new CalculationBaseVar(0m),
+            new CalculationBaseVar(5m),
             new ExtraDamageVar(5m),
-            new CalculatedDamageVar(ValueProp.Move).WithMultiplier((card, _)=>card is AbstractAmplifiedCard { IsAmplified: true } ? 3 : 1),
+            new CalculatedDamageVar(ValueProp.Move).WithMultiplier((card, _)=>card is AbstractAmplifiedCard { IsAmplified: true } ? 2 : 0),
             new EnergyVar(2)
         ];
 
@@ -37,6 +34,7 @@ namespace marisamod.scripts.Cards
 
         protected override void OnUpgrade()
         {
+            DynamicVars.CalculationBase.UpgradeValueBy(2m);
             DynamicVars.ExtraDamage.UpgradeValueBy(2m);
         }
     }

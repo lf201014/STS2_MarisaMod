@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ci366801e2a5r"
-path="res://.godot/imported/test-test_card2.png-970b841f1f33b40095f6e3c16620e54e.ctex"
+uid="uid://c1rtg0e7eibrs"
+path="res://.godot/imported/marisamod-white_dwarf.png-3d3ae2fc28833fcbf6318d2545e52283.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://marisamod/images/cards/test-test_card2.png"
-dest_files=["res://.godot/imported/test-test_card2.png-970b841f1f33b40095f6e3c16620e54e.ctex"]
+source_file="res://marisamod/images/cards/marisamod-white_dwarf.png"
+dest_files=["res://.godot/imported/marisamod-white_dwarf.png-3d3ae2fc28833fcbf6318d2545e52283.ctex"]
 
 [params]
 

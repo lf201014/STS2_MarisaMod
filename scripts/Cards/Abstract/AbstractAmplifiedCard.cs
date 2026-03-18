@@ -1,4 +1,3 @@
-using marisamod.scripts.PatchesNModels;
 using marisamod.scripts.Powers;
 using marisamod.Scripts.Cards.Abstract;
 using marisamod.Scripts.Powers;
@@ -8,18 +7,18 @@ using MegaCrit.Sts2.Core.Models;
 
 namespace marisamod.scripts.Cards.Abstract
 {
-    public abstract class AbstractAmplifiedCard(int baseCost, int kickerCost, CardType type, CardRarity rarity, TargetType target, bool showInCardLibrary = true, bool autoAdd = true)
-        : AbstractMarisaCard(baseCost, type, rarity, target, showInCardLibrary)
+    public abstract class AbstractAmplifiedCard(int baseCost, int kickerCost, CardType type, CardRarity rarity, TargetType target) : AbstractMarisaCard(baseCost, type, rarity, target)
     {
+
         public int KickerCost { get; } = kickerCost;
 
         public bool IsAmplified { get; protected set; }
+
         private bool _costModifiedForAmplify;
 
         // public override IEnumerable<CardKeyword> CanonicalKeywords => [
         //     MarisaCardKeyWords.Amplify
         // ];
-
 
         public virtual void ValidateAmplify()
         {
@@ -48,7 +47,7 @@ namespace marisamod.scripts.Cards.Abstract
 
                     if (!IsAmplified && Owner.PlayerCombatState.Energy >= EnergyCost.GetWithModifiers(CostModifiers.All) + KickerCost)
                     {
-                        IsAmplified = true;                        
+                        IsAmplified = true;
                         _costModifiedForAmplify = false;
                         EnergyCost.AddThisCombat(KickerCost);
                         //TODO CardText update

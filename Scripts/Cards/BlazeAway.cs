@@ -14,10 +14,7 @@ namespace MarisaMod.scripts.Cards
         public BlazeAway() : base(1, CardType.Skill, CardRarity.Uncommon, TargetType.Self)
         {
         }
-
-        private CardModel? _cardSource;
-
-        //public override string PortraitPath => $"res://img/cards/blazeAway_p.png";
+                
         protected override IEnumerable<DynamicVar> CanonicalVars => [
             new EnergyVar(1)
             ];
@@ -28,7 +25,7 @@ namespace MarisaMod.scripts.Cards
         protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
         {
 
-            CardModel selection = (await CardSelectCmd.FromHand(prefs: new CardSelectorPrefs(base.SelectionScreenPrompt, 1), context: choiceContext, player: base.Owner, filter: delegate (CardModel c)
+            var selection = (await CardSelectCmd.FromHand(prefs: new CardSelectorPrefs(base.SelectionScreenPrompt, 1), context: choiceContext, player: base.Owner, filter: delegate (CardModel c)
             {
                 CardType type = c.Type;
                 return (type == CardType.Attack) ? true : false;

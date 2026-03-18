@@ -10,8 +10,8 @@ public abstract class AbstractMarisaCard : CustomCardModel
 {
     public override string PortraitPath => $"res://marisamod/images/cards/{Id.Entry.ToLowerInvariant()}.png";
 
-    public AbstractMarisaCard(int energyCost, CardType type, CardRarity rarity, TargetType targetType, bool shouldShowInCardLibrary = true)
-        : base(energyCost, type, rarity, targetType, shouldShowInCardLibrary)
+    public AbstractMarisaCard(int energyCost, CardType type, CardRarity rarity, TargetType targetType, bool shouldShowInCardLibrary = true, bool autoAdd = true)
+        : base(energyCost, type, rarity, targetType, shouldShowInCardLibrary, autoAdd)
     {
     }
 }

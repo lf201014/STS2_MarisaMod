@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c44r1ylo21rgt"
-path="res://.godot/imported/test-test_card.png-94bff845ff82014c746476dbdba2e446.ctex"
+uid="uid://4hyra2djunq8"
+path="res://.godot/imported/marisamod-binary_stars.png-2a32b8e66bd3efffb1234d0164267cc6.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://test/images/cards/test-test_card.png"
-dest_files=["res://.godot/imported/test-test_card.png-94bff845ff82014c746476dbdba2e446.ctex"]
+source_file="res://marisamod/images/cards/marisamod-binary_stars.png"
+dest_files=["res://.godot/imported/marisamod-binary_stars.png-2a32b8e66bd3efffb1234d0164267cc6.ctex"]
 
 [params]
 

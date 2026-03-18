@@ -10,7 +10,7 @@ namespace MarisaMod.scripts.Cards
 {
     public class DeepEcologicalBomb : AbstractAmplifiedCard
     {
-        public DeepEcologicalBomb() : base(1, 1, CardType.Attack, CardRarity.Rare, TargetType.RandomEnemy)
+        public DeepEcologicalBomb() : base(1, 1, CardType.Attack, CardRarity.Uncommon, TargetType.RandomEnemy)
         {
         }
 

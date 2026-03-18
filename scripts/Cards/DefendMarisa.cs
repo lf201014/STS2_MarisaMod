@@ -17,7 +17,7 @@ namespace MarisaMod.scripts.Cards
 
         protected override HashSet<CardTag> CanonicalTags => [CardTag.Defend];
 
-        protected override IEnumerable<DynamicVar> CanonicalVars => new List<DynamicVar> { new BlockVar(5m, ValueProp.Move) };
+        protected override IEnumerable<DynamicVar> CanonicalVars => [new BlockVar(5m, ValueProp.Move)];
 
         protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
         {

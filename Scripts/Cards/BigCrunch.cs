@@ -25,6 +25,10 @@ public class BigCrunch : AbstractMarisaCard
                 / card.DynamicVars["Div"].IntValue))
     ];
 
+    public override IEnumerable<CardKeyword> CanonicalKeywords => [
+        CardKeyword.Exhaust
+    ];
+
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
         await DoExhaust(choiceContext, PileType.Draw.GetPile(Owner));

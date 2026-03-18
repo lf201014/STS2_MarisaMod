@@ -14,20 +14,21 @@ namespace MarisaMod.scripts.Cards
         }
 
         protected override IEnumerable<DynamicVar> CanonicalVars => [
-            new CalculationBaseVar(0m),
-        new ExtraDamageVar(3m),
-        new CalculatedDamageVar(ValueProp.Move).WithMultiplier((card, _)=> PileType.Exhaust.GetPile(card.Owner).Cards.Count)
+            new CalculationBaseVar(14m),
+            new ExtraDamageVar(2m),
+            new CalculatedDamageVar(ValueProp.Move).WithMultiplier((card, _)=> PileType.Exhaust.GetPile(card.Owner).Cards.Count)
             ];
 
         protected override void OnUpgrade()
         {
+            DynamicVars.CalculationBase.UpgradeValueBy(4m);
             DynamicVars.ExtraDamage.UpgradeValueBy(1m);
         }
 
         protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
         {
             ArgumentNullException.ThrowIfNull(cardPlay.Target);
-            await DamageCmd.Attack(DynamicVars.CalculatedDamage).FromCard(this).Targeting(cardPlay.Target)
+            await DamageCmd.Attack(DynamicVars.CalculatedDamage).FromCard(this).TargetingAllOpponents(CombatState)
                 .WithHitFx("vfx/vfx_attack_slash", null, "blunt_attack.mp3")
                 .Execute(choiceContext);
         }

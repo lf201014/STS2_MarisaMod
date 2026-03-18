@@ -1,4 +1,3 @@
-using BaseLib.Abstracts;
 using BaseLib.Utils;
 using marisamod.Scripts.Cards.Abstract;
 using MegaCrit.Sts2.Core.Combat;
@@ -19,8 +18,6 @@ namespace marisamod.Scripts.Cards.Colorless
         public Spark() : base(0, CardType.Attack, CardRarity.Token, TargetType.AnyEnemy)
         {
         }
-
-        //public override string PortraitPath => $"res://MarisaMod/img/cards/Spark_p.png";
         
         public override IEnumerable<CardKeyword> CanonicalKeywords => [CardKeyword.Exhaust];
 
