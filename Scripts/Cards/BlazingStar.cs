@@ -18,10 +18,12 @@ namespace marisamod.scripts.Cards
 
         protected override IEnumerable<DynamicVar> CanonicalVars =>
         [
-            new CalculationBaseVar(0m),
+            new CalculationBaseVar(16m),
             new ExtraDamageVar(8m),
             new CalculatedDamageVar(ValueProp.Move).WithMultiplier((card, _) =>
-                (card.Owner.PlayerCombatState!.Hand.Cards.Count(IsBurn) + 2) * (card is AbstractAmplifiedCard { IsAmplified: true } ? 2 : 1)),
+                card is AbstractAmplifiedCard { IsAmplified: true }
+                    ? card.Owner.PlayerCombatState!.Hand.Cards.Count(IsBurn) * 2 + 2
+                    : card.Owner.PlayerCombatState!.Hand.Cards.Count(IsBurn)),
             new EnergyVar(1)
         ];
 
@@ -35,7 +37,7 @@ namespace marisamod.scripts.Cards
 
         protected override void OnUpgrade()
         {
-            //DynamicVars.CalculationBase.UpgradeValueBy(4m);
+            DynamicVars.CalculationBase.UpgradeValueBy(4m);
             DynamicVars.ExtraDamage.UpgradeValueBy(2m);
         }
 

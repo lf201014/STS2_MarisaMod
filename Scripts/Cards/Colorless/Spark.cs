@@ -13,7 +13,7 @@ using MegaCrit.Sts2.Core.ValueProps;
 
 namespace marisamod.Scripts.Cards.Colorless
 {
-    [Pool(typeof(ColorlessCardPool))]
+    [Pool(typeof(TokenCardPool))]
     public class Spark : AbstractMarisaCard
     {
         public Spark() : base(0, CardType.Attack, CardRarity.Token, TargetType.AnyEnemy)

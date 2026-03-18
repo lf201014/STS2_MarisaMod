@@ -40,6 +40,7 @@
     <Content Include="marisamod\localization\eng\characters.json" />
     <Content Include="marisamod\localization\eng\powers.json" />
     <Content Include="marisamod\localization\eng\relics.json" />
+    <Content Include="marisamod\localization\eng\settings_ui.json" />
     <Content Include="marisamod\localization\zhs\cards.json" />
     <Content Include="marisamod\localization\zhs\card_keywords.json" />
     <Content Include="marisamod\localization\zhs\characters.json" />
