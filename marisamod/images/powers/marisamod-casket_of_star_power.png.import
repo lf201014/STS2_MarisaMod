@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c5b518u31fue1"
-path="res://.godot/imported/pulse_magic_power.png-68d681cf13deb089ec6327d52e00bca9.ctex"
+uid="uid://cyvn77d1d6jqn"
+path="res://.godot/imported/marisamod-casket_of_star_power.png-205624431fb166eec8aab14053bbf670.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://marisamod/images/powers/pulse_magic_power.png"
-dest_files=["res://.godot/imported/pulse_magic_power.png-68d681cf13deb089ec6327d52e00bca9.ctex"]
+source_file="res://marisamod/images/powers/marisamod-casket_of_star_power.png"
+dest_files=["res://.godot/imported/marisamod-casket_of_star_power.png-205624431fb166eec8aab14053bbf670.ctex"]
 
 [params]
 

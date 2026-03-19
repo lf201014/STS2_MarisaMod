@@ -9,20 +9,21 @@ namespace marisamod.scripts.Cards
 {
     public class AlicesGift : AbstractAmplifiedCard
     {
-        public AlicesGift() : base(0, 1, CardType.Attack, CardRarity.Uncommon, TargetType.AnyEnemy)
+        public AlicesGift() : base(0, 2, CardType.Attack, CardRarity.Uncommon, TargetType.AnyEnemy)
         {
         }
 
-        public override IEnumerable<CardKeyword> CanonicalKeywords => base.CanonicalKeywords.Concat([CardKeyword.Retain]);
+        public override IEnumerable<CardKeyword> CanonicalKeywords => base.CanonicalKeywords.Concat([
+            CardKeyword.Retain,
+            CardKeyword.Exhaust
+        ]);
 
-        protected override IEnumerable<DynamicVar> CanonicalVars => [
+        protected override IEnumerable<DynamicVar> CanonicalVars => base.CanonicalVars.Concat([
             new CalculationBaseVar(5m),
             new ExtraDamageVar(5m),
-            new CalculatedDamageVar(ValueProp.Move).WithMultiplier((card, _)=>card is AbstractAmplifiedCard { IsAmplified: true } ? 2 : 0),
-            new EnergyVar(2)
-        ];
+            new CalculatedDamageVar(ValueProp.Move).WithMultiplier((card, _) => card is AbstractAmplifiedCard { IsAmplified: true } ? 2 : 0)
+        ]);
 
-        
 
         protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
         {

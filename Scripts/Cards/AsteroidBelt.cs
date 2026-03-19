@@ -13,7 +13,8 @@ namespace marisamod.scripts.Cards
         public AsteroidBelt() : base(1, 1, CardType.Skill, CardRarity.Common, TargetType.Self)
         {
         }
-        //public override string PortraitPath => $"res://img/cards/Asteroid_p.png";
+
+        public override bool GainsBlock => true;
 
         protected override IEnumerable<DynamicVar> CanonicalVars =>
         [

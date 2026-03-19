@@ -10,7 +10,7 @@ using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.ValueProps;
 
-namespace marisamod.scripts.Powers
+namespace marisamod.Scripts.Powers
 {
     public class ChargeUpPower : AbstractMarisaPower
     {

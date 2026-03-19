@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cc6oxm15apqsi"
-path="res://.godot/imported/millisecond_pulsars_power.png-41ed0eada1f94159d2d28313e8dc7813.ctex"
+path="res://.godot/imported/marisamod-millisecond_pulsars_power.png-8cffadae21c0037fe887f35240cc892f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://marisamod/images/powers/millisecond_pulsars_power.png"
-dest_files=["res://.godot/imported/millisecond_pulsars_power.png-41ed0eada1f94159d2d28313e8dc7813.ctex"]
+source_file="res://marisamod/images/powers/marisamod-millisecond_pulsars_power.png"
+dest_files=["res://.godot/imported/marisamod-millisecond_pulsars_power.png-8cffadae21c0037fe887f35240cc892f.ctex"]
 
 [params]
 

@@ -6,7 +6,7 @@ using MegaCrit.Sts2.Core.ValueProps;
 using marisamod.Scripts.Cards.Colorless;
 using marisamod.Scripts.Powers;
 
-namespace marisamod.scripts.Powers
+namespace marisamod.Scripts.Powers
 {
     public class CasketOfStarPlusPower : AbstractMarisaPower
     {

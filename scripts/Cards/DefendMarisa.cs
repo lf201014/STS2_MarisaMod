@@ -19,9 +19,14 @@ namespace MarisaMod.scripts.Cards
 
         protected override IEnumerable<DynamicVar> CanonicalVars => [new BlockVar(5m, ValueProp.Move)];
 
+        protected override void OnUpgrade()
+        {
+            DynamicVars.Block.UpgradeValueBy(3m);
+        }
+
         protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
         {
-            await CreatureCmd.GainBlock(base.Owner.Creature, base.DynamicVars.Block, cardPlay);
+            await CreatureCmd.GainBlock(Owner.Creature, DynamicVars.Block, cardPlay);
         }
     }
 }

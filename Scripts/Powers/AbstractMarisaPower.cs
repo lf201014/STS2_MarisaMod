@@ -5,8 +5,8 @@ namespace marisamod.Scripts.Powers;
 
 public abstract class AbstractMarisaPower: CustomPowerModel
 {
-    public override PowerType Type { get; }
-    public override PowerStackType StackType { get; }
+    public abstract override PowerType Type { get; }
+    public abstract override  PowerStackType StackType { get; }
     
     public override string CustomPackedIconPath => $"res://marisamod/images/powers/{Id.Entry.ToLowerInvariant()}.png";
 

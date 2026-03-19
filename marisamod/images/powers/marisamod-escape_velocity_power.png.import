@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://die10h15l2lfx"
-path="res://.godot/imported/charge_up_power.png-8784d5fd8e720ab578ac050124447b55.ctex"
+uid="uid://dk55jipl1b6q4"
+path="res://.godot/imported/marisamod-escape_velocity_power.png-fe2c4b63bd2cf499bcaf97778d30fde6.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://marisamod/images/powers/charge_up_power.png"
-dest_files=["res://.godot/imported/charge_up_power.png-8784d5fd8e720ab578ac050124447b55.ctex"]
+source_file="res://marisamod/images/powers/marisamod-escape_velocity_power.png"
+dest_files=["res://.godot/imported/marisamod-escape_velocity_power.png-fe2c4b63bd2cf499bcaf97778d30fde6.ctex"]
 
 [params]
 

@@ -5,7 +5,7 @@ using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.ValueProps;
 using marisamod.Scripts.Cards.Colorless;
 
-namespace marisamod.scripts.Powers
+namespace marisamod.Scripts.Powers
 {
     public class CasketOfStarPower : CustomPowerModel
     {

@@ -10,16 +10,16 @@ namespace marisamod.scripts.Cards.Abstract
 {
     public abstract class AbstractAmplifiedCard(int baseCost, int kickerCost, CardType type, CardRarity rarity, TargetType target) : AbstractMarisaCard(baseCost, type, rarity, target)
     {
-
         public int KickerCost { get; } = kickerCost;
 
         public bool IsAmplified { get; protected set; }
 
         private bool _costModifiedForAmplify;
 
-        protected override IEnumerable<DynamicVar> CanonicalVars => [
+        protected override IEnumerable<DynamicVar> CanonicalVars =>
+        [
             new EnergyVar(KickerCost)
-            ];
+        ];
 
         // public override IEnumerable<CardKeyword> CanonicalKeywords => [
         //     MarisaCardKeyWords.Amplify
@@ -33,32 +33,39 @@ namespace marisamod.scripts.Cards.Abstract
                 {
                     if (Owner.Creature.HasPower<MillisecondPulsarsPower>() || Owner.Creature.HasPower<PulseMagicePower>())
                     {
-                        IsAmplified = true;
-                        if (_costModifiedForAmplify)
-                        {
-                            EnergyCost.AddThisCombat(-KickerCost);
-                            _costModifiedForAmplify = false;
-                        }
+                        SetAmplifyState(true, true);
                     }
-
-
-                    if (IsAmplified && Owner.PlayerCombatState.Energy < EnergyCost.GetWithModifiers(CostModifiers.All))
+                    else if (Owner.PlayerCombatState.Energy < EnergyCost.GetWithModifiers(CostModifiers.All))
                     {
-                        IsAmplified = false;
-                        _costModifiedForAmplify = true;
-                        EnergyCost.AddThisCombat(-KickerCost);
-                        //TODO CardText update
+                        SetAmplifyState(false, true);
                     }
-
-                    if (!IsAmplified && Owner.PlayerCombatState.Energy >= EnergyCost.GetWithModifiers(CostModifiers.All) + KickerCost)
+                    else if (Owner.PlayerCombatState.Energy >= EnergyCost.GetWithModifiers(CostModifiers.All) + KickerCost)
                     {
-                        IsAmplified = true;
-                        _costModifiedForAmplify = false;
-                        EnergyCost.AddThisCombat(KickerCost);
-                        //TODO CardText update
+                        SetAmplifyState(true, false);
                     }
                 }
+                else
+                {
+                    SetAmplifyState(false, false);
+                }
             }
+        }
+
+        private void SetAmplifyState(bool isAmplified, bool costFree)
+        {
+            IsAmplified = isAmplified;
+            if (isAmplified && !costFree && !_costModifiedForAmplify)
+            {
+                EnergyCost.AddThisCombat(-KickerCost);
+                _costModifiedForAmplify = true;
+            }
+
+            if (!isAmplified && _costModifiedForAmplify || costFree && _costModifiedForAmplify)
+            {
+                EnergyCost.AddThisCombat(-KickerCost);
+                _costModifiedForAmplify = false;
+            }
+            //TODO CardText update
         }
 
         public override Task AfterCardEnteredCombat(CardModel card)

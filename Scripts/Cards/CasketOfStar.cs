@@ -3,7 +3,7 @@ using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.HoverTips;
 using marisamod.Scripts.Cards.Colorless;
-using marisamod.scripts.Powers;
+using marisamod.Scripts.Powers;
 using marisamod.Scripts.Cards.Abstract;
 
 namespace marisamod.scripts.Cards

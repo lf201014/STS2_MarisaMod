@@ -1,5 +1,5 @@
 using BaseLib.Utils;
-using marisamod.scripts.Powers;
+using marisamod.Scripts.Powers;
 using marisamod.Scripts.PatchesNModels;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;

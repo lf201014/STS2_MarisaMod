@@ -1,5 +1,6 @@
 using BaseLib.Config;
 using Godot;
+using Godot.Bridge;
 using HarmonyLib;
 using MegaCrit.Sts2.Core.Bindings.MegaSpine;
 using MegaCrit.Sts2.Core.Logging;
@@ -22,6 +23,7 @@ public class Entry
         var harmony = new Harmony("marisamod");
         harmony.PatchAll(typeof(Entry).Assembly);
         Log.Info($"{LogPrefix} Harmony PatchAll completed");
+        ScriptManagerBridge.LookupScriptsInAssembly(typeof(Entry).Assembly);
 
         const string gamePath = "res://images/atlases/ui_atlas.sprites/card/energy_test.tres";
         const string modPath = "res://test/images/atlases/ui_atlas.sprites/card/energy_test.tres";
