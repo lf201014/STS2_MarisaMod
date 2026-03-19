@@ -2,12 +2,15 @@ using BaseLib.Config;
 using Godot;
 using Godot.Bridge;
 using HarmonyLib;
+using marisamod.Scripts.Characters;
 using MegaCrit.Sts2.Core.Bindings.MegaSpine;
+using MegaCrit.Sts2.Core.Entities.Players;
 using MegaCrit.Sts2.Core.Logging;
 using MegaCrit.Sts2.Core.Modding;
 using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.Models.Cards;
 using MegaCrit.Sts2.Core.Nodes.Combat;
+using MegaCrit.Sts2.Core.Saves.Managers;
 
 namespace marisamod.Scripts;
 
@@ -28,6 +31,35 @@ public class Entry
         const string gamePath = "res://images/atlases/ui_atlas.sprites/card/energy_test.tres";
         const string modPath = "res://test/images/atlases/ui_atlas.sprites/card/energy_test.tres";
         Log.Info($"{LogPrefix} energy_test.tres 存在性: res://images/... = {ResourceLoader.Exists(gamePath)}, res://test/images/... = {ResourceLoader.Exists(modPath)}");
+    }
+
+    [HarmonyPatch(typeof(ProgressSaveManager),"ObtainCharUnlockEpoch")]
+    public static class ProgressSaveManager_ObtainCharUnlockEpoch_Patch
+    {
+        private static bool Prefix(ProgressSaveManager __instance,Player localPlayer)
+        {
+            return localPlayer.Character is not MarisaCharacter;
+        }
+    }
+
+    
+    [HarmonyPatch(typeof(ProgressSaveManager),"CheckFifteenElitesDefeatedEpoch")]
+    public static class ProgressSaveManager_CheckFifteenElitesDefeatedEpoch_Patch
+    {
+        private static bool Prefix(ProgressSaveManager __instance,Player localPlayer)
+        {
+            return localPlayer.Character is not MarisaCharacter;
+        }
+    }
+
+    
+    [HarmonyPatch(typeof(ProgressSaveManager),"CheckFifteenBossesDefeatedEpoch")]
+    public static class ProgressSaveManager_CheckFifteenBossesDefeatedEpoch_Patch
+    {
+        private static bool Prefix(ProgressSaveManager __instance,Player localPlayer)
+        {
+            return !(localPlayer.Character.Id.ToString().Contains("MarisaMod", StringComparison.OrdinalIgnoreCase));
+        }
     }
 
     [HarmonyPatch(typeof(CardModel), nameof(CardModel.PortraitPath), MethodType.Getter)]
