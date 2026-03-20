@@ -24,6 +24,8 @@ namespace MarisaMod.scripts.Cards
             new CalculatedDamageVar(ValueProp.Move).WithMultiplier((card, _) => card is AbstractAmplifiedCard { IsAmplified: true } ? 1 : 0),
             new EnergyVar(1)
             ];
+        
+        protected override HashSet<CardTag> CanonicalTags => [MarisaCardTags.Spark];
 
         protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
         {

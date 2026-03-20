@@ -81,95 +81,95 @@ public class Entry
         }
     }
 
-    [HarmonyPatch(typeof(NCreature), "_Ready")]
-    static class NCreature_Ready_SpineReplace_Patch
-    {
-        private static readonly Dictionary<string, string> CharacterSkeletonPaths = new()
-        {
-            ["IRONCLAD"] = "res://test/test_skin.tres",
-        };
-
-        /// <summary>
-        /// 自定义骨架加载失败时的回退路径（使用游戏原版资源）
-        /// </summary>
-        private const string FallbackIroncladSkeleton = "res://animations/characters/ironclad/ironclad_skel_data.tres";
-
-        private static readonly Dictionary<string, Resource> _skeletonDataCache = [];
-
-        static void Postfix(NCreature __instance)
-        {
-            if (!ModConfig.EnableSkinReplace) return;
-            if (__instance?.Entity?.Player == null) return;
-
-            var characterId = __instance.Entity.Player.Character.Id.Entry;
-            if (!CharacterSkeletonPaths.TryGetValue(characterId, out var path)) return;
-
-            var visuals = __instance.Visuals;
-            if (visuals?.Body == null || !visuals.HasSpineAnimation)
-            {
-                Log.Warn($"{LogPrefix} Skip: visuals invalid (Body={visuals?.Body != null}, HasSpineAnimation={visuals?.HasSpineAnimation})");
-                return;
-            }
-
-            var skeletonData = GetOrLoadSkeletonData(path);
-            if (skeletonData == null)
-            {
-                Log.Warn($"{LogPrefix} Custom skeleton failed, trying fallback '{FallbackIroncladSkeleton}'");
-                skeletonData = GetOrLoadSkeletonData(FallbackIroncladSkeleton);
-                if (skeletonData == null)
-                {
-                    Log.Error($"{LogPrefix} Fallback also failed, skeleton replace aborted");
-                    return;
-                }
-            }
-
-            try
-            {
-                new MegaSprite(visuals.Body).SetSkeletonDataRes(new MegaSkeletonDataResource(skeletonData));
-                Log.Info($"{LogPrefix} Skeleton replaced for {characterId}");
-            }
-            catch (Exception ex)
-            {
-                Log.Error($"{LogPrefix} SetSkeletonDataRes failed: {ex.Message}\n{ex.StackTrace}");
-            }
-        }
-
-        private static Resource? GetOrLoadSkeletonData(string skeletonPath)
-        {
-            if (_skeletonDataCache.TryGetValue(skeletonPath, out var cached) &&
-                GodotObject.IsInstanceValid(cached))
-            {
-                return cached;
-            }
-
-            if (!ResourceLoader.Exists(skeletonPath))
-            {
-                Log.Warn($"{LogPrefix} Resource does not exist: '{skeletonPath}'");
-                return null;
-            }
-
-            try
-            {
-                var data = ResourceLoader.Load<Resource>(skeletonPath);
-                if (data != null)
-                {
-                    _skeletonDataCache[skeletonPath] = data;
-                    Log.Info($"{LogPrefix} Loaded: '{skeletonPath}' (type={data.GetType().Name})");
-                }
-                else
-                {
-                    Log.Warn($"{LogPrefix} ResourceLoader.Load returned null for '{skeletonPath}' (可能需要 .import 文件，请在带 spine-godot 的编辑器中重新导入 .atlas/.skel)");
-                }
-
-                return data;
-            }
-            catch (Exception ex)
-            {
-                Log.Warn($"{LogPrefix} Load exception for '{skeletonPath}': {ex.Message}");
-                return null;
-            }
-        }
-    }
+    // [HarmonyPatch(typeof(NCreature), "_Ready")]
+    // static class NCreature_Ready_SpineReplace_Patch
+    // {
+    //     private static readonly Dictionary<string, string> CharacterSkeletonPaths = new()
+    //     {
+    //         ["IRONCLAD"] = "res://test/test_skin.tres",
+    //     };
+    //
+    //     /// <summary>
+    //     /// 自定义骨架加载失败时的回退路径（使用游戏原版资源）
+    //     /// </summary>
+    //     private const string FallbackIroncladSkeleton = "res://animations/characters/ironclad/ironclad_skel_data.tres";
+    //
+    //     private static readonly Dictionary<string, Resource> _skeletonDataCache = [];
+    //
+    //     static void Postfix(NCreature __instance)
+    //     {
+    //         if (!ModConfig.EnableSkinReplace) return;
+    //         if (__instance?.Entity?.Player == null) return;
+    //
+    //         var characterId = __instance.Entity.Player.Character.Id.Entry;
+    //         if (!CharacterSkeletonPaths.TryGetValue(characterId, out var path)) return;
+    //
+    //         var visuals = __instance.Visuals;
+    //         if (visuals?.Body == null || !visuals.HasSpineAnimation)
+    //         {
+    //             Log.Warn($"{LogPrefix} Skip: visuals invalid (Body={visuals?.Body != null}, HasSpineAnimation={visuals?.HasSpineAnimation})");
+    //             return;
+    //         }
+    //
+    //         var skeletonData = GetOrLoadSkeletonData(path);
+    //         if (skeletonData == null)
+    //         {
+    //             Log.Warn($"{LogPrefix} Custom skeleton failed, trying fallback '{FallbackIroncladSkeleton}'");
+    //             skeletonData = GetOrLoadSkeletonData(FallbackIroncladSkeleton);
+    //             if (skeletonData == null)
+    //             {
+    //                 Log.Error($"{LogPrefix} Fallback also failed, skeleton replace aborted");
+    //                 return;
+    //             }
+    //         }
+    //
+    //         try
+    //         {
+    //             new MegaSprite(visuals.Body).SetSkeletonDataRes(new MegaSkeletonDataResource(skeletonData));
+    //             Log.Info($"{LogPrefix} Skeleton replaced for {characterId}");
+    //         }
+    //         catch (Exception ex)
+    //         {
+    //             Log.Error($"{LogPrefix} SetSkeletonDataRes failed: {ex.Message}\n{ex.StackTrace}");
+    //         }
+    //     }
+    //
+    //     private static Resource? GetOrLoadSkeletonData(string skeletonPath)
+    //     {
+    //         if (_skeletonDataCache.TryGetValue(skeletonPath, out var cached) &&
+    //             GodotObject.IsInstanceValid(cached))
+    //         {
+    //             return cached;
+    //         }
+    //
+    //         if (!ResourceLoader.Exists(skeletonPath))
+    //         {
+    //             Log.Warn($"{LogPrefix} Resource does not exist: '{skeletonPath}'");
+    //             return null;
+    //         }
+    //
+    //         try
+    //         {
+    //             var data = ResourceLoader.Load<Resource>(skeletonPath);
+    //             if (data != null)
+    //             {
+    //                 _skeletonDataCache[skeletonPath] = data;
+    //                 Log.Info($"{LogPrefix} Loaded: '{skeletonPath}' (type={data.GetType().Name})");
+    //             }
+    //             else
+    //             {
+    //                 Log.Warn($"{LogPrefix} ResourceLoader.Load returned null for '{skeletonPath}' (可能需要 .import 文件，请在带 spine-godot 的编辑器中重新导入 .atlas/.skel)");
+    //             }
+    //
+    //             return data;
+    //         }
+    //         catch (Exception ex)
+    //         {
+    //             Log.Warn($"{LogPrefix} Load exception for '{skeletonPath}': {ex.Message}");
+    //             return null;
+    //         }
+    //     }
+    // }
 }
 
 public class ModConfig : SimpleModConfig

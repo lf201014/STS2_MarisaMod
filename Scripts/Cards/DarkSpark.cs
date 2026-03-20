@@ -1,4 +1,5 @@
 using marisamod.Scripts.Cards.Abstract;
+using marisamod.scripts.PatchesNModels;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
@@ -13,11 +14,14 @@ namespace MarisaMod.scripts.Cards
         {
         }
 
-        protected override IEnumerable<DynamicVar> CanonicalVars => [
+        protected override IEnumerable<DynamicVar> CanonicalVars =>
+        [
             new CalculationBaseVar(14m),
             new ExtraDamageVar(2m),
-            new CalculatedDamageVar(ValueProp.Move).WithMultiplier((card, _)=> PileType.Exhaust.GetPile(card.Owner).Cards.Count)
-            ];
+            new CalculatedDamageVar(ValueProp.Move).WithMultiplier((card, _) => PileType.Exhaust.GetPile(card.Owner).Cards.Count)
+        ];
+
+        protected override HashSet<CardTag> CanonicalTags => [MarisaCardTags.Spark];
 
         protected override void OnUpgrade()
         {

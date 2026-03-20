@@ -6,6 +6,7 @@ using MegaCrit.Sts2.Core.ValueProps;
 using MegaCrit.Sts2.Core.HoverTips;
 using marisamod.Scripts.Cards.Abstract;
 using marisamod.Scripts.Cards.Colorless;
+using marisamod.scripts.PatchesNModels;
 
 namespace MarisaMod.scripts.Cards
 {
@@ -21,6 +22,7 @@ namespace MarisaMod.scripts.Cards
         [
             new DamageVar(6m, ValueProp.Move)
         ];
+        protected override HashSet<CardTag> CanonicalTags => [MarisaCardTags.Spark];
 
         protected override IEnumerable<IHoverTip> ExtraHoverTips => [HoverTipFactory.FromCard<Spark>(IsUpgraded)];
 

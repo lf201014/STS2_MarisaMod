@@ -54,9 +54,9 @@ namespace marisamod.scripts.Cards.Abstract
         private void SetAmplifyState(bool isAmplified, bool costFree)
         {
             IsAmplified = isAmplified;
-            if (isAmplified && !costFree && !_costModifiedForAmplify)
+            if (isAmplified && !costFree && _costModifiedForAmplify)
             {
-                EnergyCost.AddThisCombat(-KickerCost);
+                EnergyCost.AddThisCombat(KickerCost);
                 _costModifiedForAmplify = true;
             }
 

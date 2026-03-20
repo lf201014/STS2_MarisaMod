@@ -15,7 +15,10 @@ public class DarkMatter : AbstractMarisaCard
     {
     }
 
-    protected override IEnumerable<DynamicVar> CanonicalVars => [new BlockVar(5m, ValueProp.Move)];
+    protected override IEnumerable<DynamicVar> CanonicalVars => [
+        new BlockVar(5m, ValueProp.Move),
+        new CardsVar(1)
+    ];
     
     public override IEnumerable<CardKeyword> CanonicalKeywords => base.CanonicalKeywords.Concat([
         CardKeyword.Ethereal
@@ -37,6 +40,7 @@ public class DarkMatter : AbstractMarisaCard
             CombatState.CreateCard<DarkMatter>(Owner)
         ];
         CardCmd.PreviewCardPileAdd(await CardPileCmd.AddGeneratedCardsToCombat(cards, PileType.Draw, addedByPlayer: true));
+        await CardPileCmd.Draw(choiceContext, DynamicVars.Cards.BaseValue, Owner);
     }
 
     public override async Task AfterCardExhausted(PlayerChoiceContext choiceContext, CardModel card, bool causedByEthereal)
