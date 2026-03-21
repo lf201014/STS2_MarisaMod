@@ -21,6 +21,7 @@ namespace marisamod.Scripts.Cards
         [
             new DamageVar(6m, ValueProp.Move)
         ];
+        
         protected override HashSet<CardTag> CanonicalTags => [MarisaCardTags.Spark];
 
         protected override IEnumerable<IHoverTip> ExtraHoverTips => [HoverTipFactory.FromCard<Spark>(IsUpgraded)];

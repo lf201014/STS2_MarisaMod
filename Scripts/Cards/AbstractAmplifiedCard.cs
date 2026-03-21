@@ -1,5 +1,7 @@
 using marisamod.Scripts.Powers;
+using MegaCrit.Sts2.Core.Combat;
 using MegaCrit.Sts2.Core.Entities.Cards;
+using MegaCrit.Sts2.Core.Entities.Players;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.Models;
@@ -29,13 +31,17 @@ namespace marisamod.Scripts.Cards
             {
                 if (Owner.PlayerCombatState.Hand.Cards.Contains(this))
                 {
-                    if (Owner.Creature.HasPower<MillisecondPulsarsPower>() || Owner.Creature.HasPower<PulseMagicPower>())
+                    if (Owner.Creature.HasPower<OneTimeOffPower>())
+                    {
+                        SetAmplifyState(false, false);
+                    }
+                    else if (Owner.Creature.HasPower<MillisecondPulsarsPower>() || Owner.Creature.HasPower<PulseMagicPower>())
                     {
                         SetAmplifyState(true, true);
                     }
                     else if (Owner.PlayerCombatState.Energy < EnergyCost.GetWithModifiers(CostModifiers.All))
                     {
-                        SetAmplifyState(false, true);
+                        SetAmplifyState(false, false);
                     }
                     else if (Owner.PlayerCombatState.Energy >= EnergyCost.GetWithModifiers(CostModifiers.All) + KickerCost)
                     {
@@ -83,6 +89,12 @@ namespace marisamod.Scripts.Cards
         {
             if (card == this)
                 ValidateAmplify();
+            return Task.CompletedTask;
+        }
+
+        public override Task AfterEnergyReset(Player player)
+        {
+            ValidateAmplify();
             return Task.CompletedTask;
         }
     }

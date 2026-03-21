@@ -8,7 +8,7 @@ namespace marisamod.Scripts.Cards
 {
     public class DC : AbstractMarisaCard
     {
-        public DC() : base(0, CardType.Attack, CardRarity.Uncommon, TargetType.AnyEnemy)
+        public DC() : base(0, CardType.Attack, CardRarity.Common, TargetType.AnyEnemy)
         {
         }
 

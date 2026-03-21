@@ -1,4 +1,5 @@
 using BaseLib.Utils;
+using marisamod.Scripts.PatchesNModels;
 using MegaCrit.Sts2.Core.Combat;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
@@ -17,12 +18,16 @@ namespace marisamod.Scripts.Cards.Colorless
         public Spark() : base(0, CardType.Attack, CardRarity.Token, TargetType.AnyEnemy)
         {
         }
-        
+
         public override IEnumerable<CardKeyword> CanonicalKeywords => [CardKeyword.Exhaust];
 
         protected override IEnumerable<DynamicVar> CanonicalVars =>
         [
             new DamageVar(4m, ValueProp.Move)
+        ];
+        protected override HashSet<CardTag> CanonicalTags =>
+        [
+            MarisaCardTags.Spark
         ];
 
         protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)

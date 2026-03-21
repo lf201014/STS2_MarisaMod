@@ -21,7 +21,7 @@ namespace marisamod.Scripts;
 [ModInitializer("Init")]
 public class Entry
 {
-    private const string LogPrefix = "[TestMod]";
+    private const string LogPrefix = "[MarisaMod]";
 
     public static void Init()
     {
@@ -33,8 +33,8 @@ public class Entry
         ScriptManagerBridge.LookupScriptsInAssembly(typeof(Entry).Assembly);
 
         const string gamePath = "res://images/atlases/ui_atlas.sprites/card/energy_test.tres";
-        const string modPath = "res://test/images/atlases/ui_atlas.sprites/card/energy_test.tres";
-        Log.Info($"{LogPrefix} energy_test.tres 存在性: res://images/... = {ResourceLoader.Exists(gamePath)}, res://test/images/... = {ResourceLoader.Exists(modPath)}");
+        const string modPath = "res://marisamod/images/atlases/ui_atlas.sprites/card/energy_test.tres";
+        Log.Info($"{LogPrefix} energy_test.tres 存在性: res://images/... = {ResourceLoader.Exists(gamePath)}, res://marisamod/images/... = {ResourceLoader.Exists(modPath)}");
     }
 
     [HarmonyPatch(typeof(ProgressSaveManager),"ObtainCharUnlockEpoch")]
@@ -86,7 +86,6 @@ public class Entry
     }
 
     
-	// Token: 0x0200007C RID: 124
 	[HarmonyPatch(typeof(TheArchitect), "WinRun")]
 	internal static class WatcherArchitectWinRunPatch
 	{

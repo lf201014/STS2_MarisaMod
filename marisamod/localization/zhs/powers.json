@@ -26,5 +26,8 @@
     "MARISAMOD-EVENT_HORIZON_POWER.selectionScreenPrompt": "选择一张牌加入你的手牌",
     "MARISAMOD-WITCH_OF_GREED_POTION_POWER.title": "药水奖励",
     "MARISAMOD-WITCH_OF_GREED_POTION_POWER.description": "在战斗结束时，获得[blue]1[/blue]瓶[gold]药水[/gold]。",
-    "MARISAMOD-WITCH_OF_GREED_POTION_POWER.smartDescription": "在战斗结束时，获得[blue]{Amount}[/blue]瓶[gold]药水[/gold]。"
+    "MARISAMOD-WITCH_OF_GREED_POTION_POWER.smartDescription": "在战斗结束时，获得[blue]{Amount}[/blue]瓶[gold]药水[/gold]。",
+    "MARISAMOD-MAXIMISE_POWER_POWER.title": "火力全开",
+    "MARISAMOD-MaximisePowerPower.description": "{OnPlayer:你的|[gold]{OwnerName}的[/gold]}攻击牌伤害获得[blue]1.5[/blue]的倍率直到回合结束。",
+    "MARISAMOD-MaximisePowerPower.smartDescription": "{OnPlayer:你的|[gold]{OwnerName}的[/gold]}攻击牌伤害获得[blue]{Mult}[/blue]的倍率直到回合结束。"
 }

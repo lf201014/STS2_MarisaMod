@@ -30,9 +30,9 @@ public class BigCrunch : AbstractMarisaCard
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
+        var draw = (int)((CalculatedVar)DynamicVars["CalculatedDraw"]).Calculate(cardPlay.Target);
         await DoExhaust(choiceContext, PileType.Draw.GetPile(Owner));
         await DoExhaust(choiceContext, PileType.Discard.GetPile(Owner));
-        var draw = (int)((CalculatedVar)DynamicVars["CalculatedDraw"]).Calculate(cardPlay.Target);
         if (draw > 0)
         {
             await CardPileCmd.Draw(choiceContext, draw, Owner);

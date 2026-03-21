@@ -1,6 +1,5 @@
 using BaseLib.Extensions;
 using Godot;
-using marisamod.Scripts.Powers;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.Entities.Creatures;
@@ -44,7 +43,6 @@ namespace marisamod.Scripts.Powers
                 return 1m;
             }
 
-            //TODO temp threshold 8
             return CalculateMult();
         }
 
@@ -60,18 +58,17 @@ namespace marisamod.Scripts.Powers
 
         public decimal CalculateMult()
         {
-            //TODO temp threshold 8
-            if (Amount < 8)
+            if (Amount < ChargeUpThreshold || Owner.HasPower<OneTimeOffPower>())
             {
                 return 1m;
             }
 
-            return (decimal)Mathf.Pow(2, Mathf.FloorToInt(Amount / 8f));
+            return (decimal)Mathf.Pow(2, Mathf.FloorToInt(Amount / ChargeUpThreshold));
         }
 
         public override Task BeforeCardPlayed(CardPlay cardPlay)
         {
-            if (cardPlay.Card.Type == CardType.Attack && Amount >= 8)
+            if (cardPlay.Card.Type == CardType.Attack && Amount >= ChargeUpThreshold && !Owner.HasPower<OneTimeOffPower>())
             {
                 _toBeConsumed = true;
             }
@@ -83,7 +80,7 @@ namespace marisamod.Scripts.Powers
         {
             if (_toBeConsumed)
             {
-                decimal reduceAmount = Amount - Amount % 8;
+                decimal reduceAmount = Amount - Amount % ChargeUpThreshold;
                 PowerCmd.ModifyAmount(this, -reduceAmount, Owner, null);
                 _toBeConsumed = false;
             }
