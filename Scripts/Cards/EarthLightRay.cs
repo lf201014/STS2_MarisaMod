@@ -1,5 +1,4 @@
-﻿using marisamod.scripts.Cards.Abstract;
-using MegaCrit.Sts2.Core.CardSelection;
+﻿using MegaCrit.Sts2.Core.CardSelection;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
@@ -17,6 +16,10 @@ public class EarthLightRay : AbstractAmplifiedCard
 
     protected override IEnumerable<DynamicVar> CanonicalVars => base.CanonicalVars.Concat([
         new HealVar(4m)
+    ]);
+
+    public override IEnumerable<CardKeyword> CanonicalKeywords => base.CanonicalKeywords.Concat([
+        CardKeyword.Exhaust
     ]);
 
     protected override void OnUpgrade()

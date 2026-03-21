@@ -1,7 +1,6 @@
 using BaseLib.Abstracts;
 using Godot;
 using marisamod.Scripts.Cards;
-using MarisaMod.scripts.Cards;
 using marisamod.Scripts.PatchesNModels;
 using marisamod.Scripts.Relics;
 using MegaCrit.Sts2.Core.Entities.Characters;

@@ -1,10 +1,9 @@
-using marisamod.Scripts.Cards.Abstract;
 using marisamod.Scripts.Powers;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 
-namespace marisamod.scripts.Cards
+namespace marisamod.Scripts.Cards
 {
     public class MillisecondPulsars : AbstractMarisaCard
     {

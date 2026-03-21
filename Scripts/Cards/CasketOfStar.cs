@@ -4,9 +4,8 @@ using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.HoverTips;
 using marisamod.Scripts.Cards.Colorless;
 using marisamod.Scripts.Powers;
-using marisamod.Scripts.Cards.Abstract;
 
-namespace marisamod.scripts.Cards
+namespace marisamod.Scripts.Cards
 {
     public class CasketOfStar : AbstractMarisaCard
     {

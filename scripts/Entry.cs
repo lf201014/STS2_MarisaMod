@@ -1,15 +1,19 @@
+using System.Reflection;
 using BaseLib.Config;
 using Godot;
 using Godot.Bridge;
 using HarmonyLib;
 using marisamod.Scripts.Characters;
 using MegaCrit.Sts2.Core.Bindings.MegaSpine;
+using MegaCrit.Sts2.Core.Context;
 using MegaCrit.Sts2.Core.Entities.Players;
 using MegaCrit.Sts2.Core.Logging;
 using MegaCrit.Sts2.Core.Modding;
 using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.Models.Cards;
+using MegaCrit.Sts2.Core.Models.Events;
 using MegaCrit.Sts2.Core.Nodes.Combat;
+using MegaCrit.Sts2.Core.Runs;
 using MegaCrit.Sts2.Core.Saves.Managers;
 
 namespace marisamod.Scripts;
@@ -80,6 +84,27 @@ public class Entry
             __result = path;
         }
     }
+
+    
+	// Token: 0x0200007C RID: 124
+	[HarmonyPatch(typeof(TheArchitect), "WinRun")]
+	internal static class WatcherArchitectWinRunPatch
+	{
+		private static bool Prefix(TheArchitect __instance, ref Task __result)
+		{
+			FieldInfo fieldInfo = AccessTools.Field(typeof(TheArchitect), "_dialogue");
+			if (((fieldInfo != null) ? fieldInfo.GetValue(__instance) : null) != null)
+			{
+				return true;
+			}
+			if (LocalContext.IsMe(__instance.Owner))
+			{
+				RunManager.Instance.ActChangeSynchronizer.SetLocalPlayerReady();
+			}
+			__result = Task.CompletedTask;
+			return false;
+		}
+	}
 
     // [HarmonyPatch(typeof(NCreature), "_Ready")]
     // static class NCreature_Ready_SpineReplace_Patch

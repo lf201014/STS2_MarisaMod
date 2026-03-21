@@ -4,9 +4,8 @@ using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.ValueProps;
 using marisamod.Scripts.Powers;
-using marisamod.Scripts.Cards.Abstract;
 
-namespace MarisaMod.scripts.Cards
+namespace marisamod.Scripts.Cards
 {
     public class ChargeUpSpray : AbstractMarisaCard
     {

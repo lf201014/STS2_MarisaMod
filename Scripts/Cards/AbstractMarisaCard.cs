@@ -3,7 +3,7 @@ using BaseLib.Utils;
 using marisamod.Scripts.PatchesNModels;
 using MegaCrit.Sts2.Core.Entities.Cards;
 
-namespace marisamod.Scripts.Cards.Abstract;
+namespace marisamod.Scripts.Cards;
 
 [Pool(typeof(MarisaCardPool))]
 public abstract class AbstractMarisaCard : CustomCardModel

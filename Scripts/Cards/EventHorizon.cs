@@ -1,5 +1,4 @@
-﻿using marisamod.Scripts.Cards.Abstract;
-using marisamod.Scripts.Powers;
+﻿using marisamod.Scripts.Powers;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
@@ -24,6 +23,6 @@ public class EventHorizon : AbstractMarisaCard
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
-        await PowerCmd.Apply<EventHorizonPower>(Owner.Creature, DynamicVars.Cards.BaseValue, Owner.Creature, this);
+        await PowerCmd.Apply<EventHorizonPower>(Owner.Creature, DynamicVars["Power"].BaseValue, Owner.Creature, this);
     }
 }

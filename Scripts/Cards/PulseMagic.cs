@@ -1,12 +1,11 @@
-using marisamod.scripts.Cards.Abstract;
-using marisamod.scripts.Powers;
+using marisamod.Scripts.Powers;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.Models.Powers;
 
-namespace marisamod.scripts.Cards
+namespace marisamod.Scripts.Cards
 {
     public class PulseMagic : AbstractAmplifiedCard
     {
@@ -21,10 +20,10 @@ namespace marisamod.scripts.Cards
 
         protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
         {
-            await PowerCmd.Apply<EnergyNextTurnPower>(Owner.Creature, DynamicVars.Energy.BaseValue, Owner.Creature, this);
+            await PowerCmd.Apply<EnergyNextTurnPower>(Owner.Creature, DynamicVars["GainEnergy"].BaseValue, Owner.Creature, this);
             if (IsAmplified)
             {
-                await PowerCmd.Apply<PulseMagicePower>(Owner.Creature, 1m, Owner.Creature, this);
+                await PowerCmd.Apply<PulseMagicPower>(Owner.Creature, 1m, Owner.Creature, this);
             }
         }
 

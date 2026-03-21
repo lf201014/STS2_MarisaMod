@@ -1,5 +1,5 @@
 {
-  "MARISAMOD-MINI_HAKKERO.title": "迷你八卦炉",
-  "MARISAMOD-MINI_HAKKERO.description": "每打出一张卡，获得一层[gold]蓄力[/gold]。",
-  "MARISAMOD-MINI_HAKKERO.flavor": "霖之助的发明。在魔理沙离开人里去往魔法森林时，被霖之助作为礼物送给了魔理沙。"
+  "MARISAMOD-MINI_HAKKERO.title": "Mini Hakkero",
+  "MARISAMOD-MINI_HAKKERO.description": "When you play a card, gain [blue]1[/blue] [gold]Charge-Up[/gold]。",
+  "MARISAMOD-MINI_HAKKERO.flavor": "A mini-Eight Trigram Furnace, a gift from Rinosuke when Marisa left her parents."
 }

@@ -1,12 +1,10 @@
-using marisamod.scripts.Powers;
-using marisamod.Scripts.Cards.Abstract;
 using marisamod.Scripts.Powers;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.Models;
 
-namespace marisamod.scripts.Cards.Abstract
+namespace marisamod.Scripts.Cards
 {
     public abstract class AbstractAmplifiedCard(int baseCost, int kickerCost, CardType type, CardRarity rarity, TargetType target) : AbstractMarisaCard(baseCost, type, rarity, target)
     {
@@ -31,7 +29,7 @@ namespace marisamod.scripts.Cards.Abstract
             {
                 if (Owner.PlayerCombatState.Hand.Cards.Contains(this))
                 {
-                    if (Owner.Creature.HasPower<MillisecondPulsarsPower>() || Owner.Creature.HasPower<PulseMagicePower>())
+                    if (Owner.Creature.HasPower<MillisecondPulsarsPower>() || Owner.Creature.HasPower<PulseMagicPower>())
                     {
                         SetAmplifyState(true, true);
                     }
@@ -54,7 +52,7 @@ namespace marisamod.scripts.Cards.Abstract
         private void SetAmplifyState(bool isAmplified, bool costFree)
         {
             IsAmplified = isAmplified;
-            if (isAmplified && !costFree && _costModifiedForAmplify)
+            if (isAmplified && !costFree && !_costModifiedForAmplify)
             {
                 EnergyCost.AddThisCombat(KickerCost);
                 _costModifiedForAmplify = true;

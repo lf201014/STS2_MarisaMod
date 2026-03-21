@@ -1,5 +1,4 @@
-using marisamod.scripts.Cards.Abstract;
-using marisamod.scripts.Cards.Colorless;
+using marisamod.Scripts.Cards.Colorless;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
@@ -7,7 +6,7 @@ using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.Nodes.CommonUi;
 
-namespace marisamod.scripts.Cards
+namespace marisamod.Scripts.Cards
 {
     public class BinaryStars : AbstractAmplifiedCard
     {

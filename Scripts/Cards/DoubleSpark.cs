@@ -4,11 +4,10 @@ using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.ValueProps;
 using MegaCrit.Sts2.Core.HoverTips;
-using marisamod.Scripts.Cards.Abstract;
 using marisamod.Scripts.Cards.Colorless;
-using marisamod.scripts.PatchesNModels;
+using marisamod.Scripts.PatchesNModels;
 
-namespace MarisaMod.scripts.Cards
+namespace marisamod.Scripts.Cards
 {
     public class DoubleSpark : AbstractMarisaCard
     {

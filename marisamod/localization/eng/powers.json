@@ -22,5 +22,9 @@
     "MARISAMOD-ESCAPE_VELOCITY_POWER.smartDescription": "If {OnPlayer:you|[gold]{OwnerName}[/gold]} end {OnPlayer:Your|[gold]{OwnerName}'s[/gold]} turn with cards in [gold]Hand[/gold],draw that many cards (up to {Amount}}) next turn.",
     "MARISAMOD-EVENT_HORIZON_POWER.title": "Event Horizon",
     "MARISAMOD-EVENT_HORIZON_POWER.description": "Once each turn,whenever {OnPlayer:you|[gold]{OwnerName}[/gold]} active an [gold]Amplify[/gold] effect,{OnPlayer:you|[gold]{OwnerName}[/gold]} may put an [gold]Attack[/gold] from [gold]Discard Pile[/gold] to [gold]Hand[/gold].",
-    "MARISAMOD-EVENT_HORIZON_POWER.smartDescription": "Up to {Amount} {Amount:plural:time|times}) each turn,whenever {OnPlayer:you|[gold]{OwnerName}[/gold]} active an [gold]Amplify[/gold] effect,{OnPlayer:you|[gold]{OwnerName}[/gold]} may put an [gold]Attack[/gold] from [gold]Discard Pile[/gold] to [gold]Hand[/gold]."
+    "MARISAMOD-EVENT_HORIZON_POWER.smartDescription": "Up to {Amount} {Amount:plural:time|times}) each turn,whenever {OnPlayer:you|[gold]{OwnerName}[/gold]} active an [gold]Amplify[/gold] effect,{OnPlayer:you|[gold]{OwnerName}[/gold]} may put an [gold]Attack[/gold] from [gold]Discard Pile[/gold] to [gold]Hand[/gold].",
+    "MARISAMOD-EVENT_HORIZON_POWER.selectionScreenPrompt": "Choose a card to put back in your Hand.",
+    "MARISAMOD-WITCH_OF_GREED_POTION_POWER.title": "Potion Reward" ,   
+    "MARISAMOD-WITCH_OF_GREED_POTION_POWER.description": "At the end of combat, gain [blue]1[/blue] [gold]Potion[/gold]." ,
+    "MARISAMOD-WITCH_OF_GREED_POTION_POWER.smartDescription": "At the end of combat, gain [blue]{Amount}[/blue] [gold]Potion(s)[/gold]."
 }

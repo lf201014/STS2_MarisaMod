@@ -1,12 +1,11 @@
-using marisamod.Scripts.Powers;
 using MegaCrit.Sts2.Core.Combat;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Powers;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 
-namespace marisamod.scripts.Powers
+namespace marisamod.Scripts.Powers
 {
-    public class PulseMagicePower : AbstractMarisaPower
+    public class PulseMagicPower : AbstractMarisaPower
     {
         public override PowerType Type => PowerType.Buff;
 

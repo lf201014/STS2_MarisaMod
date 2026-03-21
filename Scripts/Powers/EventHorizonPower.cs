@@ -1,4 +1,4 @@
-﻿using marisamod.scripts.Cards.Abstract;
+﻿using marisamod.Scripts.Cards;
 using MegaCrit.Sts2.Core.CardSelection;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
@@ -16,15 +16,15 @@ public class EventHorizonPower : AbstractMarisaPower
     private int _triggerCounterForTurn;
     private bool _triggerFlag;
 
-     public override async Task AfterCardPlayed(PlayerChoiceContext context, CardPlay cardPlay)
+    public override async Task AfterCardPlayed(PlayerChoiceContext context, CardPlay cardPlay)
     {
         if (_triggerFlag)
         {
             _triggerFlag = false;
-            var cards = PileType.Discard.GetPile(Owner.Player).Cards.Where(c=>c.Type == CardType.Attack).ToArray();
-            if(cards.Length>0)
+            var cards = PileType.Discard.GetPile(Owner.Player).Cards.Where(c => c.Type == CardType.Attack).ToArray();
+            if (cards.Length > 0)
             {
-                var prefs = new CardSelectorPrefs(SelectionScreenPrompt, 1);
+                var prefs = new CardSelectorPrefs(CardSelectorPrefs.TransformSelectionPrompt, 1);
                 var cardModel =
                     (await CardSelectCmd.FromSimpleGrid(context, cards, Owner.Player, prefs)).FirstOrDefault();
                 if (cardModel != null)
