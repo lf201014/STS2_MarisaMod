@@ -18,6 +18,8 @@ namespace marisamod.Scripts.Cards
             CardKeyword.Exhaust
         ]);
 
+        public override bool CanBeGeneratedInCombat => false;
+
         override protected void OnUpgrade()
         {
             // DynamicVars.CalculationBase.UpgradeValueBy(3);

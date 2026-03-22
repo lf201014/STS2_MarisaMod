@@ -22,6 +22,10 @@ namespace marisamod.Scripts.Cards
         [
             new EnergyVar(1)
         ];
+        
+        public override IEnumerable<CardKeyword> CanonicalKeywords => base.CanonicalKeywords.Concat([
+            CardKeyword.Exhaust
+        ]);
 
         protected override IEnumerable<IHoverTip> ExtraHoverTips => [HoverTipFactory.FromCard<Exhaustion>()];
 
@@ -35,6 +39,7 @@ namespace marisamod.Scripts.Cards
                 await PlayerCmd.GainEnergy(gain, Owner);
             }
             await PowerCmd.Apply<MaximisePowerPower>(Owner.Creature, 1m, Owner.Creature, this);
+            await CardPileCmd.AddGeneratedCardToCombat(CombatState!.CreateCard<Exhaustion>(Owner), PileType.Hand, addedByPlayer: true);
         }
     }
 }

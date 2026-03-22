@@ -4,7 +4,7 @@ using Godot;
 using Godot.Bridge;
 using HarmonyLib;
 using marisamod.Scripts.Characters;
-using MegaCrit.Sts2.Core.Bindings.MegaSpine;
+using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Context;
 using MegaCrit.Sts2.Core.Entities.Players;
 using MegaCrit.Sts2.Core.Logging;
@@ -12,7 +12,8 @@ using MegaCrit.Sts2.Core.Modding;
 using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.Models.Cards;
 using MegaCrit.Sts2.Core.Models.Events;
-using MegaCrit.Sts2.Core.Nodes.Combat;
+using MegaCrit.Sts2.Core.Models.Monsters;
+using MegaCrit.Sts2.Core.Models.Powers;
 using MegaCrit.Sts2.Core.Runs;
 using MegaCrit.Sts2.Core.Saves.Managers;
 
@@ -37,30 +38,30 @@ public class Entry
         Log.Info($"{LogPrefix} energy_test.tres 存在性: res://images/... = {ResourceLoader.Exists(gamePath)}, res://marisamod/images/... = {ResourceLoader.Exists(modPath)}");
     }
 
-    [HarmonyPatch(typeof(ProgressSaveManager),"ObtainCharUnlockEpoch")]
+    [HarmonyPatch(typeof(ProgressSaveManager), "ObtainCharUnlockEpoch")]
     public static class ProgressSaveManager_ObtainCharUnlockEpoch_Patch
     {
-        private static bool Prefix(ProgressSaveManager __instance,Player localPlayer)
+        private static bool Prefix(ProgressSaveManager __instance, Player localPlayer)
         {
             return localPlayer.Character is not MarisaCharacter;
         }
     }
 
-    
-    [HarmonyPatch(typeof(ProgressSaveManager),"CheckFifteenElitesDefeatedEpoch")]
+
+    [HarmonyPatch(typeof(ProgressSaveManager), "CheckFifteenElitesDefeatedEpoch")]
     public static class ProgressSaveManager_CheckFifteenElitesDefeatedEpoch_Patch
     {
-        private static bool Prefix(ProgressSaveManager __instance,Player localPlayer)
+        private static bool Prefix(ProgressSaveManager __instance, Player localPlayer)
         {
             return localPlayer.Character is not MarisaCharacter;
         }
     }
 
-    
-    [HarmonyPatch(typeof(ProgressSaveManager),"CheckFifteenBossesDefeatedEpoch")]
+
+    [HarmonyPatch(typeof(ProgressSaveManager), "CheckFifteenBossesDefeatedEpoch")]
     public static class ProgressSaveManager_CheckFifteenBossesDefeatedEpoch_Patch
     {
-        private static bool Prefix(ProgressSaveManager __instance,Player localPlayer)
+        private static bool Prefix(ProgressSaveManager __instance, Player localPlayer)
         {
             return !(localPlayer.Character.Id.ToString().Contains("MarisaMod", StringComparison.OrdinalIgnoreCase));
         }
@@ -85,25 +86,58 @@ public class Entry
         }
     }
 
-    
-	[HarmonyPatch(typeof(TheArchitect), "WinRun")]
-	internal static class WatcherArchitectWinRunPatch
-	{
-		private static bool Prefix(TheArchitect __instance, ref Task __result)
-		{
-			FieldInfo fieldInfo = AccessTools.Field(typeof(TheArchitect), "_dialogue");
-			if (((fieldInfo != null) ? fieldInfo.GetValue(__instance) : null) != null)
-			{
-				return true;
-			}
-			if (LocalContext.IsMe(__instance.Owner))
-			{
-				RunManager.Instance.ActChangeSynchronizer.SetLocalPlayerReady();
-			}
-			__result = Task.CompletedTask;
-			return false;
-		}
-	}
+
+    [HarmonyPatch(typeof(TheArchitect), "WinRun")]
+    internal static class WatcherArchitectWinRunPatch
+    {
+        private static bool Prefix(TheArchitect __instance, ref Task __result)
+        {
+            FieldInfo fieldInfo = AccessTools.Field(typeof(TheArchitect), "_dialogue");
+            if (((fieldInfo != null) ? fieldInfo.GetValue(__instance) : null) != null)
+            {
+                return true;
+            }
+            if (LocalContext.IsMe(__instance.Owner))
+            {
+                RunManager.Instance.ActChangeSynchronizer.SetLocalPlayerReady();
+            }
+            __result = Task.CompletedTask;
+            return false;
+        }
+    }
+
+    [HarmonyPatch(typeof(Entomancer), "SpitMove")]
+    internal static class EntomancerSpitMovePatch
+    {
+        private static AsyncLocal<Func<Task>> _asyncWork = new();
+
+        private static bool Prefix(Entomancer __instance, ref Task __result)
+        {
+            if (__instance.Creature.HasPower<PersonalHivePower>())
+            {
+                return true;
+            }
+
+            _asyncWork.Value = async () =>
+            {
+                FieldInfo fieldInfo = AccessTools.Field(typeof(Entomancer), "CastSfx");
+                if (((fieldInfo != null) ? fieldInfo.GetValue(__instance) : null) != null)
+                    SfxCmd.Play((string)fieldInfo.GetValue(__instance));
+                await CreatureCmd.TriggerAnim(__instance.Creature, "Cast", 0.5f);
+                await PowerCmd.Apply<PersonalHivePower>(__instance.Creature, 1, __instance.Creature, null);
+            };
+
+            __result = _asyncWork.Value();
+
+            return false;
+        }
+
+        private static void Postfix()
+        {
+            _asyncWork.Value = null;
+        }
+    }
+
 
     // [HarmonyPatch(typeof(NCreature), "_Ready")]
     // static class NCreature_Ready_SpineReplace_Patch

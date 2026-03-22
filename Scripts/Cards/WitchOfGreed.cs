@@ -17,6 +17,8 @@ namespace marisamod.Scripts.Cards
             new GoldVar(15),
         new DynamicVar("Potion",1)
         ]);
+        
+        public override bool CanBeGeneratedInCombat => false;
 
         protected override void OnUpgrade()
         {

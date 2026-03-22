@@ -16,13 +16,11 @@ namespace marisamod.Scripts.Cards
         // protected override HashSet<CardTag> CanonicalTags => [MarisaCardKeyWords.Spark];
         // public override IEnumerable<CardKeyword> CanonicalKeywords => base.CanonicalKeywords.Concat([MarisaCardKeyWords.SPARK]);
 
-
-        protected override IEnumerable<DynamicVar> CanonicalVars => [
+        protected override IEnumerable<DynamicVar> CanonicalVars => base.CanonicalVars.Concat([
             new CalculationBaseVar(8m),
             new ExtraDamageVar(7m),
-            new CalculatedDamageVar(ValueProp.Move).WithMultiplier((card, _) => card is AbstractAmplifiedCard { IsAmplified: true } ? 1 : 0),
-            new EnergyVar(1)
-            ];
+            new CalculatedDamageVar(ValueProp.Move).WithMultiplier((card, _) => card is AbstractAmplifiedCard { IsAmplified: true } ? 1 : 0)
+            ]);
         
         protected override HashSet<CardTag> CanonicalTags => [MarisaCardTags.Spark];
 

@@ -1,0 +1,53 @@
+[gd_scene load_steps=4 format=3 uid="uid://fc5x7hciyofl"]
+
+[ext_resource type="Script" uid="uid://6kbvi83s7bvv" path="res://Scripts/Nodes/MehRestsiteCharacter.cs" id="1_p7k2t"]
+[ext_resource type="Texture2D" uid="uid://b5fsrwm5xl6dv" path="res://marisamod/images/MarisaModelv2-Idle.png" id="2_w5y74"]
+[ext_resource type="PackedScene" uid="uid://6w2yhyw0x5yu" path="res://marisamod/scenes/selection_reticle.tscn" id="3_xvibq"]
+
+[node name="IroncladRestSite" type="Node2D"]
+position = Vector2(-2, 42)
+scale = Vector2(0.760006, 0.760006)
+script = ExtResource("1_p7k2t")
+
+[node name="SpineSprite" type="SpineSprite" parent="."]
+
+[node name="MarisaModelv2Idle" type="Sprite2D" parent="."]
+position = Vector2(55.262714, -14.473564)
+scale = Vector2(1.7657641, 1.7657644)
+texture = ExtResource("2_w5y74")
+
+[node name="ControlRoot" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+
+[node name="SelectionReticle" parent="ControlRoot" instance=ExtResource("3_xvibq")]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = -153.0
+offset_top = -350.0
+offset_right = 267.0
+offset_bottom = 320.0
+
+[node name="Hitbox" type="Control" parent="ControlRoot"]
+unique_name_in_owner = true
+anchors_preset = 0
+offset_left = -155.0
+offset_top = -351.0
+offset_right = 266.0
+offset_bottom = 332.0
+
+[node name="ThoughtBubbleRight" type="Control" parent="ControlRoot"]
+unique_name_in_owner = true
+anchors_preset = 0
+offset_left = 209.209
+offset_top = -317.103
+offset_right = 209.209
+offset_bottom = -317.103
+
+[node name="ThoughtBubbleLeft" type="Control" parent="ControlRoot"]
+unique_name_in_owner = true
+anchors_preset = 0
+offset_left = -73.6836
+offset_top = -324.997
+offset_right = -73.6836
+offset_bottom = -324.997
