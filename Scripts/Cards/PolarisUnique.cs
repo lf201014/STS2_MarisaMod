@@ -7,7 +7,7 @@ namespace marisamod.Scripts.Cards
 {
     public class PolarisUnique : AbstractMarisaCard
     {
-        public PolarisUnique() : base(0, CardType.Skill, CardRarity.Common, TargetType.Self) { }
+        public PolarisUnique() : base(0, CardType.Skill, CardRarity.Uncommon, TargetType.Self) { }
 
         protected override IEnumerable<DynamicVar> CanonicalVars => [
             new EnergyVar(2)
