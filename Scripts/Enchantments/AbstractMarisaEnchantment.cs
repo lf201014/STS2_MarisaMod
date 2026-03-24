@@ -1,6 +1,8 @@
 using MegaCrit.Sts2.Core.Models;
 
-public class AbstractMarisaEnchantment : EnchantmentModel
+namespace marisamod.Scripts.Enchantments;
+
+public abstract class AbstractMarisaEnchantment : EnchantmentModel
 {
     //TODO
 }

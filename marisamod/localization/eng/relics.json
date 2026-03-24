@@ -1,5 +1,8 @@
 {
   "MARISAMOD-MINI_HAKKERO.title": "Mini Hakkero",
-  "MARISAMOD-MINI_HAKKERO.description": "When you play a card, gain [blue]1[/blue] [gold]Charge-Up[/gold]。",
-  "MARISAMOD-MINI_HAKKERO.flavor": "A mini-Eight Trigram Furnace, a gift from Rinosuke when Marisa left her parents."
+  "MARISAMOD-MINI_HAKKERO.description": "When you play a card, gain [blue]1[/blue] [gold]Charge-Up[/gold].",
+  "MARISAMOD-MINI_HAKKERO.flavor": "A mini-Eight Trigram Furnace, a gift from Rinosuke when Marisa left her parents.",
+  "MARISAMOD-BEWITCHED_HAKKERO.title": "Bewitched Hakkero",
+  "MARISAMOD-BEWITCHED_HAKKERO.description": "When you play a card, gain [blue]1[/blue] [gold]Charge-Up[/gold]. Gain 1 more if it is an Attack.",
+  "MARISAMOD-BEWITCHED_HAKKERO.flavor": "Its firepower is on a new level, but is it ok to use a bewitched tool?"
 }

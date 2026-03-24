@@ -26,7 +26,7 @@ namespace marisamod.Scripts.Cards
                 .Execute(choiceContext);
 
             _back2Hand = false;
-            CardModel cardModel =
+            var cardModel =
             (await CardSelectCmd.FromHand(choiceContext, Owner, new CardSelectorPrefs(CardSelectorPrefs.ExhaustSelectionPrompt, 1), null, this)).FirstOrDefault();
             if (cardModel != null)
             {

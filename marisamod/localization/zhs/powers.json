@@ -41,5 +41,8 @@
     "MARISAMOD-SATELLITE_ILLUSION_POWER.smartDescription": "在你打出一张牌后，若你的抽牌堆中牌的数量增加，则获得{Amount:energyIcons()}。",
     "MARISAMOD-SINGULARITY_POWER.title": "奇点",
     "MARISAMOD-SINGULARITY_POWER.description": "当你打出一张费用为0的牌，增加你[gold]手牌[/gold]中随机一张攻击牌的伤害2点。",
-    "MARISAMOD-SINGULARITY_POWER.smartDescription": "当你打出一张费用为0的牌，增加你[gold]手牌[/gold]中随机一张攻击牌的伤害[blue]{Amount}[/blue]点。"
+    "MARISAMOD-SINGULARITY_POWER.smartDescription": "当你打出一张费用为0的牌，增加你[gold]手牌[/gold]中随机一张攻击牌的伤害[blue]{Amount}[/blue]点。",
+    "MARISAMOD-STARLIT_POWER.title": "星彩",
+    "MARISAMOD-STARLIT_POWER.description": "回合结束时对所有敌人造成伤害并获得[gold]格挡[/gold]。",
+    "MARISAMOD-STARLIT_POWER.smartDescription": "回合结束时对所有敌人造成{Amount}点伤害并获得{Amount*2}点[gold]格挡[/gold]。"
 }

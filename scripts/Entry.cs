@@ -4,6 +4,7 @@ using Godot;
 using Godot.Bridge;
 using HarmonyLib;
 using marisamod.Scripts.Characters;
+using marisamod.Scripts.Relics;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Context;
 using MegaCrit.Sts2.Core.Entities.Players;
@@ -14,9 +15,11 @@ using MegaCrit.Sts2.Core.Models.Cards;
 using MegaCrit.Sts2.Core.Models.Events;
 using MegaCrit.Sts2.Core.Models.Monsters;
 using MegaCrit.Sts2.Core.Models.Powers;
+using MegaCrit.Sts2.Core.Models.Relics;
 using MegaCrit.Sts2.Core.Nodes.Vfx.Utilities;
 using MegaCrit.Sts2.Core.Runs;
 using MegaCrit.Sts2.Core.Saves.Managers;
+// ReSharper disable InconsistentNaming
 
 namespace marisamod.Scripts;
 
@@ -34,9 +37,9 @@ public class Entry
         Log.Info($"{LogPrefix} Harmony PatchAll completed");
         ScriptManagerBridge.LookupScriptsInAssembly(typeof(Entry).Assembly);
 
-        const string gamePath = "res://images/atlases/ui_atlas.sprites/card/energy_test.tres";
-        const string modPath = "res://marisamod/images/atlases/ui_atlas.sprites/card/energy_test.tres";
-        Log.Info($"{LogPrefix} energy_test.tres 存在性: res://images/... = {ResourceLoader.Exists(gamePath)}, res://marisamod/images/... = {ResourceLoader.Exists(modPath)}");
+        //const string gamePath = "res://images/atlases/ui_atlas.sprites/card/energy_test.tres";
+        //const string modPath = "res://marisamod/images/atlases/ui_atlas.sprites/card/energy_test.tres";
+        //Log.Info($"{LogPrefix} energy_test.tres 存在性: res://images/... = {ResourceLoader.Exists(gamePath)}, res://marisamod/images/... = {ResourceLoader.Exists(modPath)}");
     }
 
     [HarmonyPatch(typeof(ProgressSaveManager), "ObtainCharUnlockEpoch")]
@@ -98,10 +101,12 @@ public class Entry
             {
                 return true;
             }
+
             if (LocalContext.IsMe(__instance.Owner))
             {
                 RunManager.Instance.ActChangeSynchronizer.SetLocalPlayerReady();
             }
+
             __result = Task.CompletedTask;
             return false;
         }
@@ -143,14 +148,30 @@ public class Entry
     [HarmonyPatch(typeof(NParticlesContainer), "Restart")]
     internal static class ParticlesContainerRestartPatch
     {
-        private static bool Prefix(TheArchitect __instance)
+        private static bool Prefix(NParticlesContainer __instance)
         {
             FieldInfo fieldInfo = AccessTools.Field(typeof(NParticlesContainer), "_particles");
             if ((fieldInfo?.GetValue(__instance)) != null)
             {
                 return true;
             }
+
             return false;
+        }
+    }
+
+    [HarmonyPatch(typeof(TouchOfOrobas), "GetUpgradedStarterRelic")]
+    internal static class TouchOfOrobasGetUpgradedStarterRelicPatch
+    {
+        private static bool Prefix(TouchOfOrobas __instance, RelicModel starterRelic, ref RelicModel __result)
+        {
+            if (starterRelic is MiniHakkero)
+            {
+                __result = ModelDb.Relic<BewitchedHakkero>();
+                return false;
+            }
+
+            return true;
         }
     }
 

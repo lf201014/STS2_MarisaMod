@@ -1,0 +1,44 @@
+using marisamod.Scripts.Characters;
+using MegaCrit.Sts2.Core.Commands;
+using MegaCrit.Sts2.Core.Entities.Cards;
+using MegaCrit.Sts2.Core.Entities.Players;
+using MegaCrit.Sts2.Core.Entities.Powers;
+using MegaCrit.Sts2.Core.Extensions;
+using MegaCrit.Sts2.Core.GameActions.Multiplayer;
+using MegaCrit.Sts2.Core.Models.Powers;
+using MegaCrit.Sts2.Core.Runs;
+
+namespace marisamod.Scripts.Powers;
+
+public class WalpurgisnachtPower : AbstractMarisaPower
+{
+    public override PowerType Type => PowerType.Buff;
+    public override PowerStackType StackType => PowerStackType.Counter;
+
+    public override async Task AfterPlayerTurnStart(PlayerChoiceContext choiceContext, Player player)
+    {
+        if (player != Owner.Player)
+            return;
+        var enchant = MarisaCharacter.StarlitEnchantment;
+        var cards = player.PlayerCombatState.Hand.Cards.Where(x => enchant.CanEnchant(x)).ToList();
+        if (cards.Count > Amount)
+        {
+            cards = cards.TakeRandom(Amount, Owner.Player.RunState.Rng.CombatCardSelection).ToList();
+        }
+
+        foreach (var card in cards)
+        {
+            Flash();
+            CardCmd.Enchant(enchant, card, 1);
+            await Cmd.Wait(0.2f);
+        }
+    }
+
+    public override async Task AfterCardPlayed(PlayerChoiceContext context, CardPlay cardPlay)
+    {
+        if (cardPlay.Card.Owner == Owner.Player && cardPlay.Card.Enchantment != null)
+        {
+            await PowerCmd.Apply<EnergyNextTurnPower>(Owner, 1, Owner, null);
+        }
+    }
+}
