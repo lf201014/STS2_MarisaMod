@@ -21,6 +21,7 @@ public class WalpurgisnachtPower : AbstractMarisaPower
     {
         if (player != Owner.Player)
             return;
+
         var enchant = ModelDb.Enchantment<StarlitEnchantment>().ToMutable();
         var cards = player.PlayerCombatState.Hand.Cards.Where(x => enchant.CanEnchant(x)).ToList();
         if (cards.Count > Amount)
@@ -33,6 +34,7 @@ public class WalpurgisnachtPower : AbstractMarisaPower
             Flash();
             CardCmd.Enchant(enchant, card, 1);
             await Cmd.Wait(0.2f);
+            enchant = ModelDb.Enchantment<StarlitEnchantment>().ToMutable();
         }
     }
 

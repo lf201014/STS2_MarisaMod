@@ -45,8 +45,8 @@ namespace marisamod.Scripts.Cards
             if (card == this)
             {
                 var prefs = new CardSelectorPrefs(SelectionScreenPrompt, DynamicVars["Add"].IntValue);
-                var pile = PileType.Exhaust.GetPile(Owner);
-                var cards = (await CardSelectCmd.FromSimpleGrid(choiceContext, pile.Cards, Owner, prefs)).ToArray();
+                var pile = PileType.Exhaust.GetPile(Owner).Cards.Where(x => x is not Orbital).ToArray();
+                var cards = (await CardSelectCmd.FromSimpleGrid(choiceContext, pile, Owner, prefs)).ToArray();
                 if (cards.Length > 0)
                 {
                     foreach (CardModel item in cards)
