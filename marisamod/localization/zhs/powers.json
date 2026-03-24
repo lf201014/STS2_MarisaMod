@@ -42,9 +42,12 @@
     "MARISAMOD-SINGULARITY_POWER.title": "奇点",
     "MARISAMOD-SINGULARITY_POWER.description": "当你打出一张费用为0的牌，增加你[gold]手牌[/gold]中随机一张攻击牌的伤害2点。",
     "MARISAMOD-SINGULARITY_POWER.smartDescription": "当你打出一张费用为0的牌，增加你[gold]手牌[/gold]中随机一张攻击牌的伤害[blue]{Amount}[/blue]点。",
+    "MARISAMOD-SPRINKLE_STAR_N_HEART_POWER.title": "星星心心洒",
+    "MARISAMOD-SPRINKLE_STAR_N_HEART_POWER.description": "直到你的下个回合，[gold]星彩[/gold]不会在触发后被移除。",
+    "MARISAMOD-SPRINKLE_STAR_N_HEART_POWER.smartDescription": "直到你的下个回合，[gold]星彩[/gold]不会在触发后被移除。",
     "MARISAMOD-STARLIT_POWER.title": "星彩",
     "MARISAMOD-STARLIT_POWER.description": "回合结束时对所有敌人造成伤害并获得[gold]格挡[/gold]。",
-    "MARISAMOD-STARLIT_POWER.smartDescription": "回合结束时对所有敌人造成{Amount}点伤害并获得{Amount*2}点[gold]格挡[/gold]。",
+    "MARISAMOD-STARLIT_POWER.smartDescription": "回合结束时对所有敌人造成{Amount}点伤害并获得{Aoe}点[gold]格挡[/gold]。",
     "MARISAMOD-WALPURGISNACHT_POWER.title": "魔女之夜",
     "MARISAMOD-WALPURGISNACHT_POWER.description": "在你回合开始时，为1张你的随机手牌添加[gold]附魔[/gold][gold]星彩[/gold]。\n每当你打出一张已[gold]附魔[/gold]的牌，在下个回合获得{energyPrefix:energyIcons(1)}。",
     "MARISAMOD-WALPURGISNACHT_POWER.smartDescription": "在你回合开始时，为[blue]{Amount}[/blue]张你的随机手牌添加[gold]附魔[/gold][gold]星彩[/gold]。\n每当你打出一张已[gold]附魔[/gold]的牌，在下个回合获得{energyPrefix:energyIcons(1)}。"

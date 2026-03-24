@@ -42,9 +42,12 @@
   "MARISAMOD-SINGULARITY_POWER.title": "Singularity",
   "MARISAMOD-SINGULARITY_POWER.description": "When you play a card that cost 0 energy,increase the damage of a random Attack in your [gold]Hand[/gold].",
   "MARISAMOD-SINGULARITY_POWER.smartDescription": "When you play a card that cost 0 energy,increase the damage of a random Attack in your [gold]Hand[/gold] by {Amount}.",
+  "MARISAMOD-SPRINKLE_STAR_N_HEART_POWER.title": "Sprinkle Star & Heart",
+  "MARISAMOD-SPRINKLE_STAR_N_HEART_POWER.description": "Your [gold]Starlit[/gold] will not be removed upon trigger until your next turn.",
+  "MARISAMOD-SPRINKLE_STAR_N_HEART_POWER.smartDescription": "Your [gold]Starlit[/gold] will not be removed upon trigger until your next turn.",
   "MARISAMOD-STARLIT_POWER.title": "Starlit",
   "MARISAMOD-STARLIT_POWER.description": "Deal damage to all enemies and gain [gold]Block[/gold] at the end of your turn.",
-  "MARISAMOD-STARLIT_POWER.smartDescription": "Deal {Amount} damage to all enemies and gain {Amount*2} [gold]Block[/gold] at the end of your turn.",
+  "MARISAMOD-STARLIT_POWER.smartDescription": "Deal {Amount} damage to all enemies and gain {Aoe} [gold]Block[/gold] at the end of your turn.",
   "MARISAMOD-WALPURGISNACHT_POWER.title": "Walpurgisnacht",
   "MARISAMOD-WALPURGISNACHT_POWER.description": "At the start of your turn, [gold]Enchant[/gold] a random card in your hand with [gold]Starlit[/gold].\nWhenever you play an [gold]enchanted[/gold] card, gain {energyPrefix:energyIcons(1)} next turn.",
   "MARISAMOD-WALPURGISNACHT_POWER.smartDescription": "At the start of your turn, [gold]Enchant[/gold] [blue]{Amount}[/blue] random {Amount:plural:card|cards} in your hand with [gold]Starlit[/gold].\nWhenever you play an [gold]enchanted[/gold] card, gain {energyPrefix:energyIcons(1)} next turn."

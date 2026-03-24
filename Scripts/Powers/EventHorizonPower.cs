@@ -24,7 +24,7 @@ public class EventHorizonPower : AbstractMarisaPower
             var cards = PileType.Discard.GetPile(Owner.Player).Cards.Where(c => c.Type == CardType.Attack).ToArray();
             if (cards.Length > 0)
             {
-                var prefs = new CardSelectorPrefs(CardSelectorPrefs.TransformSelectionPrompt, 1);
+                var prefs = new CardSelectorPrefs(SelectionScreenPrompt, 1);
                 var cardModel =
                     (await CardSelectCmd.FromSimpleGrid(context, cards, Owner.Player, prefs)).FirstOrDefault();
                 if (cardModel != null)
