@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bljvlyldxs3dr"
-path="res://.godot/imported/marisa_energy_icon.png-2ada4372b7f9a683a96f2d036c7d8041.ctex"
+uid="uid://cnksqoat1q12r"
+path="res://.godot/imported/cardEnergyMarisa.png-500c765a5a0009bea20b19b38b07a7cd.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://images/packed/sprite_fonts/marisa_energy_icon.png"
-dest_files=["res://.godot/imported/marisa_energy_icon.png-2ada4372b7f9a683a96f2d036c7d8041.ctex"]
+source_file="res://images/cardEnergyMarisa.png"
+dest_files=["res://.godot/imported/cardEnergyMarisa.png-500c765a5a0009bea20b19b38b07a7cd.ctex"]
 
 [params]
 
