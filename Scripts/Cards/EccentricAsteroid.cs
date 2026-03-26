@@ -14,7 +14,7 @@ public class EccentricAsteroid : AbstractMarisaCard
     {
     }
     
-    public override string PortraitPath => "res://marisamod/images/cards/marisamod-test_marisa_card.png";
+    //public override string PortraitPath => "res://marisamod/images/cards/marisamod-test_marisa_card.png";
 
     public override bool GainsBlock => true;
 

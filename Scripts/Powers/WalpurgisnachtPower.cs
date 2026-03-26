@@ -8,7 +8,6 @@ using MegaCrit.Sts2.Core.Extensions;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.Models.Powers;
-using MegaCrit.Sts2.Core.Runs;
 
 namespace marisamod.Scripts.Powers;
 
@@ -32,7 +31,7 @@ public class WalpurgisnachtPower : AbstractMarisaPower
         foreach (var card in cards)
         {
             Flash();
-            CardCmd.Enchant(enchant, card, 1);
+            MarisaCharacter.Enchant(enchant, card);
             await Cmd.Wait(0.2f);
             enchant = ModelDb.Enchantment<StarlitEnchantment>().ToMutable();
         }

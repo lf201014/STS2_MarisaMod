@@ -32,7 +32,7 @@ public class MagicChant : AbstractMarisaCard
         if (cardModel != null)
         {
             if (enchant.CanEnchant(cardModel))
-                CardCmd.Enchant(enchant, cardModel, 1);
+                MarisaCharacter.Enchant(enchant, cardModel);
             await CardPileCmd.Add(cardModel, PileType.Hand);
         }
     }

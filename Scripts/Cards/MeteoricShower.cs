@@ -25,21 +25,23 @@ namespace marisamod.Scripts.Cards
             if (IsUpgraded)
                 exhaustNum++;
 
-            var hitCount = 0;
-            foreach (CardModel item in
-            await CardSelectCmd.FromHand(prefs: new CardSelectorPrefs(SelectionScreenPrompt, 0, exhaustNum), context: choiceContext, player: Owner, filter: null, source: this))
+            if (exhaustNum > 0)
             {
-                if (item is Burn)
+                var hitCount = 0;
+                foreach (CardModel item in
+                await CardSelectCmd.FromHand(prefs: new CardSelectorPrefs(SelectionScreenPrompt, 0, exhaustNum), context: choiceContext, player: Owner, filter: null, source: this))
+                {
+                    if (item is Burn)
+                        hitCount++;
+                    await CardCmd.Exhaust(choiceContext, item);
                     hitCount++;
-                await CardCmd.Exhaust(choiceContext, item);
-                hitCount++;
+                }
+
+                await DamageCmd.Attack(DynamicVars.Damage.BaseValue).WithHitCount(hitCount).FromCard(this)
+                    .TargetingRandomOpponents(CombatState)
+                    .WithHitFx("vfx/vfx_attack_slash")
+                    .Execute(choiceContext);
             }
-
-            await DamageCmd.Attack(DynamicVars.Damage.BaseValue).WithHitCount(hitCount).FromCard(this)
-                .TargetingRandomOpponents(CombatState)
-                .WithHitFx("vfx/vfx_attack_slash")
-                .Execute(choiceContext);
         }
-
     }
 }

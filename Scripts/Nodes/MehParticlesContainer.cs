@@ -11,7 +11,13 @@ public partial class MehParticlesContainer : NParticlesContainer
 	public override void _Ready()
 	{
 		base._Ready();
-		Traverse.Create(this).Field("_particles").SetValue(new Array<GpuParticles2D>());
+		Array<GpuParticles2D> pts = [];
+		foreach (var item in GetChildren().Where(c => c is GpuParticles2D))
+		{
+			if (item is GpuParticles2D gpuParticles2D)
+				pts.Add(gpuParticles2D);
+		}
+		Traverse.Create(this).Field("_particles").SetValue(pts);//new Array<GpuParticles2D>());
 	}
 
 }

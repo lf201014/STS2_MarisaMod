@@ -12,7 +12,7 @@ public class BoundOfProtagonists : AbstractMarisaCard
     {
     }
     
-    public override string PortraitPath => "res://marisamod/images/cards/marisamod-test_marisa_card.png";
+    //public override string PortraitPath => "res://marisamod/images/cards/marisamod-test_marisa_card.png";
 
     protected override IEnumerable<DynamicVar> CanonicalVars =>
     [
@@ -26,6 +26,6 @@ public class BoundOfProtagonists : AbstractMarisaCard
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
-        await PowerCmd.Apply<FlightPower>(Owner.Creature, DynamicVars["Power"].IntValue, Owner.Creature, this);
+        await PowerCmd.Apply<BoundOfProtagonistsPower>(Owner.Creature, DynamicVars["Power"].IntValue, Owner.Creature, this);
     }
 }

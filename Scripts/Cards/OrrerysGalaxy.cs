@@ -17,7 +17,7 @@ public class OrrerysGalaxy : AbstractMarisaCard
         new DynamicVar("Mult", 2)
     ];
     
-    public override string PortraitPath => "res://marisamod/images/cards/marisamod-test_marisa_card.png";
+    //public override string PortraitPath => "res://marisamod/images/cards/marisamod-test_marisa_card.png";
 
     protected override void OnUpgrade()
     {
@@ -29,7 +29,7 @@ public class OrrerysGalaxy : AbstractMarisaCard
         var amt = Owner.Creature.GetPowerAmount<StarlitPower>();
         if (amt > 0)
         {
-            amt = amt * DynamicVars["Mult"].IntValue - 1;
+            amt *= DynamicVars["Mult"].IntValue - 1;
             await PowerCmd.Apply<StarlitPower>(Owner.Creature, amt, Owner.Creature, this);
         }
     }

@@ -16,7 +16,7 @@ public class ShootTheDanmakuBarrier : AbstractMarisaCard
         new DamageVar(24,ValueProp.Move)
     ];
     
-    public override string PortraitPath => "res://marisamod/images/cards/marisamod-test_marisa_card.png";
+    //public override string PortraitPath => "res://marisamod/images/cards/marisamod-test_marisa_card.png";
 
     protected override void OnUpgrade()
     {

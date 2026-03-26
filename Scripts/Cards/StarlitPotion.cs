@@ -13,13 +13,14 @@ public class StarlitPotion : AbstractMarisaCard
     {
     }
 
-    public override string PortraitPath => "res://marisamod/images/cards/marisamod-test_marisa_card.png";
+    //public override string PortraitPath => "res://marisamod/images/cards/marisamod-test_marisa_card.png";
 
     public override IEnumerable<CardKeyword> CanonicalKeywords => [CardKeyword.Exhaust];
 
     protected override void OnUpgrade()
     {
-        RemoveKeyword(CardKeyword.Exhaust);
+        //RemoveKeyword(CardKeyword.Exhaust);
+        EnergyCost.UpgradeBy(-1);
     }
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
@@ -29,7 +30,7 @@ public class StarlitPotion : AbstractMarisaCard
         {
             var enchant = ModelDb.Enchantment<StarlitEnchantment>().ToMutable();
             if (enchant.CanEnchant(card))
-                CardCmd.Enchant(enchant, card, 1);
+                MarisaCharacter.Enchant(enchant, card);
         }
 
         await Cmd.Wait(0.25f);

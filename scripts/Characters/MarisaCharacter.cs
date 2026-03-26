@@ -85,4 +85,30 @@ public class MarisaCharacter : PlaceholderCharacterModel
         "vfx/vfx_bloody_impact",
         "vfx/vfx_rock_shatter"
     ];
+
+    public static EnchantmentModel? Enchant(EnchantmentModel enchantment, CardModel card, decimal amount = 1)
+    {
+
+        enchantment.AssertMutable();
+        if (!enchantment.CanEnchant(card))
+        {
+            throw new InvalidOperationException($"Cannot enchant {card.Id} with {enchantment.Id}.");
+        }
+        if (card.Enchantment == null)
+        {
+            card.EnchantInternal(enchantment, amount);
+            enchantment.ModifyCard();
+        }
+        else
+        {
+            if (!(card.Enchantment.GetType() == enchantment.GetType()))
+            {
+                throw new InvalidOperationException($"Cannot enchant {card.Id} with {enchantment.Id} because it already has enchantment {card.Enchantment.Id}.");
+            }
+            card.Enchantment.Amount += (int)amount;
+        }
+        card.FinalizeUpgradeInternal();
+
+        return card.Enchantment;
+    }
 }
