@@ -32,6 +32,7 @@ public class TestPotion : PotionModel
     protected override async Task OnUse(PlayerChoiceContext choiceContext, Creature? target)
     {
         // 这里的DynamicVars.Cards.IntValue就是我们在CanonicalVars中定义的CardsVar的数值，也就是3。
-        await Soul.CreateInHand(Owner, DynamicVars.Cards.IntValue, Owner.Creature.CombatState);
+        if (Owner.Creature.CombatState != null)
+            await Soul.CreateInHand(Owner, DynamicVars.Cards.IntValue, Owner.Creature.CombatState);
     }
 }

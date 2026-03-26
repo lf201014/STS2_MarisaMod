@@ -12,8 +12,9 @@ namespace marisamod.Scripts.Powers
 
         public override Task AfterCombatEnd(CombatRoom room)
         {
-            for (int i = 0; i < Amount; i++)
-                room.AddExtraReward(Owner.Player, new PotionReward(Owner.Player));
+            if (Owner.Player != null)
+                for (var i = 0; i < Amount; i++)
+                    room.AddExtraReward(Owner.Player, new PotionReward(Owner.Player));
             return Task.CompletedTask;
         }
     }

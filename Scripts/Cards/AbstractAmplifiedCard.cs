@@ -103,11 +103,5 @@ namespace marisamod.Scripts.Cards
             ValidateAmplify();
             return Task.CompletedTask;
         }
-
-        public override Task AfterEnergySpent(CardModel card, int amount)
-        {
-            ValidateAmplify();
-            return Task.CompletedTask;
-        }
     }
 }

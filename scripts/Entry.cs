@@ -127,8 +127,8 @@ public class Entry
 
             _asyncWork.Value = async () =>
             {
-                FieldInfo fieldInfo = AccessTools.Field(typeof(Entomancer), "CastSfx");
-                if (((fieldInfo != null) ? fieldInfo.GetValue(__instance) : null) != null)
+                var fieldInfo = AccessTools.Field(typeof(Entomancer), "CastSfx");
+                if ((fieldInfo != null ? fieldInfo.GetValue(__instance) : null) != null)
                     SfxCmd.Play((string)fieldInfo.GetValue(__instance));
                 await CreatureCmd.TriggerAnim(__instance.Creature, "Cast", 0.5f);
                 await PowerCmd.Apply<PersonalHivePower>(__instance.Creature, 1, __instance.Creature, null);
@@ -141,7 +141,7 @@ public class Entry
 
         private static void Postfix()
         {
-            _asyncWork.Value = null;
+            _asyncWork.Value = null!;
         }
     }
 
