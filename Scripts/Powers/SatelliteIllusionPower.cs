@@ -12,7 +12,7 @@ namespace marisamod.Scripts.Powers
 
         public override PowerStackType StackType => PowerStackType.Counter;
 
-        private int _rec = 0;
+        private int _rec;
 
         public void SetStartingRec(int count)
         {

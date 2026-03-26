@@ -1,6 +1,6 @@
 using marisamod.Scripts.Powers;
-using MegaCrit.Sts2.Core.Combat;
 using MegaCrit.Sts2.Core.Entities.Cards;
+using MegaCrit.Sts2.Core.Entities.Creatures;
 using MegaCrit.Sts2.Core.Entities.Players;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
@@ -93,6 +93,18 @@ namespace marisamod.Scripts.Cards
         }
 
         public override Task AfterEnergyReset(Player player)
+        {
+            ValidateAmplify();
+            return Task.CompletedTask;
+        }
+
+        public override Task AfterPotionUsed(PotionModel potion, Creature? target)
+        {
+            ValidateAmplify();
+            return Task.CompletedTask;
+        }
+
+        public override Task AfterEnergySpent(CardModel card, int amount)
         {
             ValidateAmplify();
             return Task.CompletedTask;

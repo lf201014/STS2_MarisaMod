@@ -10,7 +10,7 @@ namespace marisamod.Scripts.Cards;
 
 public class EccentricAsteroid : AbstractMarisaCard
 {
-    public EccentricAsteroid() : base(1, CardType.Skill, CardRarity.Uncommon, TargetType.Self)
+    public EccentricAsteroid() : base(1, CardType.Skill, CardRarity.Common, TargetType.Self)
     {
     }
     
@@ -20,7 +20,7 @@ public class EccentricAsteroid : AbstractMarisaCard
 
     protected override IEnumerable<DynamicVar> CanonicalVars =>
     [
-        new CalculationBaseVar(5),
+        new CalculationBaseVar(6),
         new CalculationExtraVar(2),
         new CalculatedBlockVar(ValueProp.Move).WithMultiplier((card, _) =>
             CombatManager.Instance.History.CardPlaysFinished.Count(e =>

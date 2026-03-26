@@ -9,7 +9,7 @@ namespace marisamod.Scripts.Cards
 {
     public class ManaConvection : AbstractMarisaCard
     {
-        public ManaConvection() : base(1, CardType.Skill, CardRarity.Common, TargetType.Self)
+        public ManaConvection() : base(1, CardType.Skill, CardRarity.Uncommon, TargetType.Self)
         {
         }
 

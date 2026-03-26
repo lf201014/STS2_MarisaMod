@@ -39,7 +39,7 @@ public class MagicAndRedDreamPower : AbstractMarisaPower
             _toTrigger = false;
             await CardPileCmd.Draw(context, Amount, Owner.Player);
 
-            var array = (await CardSelectCmd.FromHand(context, Owner.Player, new CardSelectorPrefs(SelectionScreenPrompt, DynamicVars["PutBack"].IntValue), null, this)).ToArray();
+            var array = (await CardSelectCmd.FromHand(context, Owner.Player, new CardSelectorPrefs(SelectionScreenPrompt, 1), null, this)).ToArray();
             if (array.Length != 0)
             {
                 await CardPileCmd.Add(array, PileType.Draw, CardPilePosition.Top);

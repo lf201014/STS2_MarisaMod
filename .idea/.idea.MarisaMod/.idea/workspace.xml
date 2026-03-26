@@ -5,11 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5e6c4127-abf0-4b29-a472-e18c53c16a09" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Scripts/Cards/FinalMasterSpark.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Scripts/Cards/MagicAndRedDream.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Scripts/Powers/MagicAndRedDreamPower.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Scripts/Cards/UnstableBomb.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Scripts/Cards/UnstableBomb.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/scripts/Cards/MasterSpark.cs" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/Cards/MasterSpark.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.MarisaMod/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.MarisaMod/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Scripts/Powers/MagicAndRedDreamPower.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Scripts/Powers/MagicAndRedDreamPower.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -105,7 +103,8 @@
       <workItem from="1773971441994" duration="18962000" />
       <workItem from="1774230818967" duration="17929000" />
       <workItem from="1774319811053" duration="18491000" />
-      <workItem from="1774403602426" duration="6668000" />
+      <workItem from="1774403602426" duration="19437000" />
+      <workItem from="1774506776621" duration="159000" />
     </task>
     <servers />
   </component>
