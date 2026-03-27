@@ -58,6 +58,9 @@
   "MARISAMOD-STARLIT_POWER.title": "Starlit",
   "MARISAMOD-STARLIT_POWER.description": "Deal damage to all enemies and gain [gold]Block[/gold] at the end of your turn.",
   "MARISAMOD-STARLIT_POWER.smartDescription": "Deal {Amount} damage to all enemies and gain {Aoe} [gold]Block[/gold] at the end of your turn.",
+  "MARISAMOD-SUPER_NOVA_POWER.title": "Super Nova",
+  "MARISAMOD-SUPER_NOVA_POWER.description": "[gold]Burn[/gold] no longer deal damage to you.\nGain [gold]Strength[/gold] when a [gold]Burn[/gold] is [gold]Burnt[/gold].\n[gold]Burn[/gold] your [gold]hand[/gold] at the end of your turn.",
+  "MARISAMOD-SUPER_NOVA_POWER.smartDescription": "[gold]Burn[/gold] no longer deal damage to you.\nGain [blue]{Amount}[/blue] [gold]Strength[/gold] when a [gold]Burn[/gold] is [gold]Burnt[/gold].\n[gold]Burn[/gold] your [gold]hand[/gold] at the end of your turn.",
   "MARISAMOD-WALPURGISNACHT_POWER.title": "Walpurgisnacht",
   "MARISAMOD-WALPURGISNACHT_POWER.description": "At the start of your turn, [gold]Enchant[/gold] a random card in your hand with [gold]Starlit[/gold].\nWhenever you play an [gold]enchanted[/gold] card, gain {energyPrefix:energyIcons(1)} next turn.",
   "MARISAMOD-WALPURGISNACHT_POWER.smartDescription": "At the start of your turn, [gold]Enchant[/gold] [blue]{Amount}[/blue] random {Amount:plural:card|cards} in your hand with [gold]Starlit[/gold].\nWhenever you play an [gold]enchanted[/gold] card, gain {energyPrefix:energyIcons(1)} next turn."

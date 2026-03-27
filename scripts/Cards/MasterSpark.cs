@@ -31,7 +31,7 @@ namespace marisamod.Scripts.Cards
             await DamageCmd.Attack(DynamicVars.CalculatedDamage).FromCard(this).Targeting(cardPlay.Target)
                 .WithHitFx("vfx/vfx_attack_slash").BeforeDamage(async delegate
             {
-                NSweepingBeamVfx nSweepingBeamVfx = NSweepingBeamVfx.Create(base.Owner.Creature, [cardPlay.Target]);
+                NSweepingBeamVfx nSweepingBeamVfx = NSweepingBeamVfx.Create(Owner.Creature, [cardPlay.Target]);
                 if (nSweepingBeamVfx != null)
                 {
                     NCombatRoom.Instance?.CombatVfxContainer.AddChildSafely(nSweepingBeamVfx);

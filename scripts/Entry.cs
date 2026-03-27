@@ -5,11 +5,11 @@ using Godot.Bridge;
 using HarmonyLib;
 using marisamod.Scripts.Cards;
 using marisamod.Scripts.Characters;
+using marisamod.Scripts.Powers;
 using marisamod.Scripts.Relics;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Context;
 using MegaCrit.Sts2.Core.Entities.Players;
-using MegaCrit.Sts2.Core.Helpers;
 using MegaCrit.Sts2.Core.Logging;
 using MegaCrit.Sts2.Core.Modding;
 using MegaCrit.Sts2.Core.Models;
@@ -18,7 +18,6 @@ using MegaCrit.Sts2.Core.Models.Events;
 using MegaCrit.Sts2.Core.Models.Monsters;
 using MegaCrit.Sts2.Core.Models.Powers;
 using MegaCrit.Sts2.Core.Models.Relics;
-using MegaCrit.Sts2.Core.Nodes.Vfx.Utilities;
 using MegaCrit.Sts2.Core.Runs;
 using MegaCrit.Sts2.Core.Saves.Managers;
 // ReSharper disable InconsistentNaming
@@ -218,6 +217,20 @@ public class Entry
             if (player.Character is MarisaCharacter)
             {
                 __instance.AncientCard = ModelDb.Card<MagicAndRedDream>().Id;
+                return false;
+            }
+
+            return true;
+        }
+    }
+
+    [HarmonyPatch(typeof(Burn), nameof(Burn.OnTurnEndInHand))]
+    internal static class BurnOnTurnEndInHandPatch
+    {
+        private static bool Prefix(Burn __instance)
+        {
+            if (__instance.Owner.Creature.HasPower<SuperNovaPower>())
+            {
                 return false;
             }
 
