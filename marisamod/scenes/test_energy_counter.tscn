@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://cs3a5onikvhi4"]
+[gd_scene load_steps=15 format=3 uid="uid://cs3a5onikvhi4"]
 
 [ext_resource type="Texture2D" uid="uid://ddxmxgyyfy8mn" path="res://icon.svg" id="1_85qf2"]
 [ext_resource type="Texture2D" uid="uid://7g1xbdpxs2hj" path="res://marisamod/images/ui/layer5.png" id="1_c7xp2"]
@@ -6,11 +6,13 @@
 [ext_resource type="Script" uid="uid://bsixvr3dsqgn6" path="res://Scripts/Nodes/MehMegaLabel.cs" id="1_hjd6e"]
 [ext_resource type="Texture2D" uid="uid://b7galxhii653h" path="res://marisamod/images/ui/layer4.png" id="2_hjd6e"]
 [ext_resource type="PackedScene" uid="uid://dlpkrsr22myfy" path="res://marisamod/scenes/vfx/energy_vfx_back.tscn" id="2_sppwp"]
+[ext_resource type="PackedScene" uid="uid://ddtlngvqplf0a" path="res://marisamod/scenes/vfx/particle_b_cpu.tscn" id="3_bbu45"]
 [ext_resource type="Texture2D" uid="uid://bbhmkdmj50qad" path="res://marisamod/images/ui/layer3.png" id="3_n0h1o"]
 [ext_resource type="Texture2D" uid="uid://e5odt8lj0b4b" path="res://marisamod/images/ui/layer2.png" id="4_f1lyq"]
 [ext_resource type="Texture2D" uid="uid://d0eox5xx7ncnv" path="res://marisamod/images/ui/layer1.png" id="5_sppwp"]
 [ext_resource type="Texture2D" uid="uid://crlyp787k5xtf" path="res://marisamod/images/ui/layer0.png" id="7_ntyyb"]
 [ext_resource type="PackedScene" uid="uid://dh40v1kt68me" path="res://marisamod/scenes/vfx/energy_vfx_front.tscn" id="10_ntyyb"]
+[ext_resource type="PackedScene" uid="uid://b3spetrhlr5pt" path="res://marisamod/scenes/vfx/particle_a_cpu.tscn" id="13_d3quy"]
 
 [sub_resource type="FontVariation" id="FontVariation_kreon_bold_shared_font"]
 spacing_glyph = 2
@@ -26,6 +28,9 @@ metadata/_edit_lock_ = true
 [node name="EnergyVfxBack" parent="." instance=ExtResource("2_sppwp")]
 unique_name_in_owner = true
 position = Vector2(64, 64)
+
+[node name="BurstBack" parent="." instance=ExtResource("3_bbu45")]
+unique_name_in_owner = true
 
 [node name="Layers" type="Control" parent="."]
 unique_name_in_owner = true
@@ -111,6 +116,9 @@ texture = ExtResource("7_ntyyb")
 [node name="EnergyVfxFront" parent="." instance=ExtResource("10_ntyyb")]
 unique_name_in_owner = true
 position = Vector2(64, 64)
+
+[node name="BurstFront" parent="." instance=ExtResource("13_d3quy")]
+unique_name_in_owner = true
 
 [node name="Label" type="Label" parent="."]
 layout_mode = 1

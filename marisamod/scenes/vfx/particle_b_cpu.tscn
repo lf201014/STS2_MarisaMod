@@ -1,0 +1,26 @@
+[gd_scene load_steps=4 format=3 uid="uid://ddtlngvqplf0a"]
+
+[ext_resource type="Texture2D" uid="uid://dx5tcwwwlcjri" path="res://marisamod/images/ui/energyOrb-lighter.png" id="1_cj8q7"]
+
+[sub_resource type="Curve" id="Curve_uvtfp"]
+_limits = [-360.0, 360.0, 0.0, 1.0]
+_data = [Vector2(0, -230.56177), 0.0, 0.0, 0, 0, Vector2(1, 238.65173), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Gradient" id="Gradient_ul3qa"]
+offsets = PackedFloat32Array(0, 0.5205479, 1)
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0)
+
+[node name="particle_b" type="CPUParticles2D"]
+emitting = false
+texture = ExtResource("1_cj8q7")
+one_shot = true
+fixed_fps = 60
+draw_order = 1
+direction = Vector2(0, -1)
+initial_velocity_min = 200.0
+initial_velocity_max = 300.0
+angle_min = 1.0
+angle_max = 1.0
+angle_curve = SubResource("Curve_uvtfp")
+color_ramp = SubResource("Gradient_ul3qa")

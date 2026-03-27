@@ -1,0 +1,29 @@
+[gd_scene load_steps=5 format=3 uid="uid://b3spetrhlr5pt"]
+
+[ext_resource type="Texture2D" uid="uid://c88i8sb0w1eyp" path="res://marisamod/images/ui/cardOrb.png" id="1_xx1jr"]
+
+[sub_resource type="Curve" id="Curve_6hqo0"]
+_limits = [-180.0, 180.0, 0.0, 1.0]
+_data = [Vector2(0, -180), 0.0, 450.0, 0, 0, Vector2(1, 180), 403.97247, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Curve" id="Curve_4vorn"]
+_limits = [0.5, 1.5, 0.0, 1.0]
+_data = [Vector2(0, 0.5), 0.0, 1.0777875, 0, 0, Vector2(1, 1.5), 1.0406224, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Gradient" id="Gradient_nkaa8"]
+offsets = PackedFloat32Array(0, 0.5, 1)
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0)
+
+[node name="particle_a" type="CPUParticles2D"]
+emitting = false
+amount = 1
+texture = ExtResource("1_xx1jr")
+one_shot = true
+gravity = Vector2(0, 0)
+angle_min = 0.1
+angle_max = 0.5
+angle_curve = SubResource("Curve_6hqo0")
+scale_amount_curve = SubResource("Curve_4vorn")
+color_ramp = SubResource("Gradient_nkaa8")

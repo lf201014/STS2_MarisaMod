@@ -8,7 +8,7 @@ public class MarisaCardPool : CustomCardPoolModel, ICustomEnergyIconPool
     // 卡池的ID。必须唯一防撞车。
     public override string Title => "marisa";
 
-    public override string EnergyColorName => "defect";//"marisa";
+    //public override string EnergyColorName => "defect";//"marisa";
 
     // 卡池的主题色。通常是卡牌框架的颜色。
     public override Color DeckEntryCardColor => new("000A7D");

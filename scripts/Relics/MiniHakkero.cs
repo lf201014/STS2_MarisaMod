@@ -19,14 +19,15 @@ public class MiniHakkero : AbstractMarisaRelic
     // {
     //     await CardPileCmd.Draw(choiceContext, 1, player);
     // }
-    protected override IEnumerable<DynamicVar> CanonicalVars => [
+    protected override IEnumerable<DynamicVar> CanonicalVars =>
+    [
         new DynamicVar("Power", 1m)
     ];
 
     public override async Task AfterCardPlayed(PlayerChoiceContext context, CardPlay cardPlay)
     {
-        await PowerCmd.Apply<ChargeUpPower>(Owner.Creature, DynamicVars["Power"].BaseValue, Owner.Creature, null);
+        if (cardPlay.Card.Owner == Owner)
+            await PowerCmd.Apply<ChargeUpPower>(Owner.Creature, DynamicVars["Power"].BaseValue, Owner.Creature, null);
         //return base.AfterCardPlayed(context, cardPlay);
     }
-
 }
