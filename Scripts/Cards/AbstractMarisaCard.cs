@@ -2,6 +2,9 @@ using BaseLib.Abstracts;
 using BaseLib.Utils;
 using marisamod.Scripts.PatchesNModels;
 using MegaCrit.Sts2.Core.Entities.Cards;
+using MegaCrit.Sts2.Core.Nodes.Cards;
+using MegaCrit.Sts2.Core.Nodes.Cards.Holders;
+using MegaCrit.Sts2.Core.Nodes.Rooms;
 
 namespace marisamod.Scripts.Cards;
 
@@ -21,10 +24,16 @@ public abstract class AbstractMarisaCard : CustomCardModel
     protected override bool ShouldGlowGoldInternal => ShouldGlowGoldMarisaCard || IsFlashing;
 
 
-    public async Task DoFlash()
+    public Task DoFlash()
     {
-        IsFlashing = true;
-        await Task.Delay(670);
-        IsFlashing = false;
+        if (NCombatRoom.Instance != null)
+        {
+            var hand = NCombatRoom.Instance.Ui.Hand;
+            if (hand.GetCardHolder(this) is NHandCardHolder holder)
+            {
+                holder.Flash();
+            }
+        }
+        return Task.CompletedTask;
     }
 }

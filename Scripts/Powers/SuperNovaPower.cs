@@ -15,7 +15,7 @@ namespace marisamod.Scripts.Powers
 
         public override PowerStackType StackType => PowerStackType.Counter;
 
-        public override async Task BeforeTurnEndEarly(PlayerChoiceContext choiceContext, CombatSide side)
+        public override async Task BeforeTurnEnd(PlayerChoiceContext choiceContext, CombatSide side)
         {
             if (side != CombatSide.Player)
             {

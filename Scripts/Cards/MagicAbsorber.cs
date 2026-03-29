@@ -21,10 +21,10 @@ namespace marisamod.Scripts.Cards
 
         public override bool GainsBlock => true;
 
-        protected override IEnumerable<DynamicVar> CanonicalVars => [
+        protected override IEnumerable<DynamicVar> CanonicalVars => base.CanonicalVars.Concat([
             new BlockVar(8m, ValueProp.Move),
             new BlockVar("ExtarBlock",3,ValueProp.Move)
-            ];
+            ]);
 
         protected override void OnUpgrade()
         {
