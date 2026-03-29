@@ -16,6 +16,8 @@ namespace marisamod.Scripts.Cards
 
         private bool _costModifiedForAmplify;
 
+        public bool CostModifiedForAmplify => _costModifiedForAmplify;
+
         protected override IEnumerable<DynamicVar> CanonicalVars =>
         [
             new EnergyVar(KickerCost)

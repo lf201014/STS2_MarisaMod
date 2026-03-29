@@ -30,7 +30,7 @@ namespace marisamod.Scripts.Cards
             (await CardSelectCmd.FromHand(choiceContext, Owner, new CardSelectorPrefs(CardSelectorPrefs.ExhaustSelectionPrompt, 1), null, this)).FirstOrDefault();
             if (cardModel != null)
             {
-                if (cardModel is Burn)
+                if (cardModel is Burn && !cardPlay.IsAutoPlay)
                 {
                     _back2Hand = true;
                 }

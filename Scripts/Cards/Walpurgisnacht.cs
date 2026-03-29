@@ -8,7 +8,7 @@ namespace marisamod.Scripts.Cards
 {
     public class Walpurgisnacht : AbstractMarisaCard
     {
-        public Walpurgisnacht() : base(2, CardType.Power, CardRarity.Rare, TargetType.Self) { }
+        public Walpurgisnacht() : base(3, CardType.Power, CardRarity.Rare, TargetType.Self) { }
         
         //public override string PortraitPath => "res://marisamod/images/cards/marisamod-test_marisa_card.png";
 

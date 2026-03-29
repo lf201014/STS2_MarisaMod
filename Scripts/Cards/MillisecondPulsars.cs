@@ -7,7 +7,7 @@ namespace marisamod.Scripts.Cards
 {
     public class MillisecondPulsars : AbstractMarisaCard
     {
-        public MillisecondPulsars() : base(3, CardType.Power, CardRarity.Rare, TargetType.Self)
+        public MillisecondPulsars() : base(2, CardType.Power, CardRarity.Rare, TargetType.Self)
         {
         }
 

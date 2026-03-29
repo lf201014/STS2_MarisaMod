@@ -31,7 +31,14 @@ namespace marisamod.Scripts.Cards
             {
                 CardCmd.PreviewCardPileAdd(await CardPileCmd.AddGeneratedCardToCombat(item, PileType.Draw, addedByPlayer: true, CardPilePosition.Random));
             }
-            await CardPileCmd.Draw(choiceContext, DynamicVars["Draw"].IntValue, Owner);
+            var draw = await CardPileCmd.Draw(choiceContext, DynamicVars["Draw"].IntValue, Owner);
+            if (draw.Any())
+            {
+                foreach (var card in draw)
+                {
+                    CardCmd.Upgrade(card);
+                }
+            }
         }
     }
 }
