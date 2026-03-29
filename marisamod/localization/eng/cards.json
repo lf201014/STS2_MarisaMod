@@ -133,7 +133,7 @@
   "MARISAMOD-ORRERYS_SUN.title": "Orrerys Sun",
   "MARISAMOD-ORRERYS_SUN.description": "When your [gold]Charge-Up[/gold] is consumed, gain {Power:diff()} [gold]Block[/gold].",
   "MARISAMOD-POLARIS_UNIQUE.title": "Polaris Unique",
-  "MARISAMOD-POLARIS_UNIQUE.description": "Gain {Energy:energyIcons()}.\nIncrease this card's cost by 1.",
+  "MARISAMOD-POLARIS_UNIQUE.description": "Gain {Energy:energyIcons()}.\nIncrease cost of [gold]Polaris Unique[/gold] by 1.",
   "MARISAMOD-POWER_UP.title": "Power UP",
   "MARISAMOD-POWER_UP.description": "Increase the damage of Attacks in your Hand have by {Add:diff()}.",
   "MARISAMOD-PULSE_MAGIC.title": "Pulse Magic",

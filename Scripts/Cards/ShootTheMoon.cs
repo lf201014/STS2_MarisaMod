@@ -45,7 +45,7 @@ namespace marisamod.Scripts.Cards
                 }
                 else
                 {
-                    var pow = cardPlay.Target.Powers.Where(x => x.Type == MegaCrit.Sts2.Core.Entities.Powers.PowerType.Buff && x is not ReattachPower && x is not MinionPower).
+                    var pow = cardPlay.Target.Powers.Where(x => x.Type == MegaCrit.Sts2.Core.Entities.Powers.PowerType.Buff && x is not ReattachPower).
                     TakeRandom(1, Owner.RunState.Rng.CombatCardSelection).FirstOrDefault();
                     if (pow != default)
                         await PowerCmd.Remove(pow);
