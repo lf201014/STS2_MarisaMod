@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://0xgnc6yc3gqx"
-path="res://.godot/imported/marisamod-final_master_spark .png-3f92d377d182baba7b342114818685d8.ctex"
+uid="uid://bqoyxwe6x1wwg"
+path="res://.godot/imported/marisamod-final_master_spark.png-d8219555379242ec9e58c6725e06e81b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://marisamod/images/cards/marisamod-final_master_spark .png"
-dest_files=["res://.godot/imported/marisamod-final_master_spark .png-3f92d377d182baba7b342114818685d8.ctex"]
+source_file="res://marisamod/images/cards/marisamod-final_master_spark.png"
+dest_files=["res://.godot/imported/marisamod-final_master_spark.png-d8219555379242ec9e58c6725e06e81b.ctex"]
 
 [params]
 

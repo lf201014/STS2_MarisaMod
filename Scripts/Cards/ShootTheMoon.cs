@@ -1,5 +1,6 @@
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
+using MegaCrit.Sts2.Core.Entities.Powers;
 using MegaCrit.Sts2.Core.Extensions;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
@@ -38,17 +39,20 @@ namespace marisamod.Scripts.Cards
             {
                 if (IsAmplified)
                 {
-                    foreach (PowerModel item in cardPlay.Target.Powers.Where(x => x.Type == MegaCrit.Sts2.Core.Entities.Powers.PowerType.Buff).ToArray())
+                    foreach (PowerModel item in cardPlay.Target.Powers.Where(x => x.Type == PowerType.Buff).ToArray())
                     {
                         await PowerCmd.Remove(item);
                     }
                 }
                 else
                 {
-                    var pow = cardPlay.Target.Powers.Where(x => x.Type == MegaCrit.Sts2.Core.Entities.Powers.PowerType.Buff && x is not ReattachPower).
-                    TakeRandom(1, Owner.RunState.Rng.CombatCardSelection).FirstOrDefault();
-                    if (pow != default)
-                        await PowerCmd.Remove(pow);
+                    var pows = cardPlay.Target.Powers.Where(x => x.Type == PowerType.Buff && x is not ReattachPower);
+                    if (pows.Any())
+                    {
+                        var pow = pows.TakeRandom(1, Owner.RunState.Rng.CombatCardSelection).FirstOrDefault();
+                        if (pow != default)
+                            await PowerCmd.Remove(pow);
+                    }
                 }
             }
         }
