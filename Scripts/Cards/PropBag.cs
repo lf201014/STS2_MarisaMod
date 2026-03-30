@@ -23,7 +23,7 @@ public class PropBag : AbstractMarisaCard
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
-        var relic = await RelicCmd.Obtain(RelicFactory.PullNextRelicFromBack(Owner, RelicRarity.Uncommon, x=>x is not Pear), Owner);
+        var relic = await RelicCmd.Obtain(RelicFactory.PullNextRelicFromBack(Owner, RelicRarity.Uncommon, x => x is not Pear).ToMutable(), Owner);
 
         PropBagPower? pow;
         if (Owner.Creature.HasPower<PropBagPower>())
