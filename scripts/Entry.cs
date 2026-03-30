@@ -32,7 +32,7 @@ public class Entry
     public static void Init()
     {
         Log.Info($"{LogPrefix} Init called");
-        ModConfigRegistry.Register("test", new MehModConfig());
+        ModConfigRegistry.Register("marisamod", new MehModConfig());
         var harmony = new Harmony("marisamod");
         harmony.PatchAll(typeof(Entry).Assembly);
         Log.Info($"{LogPrefix} Harmony PatchAll completed");
@@ -360,6 +360,7 @@ public class Entry
 
 public class MehModConfig : SimpleModConfig
 {
+
     public static bool NerfHakkero { get; set; } = false;
     //public static bool EnableSkinReplace { get; set; } = true;
 }

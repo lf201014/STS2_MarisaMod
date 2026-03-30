@@ -138,6 +138,8 @@
   "MARISAMOD-POLARIS_UNIQUE.description": "Gain {Energy:energyIcons()}.\nIncrease cost of [gold]Polaris Unique[/gold] by 1.",
   "MARISAMOD-POWER_UP.title": "Power UP",
   "MARISAMOD-POWER_UP.description": "Increase the damage of Attacks in your Hand have by {Add:diff()}.",
+  "MARISAMOD-PROP_BAG.title": "Prop Bag",
+  "MARISAMOD-PROP_BAG.description": "Obtain a random relic.Remove it at the end of combat.",
   "MARISAMOD-PULSE_MAGIC.title": "Pulse Magic",
   "MARISAMOD-PULSE_MAGIC.description": "Next turn, gain {GainEnergy:energyIcons()}.\nAmplify {LoseEnergy:energyIcons()}: [gold]Amplify[/gold] does not require extra energy to activate this turn.",
   "MARISAMOD-REFRACTION_SPARK.title": "Refraction Spark",

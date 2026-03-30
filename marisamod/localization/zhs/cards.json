@@ -136,6 +136,8 @@
   "MARISAMOD-POLARIS_UNIQUE.description": "获得{Energy:energyIcons()}。\n[gold]唯一的北极星[/gold]费用增加1。",
   "MARISAMOD-POWER_UP.title": "强化",
   "MARISAMOD-POWER_UP.description": "使你手中攻击牌的伤害增加{Add:diff()}点。",
+  "MARISAMOD-PROP_BAG.title": "便携道具包",
+  "MARISAMOD-PROP_BAG.description": "获得一个随机遗物，战斗结束后失去。",
   "MARISAMOD-PULSE_MAGIC.title": "脉冲魔术",
   "MARISAMOD-PULSE_MAGIC.description": "下个回合，获得{GainEnergy:energyIcons()}。\n增幅{LoseEnergy:energyIcons()}：这个回合不需要支付能量来发动[gold]增幅[/gold]效果。",
   "MARISAMOD-NON_DIRECTIONAL_LASER.title": "非定向光线",

@@ -4,6 +4,7 @@ using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.Entities.Relics;
 using MegaCrit.Sts2.Core.Factories;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
+using MegaCrit.Sts2.Core.Models.Relics;
 
 namespace marisamod.Scripts.Cards;
 
@@ -22,7 +23,7 @@ public class PropBag : AbstractMarisaCard
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
-        var relic = await RelicCmd.Obtain(RelicFactory.PullNextRelicFromBack(Owner, RelicRarity.Uncommon, []), Owner);
+        var relic = await RelicCmd.Obtain(RelicFactory.PullNextRelicFromBack(Owner, RelicRarity.Uncommon, x=>x is not Pear), Owner);
 
         PropBagPower? pow;
         if (Owner.Creature.HasPower<PropBagPower>())
