@@ -51,7 +51,7 @@
   "MARISAMOD-DARK_SPARK.title": "Dark Spark",
   "MARISAMOD-DARK_SPARK.description": "Deal {CalculatedDamage:diff()} damage to ALL enemies.\nDeals {ExtraDamage:diff()} additional damage for each card in your [gold]Exhaust Pile[/gold].",
   "MARISAMOD-D_C.title": "Direct Hit",
-  "MARISAMOD-D_C.description": "Deal {CalculatedDamage:diff()} damage.\nIf your [gold]Discard Pile[/gold] is empty, deal double damage.",
+  "MARISAMOD-D_C.description": "Deal {Damage:diff()} damage.\nIf your [gold]Discard Pile[/gold] is empty, hit twice.",
   "MARISAMOD-DEEP_ECOLOGICAL_BOMB.title": "Deep Ecological Bomb",
   "MARISAMOD-DEEP_ECOLOGICAL_BOMB.description": "Deal {Damage:diff()} damage to a random enemy, that enemy lose {Power:diff()} [gold]Strength[/gold] this turn.\nAmplify {Energy:energyIcons()}: Activate again.",
   "MARISAMOD-DOUBLE_SPARK.title": "Double Spark",
