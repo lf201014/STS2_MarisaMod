@@ -51,7 +51,7 @@
   "MARISAMOD-DARK_SPARK.title": "暗色火花",
   "MARISAMOD-DARK_SPARK.description": "对所有敌人造成{CalculatedDamage:diff()}点伤害。\n你的[gold]消耗牌堆[/gold]中每有一张牌，伤害增加{ExtraDamage:diff()}。",
   "MARISAMOD-D_C.title": "迎头痛击",
-  "MARISAMOD-D_C.description": "造成{CalculatedDamage:diff()}点伤害。\n若此时你的[gold]弃牌堆[/gold]里没有牌，攻击两次。",
+  "MARISAMOD-D_C.description": "造成{Damage:diff()}点伤害。\n若此时你的[gold]弃牌堆[/gold]里没有牌，攻击两次。",
   "MARISAMOD-DEEP_ECOLOGICAL_BOMB.title": "重生态炸弹",
   "MARISAMOD-DEEP_ECOLOGICAL_BOMB.description": "对随机敌人造成{Damage:diff()}点伤害，并使其在本回合失去{Power:diff()}点[gold]力量[/gold]。\n增幅{Energy:energyIcons()}:再发动一次。",
   "MARISAMOD-DOUBLE_SPARK.title": "双重火花",
