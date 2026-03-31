@@ -222,21 +222,6 @@ public class Entry
         }
     }
 
-    // [HarmonyPatch(typeof(Burn), nameof(Burn.OnTurnEndInHand))]
-    // internal static class BurnOnTurnEndInHandPatch
-    // {
-    //     private static bool Prefix(Burn __instance)
-    //     {
-    //         if (__instance.Owner.Creature.HasPower<SuperNovaPower>())
-    //         {
-    //             return false;
-    //         }
-
-    //         return true;
-    //     }
-    // }
-
-
     [HarmonyPatch(typeof(Burn), nameof(Burn.HasTurnEndInHandEffect), MethodType.Getter)]
     internal static class BurnHasTurnEndInHandEffectPatch
     {

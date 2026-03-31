@@ -6,9 +6,9 @@ using MegaCrit.Sts2.Core.ValueProps;
 
 namespace marisamod.Scripts.Cards
 {
-    public class Occulation : AbstractMarisaCard
+    public class Occultation : AbstractMarisaCard
     {
-        public Occulation() : base(2, CardType.Skill, CardRarity.Uncommon, TargetType.Self)
+        public Occultation() : base(2, CardType.Skill, CardRarity.Uncommon, TargetType.Self)
         {
         }
 
