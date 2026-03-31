@@ -25,7 +25,7 @@ namespace marisamod.Scripts.Cards
         {
             ArgumentNullException.ThrowIfNull(cardPlay.Target);
             var repeat = Owner.PlayerCombatState!.DiscardPile.Cards.Count == 0 ? 2 : 1;
-            await DamageCmd.Attack(DynamicVars.CalculatedDamage).WithHitCount(repeat).FromCard(this).Targeting(cardPlay.Target)
+            await DamageCmd.Attack(DynamicVars.Damage.BaseValue).WithHitCount(repeat).FromCard(this).Targeting(cardPlay.Target)
                 .WithHitFx("vfx/vfx_attack_slash")
                 .Execute(choiceContext);
         }

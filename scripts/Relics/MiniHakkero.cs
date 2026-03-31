@@ -26,7 +26,8 @@ public class MiniHakkero : AbstractMarisaRelic
 
     public override async Task AfterCardPlayed(PlayerChoiceContext context, CardPlay cardPlay)
     {
-        if (cardPlay.Card.Owner == Owner && (!MehModConfig.NerfHakkero || Owner.Creature.GetPowerAmount<ChargeUpPower>() < 8))
+        if (cardPlay.Card.Owner == Owner && (//!MehModConfig.NerfHakkero ||
+         Owner.Creature.GetPowerAmount<ChargeUpPower>() < 8))
             await PowerCmd.Apply<ChargeUpPower>(Owner.Creature, DynamicVars["Power"].BaseValue, Owner.Creature, null);
         //return base.AfterCardPlayed(context, cardPlay);
     }
