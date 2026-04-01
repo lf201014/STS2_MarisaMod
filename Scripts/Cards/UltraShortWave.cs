@@ -2,6 +2,7 @@
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
+using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 
 namespace marisamod.Scripts.Cards;
@@ -18,6 +19,11 @@ public class UltraShortWave : AbstractMarisaCard
         new DynamicVar("Power", 1),
         new DynamicVar("EnergyInc", 1),
         new DynamicVar("PowerInc", 1),
+    ];
+
+    protected override IEnumerable<IHoverTip> ExtraHoverTips =>
+    [
+        HoverTipFactory.FromPower<ChargeUpPower>()
     ];
 
     protected override void OnUpgrade()

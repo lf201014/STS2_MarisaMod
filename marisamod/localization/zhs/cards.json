@@ -129,7 +129,7 @@
   "MARISAMOD-ORBITAL.title": "星轨",
   "MARISAMOD-ORBITAL.description": "抽到这张牌时抽一张牌。\n当这张牌被[gold]消耗[/gold]，选择[gold]消耗堆[/gold]中至多{Add:diff()}张牌加入你的手牌。",
   "MARISAMOD-ORRERYS_GALAXY.title": "银河仪",
-  "MARISAMOD-ORRERYS_GALAXY.description": "使你的[gold]星彩[/gold]{IfUpgraded:show:翻三倍|翻倍}。",
+  "MARISAMOD-ORRERYS_GALAXY.description": "每层[gold]星彩[/gold]额外给予{PowerBlock:diff()}点[gold]格挡[/gold]并额外造成{PowerDamage:diff()}点伤害。",
   "MARISAMOD-ORRERYS_SUN.title": "太阳仪",
   "MARISAMOD-ORRERYS_SUN.description": "当你消耗[gold]蓄力[/gold]，获得{Power:diff()}点[gold]格挡[/gold]。",
   "MARISAMOD-POLARIS_UNIQUE.title": "唯一的北极星",

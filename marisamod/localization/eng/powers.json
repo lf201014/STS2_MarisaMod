@@ -69,7 +69,7 @@
   "MARISAMOD-SPRINKLE_STAR_N_HEART_POWER.smartDescription": "Your [gold]Starlit[/gold] will not be removed upon trigger until your next turn.",
   "MARISAMOD-STARLIT_POWER.title": "Starlit",
   "MARISAMOD-STARLIT_POWER.description": "Deal damage to all enemies and gain [gold]Block[/gold] at the end of your turn.",
-  "MARISAMOD-STARLIT_POWER.smartDescription": "Deal [blue]{AoeEot}[/blue] damage to all enemies and gain [blue]{BlockEot}[/blue] [gold]Block[/gold] at the end of your turn.",
+  "MARISAMOD-STARLIT_POWER.smartDescription": "Deal [blue]{DamageEot}[/blue] damage to all enemies and gain [blue]{BlockEot}[/blue] [gold]Block[/gold] at the end of your turn.",
   "MARISAMOD-SUPER_NOVA_POWER.title": "Super Nova",
   "MARISAMOD-SUPER_NOVA_POWER.description": "Your cards gain [gold]Ethereal[/gold].\n[gold]Burn[/gold] no longer deal damage to you.\nGain [gold]Strength[/gold] when a [gold]Burn[/gold] is [gold]Burnt[/gold].",
   "MARISAMOD-SUPER_NOVA_POWER.smartDescription": "Your cards gain [gold]Ethereal[/gold].\n[gold]Burn[/gold] no longer deal damage to you.\nGain [blue]{Amount}[/blue] [gold]Strength[/gold] when a [gold]Burn[/gold] is [gold]Burnt[/gold].",

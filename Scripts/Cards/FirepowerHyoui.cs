@@ -3,6 +3,7 @@ using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.Entities.Creatures;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
+using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 
 namespace marisamod.Scripts.Cards;
@@ -18,6 +19,10 @@ public class FirepowerHyoui : AbstractMarisaCard
     protected override IEnumerable<DynamicVar> CanonicalVars =>
     [
         new DynamicVar("Power", 8)
+    ];
+    
+    protected override IEnumerable<IHoverTip> ExtraHoverTips => [
+        HoverTipFactory.FromPower<ChargeUpPower>()
     ];
     
     public override string PortraitPath => "res://marisamod/images/cards/marisamod-test_marisa_card.png";

@@ -18,16 +18,21 @@ namespace marisamod.Scripts.Cards
         {
             EnergyCost.UpgradeBy(-1);
         }
+
         protected override IEnumerable<DynamicVar> CanonicalVars =>
         [
             new EnergyVar(1)
         ];
-        
+
         public override IEnumerable<CardKeyword> CanonicalKeywords => base.CanonicalKeywords.Concat([
             CardKeyword.Exhaust
         ]);
 
-        protected override IEnumerable<IHoverTip> ExtraHoverTips => [HoverTipFactory.FromCard<Exhaustion>()];
+        protected override IEnumerable<IHoverTip> ExtraHoverTips =>
+        [
+            HoverTipFactory.FromCard<Exhaustion>(),
+            HoverTipFactory.FromPower<ChargeUpPower>()
+        ];
 
         protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
         {
@@ -38,6 +43,7 @@ namespace marisamod.Scripts.Cards
                 await PowerCmd.Remove(pow);
                 await PlayerCmd.GainEnergy(gain, Owner);
             }
+
             await PowerCmd.Apply<MaximisePowerPower>(Owner.Creature, 1m, Owner.Creature, this);
             await CardPileCmd.AddGeneratedCardToCombat(CombatState!.CreateCard<Exhaustion>(Owner), PileType.Hand, addedByPlayer: true);
         }

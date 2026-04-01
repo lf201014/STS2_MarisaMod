@@ -18,7 +18,8 @@ public class MysteriousBeam : AbstractMarisaCard
         var card =
             CardFactory.GetForCombat(
                 Owner,
-                Owner.Character.CardPool.GetUnlockedCards(Owner.UnlockState, Owner.RunState.CardMultiplayerConstraint).Where(c => c.Type is CardType.Attack),
+                Owner.Character.CardPool.GetUnlockedCards(Owner.UnlockState, Owner.RunState.CardMultiplayerConstraint)
+                    .Where(c => c.Type is CardType.Attack),
                 1,
                 Owner.RunState.Rng.CombatCardGeneration
             ).FirstOrDefault();
