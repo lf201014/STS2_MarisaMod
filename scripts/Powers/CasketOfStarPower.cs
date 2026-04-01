@@ -14,9 +14,12 @@ namespace marisamod.Scripts.Powers
 
         public override PowerStackType StackType => PowerStackType.Counter;
 
-        public override async Task AfterBlockGained(Creature creature, decimal amount, ValueProp props, CardModel? cardSource)
+        protected const int Threshold = 3;
+
+        public override async Task AfterBlockGained(Creature creature, decimal amount, ValueProp props,
+            CardModel? cardSource)
         {
-            if (!(amount <= 0m) && creature == Owner && Owner.Player != null)
+            if (amount >= Threshold && creature == Owner && Owner.Player != null)
             {
                 await Spark.CreateInHand(Owner.Player, Amount, CombatState);
             }

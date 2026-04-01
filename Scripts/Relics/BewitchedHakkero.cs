@@ -24,10 +24,9 @@ public class BewitchedHakkero : AbstractMarisaRelic
         {
             return;
         }
-
         var cnt = DynamicVars["Power"].IntValue;
-        // if (cardPlay.Card.Type == CardType.Attack && !MehModConfig.NerfHakkero)
-        //     cnt = DynamicVars["PowerAmp"].IntValue;
+        if (cardPlay.Card.Type == CardType.Attack) // && !MehModConfig.NerfHakkero)
+            cnt = DynamicVars["PowerAmp"].IntValue;
         await PowerCmd.Apply<ChargeUpPower>(Owner.Creature, cnt, Owner.Creature, null);
         //return base.AfterCardPlayed(context, cardPlay);
     }

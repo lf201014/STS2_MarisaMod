@@ -39,7 +39,7 @@
   "MARISAMOD-BUTT_SMASH.title": "尻击",
   "MARISAMOD-BUTT_SMASH.description": "造成{Damage:diff()}点伤害。\n获得等于所造成未被格挡伤害的[gold]格挡[/gold]。",
   "MARISAMOD-CASKET_OF_STAR.title": "星之器",
-  "MARISAMOD-CASKET_OF_STAR.description": "[gold]火花[/gold]获得[gold]保留[/gold]。\n每当你获得[gold]格挡[/gold]时，将一张{IfUpgraded:show:升级过的|}[gold]火花[/gold]添加到你的[gold]手牌[/gold]。",
+  "MARISAMOD-CASKET_OF_STAR.description": "[gold]火花[/gold]获得[gold]保留[/gold]。\n每当你获得[blue]3[/blue]点或以上[gold]格挡[/gold]时，将一张{IfUpgraded:show:升级过的|}[gold]火花[/gold]添加到你的[gold]手牌[/gold]。",
   "MARISAMOD-COLLECTING_QUIRK.title": "收集癖",
   "MARISAMOD-COLLECTING_QUIRK.description": "你每有{Div:diff()}个遗物，对随机敌人造成{Damage:diff()}伤害。{InCombat:\n(攻击{CalculatedHits:diff()}次)|}",
   "MARISAMOD-CHARGE_UP_SPRAY.title": "蓄力喷射",

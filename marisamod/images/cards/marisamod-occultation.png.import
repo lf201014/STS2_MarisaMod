@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://d3tobv5b88kp1"
-path="res://.godot/imported/marisamod-occulation.png-1bfa70e131fb4317260cfb78a355f73a.ctex"
+path="res://.godot/imported/marisamod-occultation.png-76314c7cba3393c4a20625491e03cda5.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://marisamod/images/cards/marisamod-occulation.png"
-dest_files=["res://.godot/imported/marisamod-occulation.png-1bfa70e131fb4317260cfb78a355f73a.ctex"]
+source_file="res://marisamod/images/cards/marisamod-occultation.png"
+dest_files=["res://.godot/imported/marisamod-occultation.png-76314c7cba3393c4a20625491e03cda5.ctex"]
 
 [params]
 
