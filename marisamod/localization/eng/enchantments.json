@@ -1,5 +1,5 @@
 {
-  "STARLIT_ENCHANTMENT.description": "Gain [gold]Starlit[/gold] equals to energy spent when this card is played.",
+  "STARLIT_ENCHANTMENT.description": "Gain [gold]Starlit[/gold] equal to {Energy:energyIcons()} spent when this card is played.",
   "STARLIT_ENCHANTMENT.extraCardText": "Starlit.",
   "STARLIT_ENCHANTMENT.title": "Starlit"
 }

@@ -1,20 +1,20 @@
 {
   "MARISAMOD-MINI_HAKKERO.title": "Mini Hakkero",
   "MARISAMOD-MINI_HAKKERO.description": "While your [gold]Charge-Up[/gold] is less than [blue]8[/blue], gain [blue]1[/blue] [gold]Charge-Up[/gold].",
-  "MARISAMOD-MINI_HAKKERO.flavor": "A mini-Eight Trigram Furnace, a gift from Rinosuke when Marisa left her parents.",
+  "MARISAMOD-MINI_HAKKERO.flavor": "A mini-Eight Trigram Furnace, a gift from Rinnosuke when Marisa left her parents.",
   "MARISAMOD-BEWITCHED_HAKKERO.title": "Bewitched Hakkero",
   "MARISAMOD-BEWITCHED_HAKKERO.description": "When you play a card, gain [blue]1[/blue] [gold]Charge-Up[/gold].",
-  "MARISAMOD-BEWITCHED_HAKKERO.flavor": "Its firepower is on a new level, but is it ok to use a bewitched tool?",
+  "MARISAMOD-BEWITCHED_HAKKERO.flavor": "Its firepower is on a new level, but is it OK to use a bewitched tool?",
   "MARISAMOD-SIMPLE_LAUNCHER.title": "Simple Launcher",
   "MARISAMOD-SIMPLE_LAUNCHER.description": "Reduce your [gold]Charge-Up[/gold] trigger threshold from [blue]8[/blue] to [blue]6[/blue].",
-  "MARISAMOD-SIMPLE_LAUNCHER.flavor": "A flashlight is a flashlight,no matter how it is called...",
+  "MARISAMOD-SIMPLE_LAUNCHER.flavor": "A flashlight is a flashlight, no matter what it's called...",
   "MARISAMOD-AMPLIFY_WAND.title": "Amplify Wand",
   "MARISAMOD-AMPLIFY_WAND.description": "When you activate [gold]Amplify[/gold] effects, gain [blue]4[/blue] [gold]Block[/gold].",
-  "MARISAMOD-AMPLIFY_WAND.flavor": "A Wand seems to not used often.",
+  "MARISAMOD-AMPLIFY_WAND.flavor": "A Wand that seems to not be used often.",
   "MARISAMOD-MAGIC_BROOM.title": "Magic Broom",
   "MARISAMOD-MAGIC_BROOM.description": "Every third time you play a 0-cost card, draw [blue]1[/blue] card.",
   "MARISAMOD-MAGIC_BROOM.flavor": "Marisa always travels on her flying broom.",
   "MARISAMOD-HANDMADE_GRIMOIRE.title": "Homemade Grimoire",
   "MARISAMOD-HANDMADE_GRIMOIRE.description": "At the start of each battle, gain {Energy:energyIcons()} and draw a card for every [blue]15[/blue] cards in your deck.",
-  "MARISAMOD-HANDMADE_GRIMOIRE.flavor": "Actually a notebook full of experiment records and magic material recipes;just how Marisa develops her Magics."
+  "MARISAMOD-HANDMADE_GRIMOIRE.flavor": "Actually a notebook full of experiment records and magic material recipes; just how Marisa develops her Magics."
 }
