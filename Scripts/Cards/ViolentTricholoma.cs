@@ -12,7 +12,7 @@ public class ViolentTricholoma : AbstractMarisaCard
     {
     }
     
-    public override string PortraitPath => "res://marisamod/images/cards/marisamod-test_marisa_card.png";
+    //public override string PortraitPath => "res://marisamod/images/cards/marisamod-test_marisa_card.png";
 
     protected override IEnumerable<DynamicVar> CanonicalVars =>
     [

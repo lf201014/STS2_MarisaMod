@@ -131,7 +131,7 @@
   "MARISAMOD-ORBITAL.title": "Orbital",
   "MARISAMOD-ORBITAL.description": "Draw a card when drawn.\nIf this card is [gold]Exhausted[/gold], put up to {Add:diff()} {Add:plural:card|cards} from your [gold]Exhaust Pile[/gold] to your hand.",
   "MARISAMOD-ORRERYS_GALAXY.title": "Orrerys Galaxy",
-  "MARISAMOD-ORRERYS_GALAXY.description": "{IfUpgraded:show:Triple|Double} your [gold]Starlit[/gold].",
+  "MARISAMOD-ORRERYS_GALAXY.description": "Your [gold]Starlit[/gold] grant {}.",
   "MARISAMOD-ORRERYS_SUN.title": "Orrerys Sun",
   "MARISAMOD-ORRERYS_SUN.description": "When your [gold]Charge-Up[/gold] is consumed, gain {Power:diff()} [gold]Block[/gold].",
   "MARISAMOD-POLARIS_UNIQUE.title": "Polaris Unique",

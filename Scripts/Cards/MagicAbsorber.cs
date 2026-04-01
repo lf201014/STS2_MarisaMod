@@ -11,7 +11,7 @@ namespace marisamod.Scripts.Cards
 {
     public class MagicAbsorber : AbstractMarisaCard
     {
-        public MagicAbsorber() : base(1, CardType.Skill, CardRarity.Uncommon, TargetType.Self)
+        public MagicAbsorber() : base(1, CardType.Skill, CardRarity.Rare, TargetType.Self)
         {
         }
 
@@ -22,7 +22,7 @@ namespace marisamod.Scripts.Cards
         public override bool GainsBlock => true;
 
         protected override IEnumerable<DynamicVar> CanonicalVars => base.CanonicalVars.Concat([
-            new BlockVar(8m, ValueProp.Move)//,
+            new BlockVar(10m, ValueProp.Move)//,
             //new BlockVar("ExtraBlock",3,ValueProp.Move)
             ]);
 
