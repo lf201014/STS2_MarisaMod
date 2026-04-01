@@ -62,7 +62,7 @@
   "MARISAMOD-EARTH_LIGHT_RAY.title": "地球光",
   "MARISAMOD-EARTH_LIGHT_RAY.description": "回复{Heal:diff()}点生命。\n增幅{Energy:energyIcons()}：将[gold]弃牌堆[/gold]中的{IfUpgraded:show:|随机}一张牌放入你的[gold]手牌[/gold]。",
   "MARISAMOD-ECCENTRIC_ASTEROID.title": "离心小行星",
-  "MARISAMOD-ECCENTRIC_ASTEROID.description": "获得{Block:diff()}点[gold]格挡[/gold]。\n这张牌获得[gold]重放[/gold][blue]1[/blue]如果本回合你每打出过[gold]火花[/gold]牌。",
+  "MARISAMOD-ECCENTRIC_ASTEROID.description": "获得{Block:diff()}点[gold]格挡[/gold]。\n这张牌获得[gold]重放[/gold][blue]1[/blue]如果本回合你打出过[gold]火花[/gold]牌。",
   "MARISAMOD-ENERGY_FLOW.title": "能量涌动",
   "MARISAMOD-ENERGY_FLOW.description": "在你的回合结束时，获得{EnergyFlowPower:diff()}层[gold]蓄力[/gold]。",
   "MARISAMOD-ENERGY_RECOIL.title": "能量反冲",
