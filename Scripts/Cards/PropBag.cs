@@ -4,6 +4,7 @@ using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.Extensions;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
+using MegaCrit.Sts2.Core.Logging;
 using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.Models.Relics;
 
@@ -66,9 +67,10 @@ public class PropBag : AbstractMarisaCard
     {
         //1-9: uncommon; 0: rare
         var odd = Owner.RunState.Rng.CombatCardSelection.NextInt(10);
-        var pick = odd == 0 ? PoolRare.TakeRandom(1,Owner.RunState.Rng.CombatCardSelection).FirstOrDefault()!.ToMutable() :
-            PoolUncommon.TakeRandom(1,Owner.RunState.Rng.CombatCardSelection).FirstOrDefault()!.ToMutable();
-        
+        var pick = odd == 0
+            ? PoolRare.TakeRandom(1, Owner.RunState.Rng.CombatCardSelection).FirstOrDefault()!.ToMutable()
+            : PoolUncommon.TakeRandom(1, Owner.RunState.Rng.CombatCardSelection).FirstOrDefault()!.ToMutable();
+
         var relic = await RelicCmd.Obtain(pick, Owner);
 
         PropBagPower? pow;
@@ -79,8 +81,11 @@ public class PropBag : AbstractMarisaCard
         else
         {
             pow = await PowerCmd.Apply<PropBagPower>(Owner.Creature, 1, Owner.Creature, this);
+            pow?.ClearRelicList();
         }
 
         pow?.AddRelicToList(relic);
+
+        Log.Info($"PropBag.OnPlay: odd: {odd},pick: {pick}, relic: {relic}, pow: {pow}");
     }
 }

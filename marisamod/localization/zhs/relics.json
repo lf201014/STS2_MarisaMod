@@ -1,6 +1,6 @@
 {
   "MARISAMOD-MINI_HAKKERO.title": "迷你八卦炉",
-  "MARISAMOD-MINI_HAKKERO.description": "若你的[gold]蓄力[/gold]层数小于[blue]8[/blue]，每打出一张牌，获得[blue]1[/blue]层[gold]蓄力[/gold]。",
+  "MARISAMOD-MINI_HAKKERO.description": "在你打出一张牌后，若你的[gold]蓄力[/gold]层数小于[blue]8[/blue]，获得[blue]1[/blue]层[gold]蓄力[/gold]。",
   "MARISAMOD-MINI_HAKKERO.flavor": "霖之助的发明。在魔理沙离开人里去往魔法森林时，被霖之助作为礼物送给了魔理沙。",
   "MARISAMOD-BEWITCHED_HAKKERO.title": "妖器八卦炉",
   "MARISAMOD-BEWITCHED_HAKKERO.description": "每打出一张牌，获得[blue]1[/blue]层[gold]蓄力[/gold]；若打出的是攻击牌，额外获得[blue]1[/blue]层。",

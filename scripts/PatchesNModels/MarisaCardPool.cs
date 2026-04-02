@@ -1,10 +1,17 @@
 using BaseLib.Abstracts;
 using Godot;
+using MegaCrit.Sts2.Core.Assets;
+using MegaCrit.Sts2.Core.Entities.Cards;
+using MegaCrit.Sts2.Core.Helpers;
 
 namespace marisamod.Scripts.PatchesNModels;
 
 public class MarisaCardPool : CustomCardPoolModel
 {
+    private const string FramePathAttack = "res://marisamod/images/ui/bg_attack_MRS.png";
+    private const string FramePathPower = "res://marisamod/images/ui/bg_power_MRS.png";
+    private const string FramePathSkill = "res://marisamod/images/ui/bg_skill_MRS.png";
+
     // 卡池的ID。必须唯一防撞车。
     public override string Title => "marisa";
 
@@ -22,10 +29,18 @@ public class MarisaCardPool : CustomCardPoolModel
 
     public override string TextEnergyIconPath => "res://marisamod/images/ui/energyOrb-lighter.png";
 
-    public override float H => 0.65f;
+    // public override float H => 0.65f;
+    // public override float S => 0.59f;
+    // public override float V => 0.69f;
 
-    public override float S => 0.59f;
-
-    public override float V => 0.69f;
-
+    public override Texture2D CustomFrame(CustomCardModel card)
+    {
+        var path = card.Type switch
+        {
+            CardType.Attack => FramePathAttack,
+            CardType.Power => FramePathPower,
+            _ => FramePathSkill
+        };
+        return PreloadManager.Cache.GetTexture2D(path);
+    }
 }

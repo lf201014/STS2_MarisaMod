@@ -144,35 +144,6 @@ public class Entry
         }
     }
 
-    // [HarmonyPatch(typeof(NParticlesContainer), "Restart")]
-    // internal static class ParticlesContainerRestartPatch
-    // {
-    //     private static bool Prefix(NParticlesContainer __instance)
-    //     {
-    //         FieldInfo fieldInfo = AccessTools.Field(typeof(NParticlesContainer), "_particles");
-    //         if ((fieldInfo?.GetValue(__instance)) != null)
-    //         {
-    //             return true;
-    //         }
-    //         return false;
-    //     }
-    // }
-
-    // [HarmonyPatch(typeof(TouchOfOrobas), "GetUpgradedStarterRelic")]
-    // internal static class TouchOfOrobasGetUpgradedStarterRelicPatch
-    // {
-    //     private static bool Prefix(TouchOfOrobas __instance, RelicModel starterRelic, ref RelicModel __result)
-    //     {
-    //         if (starterRelic is MiniHakkero)
-    //         {
-    //             __result = ModelDb.Relic<BewitchedHakkero>();
-    //             return false;
-    //         }
-
-    //         return true;
-    //     }
-    // }
-
     [HarmonyPatch(typeof(ArchaicTooth), "GetTranscendenceStarterCard")]
     internal static class ArchaicToothGetTranscendenceStarterCardPatch
     {

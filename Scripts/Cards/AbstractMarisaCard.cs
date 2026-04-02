@@ -2,7 +2,6 @@ using BaseLib.Abstracts;
 using BaseLib.Utils;
 using marisamod.Scripts.PatchesNModels;
 using MegaCrit.Sts2.Core.Entities.Cards;
-using MegaCrit.Sts2.Core.Nodes.Cards;
 using MegaCrit.Sts2.Core.Nodes.Cards.Holders;
 using MegaCrit.Sts2.Core.Nodes.Rooms;
 
@@ -18,12 +17,6 @@ public abstract class AbstractMarisaCard : CustomCardModel
     {
     }
 
-    protected bool IsFlashing = false;
-    public bool ShouldGlowGoldMarisaCard = false;
-
-    protected override bool ShouldGlowGoldInternal => ShouldGlowGoldMarisaCard || IsFlashing;
-
-
     public Task DoFlash()
     {
         if (NCombatRoom.Instance != null)
@@ -34,6 +27,7 @@ public abstract class AbstractMarisaCard : CustomCardModel
                 holder.Flash();
             }
         }
+
         return Task.CompletedTask;
     }
 }

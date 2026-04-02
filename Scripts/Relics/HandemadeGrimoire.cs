@@ -31,8 +31,8 @@ namespace marisamod.Scripts.Relics
                 var cnt = Owner.Deck.Cards.Count / DynamicVars["Div"].IntValue;
                 if (cnt > 0)
                 {
-                    await PlayerCmd.GainEnergy(DynamicVars.Energy.BaseValue, Owner);
-                    await CardPileCmd.Draw(choiceContext, DynamicVars.Cards.BaseValue, Owner);
+                    await PlayerCmd.GainEnergy(cnt, Owner);
+                    await CardPileCmd.Draw(choiceContext, cnt, Owner);
                 }
                 _isActivated = true;
             }
