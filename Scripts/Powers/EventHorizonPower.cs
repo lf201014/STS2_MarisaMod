@@ -37,7 +37,7 @@ public class EventHorizonPower : AbstractMarisaPower
 
     public override Task BeforeCardPlayed(CardPlay cardPlay)
     {
-        if (cardPlay.Card is not AbstractAmplifiedCard { IsAmplified: true } || _triggerCounterForTurn > Amount) return Task.CompletedTask;
+        if (cardPlay.Card is not AbstractAmplifiedCard { IsAmplified: true } || _triggerCounterForTurn >= Amount) return Task.CompletedTask;
         _triggerCounterForTurn++;
         _triggerFlag = true;
         return Task.CompletedTask;

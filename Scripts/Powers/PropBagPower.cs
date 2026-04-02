@@ -10,7 +10,12 @@ public class PropBagPower : AbstractMarisaPower
     public override PowerType Type => PowerType.Buff;
     public override PowerStackType StackType => PowerStackType.Counter;
     
-    private List<RelicModel> _relics = [];
+    private static List<RelicModel> _relics = [];
+
+    public void ClearRelicList()
+    {
+        _relics.Clear();
+    }
 
     public void AddRelicToList(RelicModel relic)
     {
@@ -23,5 +28,6 @@ public class PropBagPower : AbstractMarisaPower
         {
             await RelicCmd.Remove(relic);
         }
+        ClearRelicList();
     }
 }
