@@ -67,7 +67,9 @@ public class PropBag : AbstractMarisaCard
     {
         //1-9: uncommon; 0: rare
         var odd = Owner.RunState.Rng.CombatCardSelection.NextInt(10);
-        var pick = odd == 0 ? PoolRare.TakeRandom(1, Owner.RunState.Rng.CombatCardSelection).FirstOrDefault()!.ToMutable() : PoolUncommon.TakeRandom(1, Owner.RunState.Rng.CombatCardSelection).FirstOrDefault()!.ToMutable();
+        var pick = odd == 0
+            ? PoolRare.TakeRandom(1, Owner.RunState.Rng.CombatCardSelection).FirstOrDefault()!.ToMutable()
+            : PoolUncommon.TakeRandom(1, Owner.RunState.Rng.CombatCardSelection).FirstOrDefault()!.ToMutable();
 
         var relic = await RelicCmd.Obtain(pick, Owner);
 
