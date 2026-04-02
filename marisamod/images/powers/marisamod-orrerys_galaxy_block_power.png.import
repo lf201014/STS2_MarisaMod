@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://d3tobv5b88kp1"
-path="res://.godot/imported/marisamod-occulation.png-1bfa70e131fb4317260cfb78a355f73a.ctex"
+uid="uid://di0khhmrufauf"
+path="res://.godot/imported/marisamod-orrerys_galaxy_block_power.png-be3377f4f85849363b544057e771a6dc.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://marisamod/images/cards/marisamod-occulation.png"
-dest_files=["res://.godot/imported/marisamod-occulation.png-1bfa70e131fb4317260cfb78a355f73a.ctex"]
+source_file="res://marisamod/images/powers/marisamod-orrerys_galaxy_block_power.png"
+dest_files=["res://.godot/imported/marisamod-orrerys_galaxy_block_power.png-be3377f4f85849363b544057e771a6dc.ctex"]
 
 [params]
 

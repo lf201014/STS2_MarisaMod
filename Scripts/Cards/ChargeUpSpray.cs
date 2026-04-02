@@ -4,6 +4,7 @@ using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.ValueProps;
 using marisamod.Scripts.Powers;
+using MegaCrit.Sts2.Core.HoverTips;
 
 namespace marisamod.Scripts.Cards
 {
@@ -19,6 +20,10 @@ namespace marisamod.Scripts.Cards
             new DamageVar(8m, ValueProp.Move),
             new EnergyVar(1)
             ];
+        
+        protected override IEnumerable<IHoverTip> ExtraHoverTips => [
+            HoverTipFactory.FromPower<ChargeUpPower>()
+        ];
 
         protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
         {

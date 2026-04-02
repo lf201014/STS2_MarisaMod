@@ -1,5 +1,6 @@
 using marisamod.Scripts.Characters;
 using marisamod.Scripts.Enchantments;
+using marisamod.Scripts.Powers;
 using MegaCrit.Sts2.Core.CardSelection;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
@@ -31,6 +32,11 @@ public class MagicalR360 : AbstractMarisaCard
     {
         DynamicVars.Block.UpgradeValueBy(4);
     }
+
+    protected override IEnumerable<IHoverTip> ExtraHoverTips =>
+    [
+        HoverTipFactory.FromPower<StarlitPower>()
+    ];
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {

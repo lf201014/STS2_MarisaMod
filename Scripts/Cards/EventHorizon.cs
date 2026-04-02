@@ -8,7 +8,7 @@ namespace marisamod.Scripts.Cards;
 
 public class EventHorizon : AbstractMarisaCard
 {
-    public EventHorizon() : base(1, CardType.Power, CardRarity.Rare, TargetType.Self)
+    public EventHorizon() : base(1, CardType.Power, CardRarity.Uncommon, TargetType.Self)
     {
     }
     
