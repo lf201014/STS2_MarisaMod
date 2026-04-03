@@ -22,7 +22,7 @@
   "MARISAMOD-BIG_CRUNCH.title": "Big Crunch",
   "MARISAMOD-BIG_CRUNCH.description": "[gold]Exhaust[/gold] half of your [gold]Draw Pile[/gold] and [gold]Discard Pile[/gold]. For every {Div:diff()} cards exhausted, gain {Energy:energyIcons()} and draw a card.{InCombat:\n(Number of {Energy:energyIcons()} gain and draw: {CalculatedDraw:diff()} )|}",
   "MARISAMOD-BINARY_STARS.title": "Binary Stars",
-  "MARISAMOD-BINARY_STARS.description": "Choose a card from [gold]Black Flare Star[/gold] and [gold]White Dwarf[/gold] to add to your [gold]Hand[/gold].\nAmplify {Energy:energyIcons()}: Add both cards to your [gold]Hand[/gold].",
+  "MARISAMOD-BINARY_STARS.description": "Choose one from {IfUpgraded:show:upgraded |}[gold]Black Flare Star[/gold] and [gold]White Dwarf[/gold] to add to your [gold]Hand[/gold].\nAmplify {Energy:energyIcons()}: Add both cards to your [gold]Hand[/gold].",
   "MARISAMOD-BINARY_STARS.selectionScreenPrompt": "Choose a card.",
   "MARISAMOD-BLACK_FLARE_STAR.selectionScreenPrompt": "Choose cards to [gold]Discard[/gold].",
   "MARISAMOD-BLACK_FLARE_STAR.title": "Black Flare Star",

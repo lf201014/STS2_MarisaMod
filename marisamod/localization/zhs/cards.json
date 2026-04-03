@@ -22,7 +22,7 @@
   "MARISAMOD-BIG_CRUNCH.title": "大坍缩",
   "MARISAMOD-BIG_CRUNCH.description": "[gold]消耗[/gold]你[gold]抽牌堆[/gold]和[gold]弃牌堆[/gold]中各一半的牌。每消耗{Div:diff()}张牌，获得{Energy:energyIcons()}并抽一张牌。{InCombat:\n(获得{Energy:energyIcons()}和抽牌的数量:{CalculatedDraw:diff()})|}",
   "MARISAMOD-BINARY_STARS.title": "双星",
-  "MARISAMOD-BINARY_STARS.description": "从[gold]黑耀星[/gold]和[gold]白矮星[/gold]中选择一张牌加入你的[gold]手牌[/gold]。\n增幅{Energy:energyIcons()}：将两张都加入手牌。",
+  "MARISAMOD-BINARY_STARS.description": "从{IfUpgraded:show:升级过的|}[gold]黑耀星[/gold]和[gold]白矮星[/gold]中选择一张牌加入你的[gold]手牌[/gold]。\n增幅{Energy:energyIcons()}：将两张都加入手牌。",
   "MARISAMOD-BINARY_STARS.selectionScreenPrompt": "选择一张牌。",
   "MARISAMOD-BLACK_FLARE_STAR.title": "黑耀星",
   "MARISAMOD-BLACK_FLARE_STAR.description": "只有在你的[gold]手牌[/gold]大于等于4张时才能使用。\n丢弃任意数量的牌，每张获得{Block:diff()}点[gold]格挡[/gold]。",

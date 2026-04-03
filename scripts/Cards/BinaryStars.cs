@@ -15,7 +15,7 @@ namespace marisamod.Scripts.Cards
         }
 
 
-        protected override IEnumerable<IHoverTip> ExtraHoverTips => [HoverTipFactory.FromCard<BlackFlareStar>(), HoverTipFactory.FromCard<WhiteDwarf>()];
+        protected override IEnumerable<IHoverTip> ExtraHoverTips => [HoverTipFactory.FromCard<BlackFlareStar>(IsUpgraded), HoverTipFactory.FromCard<WhiteDwarf>(IsUpgraded)];
 
         protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
         {
