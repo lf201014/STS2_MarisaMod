@@ -20,6 +20,8 @@ public class DarkMatter : AbstractMarisaCard
         new CardsVar(1)
     ];
 
+    //public override bool GainsBlock => true;
+
     public override IEnumerable<CardKeyword> CanonicalKeywords => base.CanonicalKeywords.Concat([
         CardKeyword.Ethereal
     ]);

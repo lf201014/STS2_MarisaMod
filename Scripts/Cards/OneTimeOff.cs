@@ -13,8 +13,8 @@ namespace marisamod.Scripts.Cards
         public OneTimeOff() : base(1, CardType.Skill, CardRarity.Uncommon, TargetType.Self) { }
 
         protected override IEnumerable<DynamicVar> CanonicalVars => [
-            new BlockVar(5m, ValueProp.Move),
-            new CardsVar(1)
+            new BlockVar(6m, ValueProp.Move),
+            new CardsVar(2)
         ];
 
         protected override void OnUpgrade()

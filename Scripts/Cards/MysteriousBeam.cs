@@ -26,6 +26,10 @@ public class MysteriousBeam : AbstractMarisaCard
         if (card != null)
         {
             await CardPileCmd.AddGeneratedCardToCombat(card, PileType.Hand, addedByPlayer: true);
+            if (IsUpgraded)
+            {
+                CardCmd.Upgrade(card);
+            }
 
             decimal damage = 0;
             if (card.DynamicVars.ContainsKey("CalculatedDamage"))

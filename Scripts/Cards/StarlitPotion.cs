@@ -1,9 +1,12 @@
 using marisamod.Scripts.Characters;
 using marisamod.Scripts.Enchantments;
+using marisamod.Scripts.Powers;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
+using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Models;
+using MegaCrit.Sts2.Core.Models.Enchantments;
 
 namespace marisamod.Scripts.Cards;
 
@@ -16,6 +19,9 @@ public class StarlitPotion : AbstractMarisaCard
     //public override string PortraitPath => "res://marisamod/images/cards/marisamod-test_marisa_card.png";
 
     public override IEnumerable<CardKeyword> CanonicalKeywords => [CardKeyword.Exhaust];
+    
+    protected override IEnumerable<IHoverTip> ExtraHoverTips =>
+        HoverTipFactory.FromEnchantment<StarlitEnchantment>().Concat([HoverTipFactory.FromPower<StarlitPower>()]);
 
     protected override void OnUpgrade()
     {

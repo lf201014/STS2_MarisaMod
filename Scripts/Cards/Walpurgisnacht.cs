@@ -1,3 +1,4 @@
+using marisamod.Scripts.Enchantments;
 using marisamod.Scripts.Powers;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
@@ -22,9 +23,7 @@ namespace marisamod.Scripts.Cards
         ];
 
         protected override IEnumerable<IHoverTip> ExtraHoverTips =>
-        [
-            HoverTipFactory.FromPower<StarlitPower>()
-        ];
+            HoverTipFactory.FromEnchantment<StarlitEnchantment>().Concat([HoverTipFactory.FromPower<StarlitPower>()]);
 
         protected override void OnUpgrade()
         {

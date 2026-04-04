@@ -32,7 +32,7 @@ public class Entry
     public static void Init()
     {
         Log.Info($"{LogPrefix} Init called");
-        ModConfigRegistry.Register("marisamod", new MehModConfig());
+        //ModConfigRegistry.Register("marisamod", new MehModConfig());
         var harmony = new Harmony("marisamod");
         harmony.PatchAll(typeof(Entry).Assembly);
         Log.Info($"{LogPrefix} Harmony PatchAll completed");
@@ -204,6 +204,26 @@ public class Entry
                 return false;
             }
 
+            return true;
+        }
+    }
+
+    private const string CookiePath = "res://marisamod/images/relics/cookie.png";
+    
+    [HarmonyPatch(typeof(YummyCookie), "IconBaseName", MethodType.Getter)]
+    internal static class YummyCookieIconBaseNamePatch
+    {
+        private static bool Prefix(YummyCookie __instance, ref string __result)
+        {
+            if (__instance.IsCanonical)
+            {
+                return true;
+            }
+            if (__instance.Owner.Character is MarisaCharacter)
+            {
+                __result = CookiePath;
+                return false;
+            }
             return true;
         }
     }

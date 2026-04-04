@@ -48,10 +48,12 @@ namespace marisamod.Scripts.Cards
         //     return card is Burn;
         // }
 
-        public BlazingStar() : base(1, 2, CardType.Attack, CardRarity.Rare, TargetType.AnyEnemy) { }
+        public BlazingStar() : base(1, 2, CardType.Attack, CardRarity.Rare, TargetType.AnyEnemy)
+        {
+        }
 
         protected override IEnumerable<DynamicVar> CanonicalVars => base.CanonicalVars.Concat([
-            new DamageVar(15,ValueProp.Move),
+            new DamageVar(15, ValueProp.Move),
             new CardsVar(1)
         ]);
 
@@ -66,7 +68,7 @@ namespace marisamod.Scripts.Cards
             await DamageCmd.Attack(DynamicVars.Damage.BaseValue).FromCard(this).Targeting(cardPlay.Target)
                 .WithHitFx("vfx/vfx_attack_slash")
                 .Execute(choiceContext);
-            await CardPileCmd.AddGeneratedCardToCombat(CombatState!.CreateCard<Burn>(Owner), PileType.Hand, addedByPlayer: true);
+            await CardPileCmd.AddGeneratedCardsToCombat([CombatState!.CreateCard<Burn>(Owner), CombatState!.CreateCard<Burn>(Owner)], PileType.Hand, addedByPlayer: true);
 
             if (IsAmplified)
             {

@@ -85,7 +85,7 @@ namespace marisamod.Scripts.Relics
                 int intValue = base.DynamicVars.Cards.IntValue;
                 if (CombatManager.Instance.IsInProgress && CardsPlayed % intValue == 0)
                 {
-                    TaskHelper.RunSafely(DoActivateVisuals());
+                    _ = TaskHelper.RunSafely(DoActivateVisuals());
                     await CardPileCmd.Draw(context, 1m, base.Owner);
                 }
             }
