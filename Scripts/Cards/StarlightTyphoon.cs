@@ -24,7 +24,7 @@ public class StarlightTyphoon : AbstractMarisaCard
             await CardCmd.Exhaust(choiceContext, item);
         }
 
-        var sparks = await Spark.CreateInHand(Owner, count, CombatState);
+        var sparks = await Spark.CreateInHand(Owner, count, CombatState!);
         if (IsUpgraded)
             foreach (var spark in sparks)
             {

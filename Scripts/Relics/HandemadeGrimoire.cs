@@ -1,5 +1,6 @@
 using MegaCrit.Sts2.Core.Combat;
 using MegaCrit.Sts2.Core.Commands;
+using MegaCrit.Sts2.Core.Entities.Players;
 using MegaCrit.Sts2.Core.Entities.Relics;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
@@ -24,9 +25,10 @@ namespace marisamod.Scripts.Relics
             return Task.CompletedTask;
         }
 
-        public override async Task BeforeSideTurnStart(PlayerChoiceContext choiceContext, CombatSide side, CombatState combatState)
+
+        public override async Task AfterPlayerTurnStart(PlayerChoiceContext choiceContext, Player player)
         {
-            if (side == Owner.Creature.Side && !_isActivated)
+            if (player == Owner && !_isActivated)
             {
                 var cnt = Owner.Deck.Cards.Count / DynamicVars["Div"].IntValue;
                 if (cnt > 0)
@@ -37,5 +39,19 @@ namespace marisamod.Scripts.Relics
                 _isActivated = true;
             }
         }
+
+        // public override async Task BeforeSideTurnStart(PlayerChoiceContext choiceContext, CombatSide side, CombatState combatState)
+        // {
+        //     if (side == Owner.Creature.Side && !_isActivated)
+        //     {
+        //         var cnt = Owner.Deck.Cards.Count / DynamicVars["Div"].IntValue;
+        //         if (cnt > 0)
+        //         {
+        //             await PlayerCmd.GainEnergy(cnt, Owner);
+        //             await CardPileCmd.Draw(choiceContext, cnt, Owner);
+        //         }
+        //         _isActivated = true;
+        //     }
+        // }
     }
 }

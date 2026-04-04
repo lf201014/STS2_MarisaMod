@@ -12,7 +12,7 @@ public class MagicAndRedDreamPower : AbstractMarisaPower
     public override PowerType Type => PowerType.Buff;
     public override PowerStackType StackType => PowerStackType.Counter;
 
-    private bool _toTrigger = false;
+    private bool _toTrigger;
 
     public override Task BeforeCardPlayed(CardPlay cardPlay)
     {
@@ -37,9 +37,9 @@ public class MagicAndRedDreamPower : AbstractMarisaPower
         if (_toTrigger)
         {
             _toTrigger = false;
-            await CardPileCmd.Draw(context, Amount, Owner.Player);
+            await CardPileCmd.Draw(context, Amount, Owner.Player!);
 
-            var array = (await CardSelectCmd.FromHand(context, Owner.Player, new CardSelectorPrefs(SelectionScreenPrompt, 1), null, this)).ToArray();
+            var array = (await CardSelectCmd.FromHand(context, Owner.Player!, new CardSelectorPrefs(SelectionScreenPrompt, 1), null, this)).ToArray();
             if (array.Length != 0)
             {
                 await CardPileCmd.Add(array, PileType.Draw, CardPilePosition.Top);

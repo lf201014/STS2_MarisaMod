@@ -21,12 +21,12 @@ public class EventHorizonPower : AbstractMarisaPower
         if (_triggerFlag)
         {
             _triggerFlag = false;
-            var cards = PileType.Discard.GetPile(Owner.Player).Cards.Where(c => c.Type == CardType.Attack).ToArray();
+            var cards = PileType.Discard.GetPile(Owner.Player!).Cards.Where(c => c.Type == CardType.Attack).ToArray();
             if (cards.Length > 0)
             {
                 var prefs = new CardSelectorPrefs(SelectionScreenPrompt, 1);
                 var cardModel =
-                    (await CardSelectCmd.FromSimpleGrid(context, cards, Owner.Player, prefs)).FirstOrDefault();
+                    (await CardSelectCmd.FromSimpleGrid(context, cards, Owner.Player!, prefs)).FirstOrDefault();
                 if (cardModel != null)
                 {
                     await CardPileCmd.Add(cardModel, PileType.Hand);

@@ -14,7 +14,7 @@ namespace marisamod.Scripts.Powers
 {
     public class ChargeUpPower : AbstractMarisaPower
     {
-        public int ChargeUpThreshold => Owner.Player.Relics.Any(x => x is SimpleLauncher) ? 6 : 8;
+        public int ChargeUpThreshold => Owner.Player != null && Owner.Player.Relics.Any(x => x is SimpleLauncher) ? 6 : 8;
 
         public override PowerType Type => PowerType.Buff;
 
@@ -25,7 +25,7 @@ namespace marisamod.Scripts.Powers
             new DynamicVar("Mult", 1m)
         ];
 
-        private bool _toBeConsumed = false;
+        private bool _toBeConsumed;
 
         public override decimal ModifyDamageMultiplicative(Creature? target, decimal amount, ValueProp props, Creature? dealer, CardModel? cardSource)
         {
@@ -39,7 +39,7 @@ namespace marisamod.Scripts.Powers
                 return 1m;
             }
 
-            if (dealer != null && dealer != Owner && !Owner.Pets.Contains<Creature>(dealer))
+            if (dealer != null && dealer != Owner && !Owner.Pets.Contains(dealer))
             {
                 return 1m;
             }

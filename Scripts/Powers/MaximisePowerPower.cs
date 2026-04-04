@@ -23,7 +23,7 @@ namespace marisamod.Scripts.Powers
 
         public override decimal ModifyDamageMultiplicative(Creature? target, decimal amount, ValueProp props, Creature? dealer, CardModel? cardSource)
         {
-            if (dealer != base.Owner && !base.Owner.Pets.Contains<Creature>(dealer))
+            if (dealer != Owner && dealer != null && !Owner.Pets.Contains(dealer))
             {
                 return 1m;
             }

@@ -38,8 +38,8 @@ namespace marisamod.Scripts.Cards
                 .WithHitFx("vfx/vfx_attack_slash", null, "blunt_attack.mp3")
             .BeforeDamage(async delegate
             {
-                List<Creature> enemies = base.CombatState.Enemies.Where((Creature e) => e.IsAlive).ToList();
-                var nHyperbeamVfx = NHyperbeamVfx.Create(base.Owner.Creature, enemies.Last());
+                List<Creature> enemies = CombatState!.Enemies.Where(e => e.IsAlive).ToList();
+                var nHyperbeamVfx = NHyperbeamVfx.Create(Owner.Creature, enemies.Last());
                 if (nHyperbeamVfx != null)
                 {
                     NCombatRoom.Instance?.CombatVfxContainer.AddChildSafely(nHyperbeamVfx);
@@ -47,7 +47,7 @@ namespace marisamod.Scripts.Cards
                 }
                 foreach (Creature item in enemies)
                 {
-                    var nHyperbeamImpactVfx = NHyperbeamImpactVfx.Create(base.Owner.Creature, item);
+                    var nHyperbeamImpactVfx = NHyperbeamImpactVfx.Create(Owner.Creature, item);
                     if (nHyperbeamImpactVfx != null)
                     {
                         NCombatRoom.Instance?.CombatVfxContainer.AddChildSafely(nHyperbeamImpactVfx);

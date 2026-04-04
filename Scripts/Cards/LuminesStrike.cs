@@ -19,8 +19,8 @@ namespace marisamod.Scripts.Cards
         new ExtraDamageVar(1m),
         new CalculatedDamageVar(ValueProp.Move).WithMultiplier((card, _) =>
             card is AbstractAmplifiedCard { IsAmplified: true }?
-            card.Owner.PlayerCombatState.Energy*card.DynamicVars["MultAmp"].IntValue:
-            card.Owner.PlayerCombatState.Hand.Cards.Count*card.DynamicVars["Mult"].IntValue
+            card.Owner.PlayerCombatState!.Energy*card.DynamicVars["MultAmp"].IntValue:
+            card.Owner.PlayerCombatState!.Hand.Cards.Count*card.DynamicVars["Mult"].IntValue
         )
         ]);
 

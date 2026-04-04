@@ -42,7 +42,7 @@ namespace marisamod.Scripts.Cards
         {
             if (cardPlay.Card == this && _back2Hand)
             {
-                await CardPileCmd.Add(this, Owner.PlayerCombatState.Hand);
+                await CardPileCmd.Add(this, Owner.PlayerCombatState!.Hand);
             }
         }
 

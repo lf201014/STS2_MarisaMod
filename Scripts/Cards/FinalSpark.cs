@@ -45,12 +45,12 @@ public class FinalSpark : AbstractMarisaCard
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
-        await DamageCmd.Attack(base.DynamicVars.Damage.BaseValue).FromCard(this).TargetingAllOpponents(base.CombatState)
+        await DamageCmd.Attack(DynamicVars.Damage.BaseValue).FromCard(this).TargetingAllOpponents(CombatState!)
             .WithHitFx("vfx/vfx_attack_slash")
             .BeforeDamage(async delegate
             {
-                List<Creature> enemies = base.CombatState.Enemies.Where((Creature e) => e.IsAlive).ToList();
-                var nHyperbeamVfx = NHyperbeamVfx.Create(base.Owner.Creature, enemies.Last());
+                List<Creature> enemies = CombatState!.Enemies.Where(e => e.IsAlive).ToList();
+                var nHyperbeamVfx = NHyperbeamVfx.Create(Owner.Creature, enemies.Last());
                 if (nHyperbeamVfx != null)
                 {
                     NCombatRoom.Instance?.CombatVfxContainer.AddChildSafely(nHyperbeamVfx);
@@ -58,7 +58,7 @@ public class FinalSpark : AbstractMarisaCard
                 }
                 foreach (Creature item in enemies)
                 {
-                    var nHyperbeamImpactVfx = NHyperbeamImpactVfx.Create(base.Owner.Creature, item);
+                    var nHyperbeamImpactVfx = NHyperbeamImpactVfx.Create(Owner.Creature, item);
                     if (nHyperbeamImpactVfx != null)
                     {
                         NCombatRoom.Instance?.CombatVfxContainer.AddChildSafely(nHyperbeamImpactVfx);

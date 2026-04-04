@@ -33,7 +33,7 @@ namespace marisamod.Scripts.Cards
         {
             if (IsAmplified)
             {
-                foreach (Creature enemy in CombatState.HittableEnemies)
+                foreach (Creature enemy in CombatState!.HittableEnemies)
                 {
                     await PowerCmd.Apply<VulnerablePower>(enemy, DynamicVars["Power"].IntValue, base.Owner.Creature, this);
                 }

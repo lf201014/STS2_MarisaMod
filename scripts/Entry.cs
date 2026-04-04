@@ -20,6 +20,7 @@ using MegaCrit.Sts2.Core.Models.Powers;
 using MegaCrit.Sts2.Core.Models.Relics;
 using MegaCrit.Sts2.Core.Runs;
 using MegaCrit.Sts2.Core.Saves.Managers;
+
 // ReSharper disable InconsistentNaming
 
 namespace marisamod.Scripts;
@@ -127,8 +128,12 @@ public class Entry
             _asyncWork.Value = async () =>
             {
                 var fieldInfo = AccessTools.Field(typeof(Entomancer), "CastSfx");
-                if ((fieldInfo != null ? fieldInfo.GetValue(__instance) : null) != null)
-                    SfxCmd.Play((string)fieldInfo.GetValue(__instance));
+                if (fieldInfo != null)
+                {
+                    if (fieldInfo.GetValue(__instance) != null && fieldInfo.GetValue(__instance) is string sfxName)
+                        SfxCmd.Play(sfxName);
+                }
+
                 await CreatureCmd.TriggerAnim(__instance.Creature, "Cast", 0.5f);
                 await PowerCmd.Apply<PersonalHivePower>(__instance.Creature, 1, __instance.Creature, null);
             };
@@ -151,7 +156,8 @@ public class Entry
         {
             if (player.Character is MarisaCharacter)
             {
-                __result = player.Deck.Cards.FirstOrDefault(c => c is MasterSpark); ;
+                __result = player.Deck.Cards.FirstOrDefault(c => c is MasterSpark);
+                ;
                 return false;
             }
 
@@ -171,6 +177,7 @@ public class Entry
                 {
                     CardCmd.Upgrade(__result);
                 }
+
                 return false;
             }
 
@@ -209,7 +216,7 @@ public class Entry
     }
 
     private const string CookiePath = "res://marisamod/images/relics/cookie.png";
-    
+
     [HarmonyPatch(typeof(YummyCookie), "IconBaseName", MethodType.Getter)]
     internal static class YummyCookieIconBaseNamePatch
     {
@@ -219,11 +226,13 @@ public class Entry
             {
                 return true;
             }
+
             if (__instance.Owner.Character is MarisaCharacter)
             {
                 __result = CookiePath;
                 return false;
             }
+
             return true;
         }
     }

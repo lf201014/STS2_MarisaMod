@@ -46,7 +46,7 @@ public class MysteriousBeam : AbstractMarisaCard
             }
             else
             {
-                Log.Warn(base.Id.Entry + ": attack card " + card.Id.Entry + " that did not have an appropriate damage var!");
+                Log.Warn(Id.Entry + ": attack card " + card.Id.Entry + " that did not have an appropriate damage var!");
             }
 
             await DamageCmd.Attack(damage).FromCard(this).Targeting(cardPlay.Target)
