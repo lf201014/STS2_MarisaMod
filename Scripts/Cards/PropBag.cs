@@ -16,6 +16,8 @@ public class PropBag : AbstractMarisaCard
     {
     }
 
+    public override CardMultiplayerConstraint MultiplayerConstraint => CardMultiplayerConstraint.SingleplayerOnly;
+
     private static readonly List<RelicModel?> PoolUncommon =
     [
         ModelDb.Relic<Orichalcum>(),
