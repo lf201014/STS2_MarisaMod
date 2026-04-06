@@ -6,7 +6,6 @@ using HarmonyLib;
 using marisamod.Scripts.Cards;
 using marisamod.Scripts.Characters;
 using marisamod.Scripts.Powers;
-using marisamod.Scripts.Relics;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Context;
 using MegaCrit.Sts2.Core.Entities.Players;
@@ -38,6 +37,7 @@ public class Entry
         harmony.PatchAll(typeof(Entry).Assembly);
         Log.Info($"{LogPrefix} Harmony PatchAll completed");
         ScriptManagerBridge.LookupScriptsInAssembly(typeof(Entry).Assembly);
+        Log.Info($"{LogPrefix} Init Done");
         //const string gamePath = "res://images/atlases/ui_atlas.sprites/card/energy_test.tres";
         //const string modPath = "res://marisamod/images/atlases/ui_atlas.sprites/card/energy_test.tres";
         //Log.Info($"{LogPrefix} energy_test.tres 存在性: res://images/... = {ResourceLoader.Exists(gamePath)}, res://marisamod/images/... = {ResourceLoader.Exists(modPath)}");

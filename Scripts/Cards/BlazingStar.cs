@@ -68,7 +68,13 @@ namespace marisamod.Scripts.Cards
             await DamageCmd.Attack(DynamicVars.Damage.BaseValue).FromCard(this).Targeting(cardPlay.Target)
                 .WithHitFx("vfx/vfx_attack_slash")
                 .Execute(choiceContext);
-            await CardPileCmd.AddGeneratedCardsToCombat([CombatState!.CreateCard<Burn>(Owner), CombatState!.CreateCard<Burn>(Owner)], PileType.Hand, addedByPlayer: true);
+            List<CardModel> cards2Add = [];
+            for (var i = 0; i < DynamicVars.Cards.IntValue; i++)
+            {
+                cards2Add.Add(CombatState!.CreateCard<Burn>(Owner));
+            }
+
+            await CardPileCmd.AddGeneratedCardsToCombat(cards2Add, PileType.Hand, addedByPlayer: true);
 
             if (IsAmplified)
             {

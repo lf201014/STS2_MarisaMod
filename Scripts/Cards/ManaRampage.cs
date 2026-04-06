@@ -16,15 +16,16 @@ namespace marisamod.Scripts.Cards
         protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
         {
             var cards = CardFactory.GetForCombat(Owner, from c in Owner.Character.CardPool.GetUnlockedCards(Owner.UnlockState, Owner.RunState.CardMultiplayerConstraint)
-                                                        where c.Type == CardType.Attack
-                                                        select c, ResolveEnergyXValue(), Owner.RunState.Rng.CombatCardGeneration).ToArray();
+                where c.Type == CardType.Attack
+                select c, ResolveEnergyXValue(), Owner.RunState.Rng.CombatCardGeneration).ToArray();
 
             foreach (var item in cards)
             {
                 if (IsUpgraded)
                     CardCmd.Upgrade(item);
                 await CardCmd.AutoPlay(choiceContext, item, null);
-                await CardPileCmd.RemoveFromCombat(item, true);
+                await CardCmd.Exhaust(choiceContext, item);
+                //await CardPileCmd.RemoveFromCombat(item, true);
             }
         }
     }
