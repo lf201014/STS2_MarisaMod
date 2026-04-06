@@ -10,7 +10,7 @@
   "MARISAMOD-FINAL_MASTER_SPARK.title": "超究级火花",
   "MARISAMOD-FINAL_MASTER_SPARK.description": "对所有敌人造成{CalculatedDamage:diff()}点伤害。\n增幅{Energy:energyIcons()}：额外造成{ExtraDamage:diff()}点伤害。",
   "MARISAMOD-MAGIC_AND_RED_DREAM.title": "魔法与红梦",
-  "MARISAMOD-MAGIC_AND_RED_DREAM.description": "每当你触发[gold]增幅[/gold]或[gold]蓄力[/gold]，抽{Power:diff()}张牌然后将你[gold]手牌[/gold]中的一张牌放到[gold]抽牌堆[/gold]顶部。",
+  "MARISAMOD-MAGIC_AND_RED_DREAM.description": "每当你触发[gold]增幅[/gold]或[gold]蓄力[/gold]，抽{Power:diff()}张牌。",
   "MARISAMOD-ABSOLUTE_MAGNITUDE.title": "绝对星等",
   "MARISAMOD-ABSOLUTE_MAGNITUDE.description": "你身上每有一层[gold]蓄力[/gold]就造成{ExtraDamage:diff()}点伤害。{InCombat:\n（造成{CalculatedDamage:diff()}点伤害）|}",
   "MARISAMOD-ACCELERATION.title": "加速",

@@ -14,7 +14,7 @@ namespace marisamod.Scripts.Powers
 
         public override PowerStackType StackType => PowerStackType.Counter;
 
-        protected const int Threshold = 3;
+        public const int Threshold = 3;
 
         public override async Task AfterBlockGained(Creature creature, decimal amount, ValueProp props,
             CardModel? cardSource)
@@ -41,7 +41,7 @@ namespace marisamod.Scripts.Powers
             }
         }
 
-        private static Task ApplyRetain(CardModel card)
+        public static Task ApplyRetain(CardModel card)
         {
             if (!card.Keywords.Contains(CardKeyword.Retain))
             {

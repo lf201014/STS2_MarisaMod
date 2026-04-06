@@ -20,11 +20,8 @@ public class MagicAndRedDreamPower : AbstractMarisaPower
             return Task.CompletedTask;
 
         _toTrigger = false;
-        if (cardPlay.Card.Type is CardType.Attack && Owner.HasPower<ChargeUpPower>() && Owner.GetPower<ChargeUpPower>()!.CalculateMult() > 1)
-        {
-            _toTrigger = true;
-        }
-        else if (cardPlay.Card is AbstractAmplifiedCard { IsAmplified: true })
+        if (cardPlay.Card.Type is CardType.Attack && Owner.HasPower<ChargeUpPower>() && Owner.GetPower<ChargeUpPower>()!.CalculateMult() > 1 
+            || cardPlay.Card is AbstractAmplifiedCard { IsAmplified: true })
         {
             _toTrigger = true;
         }
@@ -39,11 +36,11 @@ public class MagicAndRedDreamPower : AbstractMarisaPower
             _toTrigger = false;
             await CardPileCmd.Draw(context, Amount, Owner.Player!);
 
-            var array = (await CardSelectCmd.FromHand(context, Owner.Player!, new CardSelectorPrefs(SelectionScreenPrompt, 1), null, this)).ToArray();
-            if (array.Length != 0)
-            {
-                await CardPileCmd.Add(array, PileType.Draw, CardPilePosition.Top);
-            }
+            // var array = (await CardSelectCmd.FromHand(context, Owner.Player!, new CardSelectorPrefs(SelectionScreenPrompt, 1), null, this)).ToArray();
+            // if (array.Length != 0)
+            // {
+            //     await CardPileCmd.Add(array, PileType.Draw, CardPilePosition.Top);
+            // }
         }
     }
 }

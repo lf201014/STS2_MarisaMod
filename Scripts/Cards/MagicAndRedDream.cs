@@ -12,7 +12,7 @@ public class MagicAndRedDream : AbstractMarisaCard
     {
     }
 
-    protected override IEnumerable<DynamicVar> CanonicalVars => [new DynamicVar("Power", 2)];
+    protected override IEnumerable<DynamicVar> CanonicalVars => [new DynamicVar("Power", 1)];
 
     protected override void OnUpgrade()
     {

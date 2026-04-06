@@ -31,7 +31,7 @@ namespace marisamod.Scripts.Cards
         {
             if (Owner.PlayerCombatState != null)
             {
-                if (Owner.PlayerCombatState.Hand.Cards.Contains(this))
+                //if (Owner.PlayerCombatState.Hand.Cards.Contains(this))
                 {
                     if (Owner.Creature.HasPower<OneTimeOffPower>())
                     {
@@ -50,10 +50,10 @@ namespace marisamod.Scripts.Cards
                         SetAmplifyState(true, false);
                     }
                 }
-                else
-                {
-                    SetAmplifyState(false, false);
-                }
+                // else
+                // {
+                //     SetAmplifyState(false, false);
+                // }
             }
         }
 

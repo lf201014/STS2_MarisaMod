@@ -10,7 +10,7 @@
   "MARISAMOD-FINAL_MASTER_SPARK.title": "Final Master Spark",
   "MARISAMOD-FINAL_MASTER_SPARK.description": "Deal {CalculatedDamage:diff()} damage to ALL enemies.\nAmplify {Energy:energyIcons()}: Deal {ExtraDamage:diff()} additional damage.",
   "MARISAMOD-MAGIC_AND_RED_DREAM.title": "Magic and Red Dream",
-  "MARISAMOD-MAGIC_AND_RED_DREAM.description": "Whenever you activate an [gold]Amplify[/gold] or [gold]Charge-Up[/gold] effect, draw {Power:diff()} cards, then put a card from your [gold]Hand[/gold] on top of your [gold]Draw Pile[/gold].",
+  "MARISAMOD-MAGIC_AND_RED_DREAM.description": "Whenever you activate an [gold]Amplify[/gold] or [gold]Charge-Up[/gold] effect, draw {Power:diff()} cards.",
   "MARISAMOD-ABSOLUTE_MAGNITUDE.title": "Absolute Magnitude",
   "MARISAMOD-ABSOLUTE_MAGNITUDE.description": "Deal {ExtraDamage:diff()} damage for each [gold]Charge-Up[/gold] you have.{InCombat:\n(Deal {CalculatedDamage:diff()} damage)|}",
   "MARISAMOD-ACCELERATION.title": "Acceleration",
