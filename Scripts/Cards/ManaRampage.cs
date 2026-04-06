@@ -24,7 +24,7 @@ namespace marisamod.Scripts.Cards
                 if (IsUpgraded)
                     CardCmd.Upgrade(item);
                 await CardCmd.AutoPlay(choiceContext, item, null);
-                await CardCmd.Exhaust(choiceContext, item);
+                await CardCmd.Exhaust(choiceContext, item, false, true);
                 //await CardPileCmd.RemoveFromCombat(item, true);
             }
         }
