@@ -215,7 +215,7 @@ public class Entry
         }
     }
 
-    private const string CookiePath = "res://marisamod/images/relics/cookie.png";
+    private const string CookiePath = "yummy_cookie_marisa";
 
     [HarmonyPatch(typeof(YummyCookie), "IconBaseName", MethodType.Getter)]
     internal static class YummyCookieIconBaseNamePatch
