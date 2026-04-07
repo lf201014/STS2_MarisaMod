@@ -77,6 +77,9 @@
   "MARISAMOD-SUPER_NOVA_POWER.description": "Your cards gain [gold]Ethereal[/gold].\n[gold]Burn[/gold] no longer deals damage to you.\nGain [gold]Strength[/gold] whenever you [gold]Exhaust[/gold] a [gold]Burn[/gold].",
   "MARISAMOD-SUPER_NOVA_POWER.smartDescription": "Your cards gain [gold]Ethereal[/gold].\n[gold]Burn[/gold] no longer deals damage to you.\nGain [blue]{Amount}[/blue] [gold]Strength[/gold] whenever you [gold]Exhaust[/gold] a [gold]Burn[/gold].",
   "MARISAMOD-WALPURGISNACHT_POWER.title": "Walpurgisnacht",
-  "MARISAMOD-WALPURGISNACHT_POWER.description": "At the start of your turn, [gold]Enchant[/gold] a random card in your hand with [gold]Starlit[/gold].\nWhenever you play an [gold]enchanted[/gold] card, gain {energyPrefix:energyIcons(1)} next turn.",
-  "MARISAMOD-WALPURGISNACHT_POWER.smartDescription": "At the start of your turn, [gold]Enchant[/gold] [blue]{Amount}[/blue] random {Amount:plural:card|cards} in your hand with [gold]Starlit[/gold].\nWhenever you play an [gold]enchanted[/gold] card, gain {energyPrefix:energyIcons(1)} next turn."
+  "MARISAMOD-WALPURGISNACHT_POWER.description": "Whenever you play an [gold]enchanted[/gold] card, gain {energyPrefix:energyIcons(1)} next turn.",
+  "MARISAMOD-WALPURGISNACHT_POWER.smartDescription": "Whenever you play an [gold]enchanted[/gold] card, gain {Amount:energyIcons()} next turn.",
+  "MARISAMOD-WALPURGISNACHT_AMP_POWER.title": "Walpurgisnacht",
+  "MARISAMOD-WALPURGISNACHT_AMP_POWER.description": "At the start of your turn, [gold]Enchant[/gold] a random card in your hand with [gold]Starlit[/gold].",
+  "MARISAMOD-WALPURGISNACHT_AMP_POWER.smartDescription": "At the start of your turn, [gold]Enchant[/gold] [blue]{Amount}[/blue] random {Amount:plural:card|cards} in your hand with [gold]Starlit[/gold]."
 }

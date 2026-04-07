@@ -2,6 +2,8 @@ using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
+using MegaCrit.Sts2.Core.Models;
+using MegaCrit.Sts2.Core.Models.Cards;
 using MegaCrit.Sts2.Core.Models.Powers;
 
 namespace marisamod.Scripts.Cards
@@ -13,7 +15,8 @@ namespace marisamod.Scripts.Cards
         }
 
         protected override IEnumerable<DynamicVar> CanonicalVars => base.CanonicalVars.Concat([
-            new DynamicVar("Power",99)
+            new DynamicVar("Power",99),
+            new CardsVar(2)
         ]);
 
         public override IEnumerable<CardKeyword> CanonicalKeywords => base.CanonicalKeywords.Concat([
@@ -29,6 +32,12 @@ namespace marisamod.Scripts.Cards
         {
             ArgumentNullException.ThrowIfNull(cardPlay.Target, "cardPlay.Target");
             await PowerCmd.Apply<WeakPower>(cardPlay.Target, DynamicVars["Power"].IntValue, Owner.Creature, this);
+            List<CardModel> cards2Add = [];
+            for (var i = 0; i < DynamicVars.Cards.IntValue; i++)
+            {
+                cards2Add.Add(CombatState!.CreateCard<Burn>(Owner));
+            }
+            await CardPileCmd.AddGeneratedCardsToCombat(cards2Add, PileType.Hand, addedByPlayer: true);
         }
     }
 }

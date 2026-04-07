@@ -9,7 +9,7 @@
   "MARISAMOD-SIMPLE_LAUNCHER.description": "[gold]蓄力[/gold]的消耗与触发阈值降为[blue]6[/blue]层。",
   "MARISAMOD-SIMPLE_LAUNCHER.flavor": "不管叫啥名字，一个手电筒始终还是手电筒……",
   "MARISAMOD-AMPLIFY_WAND.title": "增幅魔杖",
-  "MARISAMOD-AMPLIFY_WAND.description": "每当你发动[gold]增幅[/gold]，获得[gold]4[/gold]点[gold]格挡[/gold]。",
+  "MARISAMOD-AMPLIFY_WAND.description": "每当你发动[gold]增幅[/gold]，获得[blue]4[/blue]点[gold]格挡[/gold]。",
   "MARISAMOD-AMPLIFY_WAND.flavor": "没怎么见魔理沙用过的一根魔杖。",
   "MARISAMOD-MAGIC_BROOM.title": "魔法笤帚",
   "MARISAMOD-MAGIC_BROOM.description": "每[blue]3[/blue]次以[blue]0[blue]费使用卡牌，抽一张卡。",

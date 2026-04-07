@@ -9,7 +9,7 @@ namespace marisamod.Scripts.Relics
 {
     public class AmplifyWand : AbstractMarisaRelic
     {
-        public override RelicRarity Rarity => RelicRarity.Uncommon;
+        public override RelicRarity Rarity => RelicRarity.Rare;
 
         //private bool _trigger;
 

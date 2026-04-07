@@ -9,7 +9,7 @@ namespace marisamod.Scripts.Relics
 {
     public class HandmadeGrimoire : AbstractMarisaRelic
     {
-        public override RelicRarity Rarity => RelicRarity.Common;
+        public override RelicRarity Rarity => RelicRarity.Uncommon;
 
         protected override IEnumerable<DynamicVar> CanonicalVars => [
             new CardsVar(1),
