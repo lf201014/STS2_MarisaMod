@@ -26,7 +26,7 @@ public class GravityBeat : AbstractMarisaCard
     protected override void OnUpgrade()
     {
         DynamicVars.Damage.UpgradeValueBy(2);
-        DynamicVars["Div"].UpgradeValueBy(-2);
+        //DynamicVars["Div"].UpgradeValueBy(-2);
     }
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)

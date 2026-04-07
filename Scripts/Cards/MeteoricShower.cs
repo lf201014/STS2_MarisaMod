@@ -17,7 +17,10 @@ namespace marisamod.Scripts.Cards
 
         protected override bool HasEnergyCostX => true;
 
-        protected override IEnumerable<DynamicVar> CanonicalVars => [new DamageVar(6m, ValueProp.Move)];
+        protected override IEnumerable<DynamicVar> CanonicalVars =>
+        [
+            new DamageVar(7m, ValueProp.Move)
+        ];
 
         protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
         {
@@ -29,7 +32,7 @@ namespace marisamod.Scripts.Cards
             {
                 var hitCount = 0;
                 foreach (CardModel item in
-                await CardSelectCmd.FromHand(prefs: new CardSelectorPrefs(SelectionScreenPrompt, 0, exhaustNum), context: choiceContext, player: Owner, filter: null, source: this))
+                         await CardSelectCmd.FromHand(prefs: new CardSelectorPrefs(SelectionScreenPrompt, 0, exhaustNum), context: choiceContext, player: Owner, filter: null, source: this))
                 {
                     if (item is Burn)
                         hitCount++;

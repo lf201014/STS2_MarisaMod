@@ -12,21 +12,22 @@ namespace marisamod.Scripts.Cards;
 
 public class StarlitPotion : AbstractMarisaCard
 {
-    public StarlitPotion() : base(1, CardType.Skill, CardRarity.Uncommon, TargetType.Self)
+    public StarlitPotion() : base(0, CardType.Skill, CardRarity.Uncommon, TargetType.Self)
     {
     }
 
     //public override string PortraitPath => "res://marisamod/images/cards/marisamod-test_marisa_card.png";
 
     public override IEnumerable<CardKeyword> CanonicalKeywords => [CardKeyword.Exhaust];
-    
+
     protected override IEnumerable<IHoverTip> ExtraHoverTips =>
         HoverTipFactory.FromEnchantment<StarlitEnchantment>().Concat([HoverTipFactory.FromPower<StarlitPower>()]);
 
     protected override void OnUpgrade()
     {
         //RemoveKeyword(CardKeyword.Exhaust);
-        EnergyCost.UpgradeBy(-1);
+        //EnergyCost.UpgradeBy(-1);
+        AddKeyword(CardKeyword.Retain);
     }
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
