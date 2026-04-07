@@ -31,18 +31,18 @@ public class MysteriousBeam : AbstractMarisaCard
                 CardCmd.Upgrade(card);
             }
 
-            decimal damage = 0;
+            var damage = DynamicVars.Damage.BaseValue;
             if (card.DynamicVars.ContainsKey("CalculatedDamage"))
             {
-                damage = card.DynamicVars.CalculatedDamage.Calculate(null);
+                damage += card.DynamicVars.CalculatedDamage.Calculate(null);
             }
             else if (card.DynamicVars.ContainsKey("Damage"))
             {
-                damage = card.DynamicVars.Damage.BaseValue;
+                damage += card.DynamicVars.Damage.BaseValue;
             }
             else if (card.DynamicVars.ContainsKey("OstyDamage"))
             {
-                damage = card.DynamicVars.OstyDamage.BaseValue;
+                damage += card.DynamicVars.OstyDamage.BaseValue;
             }
             else
             {
