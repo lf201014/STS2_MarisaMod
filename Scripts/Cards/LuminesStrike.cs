@@ -13,19 +13,19 @@ namespace marisamod.Scripts.Cards
         }
 
         protected override IEnumerable<DynamicVar> CanonicalVars => base.CanonicalVars.Concat([
-            new DynamicVar("Mult",2),
-        new DynamicVar("MultAmp",4),
-        new CalculationBaseVar(0m),
-        new ExtraDamageVar(1m),
-        new CalculatedDamageVar(ValueProp.Move).WithMultiplier((card, _) =>
-            card is AbstractAmplifiedCard { IsAmplified: true }?
-            card.Owner.PlayerCombatState!.Energy*card.DynamicVars["MultAmp"].IntValue:
-            card.Owner.PlayerCombatState!.Hand.Cards.Count*card.DynamicVars["Mult"].IntValue
-        )
+            new DynamicVar("Mult", 2),
+            new DynamicVar("MultAmp", 4),
+            new CalculationBaseVar(0m),
+            new ExtraDamageVar(1m),
+            new CalculatedDamageVar(ValueProp.Move).WithMultiplier((card, _) =>
+                card is AbstractAmplifiedCard { IsAmplified: true } ? card.Owner.PlayerCombatState!.Energy * card.DynamicVars["MultAmp"].IntValue :
+                    card.Owner.PlayerCombatState!.Hand.Cards.Count(x => x != this) * card.DynamicVars["Mult"].IntValue
+            )
         ]);
 
 
-        protected override HashSet<CardTag> CanonicalTags => [
+        protected override HashSet<CardTag> CanonicalTags =>
+        [
             CardTag.Strike
         ];
 

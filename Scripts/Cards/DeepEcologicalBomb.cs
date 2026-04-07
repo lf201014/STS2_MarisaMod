@@ -1,3 +1,4 @@
+using marisamod.Scripts.Powers;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
@@ -34,7 +35,7 @@ namespace marisamod.Scripts.Cards
                 var target = Owner.RunState.Rng.CombatTargets.NextItem(combatState.HittableEnemies);
                 if (target != null)
                 {
-                    await PowerCmd.Apply<PiercingWailPower>(target, DynamicVars["Power"].BaseValue, Owner.Creature, this);
+                    await PowerCmd.Apply<DeepEcologicalBombPower>(target, DynamicVars["Power"].BaseValue, Owner.Creature, this);
                     await DamageCmd.Attack(DynamicVars.Damage.BaseValue).FromCard(this).Targeting(target)
                         .WithHitFx("vfx/vfx_attack_blunt")
                         .Execute(choiceContext);
