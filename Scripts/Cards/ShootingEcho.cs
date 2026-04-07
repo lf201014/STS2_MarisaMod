@@ -14,7 +14,7 @@ namespace marisamod.Scripts.Cards
     {
         public ShootingEcho() : base(1, CardType.Attack, CardRarity.Common, TargetType.AnyEnemy) { }
 
-        protected override IEnumerable<DynamicVar> CanonicalVars => [new DamageVar(8m, ValueProp.Move)];
+        protected override IEnumerable<DynamicVar> CanonicalVars => [new DamageVar(9m, ValueProp.Move)];
 
         private bool _back2Hand = false;
 

@@ -15,7 +15,7 @@ public class GasGiant : AbstractMarisaCard
     
 
     protected override IEnumerable<DynamicVar> CanonicalVars => [
-        new BlockVar(12,ValueProp.Move)
+        new BlockVar(14,ValueProp.Move)
     ];
 
     protected override void OnUpgrade()

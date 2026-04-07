@@ -14,7 +14,7 @@ namespace marisamod.Scripts.Cards
         }
 
         protected override IEnumerable<DynamicVar> CanonicalVars => [
-            new DamageVar(10, ValueProp.Move)
+            new DamageVar(12, ValueProp.Move)
         ];
 
         protected override void OnUpgrade()
