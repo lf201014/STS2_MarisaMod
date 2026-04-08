@@ -2,7 +2,9 @@ using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.Factories;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
+using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.Logging;
+using MegaCrit.Sts2.Core.ValueProps;
 
 namespace marisamod.Scripts.Cards;
 
@@ -11,6 +13,11 @@ public class MysteriousBeam : AbstractMarisaCard
     public MysteriousBeam() : base(0, CardType.Attack, CardRarity.Common, TargetType.AnyEnemy)
     {
     }
+
+    protected override IEnumerable<DynamicVar> CanonicalVars =>
+    [
+        new DamageVar(0, ValueProp.Move)
+    ];
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {

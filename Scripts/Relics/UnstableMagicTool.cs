@@ -23,7 +23,7 @@ public class UnstableMagicTool : AbstractMarisaRelic
         {
             Flash();
             var zaEnchantment = ModelDb.Enchantment<StarlitEnchantment>().ToMutable();
-            var cards = PileType.Draw.GetPile(Owner).Cards.Where(zaEnchantment.CanEnchant).ToList().StableShuffle(Owner.RunState.Rng.CombatCardSelection)
+            var cards = PileType.Draw.GetPile(Owner).Cards.Where(x => zaEnchantment.CanEnchant(x)).ToList().StableShuffle(Owner.RunState.Rng.CombatCardSelection)
                 .Take(DynamicVars.Cards.IntValue)
                 .ToList();
             foreach (var card in cards)

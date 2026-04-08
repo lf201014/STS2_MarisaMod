@@ -20,8 +20,7 @@ public class Walpurgisnacht : AbstractAmplifiedCard //AbstractMarisaCard
         base.CanonicalVars.Concat(
         [
             new DynamicVar("Power", 1),
-            new DynamicVar("PowerAmp", 1),
-            new EnergyVar(1)
+            new DynamicVar("PowerAmp", 1)
         ]);
 
     protected override IEnumerable<IHoverTip> ExtraHoverTips =>

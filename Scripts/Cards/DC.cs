@@ -1,4 +1,3 @@
-using Godot;
 using marisamod.Scripts.Characters;
 using marisamod.Scripts.Enchantments;
 using MegaCrit.Sts2.Core.Commands;
@@ -64,7 +63,8 @@ public class DC : AbstractMarisaCard
             .Execute(choiceContext);
 
         var zaEnchantment = Enchantment<StarlitEnchantment>().ToMutable();
-        var cards = Owner.PlayerCombatState!.Hand.Cards.Where(zaEnchantment.CanEnchant).ToList();
+        var cards = Owner.PlayerCombatState!.Hand.Cards.ToList();
+        cards = cards.Where(x => zaEnchantment.CanEnchant(x)).ToList();
         if (cards.Count > DynamicVars.Cards.IntValue)
         {
             cards = cards.TakeRandom(DynamicVars.Cards.IntValue, RunState!.Rng.CombatCardSelection).ToList();
