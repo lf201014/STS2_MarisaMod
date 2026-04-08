@@ -178,7 +178,7 @@
   "MARISAMOD-SUPER_NOVA.title": "Supernova",
   "MARISAMOD-SUPER_NOVA.description": "Your cards gain [gold]Ethereal[/gold].\n[gold]Burn[/gold] no longer deals damage to you.\nGain {Power:diff()} [gold]Strength[/gold] whenever you [gold]Exhaust[/gold] a [gold]Burn[/gold].",
   "MARISAMOD-PERSEIDS.title": "Perseids",
-  "MARISAMOD-PERSEIDS.description": "Gain {Energy:energyIcons()} when drawn.\nIf this card is [gold]Exhausted[/gold], add a [gold]Super Perseids[/gold] to your [gold]Hand[/gold].",
+  "MARISAMOD-PERSEIDS.description": "Gain {Energy:energyIcons()} when drawn.\nIf this card is [gold]Exhausted[/gold], add {IfUpgraded:show:an upgraded|a} [gold]Super Perseids[/gold] to your [gold]Hand[/gold].",
   "MARISAMOD-SUPER_PERSEIDS.title": "Super Perseids",
   "MARISAMOD-SUPER_PERSEIDS.description": "Deal {Damage:diff()} damage to a random enemy {Repeat:diff()} times.",
   "MARISAMOD-TREASURE_HUNTER.title": "Treasure Hunter",

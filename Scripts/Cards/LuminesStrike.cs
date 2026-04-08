@@ -44,9 +44,9 @@ namespace marisamod.Scripts.Cards;
 //             .Execute(choiceContext);
 //     }
 // }
-public class LumineStrike : AbstractMarisaCard
+public class LuminesStrike : AbstractMarisaCard
 {
-    public LumineStrike() : base(1, CardType.Attack, CardRarity.Common, TargetType.AnyEnemy)
+    public LuminesStrike() : base(1, CardType.Attack, CardRarity.Common, TargetType.AnyEnemy)
     {
     }
 

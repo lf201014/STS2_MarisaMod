@@ -105,5 +105,15 @@ namespace marisamod.Scripts.Cards
             ValidateAmplify();
             return Task.CompletedTask;
         }
+
+        public override Task BeforeCardAutoPlayed(CardModel card, Creature? target, AutoPlayType type)
+        {
+            if (card == this)
+            {
+                SetAmplifyState(true, true);
+            }
+
+            return Task.CompletedTask;
+        }
     }
 }
