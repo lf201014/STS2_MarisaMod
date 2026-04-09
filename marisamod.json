@@ -3,7 +3,7 @@
   "name": "marisamod",
   "author": "Flynn, Hell, Hohner_257, Kishin, Samsara",
   "description": "marisa mod",
-  "version": "v0.3.4",
+  "version": "v0.3.5",
   "has_pck": true,
   "has_dll": true,
   "dependencies": [

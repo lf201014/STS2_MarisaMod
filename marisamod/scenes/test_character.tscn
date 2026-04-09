@@ -21,8 +21,8 @@ offset_bottom = 153.0
 
 [node name="IntentPos" type="Marker2D" parent="."]
 unique_name_in_owner = true
-position = Vector2(0, -159)
+position = Vector2(20, -333)
 
 [node name="CenterPos" type="Marker2D" parent="."]
 unique_name_in_owner = true
-position = Vector2(0, -72)
+position = Vector2(0, -154)

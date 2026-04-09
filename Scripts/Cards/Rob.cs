@@ -4,6 +4,7 @@ using MegaCrit.Sts2.Core.Entities.Players;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.Models.Powers;
+using MegaCrit.Sts2.Core.Nodes.Rooms;
 using MegaCrit.Sts2.Core.ValueProps;
 
 namespace marisamod.Scripts.Cards
@@ -32,8 +33,8 @@ namespace marisamod.Scripts.Cards
         //     new ExtraDamageVar(7m),
         //     new CalculatedDamageVar(ValueProp.Move).WithMultiplier((card, _) => card is AbstractAmplifiedCard { IsAmplified: true } ? 1 : 0)
         // ]);
-        override protected IEnumerable<DynamicVar> CanonicalVars => base.CanonicalVars.Concat([
-            new DamageVar(7,ValueProp.Move)
+        protected override IEnumerable<DynamicVar> CanonicalVars => base.CanonicalVars.Concat([
+            new DamageVar(7, ValueProp.Move)
         ]);
 
         protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
@@ -48,6 +49,11 @@ namespace marisamod.Scripts.Cards
                 if (IsAmplified)
                     gain *= 2;
                 await PlayerCmd.GainGold(gain, Owner);
+                var monsterPos = NCombatRoom.Instance?.GetCreatureNode(cardPlay.Target)?.VfxSpawnPosition;
+                if (monsterPos.HasValue)
+                {
+                    VfxCmd.PlayVfx(monsterPos.Value, "vfx/vfx_coin_explosion_regular");
+                }
             }
         }
     }
