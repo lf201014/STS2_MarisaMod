@@ -5,6 +5,7 @@ using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.Entities.Relics;
 using MegaCrit.Sts2.Core.Extensions;
 using MegaCrit.Sts2.Core.HoverTips;
+using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.Rooms;
 
@@ -17,6 +18,11 @@ public class UnstableMagicTool : AbstractMarisaRelic
     protected override IEnumerable<IHoverTip> ExtraHoverTips =>
         HoverTipFactory.FromEnchantment<StarlitEnchantment>();
 
+    protected override IEnumerable<DynamicVar> CanonicalVars =>
+    [
+        new CardsVar(3)
+    ];
+
     public override Task AfterRoomEntered(AbstractRoom room)
     {
         if (room is CombatRoom)
@@ -28,10 +34,9 @@ public class UnstableMagicTool : AbstractMarisaRelic
                 .ToList();
             foreach (var card in cards)
             {
-                zaEnchantment = ModelDb.Enchantment<StarlitEnchantment>().ToMutable();
                 MarisaCharacter.Enchant(zaEnchantment, card);
+                zaEnchantment = ModelDb.Enchantment<StarlitEnchantment>().ToMutable();
             }
-
             CardCmd.Preview(cards);
         }
 
