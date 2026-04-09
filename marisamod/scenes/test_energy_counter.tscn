@@ -1,9 +1,7 @@
-[gd_scene load_steps=15 format=3 uid="uid://cs3a5onikvhi4"]
+[gd_scene load_steps=13 format=3 uid="uid://cs3a5onikvhi4"]
 
 [ext_resource type="Texture2D" uid="uid://ddxmxgyyfy8mn" path="res://icon.svg" id="1_85qf2"]
 [ext_resource type="Texture2D" uid="uid://7g1xbdpxs2hj" path="res://marisamod/images/ui/layer5.png" id="1_c7xp2"]
-[ext_resource type="Script" uid="uid://ce3lun3cex1pw" path="res://Scripts/Nodes/NMarisaEnergyCounter.cs" id="1_f1lyq"]
-[ext_resource type="Script" uid="uid://bjwqs62lij8gc" path="res://Scripts/Nodes/MehMegaLabel.cs" id="1_hjd6e"]
 [ext_resource type="Texture2D" uid="uid://b7galxhii653h" path="res://marisamod/images/ui/layer4.png" id="2_hjd6e"]
 [ext_resource type="PackedScene" uid="uid://dlpkrsr22myfy" path="res://marisamod/scenes/vfx/energy_vfx_back.tscn" id="2_sppwp"]
 [ext_resource type="PackedScene" uid="uid://ddtlngvqplf0a" path="res://marisamod/scenes/vfx/particle_b_cpu.tscn" id="3_bbu45"]
@@ -22,12 +20,12 @@ layout_mode = 3
 anchors_preset = 0
 offset_right = 128.0
 offset_bottom = 128.0
-script = ExtResource("1_f1lyq")
 metadata/_edit_lock_ = true
 
 [node name="EnergyVfxBack" parent="." instance=ExtResource("2_sppwp")]
 unique_name_in_owner = true
 position = Vector2(64, 64)
+script = null
 
 [node name="BurstBack" parent="." instance=ExtResource("3_bbu45")]
 unique_name_in_owner = true
@@ -116,6 +114,7 @@ texture = ExtResource("7_ntyyb")
 [node name="EnergyVfxFront" parent="." instance=ExtResource("10_ntyyb")]
 unique_name_in_owner = true
 position = Vector2(64, 64)
+script = null
 
 [node name="BurstFront" parent="." instance=ExtResource("13_d3quy")]
 unique_name_in_owner = true
@@ -143,4 +142,3 @@ theme_override_font_sizes/font_size = 36
 text = "3/3"
 horizontal_alignment = 1
 vertical_alignment = 1
-script = ExtResource("1_hjd6e")

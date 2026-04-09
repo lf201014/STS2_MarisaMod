@@ -93,7 +93,7 @@ public class Entry
 
 
     [HarmonyPatch(typeof(TheArchitect), "WinRun")]
-    internal static class WatcherArchitectWinRunPatch
+    internal static class TheArchitectWinRunPatch
     {
         private static bool Prefix(TheArchitect __instance, ref Task __result)
         {
