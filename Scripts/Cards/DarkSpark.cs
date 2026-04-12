@@ -1,3 +1,5 @@
+using marisamod.Scenes.Vfx.DarkSpark;
+using marisamod.Scenes.Vfx.FinalSpark;
 using marisamod.Scripts.PatchesNModels;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
@@ -39,11 +41,11 @@ namespace marisamod.Scripts.Cards
             .BeforeDamage(async delegate
             {
                 List<Creature> enemies = CombatState!.Enemies.Where(e => e.IsAlive).ToList();
-                var nHyperbeamVfx = NHyperbeamVfx.Create(Owner.Creature, enemies.Last());
-                if (nHyperbeamVfx != null)
+                var vfx = VfxDarkSpark.Create(Owner.Creature, enemies.Last());
+                if (vfx != null)
                 {
-                    NCombatRoom.Instance?.CombatVfxContainer.AddChildSafely(nHyperbeamVfx);
-                    await Cmd.Wait(0.5f);
+                    NCombatRoom.Instance?.CombatVfxContainer.AddChildSafely(vfx);
+                    await Cmd.Wait(VfxDarkSpark.VfxTime);
                 }
                 foreach (Creature item in enemies)
                 {

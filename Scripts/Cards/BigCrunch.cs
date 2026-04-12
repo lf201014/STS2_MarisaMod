@@ -49,7 +49,7 @@ public class BigCrunch : AbstractMarisaCard
             var cardModel = Owner.RunState.Rng.CombatCardSelection.NextItem(pile.Cards);
             if (cardModel != null)
             {
-                await CardCmd.Exhaust(choiceContext, cardModel);
+                await CardCmd.Exhaust(choiceContext, cardModel,skipVisuals:true);
             }
         }
     }

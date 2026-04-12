@@ -1,0 +1,56 @@
+[gd_scene load_steps=12 format=3 uid="uid://bha580jbc8kah"]
+
+[ext_resource type="Script" uid="uid://mb2x71m4mvtj" path="res://Scenes/Vfx/DarkSpark/VfxDarkSpark.cs" id="1_ush8r"]
+[ext_resource type="Shader" uid="uid://cw24ihvhvk5sk" path="res://Scenes/Vfx/DarkSpark/VfxDarkSparkBeam.gdshader" id="2_ush8r"]
+[ext_resource type="Shader" uid="uid://c7hlodvfbdkk5" path="res://Scenes/Vfx/DarkSpark/VfxDarkSparkStar.gdshader" id="3_4at4j"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_rwbm5"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_b04we"]
+width = 128
+noise = SubResource("FastNoiseLite_rwbm5")
+seamless = true
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_m3hhr"]
+shader = ExtResource("2_ush8r")
+shader_parameter/noise_tex = SubResource("NoiseTexture2D_b04we")
+shader_parameter/glow_factor = 2.5
+shader_parameter/glow_factor2 = 1.6
+shader_parameter/rainbow_ratio = 1.0
+shader_parameter/beam_color = Color(0.13, 0.4, 0.7, 1)
+shader_parameter/progress = 1.395
+
+[sub_resource type="QuadMesh" id="QuadMesh_6t6qc"]
+subdivide_width = 160
+subdivide_depth = 20
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_kdk1l"]
+noise_type = 3
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_g7d1y"]
+width = 128
+height = 128
+noise = SubResource("FastNoiseLite_kdk1l")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_7sipw"]
+shader = ExtResource("3_4at4j")
+shader_parameter/glow_factor = 4.5
+shader_parameter/progress = 0.0
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_i3lip"]
+
+[node name="VfxFinalSpark" type="Node2D"]
+scale = Vector2(5, 5)
+script = ExtResource("1_ush8r")
+
+[node name="beam" type="MeshInstance2D" parent="."]
+material = SubResource("ShaderMaterial_m3hhr")
+position = Vector2(276.251, 0)
+scale = Vector2(551.4985, 109.38151)
+mesh = SubResource("QuadMesh_6t6qc")
+texture = SubResource("NoiseTexture2D_g7d1y")
+
+[node name="star" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_7sipw")
+scale = Vector2(2000, 2000)
+texture = SubResource("CanvasTexture_i3lip")

@@ -1,0 +1,56 @@
+[gd_scene load_steps=12 format=3 uid="uid://broc7esm03vky"]
+
+[ext_resource type="Script" uid="uid://dv7nxbfhc2bl4" path="res://Scenes/Vfx/FinalSpark/VfxFinalSpark.cs" id="1_5v5ju"]
+[ext_resource type="Shader" uid="uid://cudbkd68ilvyr" path="res://Scenes/Vfx/FinalSpark/VfxFinalSparkBeam.gdshader" id="2_i6ppn"]
+[ext_resource type="Shader" uid="uid://bws3x0mij8o1i" path="res://Scenes/Vfx/FinalSpark/VfxFinalSparkStar.gdshader" id="3_cp1fi"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_rwbm5"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_b04we"]
+noise = SubResource("FastNoiseLite_rwbm5")
+seamless = true
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_m3hhr"]
+shader = ExtResource("2_i6ppn")
+shader_parameter/noise_tex = SubResource("NoiseTexture2D_b04we")
+shader_parameter/glow_factor = 1.675
+shader_parameter/glow_factor2 = 1.6
+shader_parameter/rainbow_ratio = 0.05
+shader_parameter/beam_color = Color(0.13, 0.4, 0.7, 1)
+shader_parameter/progress = 0.0
+
+[sub_resource type="QuadMesh" id="QuadMesh_6t6qc"]
+subdivide_width = 160
+subdivide_depth = 20
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_kdk1l"]
+noise_type = 3
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_g7d1y"]
+width = 128
+height = 128
+noise = SubResource("FastNoiseLite_kdk1l")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_7sipw"]
+shader = ExtResource("3_cp1fi")
+shader_parameter/glow_factor = 4.5
+shader_parameter/test = 0.0
+shader_parameter/progress = 0.0
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_i3lip"]
+
+[node name="VfxFinalSpark" type="Node2D"]
+scale = Vector2(5, 5)
+script = ExtResource("1_5v5ju")
+
+[node name="beam" type="MeshInstance2D" parent="."]
+material = SubResource("ShaderMaterial_m3hhr")
+position = Vector2(276.251, 0)
+scale = Vector2(551.4985, 109.38151)
+mesh = SubResource("QuadMesh_6t6qc")
+texture = SubResource("NoiseTexture2D_g7d1y")
+
+[node name="star" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_7sipw")
+scale = Vector2(1999.9996, 1999.9996)
+texture = SubResource("CanvasTexture_i3lip")

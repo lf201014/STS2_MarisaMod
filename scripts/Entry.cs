@@ -1,7 +1,6 @@
 using System.Reflection;
 using BaseLib.Config;
 using Godot;
-using Godot.Bridge;
 using HarmonyLib;
 using marisamod.Scripts.Cards;
 using marisamod.Scripts.Characters;
@@ -31,12 +30,16 @@ public class Entry
 
     public static void Init()
     {
+        //ScriptManagerBridge.LookupScriptsInAssembly(typeof(Entry).Assembly);
+        var assembly = Assembly.GetExecutingAssembly();
+        Godot.Bridge.ScriptManagerBridge.LookupScriptsInAssembly(assembly);
+        
         Log.Info($"{LogPrefix} Init called");
         //ModConfigRegistry.Register("marisamod", new MehModConfig());
         var harmony = new Harmony("marisamod");
         harmony.PatchAll(typeof(Entry).Assembly);
         Log.Info($"{LogPrefix} Harmony PatchAll completed");
-        ScriptManagerBridge.LookupScriptsInAssembly(typeof(Entry).Assembly);
+  
         Log.Info($"{LogPrefix} Init Done");
         //const string gamePath = "res://images/atlases/ui_atlas.sprites/card/energy_test.tres";
         //const string modPath = "res://marisamod/images/atlases/ui_atlas.sprites/card/energy_test.tres";
