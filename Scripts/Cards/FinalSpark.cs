@@ -37,7 +37,7 @@ public class FinalSpark : AbstractMarisaCard
 
     public override Task AfterCardPlayed(PlayerChoiceContext context, CardPlay cardPlay)
     {
-        if (!cardPlay.Card.Tags.Contains(MarisaCardTags.Spark) || cardPlay.Card == this)
+        if (!cardPlay.Card.Tags.Contains(MarisaCardTags.Spark) || cardPlay.Card == this || cardPlay.Card.Owner != Owner)
             return Task.CompletedTask;
         _sparkCount++;
         EnergyCost.AddThisCombat(-DynamicVars.Energy.IntValue);
@@ -58,6 +58,7 @@ public class FinalSpark : AbstractMarisaCard
                     NCombatRoom.Instance?.CombatVfxContainer.AddChildSafely(vfx);
                     await Cmd.Wait(VfxFinalSpark.VfxTime);
                 }
+
                 foreach (Creature item in enemies)
                 {
                     var nHyperbeamImpactVfx = NHyperbeamImpactVfx.Create(Owner.Creature, item);

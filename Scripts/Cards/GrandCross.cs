@@ -11,8 +11,9 @@ public class GrandCross : AbstractMarisaCard
     public GrandCross() : base(2, CardType.Attack, CardRarity.Common, TargetType.AnyEnemy)
     {
     }
-    
-    protected override IEnumerable<DynamicVar> CanonicalVars => [
+
+    protected override IEnumerable<DynamicVar> CanonicalVars =>
+    [
         new DamageVar(13m, ValueProp.Move),
         new EnergyVar(1)
     ];
@@ -32,10 +33,11 @@ public class GrandCross : AbstractMarisaCard
 
     public override Task BeforeCardPlayed(CardPlay cardPlay)
     {
-        if (cardPlay.Card is AbstractAmplifiedCard { IsAmplified: true })
+        if (cardPlay.Card is AbstractAmplifiedCard { IsAmplified: true } && cardPlay.Card.Owner == Owner)
         {
             EnergyCost.SetThisTurn(0);
         }
+
         return Task.CompletedTask;
     }
 }
