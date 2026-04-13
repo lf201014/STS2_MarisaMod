@@ -4,12 +4,12 @@ render_mode blend_sub;
 uniform sampler2D noise_tex;
 
 //辉光
-uniform float glow_factor =2.0;
+uniform float glow_factor =1.5;
 uniform float glow_factor2 = 1.6;
 uniform float rainbow_ratio = 1.0;//彩虹的情况将其设为1.0
 uniform vec4 beam_color : source_color = vec4(0.13, 0.4, 0.7, 1.0);
 
-uniform float progress = 1.0;//取值范围0~2，0的时候最小，1的时候最大。
+uniform float progress: hint_range(0.0, 1.0) = 1.0;//取值范围0~2，0的时候最小，1的时候最大。
 vec3 hsv2rgb(vec3 c){
     vec3 rgb = clamp(abs(mod(c.x*6.0 + vec3(0,4,2),6.0)-3.0)-1.0,0.0,1.0);
     return c.z * mix(vec3(1.0), rgb, c.y);
@@ -62,7 +62,7 @@ vec3 rainbow(vec2 pos)
 	return rainbow;
 }
 float glow(float d) {
-	float pulse = 1.0+ 0.1* sin(TIME*3.0);
+	float pulse = 1.0+ 0.05* sin(TIME*10.0);
 	float brightness = pow(1.0 / (d * glow_factor *pulse + 0.002), glow_factor2) ;
 	brightness -= pow( glow_factor*pulse+ 0.002, -glow_factor2);//d= 1时亮度应该收敛到0
 	return max(brightness,0.0);

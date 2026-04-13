@@ -39,7 +39,7 @@ public partial class VfxDarkSpark : Node2D
     public double Time;
     public override void _Process(double delta)
     {
-        Rotation += MathF.PI / 20f * (float)delta / VfxTime;
+        //Rotation += MathF.PI / 20f * (float)delta / VfxTime;
         if (Phase == BeamPhase.Idle)
         {
             StarShader.SetShaderParameter("progress",0);
@@ -94,10 +94,6 @@ public partial class VfxDarkSpark : Node2D
         {
             Vector2 vfxSpawnPosition = nCreature.VfxSpawnPosition;
             Player? player = owner.Player;
-            if (player is { Character: Defect })
-            {
-                vfxSpawnPosition += Defect.EyelineOffset;
-            }
             return Create(vfxSpawnPosition, nCreature2.VfxSpawnPosition);
         }
         return null;
@@ -109,8 +105,8 @@ public partial class VfxDarkSpark : Node2D
             return null;
         }
         VfxDarkSpark instance = GD.Load<PackedScene>(ScenePath).Instantiate<VfxDarkSpark>();
-        float dir = (target - start).Angle() - MathF.PI / 40f;
-        instance.Rotation = dir;
+        //float dir = (target - start).Angle() - MathF.PI / 40f;
+        //instance.Rotation = dir;
         instance.Position =  start;
         return instance;
     }
