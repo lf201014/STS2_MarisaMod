@@ -32,11 +32,12 @@ namespace marisamod.Scripts.Powers
 
         public override async Task BeforeTurnEnd(PlayerChoiceContext choiceContext, CombatSide side)
         {
-            foreach (var item in await CardSelectCmd.FromHand(choiceContext, Owner.Player!,
-                         new CardSelectorPrefs(SelectionScreenPrompt, 0, 2), null, this))
-            {
-                await CardCmd.Discard(choiceContext, item);
-            }
+            if (side == CombatSide.Player)
+                foreach (var item in await CardSelectCmd.FromHand(choiceContext, Owner.Player!,
+                             new CardSelectorPrefs(SelectionScreenPrompt, 0, 2), null, this))
+                {
+                    await CardCmd.Discard(choiceContext, item);
+                }
         }
 
         public override async Task AfterCardExhausted(PlayerChoiceContext choiceContext, CardModel card, bool causedByEthereal)
