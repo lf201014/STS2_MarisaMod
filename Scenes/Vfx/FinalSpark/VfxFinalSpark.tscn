@@ -13,11 +13,11 @@ seamless = true
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_m3hhr"]
 shader = ExtResource("2_i6ppn")
 shader_parameter/noise_tex = SubResource("NoiseTexture2D_b04we")
-shader_parameter/glow_factor = 1.675
-shader_parameter/glow_factor2 = 1.6
+shader_parameter/glow_factor = 1.5
+shader_parameter/glow_factor2 = 1.7
 shader_parameter/rainbow_ratio = 0.05
 shader_parameter/beam_color = Color(0.13, 0.4, 0.7, 1)
-shader_parameter/progress = 0.0
+shader_parameter/progress = 1.0
 
 [sub_resource type="QuadMesh" id="QuadMesh_6t6qc"]
 subdivide_width = 160

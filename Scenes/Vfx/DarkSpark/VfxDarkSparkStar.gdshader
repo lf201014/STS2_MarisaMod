@@ -39,8 +39,8 @@ void fragment()
 	float factor3 = 14.0- 7.0 *progress;
 	float factor2 = 0.1+ 0.25 * pow(abs(progress-0.5)*2.0,0.4) + 0.15 * progress;
 	float factor = -0.8+  1.8* progress;// progress*0.5 +  0.5;
-	factor *= pulse;
-	factor2 *= pulse;
+	factor *= pow(pulse,0.3);
+	factor2 *= sqrt(pulse);
 	factor3 *= pulse;
 	//factor= test;
     float d = (pow(abs(p.x),factor2) + factor* pow(abs(p.y),factor2)) ;
@@ -58,8 +58,8 @@ void fragment()
 
 	ring_radius *= 0.6 + 0.4 * 2.0 * abs(progress-0.5);
 	ring_radius /= pow(pulse, 2);
-	ring_sharp *=0.1 + 0.8* pow(abs(progress-0.4)*2.0,2.0);
-	ring_sharp *= pow(pulse, 8);
+	ring_sharp *=0.4 + 0.4* pow(abs(progress-0.4)*2.0,2.0);
+	ring_sharp *= pow(pulse,0.5);
 	ring_brightness *=  (0.4 + 0.6* progress);
 	float ring = exp(-abs((r-ring_radius)*ring_sharp) * 50.0)*ring_brightness;
 
