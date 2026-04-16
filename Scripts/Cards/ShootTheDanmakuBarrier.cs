@@ -10,7 +10,7 @@ namespace marisamod.Scripts.Cards;
 
 public class ShootTheDanmakuBarrier : AbstractMarisaCard
 {
-    public ShootTheDanmakuBarrier() : base(3,CardType.Attack,CardRarity.Rare,TargetType.AnyEnemy){}
+    public ShootTheDanmakuBarrier() : base(3,CardType.Attack,CardRarity.Uncommon,TargetType.AnyEnemy){}
 
     protected override IEnumerable<DynamicVar> CanonicalVars => [
         new DamageVar(24,ValueProp.Move)

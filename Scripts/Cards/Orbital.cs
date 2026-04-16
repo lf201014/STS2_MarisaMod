@@ -9,13 +9,14 @@ namespace marisamod.Scripts.Cards
 {
     public class Orbital : AbstractMarisaCard
     {
-        public Orbital() : base(2, CardType.Skill, CardRarity.Uncommon, TargetType.Self)
+        public Orbital() : base(2, CardType.Skill, CardRarity.Rare, TargetType.Self)
         {
         }
 
-        protected override IEnumerable<DynamicVar> CanonicalVars => [
-            new DynamicVar("Add",1),
-            new DynamicVar("Draw",1)
+        protected override IEnumerable<DynamicVar> CanonicalVars =>
+        [
+            new DynamicVar("Add", 1),
+            new DynamicVar("Draw", 1)
         ];
 
         protected override void OnUpgrade()

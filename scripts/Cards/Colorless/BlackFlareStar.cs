@@ -19,12 +19,14 @@ namespace marisamod.Scripts.Cards.Colorless
 
         public override bool GainsBlock => true;
 
-        protected override IEnumerable<DynamicVar> CanonicalVars => [
+        protected override IEnumerable<DynamicVar> CanonicalVars =>
+        [
             new BlockVar(3, ValueProp.Move),
             new CardsVar(4)
         ];
 
-        public override IEnumerable<CardKeyword> CanonicalKeywords => [
+        public override IEnumerable<CardKeyword> CanonicalKeywords =>
+        [
             CardKeyword.Exhaust
         ];
 
@@ -32,12 +34,15 @@ namespace marisamod.Scripts.Cards.Colorless
 
         protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
         {
+            var cnt = 0;
             foreach (CardModel item in await CardSelectCmd.FromHand(
-                prefs: new CardSelectorPrefs(SelectionScreenPrompt, 0, 99), context: choiceContext, player: Owner, filter: null, source: this))
+                         prefs: new CardSelectorPrefs(SelectionScreenPrompt, 0, 99), context: choiceContext, player: Owner, filter: null, source: this))
             {
                 await CardCmd.Discard(choiceContext, item);
-                await CreatureCmd.GainBlock(Owner.Creature, DynamicVars.Block, cardPlay);
+                cnt++;
             }
+
+            await CreatureCmd.GainBlock(Owner.Creature, DynamicVars.Block.BaseValue * cnt, DynamicVars.Block.Props, cardPlay);
         }
 
         protected override void OnUpgrade()
