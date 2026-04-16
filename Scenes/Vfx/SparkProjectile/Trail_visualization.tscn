@@ -1,0 +1,44 @@
+[gd_scene load_steps=10 format=3 uid="uid://b4ps3e3qaw82g"]
+
+[ext_resource type="Shader" uid="uid://di0dmoqoc2u6r" path="res://Scenes/Vfx/SparkProjectile/SparkProjectile.gdshader" id="1_jcune"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_y76rn"]
+noise_type = 3
+seed = -110
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_i2xoa"]
+noise = SubResource("FastNoiseLite_y76rn")
+seamless = true
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_xl8if"]
+noise_type = 3
+seed = 120
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_y76rn"]
+noise = SubResource("FastNoiseLite_xl8if")
+seamless = true
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_mwour"]
+shader = ExtResource("1_jcune")
+shader_parameter/noise_tex = SubResource("NoiseTexture2D_i2xoa")
+shader_parameter/noise_tex2 = SubResource("NoiseTexture2D_y76rn")
+shader_parameter/flow_speed = 0.4
+shader_parameter/noise_scale = 5.0
+shader_parameter/spark_color = Color(0.13, 0.4, 0.7, 1)
+shader_parameter/rainbow_ratio = 0.05
+
+[sub_resource type="QuadMesh" id="QuadMesh_8gna5"]
+subdivide_width = 200
+subdivide_depth = 50
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_xcgbm"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_my8lc"]
+noise = SubResource("FastNoiseLite_xcgbm")
+
+[node name="MeshInstance2D" type="MeshInstance2D"]
+material = SubResource("ShaderMaterial_mwour")
+position = Vector2(590.3749, 74.87499)
+scale = Vector2(115.25018, 48.250004)
+mesh = SubResource("QuadMesh_8gna5")
+texture = SubResource("NoiseTexture2D_my8lc")

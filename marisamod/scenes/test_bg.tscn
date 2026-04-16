@@ -1,7 +1,67 @@
-[gd_scene load_steps=3 format=3 uid="uid://cejqjeipgqe0n"]
+[gd_scene load_steps=13 format=3 uid="uid://cejqjeipgqe0n"]
 
 [ext_resource type="Texture2D" uid="uid://ddxmxgyyfy8mn" path="res://icon.svg" id="1_c8lhi"]
 [ext_resource type="Texture2D" uid="uid://c8481txgeonie" path="res://marisamod/images/marisaPortrait.jpg" id="1_mr767"]
+[ext_resource type="Shader" uid="uid://bm4b6jkg21kmp" path="res://marisamod/scenes/vfx/Spark.gdshader" id="3_iqxhr"]
+[ext_resource type="Shader" uid="uid://dgviir81nyvbq" path="res://marisamod/scenes/vfx/SparkDark.gdshader" id="4_awaxs"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_awaxs"]
+shader = ExtResource("3_iqxhr")
+shader_parameter/ring_radius = 0.05
+shader_parameter/ring_factor = 0.4
+shader_parameter/ring_brightness = 0.03
+shader_parameter/ray_count = 4.0
+shader_parameter/arm_factor = 1.0
+shader_parameter/arm_factor2 = 0.5
+shader_parameter/glow_factor = 4.0
+shader_parameter/pulse_period = 2.5
+shader_parameter/pulse_amplitude = 0.15
+shader_parameter/Saturation = 0.4
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_02jiw"]
+width = 64
+height = 64
+
+[sub_resource type="Curve" id="Curve_6bab5"]
+_data = [Vector2(0, 0.22471917), 0.0, 1.5702244, 0, 0, Vector2(0.12790698, 0.73033714), 5.4756513, 5.4756513, 0, 0, Vector2(1, 1), -1.6274419, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_t5sq0"]
+shader = ExtResource("4_awaxs")
+shader_parameter/ring_radius = 0.1
+shader_parameter/ring_factor = 0.545
+shader_parameter/ring_brightness = 0.03
+shader_parameter/ray_count = 4.0
+shader_parameter/arm_factor = 1.0
+shader_parameter/arm_factor2 = 0.5
+shader_parameter/glow_factor = 4.0
+shader_parameter/pulse_period = 3.5
+shader_parameter/pulse_amplitude = 0.25
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_e5k05"]
+width = 64
+height = 64
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_57rjr"]
+shader = ExtResource("3_iqxhr")
+shader_parameter/ring_radius = 0.05
+shader_parameter/ring_factor = 0.4
+shader_parameter/ring_brightness = 0.03
+shader_parameter/ray_count = 4.0
+shader_parameter/arm_factor = 1.0
+shader_parameter/arm_factor2 = 0.4
+shader_parameter/glow_factor = 4.0
+shader_parameter/pulse_period = 4.5
+shader_parameter/pulse_amplitude = 0.25
+shader_parameter/Saturation = 0.75
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_6bab5"]
+width = 128
+height = 128
+
+[sub_resource type="Curve" id="Curve_t5sq0"]
+_data = [Vector2(0, 0), 0.0, 6.012484, 0, 0, Vector2(0.12209305, 0.64044946), 1.9325835, 1.9325835, 0, 0, Vector2(0.31395352, 1), 0.0, 0.0, 0, 0, Vector2(0.75000006, 0.6741574), -3.128946, -3.128946, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 5
 
 [node name="TestBg" type="Control"]
 layout_mode = 3
@@ -47,8 +107,10 @@ scale = Vector2(0.5, 0.5)
 texture = ExtResource("1_c8lhi")
 
 [node name="ash1" type="CPUParticles2D" parent="."]
+material = SubResource("ShaderMaterial_awaxs")
 position = Vector2(1832, -17)
 amount = 40
+texture = SubResource("NoiseTexture2D_02jiw")
 lifetime = 15.0
 preprocess = 15.0
 local_coords = true
@@ -56,14 +118,15 @@ emission_shape = 3
 emission_rect_extents = Vector2(2000, 1)
 gravity = Vector2(27, 27)
 orbit_velocity_max = 0.03
-angle_min = 45.0
-angle_max = 90.0
-scale_amount_min = 10.0
-scale_amount_max = 10.0
+scale_amount_min = 8.0
+scale_amount_max = 12.0
+scale_amount_curve = SubResource("Curve_6bab5")
 
 [node name="ash2" type="CPUParticles2D" parent="."]
+material = SubResource("ShaderMaterial_t5sq0")
 position = Vector2(1832, -17)
 amount = 40
+texture = SubResource("NoiseTexture2D_e5k05")
 lifetime = 15.0
 preprocess = 15.0
 local_coords = true
@@ -71,28 +134,27 @@ emission_shape = 3
 emission_rect_extents = Vector2(2000, 1)
 gravity = Vector2(27, 27)
 orbit_velocity_max = 0.03
-angle_min = 45.0
-angle_max = 90.0
 scale_amount_min = 10.0
 scale_amount_max = 10.0
-color = Color(0.121879734, 0.15283081, 0.33476263, 1)
 
 [node name="ash3" type="CPUParticles2D" parent="."]
+material = SubResource("ShaderMaterial_57rjr")
 position = Vector2(2288, 1271)
 amount = 40
+texture = SubResource("NoiseTexture2D_6bab5")
 lifetime = 10.0
 preprocess = 15.0
+randomness = 0.2
 local_coords = true
 emission_shape = 1
 emission_sphere_radius = 1.0
 direction = Vector2(0, 0)
 spread = 0.0
-gravity = Vector2(-10, 20)
-initial_velocity_min = 100.0
-initial_velocity_max = 150.0
-orbit_velocity_max = 1.0
-angle_min = 45.0
-angle_max = 90.0
-scale_amount_min = 10.0
-scale_amount_max = 10.0
+gravity = Vector2(-20, 50)
+initial_velocity_min = 200.0
+initial_velocity_max = 300.0
+orbit_velocity_max = 0.2
+scale_amount_min = 20.0
+scale_amount_max = 30.0
+scale_amount_curve = SubResource("Curve_t5sq0")
 color = Color(0.9588699, 0.96905, 0.99697894, 1)

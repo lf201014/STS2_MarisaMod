@@ -80,7 +80,7 @@ void fragment() {
 	float pulse_period = 2.5;
 	float pulse_amplitude = 0.15;
     float pulse = 1.0 + pulse_amplitude * sin(TIME * 6.28318 / pulse_period);
-    float d =(abs(UV.y -0.5)*2.0 +noise*0.5)/(1.0+noise*0.5);
+    float d =(abs(UV.y -0.5)*2.0 +noise*0.2)/(1.0+noise*0.2);
 	float glow = glow(d);
 
 	color = mix(color,rainbow(UV),rainbow_ratio) ;
