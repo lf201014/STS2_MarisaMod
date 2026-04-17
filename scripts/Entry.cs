@@ -19,6 +19,7 @@ using MegaCrit.Sts2.Core.Models.Events;
 using MegaCrit.Sts2.Core.Models.Monsters;
 using MegaCrit.Sts2.Core.Models.Powers;
 using MegaCrit.Sts2.Core.Models.Relics;
+using MegaCrit.Sts2.Core.Nodes.Cards;
 using MegaCrit.Sts2.Core.Runs;
 using MegaCrit.Sts2.Core.Saves.Managers;
 using MegaCrit.Sts2.Core.TestSupport;
@@ -104,8 +105,8 @@ public class Entry
     {
         private static bool Prefix(TheArchitect __instance, ref Task __result)
         {
-            FieldInfo fieldInfo = AccessTools.Field(typeof(TheArchitect), "_dialogue");
-            if (((fieldInfo != null) ? fieldInfo.GetValue(__instance) : null) != null)
+            var fieldInfo = AccessTools.Field(typeof(TheArchitect), "_dialogue");
+            if ((fieldInfo != null ? fieldInfo.GetValue(__instance) : null) != null)
             {
                 return true;
             }
@@ -250,16 +251,16 @@ public class Entry
     {
         private static bool Prefix(PhantasmalGardener __instance, ref CreatureAnimator __result, MegaSprite controller)
         {
-            AnimState animState = new AnimState("idle_loop", isLooping: true);
-            AnimState animState2 = new AnimState("buff");
-            AnimState animState3 = new AnimState("attack");
-            AnimState animState4 = new AnimState("attack_multi");
-            AnimState animState5 = new AnimState("hurt_extended");
-            AnimState animState6 = new AnimState("hurt");
-            AnimState state = new AnimState("die");
-            AnimState nextState = new AnimState("block_loop", isLooping: true);
-            AnimState animState7 = new AnimState("block_start");
-            AnimState animState8 = new AnimState("block_end");
+            var animState = new AnimState("idle_loop", isLooping: true);
+            var animState2 = new AnimState("buff");
+            var animState3 = new AnimState("attack");
+            var animState4 = new AnimState("attack_multi");
+            var animState5 = new AnimState("hurt_extended");
+            var animState6 = new AnimState("hurt");
+            var state = new AnimState("die");
+            var nextState = new AnimState("block_loop", isLooping: true);
+            var animState7 = new AnimState("block_start");
+            var animState8 = new AnimState("block_end");
             animState2.NextState = animState;
             animState3.NextState = animState;
             animState4.NextState = animState;
@@ -267,7 +268,7 @@ public class Entry
             animState6.NextState = nextState;
             animState7.NextState = nextState;
             animState8.NextState = animState;
-            CreatureAnimator creatureAnimator = new CreatureAnimator(animState, controller);
+            var creatureAnimator = new CreatureAnimator(animState, controller);
             creatureAnimator.AddAnyState("Idle", animState);
             creatureAnimator.AddAnyState("Cast", animState2);
             creatureAnimator.AddAnyState("Attack", animState3);
@@ -288,22 +289,22 @@ public class Entry
     {
         private static bool Prefix(Parafright __instance, ref CreatureAnimator __result, MegaSprite controller)
         {
-            AnimState nextState = new AnimState("idle_loop", isLooping: true);
-            AnimState animState = new AnimState("attack");
-            AnimState state = new AnimState("die");
-            AnimState animState2 = new AnimState("hurt");
-            AnimState animState3 = new AnimState("hurt_stunned");
-            AnimState nextState2 = new AnimState("stunned_loop", isLooping: true);
-            AnimState animState4 = new AnimState("spawn");
-            AnimState animState5 = new AnimState("wake_up");
-            AnimState animState6 = new AnimState("stun");
+            var nextState = new AnimState("idle_loop", isLooping: true);
+            var animState = new AnimState("attack");
+            var state = new AnimState("die");
+            var animState2 = new AnimState("hurt");
+            var animState3 = new AnimState("hurt_stunned");
+            var nextState2 = new AnimState("stunned_loop", isLooping: true);
+            var animState4 = new AnimState("spawn");
+            var animState5 = new AnimState("wake_up");
+            var animState6 = new AnimState("stun");
             animState4.NextState = nextState;
             animState.NextState = nextState;
             animState2.NextState = nextState;
             animState5.NextState = nextState;
             animState6.NextState = nextState2;
             animState3.NextState = nextState2;
-            CreatureAnimator creatureAnimator = new CreatureAnimator(animState4, controller);
+            var creatureAnimator = new CreatureAnimator(animState4, controller);
             creatureAnimator.AddAnyState("Attack", animState);
             creatureAnimator.AddAnyState("Hit", animState2, () => __instance.Creature.HasPower<SkittishPower>() && !__instance.Creature.GetPower<IllusionPower>()!.IsReviving);
             creatureAnimator.AddAnyState("Hit", animState3, () => !__instance.Creature.HasPower<SkittishPower>() || __instance.Creature.GetPower<IllusionPower>()!.IsReviving);
@@ -316,6 +317,22 @@ public class Entry
         }
     }
 
+
+    [HarmonyPatch(typeof(NCard), nameof(NCard.UpdateVisuals))]
+    internal static class NCardUpdateVisualsPatch
+    {
+        private static bool Prefix(NCard __instance)
+        {
+            var fieldInfo = AccessTools.Field(typeof(NCard), "_model");
+
+            if (fieldInfo.GetValue(__instance) != null && fieldInfo.GetValue(__instance) is AbstractAmplifiedCard card)
+            {
+                card.ValidateAmplify();
+            }
+
+            return true;
+        }
+    }
 
     // [HarmonyPatch(typeof(RunManager), "UpdateRichPresence")]
     // internal static class RunManagerUpdateRichPresencePatch
@@ -343,7 +360,7 @@ public class Entry
         private static readonly Lazy<MethodInfo?> SteamSetRichPresence = new(() =>
         {
             var t = AccessTools.TypeByName("Steamworks.SteamFriends");
-            return t == null ? null : AccessTools.Method(t, "SetRichPresence", new[] { typeof(string), typeof(string) });
+            return t == null ? null : AccessTools.Method(t, "SetRichPresence", [typeof(string), typeof(string)]);
         });
 
         private static readonly Lazy<PropertyInfo?> StateProp = new(() =>
@@ -363,8 +380,8 @@ public class Entry
                     var character = player.Character;
                     if (character is MarisaCharacter)
                     {
-                        SteamSetRichPresence.Value?.Invoke(null, new object[] { "Character", "DEFECT" });
-                        SteamSetRichPresence.Value?.Invoke(null, new object[] { "Ascension", "Marisa - A" + State.AscensionLevel });
+                        SteamSetRichPresence.Value?.Invoke(null, ["Character", "DEFECT"]);
+                        SteamSetRichPresence.Value?.Invoke(null, ["Ascension", "Marisa - A" + State.AscensionLevel]);
                     }
                 }
             }

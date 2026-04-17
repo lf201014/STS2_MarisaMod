@@ -40,6 +40,7 @@ namespace marisamod.Scripts.Cards
             if (Owner.PlayerCombatState != null)
             {
                 //if (Owner.PlayerCombatState.Hand.Cards.Contains(this))
+                if (Pile is { Type: PileType.Discard or PileType.Draw or PileType.Hand or PileType.Exhaust })
                 {
                     if (Owner.Creature.HasPower<OneTimeOffPower>())
                     {
@@ -102,26 +103,26 @@ namespace marisamod.Scripts.Cards
             return Task.CompletedTask;
         }
 
-        public override Task AfterEnergyReset(Player player)
-        {
-            ValidateAmplify();
-            return Task.CompletedTask;
-        }
-
-        public override Task AfterPotionUsed(PotionModel potion, Creature? target)
-        {
-            ValidateAmplify();
-            return Task.CompletedTask;
-        }
-
-        public override Task BeforeCardAutoPlayed(CardModel card, Creature? target, AutoPlayType type)
-        {
-            if (card == this)
-            {
-                SetAmplifyState(true, true);
-            }
-
-            return Task.CompletedTask;
-        }
+        // public override Task AfterEnergyReset(Player player)
+        // {
+        //     ValidateAmplify();
+        //     return Task.CompletedTask;
+        // }
+        //
+        // public override Task AfterPotionUsed(PotionModel potion, Creature? target)
+        // {
+        //     ValidateAmplify();
+        //     return Task.CompletedTask;
+        // }
+        //
+        // public override Task BeforeCardAutoPlayed(CardModel card, Creature? target, AutoPlayType type)
+        // {
+        //     if (card == this)
+        //     {
+        //         SetAmplifyState(true, true);
+        //     }
+        //
+        //     return Task.CompletedTask;
+        // }
     }
 }
