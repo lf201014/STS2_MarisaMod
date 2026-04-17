@@ -156,56 +156,56 @@ public class Entry
         }
     }
 
-    [HarmonyPatch(typeof(ArchaicTooth), "GetTranscendenceStarterCard")]
-    internal static class ArchaicToothGetTranscendenceStarterCardPatch
-    {
-        private static bool Prefix(ArchaicTooth __instance, Player player, ref CardModel? __result)
-        {
-            if (player.Character is MarisaCharacter)
-            {
-                __result = player.Deck.Cards.FirstOrDefault(c => c is MasterSpark);
-                ;
-                return false;
-            }
-
-            return true;
-        }
-    }
-
-    [HarmonyPatch(typeof(ArchaicTooth), "GetTranscendenceTransformedCard")]
-    internal static class ArchaicToothGetTranscendenceTransformedCardPatch
-    {
-        private static bool Prefix(ArchaicTooth __instance, CardModel starterCard, ref CardModel? __result)
-        {
-            if (starterCard is MasterSpark)
-            {
-                __result = starterCard.Owner.RunState.CreateCard(ModelDb.Card<FinalMasterSpark>(), starterCard.Owner);
-                if (starterCard.IsUpgraded)
-                {
-                    CardCmd.Upgrade(__result);
-                }
-
-                return false;
-            }
-
-            return true;
-        }
-    }
-
-    [HarmonyPatch(typeof(DustyTome), "SetupForPlayer")]
-    internal static class DustyTomeSetupForPlayerPatch
-    {
-        private static bool Prefix(DustyTome __instance, Player player)
-        {
-            if (player.Character is MarisaCharacter)
-            {
-                __instance.AncientCard = ModelDb.Card<MagicAndRedDream>().Id;
-                return false;
-            }
-
-            return true;
-        }
-    }
+    // [HarmonyPatch(typeof(ArchaicTooth), "GetTranscendenceStarterCard")]
+    // internal static class ArchaicToothGetTranscendenceStarterCardPatch
+    // {
+    //     private static bool Prefix(ArchaicTooth __instance, Player player, ref CardModel? __result)
+    //     {
+    //         if (player.Character is MarisaCharacter)
+    //         {
+    //             __result = player.Deck.Cards.FirstOrDefault(c => c is MasterSpark);
+    //             ;
+    //             return false;
+    //         }
+    //
+    //         return true;
+    //     }
+    // }
+    //
+    // [HarmonyPatch(typeof(ArchaicTooth), "GetTranscendenceTransformedCard")]
+    // internal static class ArchaicToothGetTranscendenceTransformedCardPatch
+    // {
+    //     private static bool Prefix(ArchaicTooth __instance, CardModel starterCard, ref CardModel? __result)
+    //     {
+    //         if (starterCard is MasterSpark)
+    //         {
+    //             __result = starterCard.Owner.RunState.CreateCard(ModelDb.Card<FinalMasterSpark>(), starterCard.Owner);
+    //             if (starterCard.IsUpgraded)
+    //             {
+    //                 CardCmd.Upgrade(__result);
+    //             }
+    //
+    //             return false;
+    //         }
+    //
+    //         return true;
+    //     }
+    // }
+    //
+    // [HarmonyPatch(typeof(DustyTome), "SetupForPlayer")]
+    // internal static class DustyTomeSetupForPlayerPatch
+    // {
+    //     private static bool Prefix(DustyTome __instance, Player player)
+    //     {
+    //         if (player.Character is MarisaCharacter)
+    //         {
+    //             __instance.AncientCard = ModelDb.Card<MagicAndRedDream>().Id;
+    //             return false;
+    //         }
+    //
+    //         return true;
+    //     }
+    // }
 
     [HarmonyPatch(typeof(Burn), nameof(Burn.HasTurnEndInHandEffect), MethodType.Getter)]
     internal static class BurnHasTurnEndInHandEffectPatch
