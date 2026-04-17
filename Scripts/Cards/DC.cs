@@ -76,7 +76,8 @@ public class DC : AbstractMarisaCard
         {
             Log.Info($"enchanting {card}");
             zaEnchantment = Enchantment<StarlitEnchantment>().ToMutable();
-            MarisaCharacter.Enchant(zaEnchantment, card);
+            //MarisaCharacter.Enchant(zaEnchantment, card);
+            CardCmd.Enchant(zaEnchantment, card, 1);
         }
     }
 }

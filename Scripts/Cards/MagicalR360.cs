@@ -53,7 +53,8 @@ public class MagicalR360 : AbstractMarisaCard
             ).FirstOrDefault();
         if (cardModel != null)
         {
-            MarisaCharacter.Enchant(zaEnchantment, cardModel);
+            //MarisaCharacter.Enchant(zaEnchantment, cardModel);
+            CardCmd.Enchant(zaEnchantment, cardModel, 1);
         }
     }
 }

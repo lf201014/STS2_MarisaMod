@@ -29,7 +29,8 @@ public class WalpurgisnachtAmpPower : AbstractMarisaPower
         foreach (var card in cards)
         {
             Flash();
-            MarisaCharacter.Enchant(enchant, card);
+            //MarisaCharacter.Enchant(enchant, card);
+            CardCmd.Enchant(enchant, card, 1);
             await Cmd.Wait(0.2f);
             enchant = ModelDb.Enchantment<StarlitEnchantment>().ToMutable();
         }

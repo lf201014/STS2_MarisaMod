@@ -37,7 +37,8 @@ public class StarlitPotion : AbstractMarisaCard
         {
             var enchant = ModelDb.Enchantment<StarlitEnchantment>().ToMutable();
             if (enchant.CanEnchant(card))
-                MarisaCharacter.Enchant(enchant, card);
+                //MarisaCharacter.Enchant(enchant, card);
+                CardCmd.Enchant(enchant, card, 1);
         }
 
         await Cmd.Wait(0.25f);
