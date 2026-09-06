@@ -40,7 +40,7 @@ namespace marisamod.Scripts.Cards
                     hitCount++;
                 }
 
-                await DamageCmd.Attack(DynamicVars.Damage.BaseValue).WithHitCount(hitCount).FromCard(this)
+                await DamageCmd.Attack(DynamicVars.Damage.BaseValue).WithHitCount(hitCount).FromCard(this,cardPlay)
                     .TargetingRandomOpponents(CombatState!)
                     .WithHitFx("vfx/vfx_attack_slash")
                     .Execute(choiceContext);

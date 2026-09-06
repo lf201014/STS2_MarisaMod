@@ -33,7 +33,7 @@ public class GravityBeat : AbstractMarisaCard
     {
         ArgumentNullException.ThrowIfNull(cardPlay.Target, "cardPlay.Target");
         var repeat = (int)((CalculatedVar)DynamicVars["CalculatedRepeat"]).Calculate(cardPlay.Target);
-        await DamageCmd.Attack(base.DynamicVars.Damage.BaseValue).WithHitCount(repeat).FromCard(this)
+        await DamageCmd.Attack(base.DynamicVars.Damage.BaseValue).WithHitCount(repeat).FromCard(this,cardPlay)
             .Targeting(cardPlay.Target)
             .WithHitVfxNode((Creature t) => NStabVfx.Create(t, facingEnemies: true))
             .WithHitFx(null, null, "blunt_attack.mp3")

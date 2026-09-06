@@ -34,8 +34,8 @@ namespace marisamod.Scripts.Cards
             await base.OnPlay(choiceContext, cardPlay);
             ArgumentNullException.ThrowIfNull(cardPlay.Target);
             var repeat = AmplifiedInPlay ? DynamicVars.Repeat.IntValue : 1;
-            //await DamageCmd.Attack(DynamicVars.CalculatedDamage).FromCard(this).Targeting(cardPlay.Target)
-            await DamageCmd.Attack(DynamicVars.Damage.BaseValue).WithHitCount(repeat).FromCard(this).Targeting(cardPlay.Target)
+            //await DamageCmd.Attack(DynamicVars.CalculatedDamage).FromCard(this,cardPlay).Targeting(cardPlay.Target)
+            await DamageCmd.Attack(DynamicVars.Damage.BaseValue).WithHitCount(repeat).FromCard(this,cardPlay).Targeting(cardPlay.Target)
                 .WithHitFx("vfx/vfx_attack_slash")
                 .Execute(choiceContext);
         }

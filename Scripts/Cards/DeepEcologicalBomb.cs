@@ -42,7 +42,7 @@ namespace marisamod.Scripts.Cards
                 //var target = Owner.RunState.Rng.CombatTargets.NextItem(combatState.HittableEnemies);
                 //if (target == null) continue;
                 //await PowerCmd.Apply<DeepEcologicalBombPower>(choiceContext, target, DynamicVars["Power"].BaseValue, Owner.Creature, this);
-                var dmgCmd = await DamageCmd.Attack(DynamicVars.Damage.BaseValue).FromCard(this).WithHitCount(repeat)
+                var dmgCmd = await DamageCmd.Attack(DynamicVars.Damage.BaseValue).FromCard(this,cardPlay).WithHitCount(repeat)
                     .Targeting(cardPlay.Target)
                     .WithHitFx("vfx/vfx_attack_blunt")
                     .Execute(choiceContext);

@@ -16,11 +16,12 @@ public class DarkMatter : AbstractMarisaCard
 
     protected override IEnumerable<DynamicVar> CanonicalVars =>
     [
-        new BlockVar(5m, ValueProp.Move),
+        //new BlockVar(5m, ValueProp.Move),
+        new BlockVar(5M, ValueProp.Unpowered),
         new CardsVar(1)
     ];
 
-    //public override bool GainsBlock => true;
+    public override bool GainsBlock => false;
 
     public override IEnumerable<CardKeyword> CanonicalKeywords => base.CanonicalKeywords.Concat([
         CardKeyword.Ethereal
@@ -73,9 +74,11 @@ public class DarkMatter : AbstractMarisaCard
                 EnergySpent = 0,
                 EnergyValue = card.EnergyCost.GetAmountToSpend(),
                 StarsSpent = 0,
-                StarValue = Math.Max(0, card.GetStarCostWithModifiers())
+                StarValue = Math.Max(0,
+                    card.GetStarCostWithModifiers())
             },
-            ResultPile = PileType.Exhaust
+            ResultPile = PileType.Exhaust,
+            Player = Owner
         };
         for (var i = 0; i < playCount; i++)
             await CreatureCmd.GainBlock(Owner.Creature, DynamicVars.Block, cardPlay);

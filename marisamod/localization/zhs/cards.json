@@ -93,7 +93,7 @@
   "MARISAMOD-INITIATOR.title": "连段起手",
   "MARISAMOD-INITIATOR.description": "造成{Damage:diff()}点伤害。将[gold]抽牌堆[/gold]里{Cards:diff()}张随机攻击牌加入你的[gold]手牌[/gold]，它们的伤害增加此牌造成的未被格挡的伤害且本回合耗能减少{Energy:energyIcons()}。",
   "MARISAMOD-LUMINES_STRIKE.title": "闪光冲击",
-  "MARISAMOD-LUMINES_STRIKE.description": "将一张[gold]灼伤[/gold]加入你的[gold]手牌[/gold]。\n对所有敌人造成{CalculatedDamage:diff()}点伤害。你每生成过一张[gold]灼伤[/gold]，额外造成{ExtraDamage:diff()}点伤害。",
+  "MARISAMOD-LUMINES_STRIKE.description": "对所有敌人造成{CalculatedDamage:diff()}点伤害。你每生成过一张[gold]灼伤[/gold]，额外造成{ExtraDamage:diff()}点伤害。\n将一张[gold]灼伤[/gold]加入你的[gold]手牌[/gold]。",
   "MARISAMOD-MACHINE_GUN_SPARK.title": "机枪火花",
   "MARISAMOD-MACHINE_GUN_SPARK.description": "造成{Damage:diff()}点伤害{Repeat:diff()}次。",
   "MARISAMOD-MAGICAL_R360.title": "魔法全方位",

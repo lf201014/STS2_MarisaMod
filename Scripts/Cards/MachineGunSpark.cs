@@ -45,7 +45,7 @@ namespace marisamod.Scripts.Cards
             CleanVfx();
             CreateVfx();
             await Cmd.Wait(0.1f);
-            await DamageCmd.Attack(DynamicVars.Damage.BaseValue).WithHitCount(DynamicVars["Repeat"].IntValue).FromCard(this)
+            await DamageCmd.Attack(DynamicVars.Damage.BaseValue).WithHitCount(DynamicVars["Repeat"].IntValue).FromCard(this,cardPlay)
                 .Targeting(cardPlay.Target)
                 .WithHitVfxNode(InvokeVfx)
                 .WithHitFx(null, null, "blunt_attack.mp3")

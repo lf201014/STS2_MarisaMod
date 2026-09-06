@@ -38,7 +38,7 @@ public class TreasureHunter : AbstractMarisaCard
     {
         ArgumentNullException.ThrowIfNull(cardPlay.Target);
         bool shouldTriggerFatal = cardPlay.Target.Powers.All((p) => p.ShouldOwnerDeathTriggerFatal());
-        AttackCommand attackCommand = await DamageCmd.Attack(base.DynamicVars.Damage.BaseValue).FromCard(this).Targeting(cardPlay.Target)
+        AttackCommand attackCommand = await DamageCmd.Attack(base.DynamicVars.Damage.BaseValue).FromCard(this,cardPlay).Targeting(cardPlay.Target)
             .WithHitFx("vfx/vfx_bite", null, "blunt_attack.mp3")
             .Execute(choiceContext);
         if (Owner.RunState.CurrentRoom!.RoomType is RoomType.Boss or RoomType.Elite

@@ -34,8 +34,8 @@ namespace marisamod.Scripts.Cards
         // {
         //     ArgumentNullException.ThrowIfNull(cardPlay.Target);
         //     var repeat = IsAmplified ? DynamicVars.Repeat.IntValue : 1;
-        //     //await DamageCmd.Attack(DynamicVars.CalculatedDamage).FromCard(this).Targeting(cardPlay.Target)
-        //     await DamageCmd.Attack(DynamicVars.CalculatedDamage).WithHitCount(repeat).FromCard(this).Targeting(cardPlay.Target)
+        //     //await DamageCmd.Attack(DynamicVars.CalculatedDamage).FromCard(this,cardPlay).Targeting(cardPlay.Target)
+        //     await DamageCmd.Attack(DynamicVars.CalculatedDamage).WithHitCount(repeat).FromCard(this,cardPlay).Targeting(cardPlay.Target)
         //         .WithHitFx("vfx/vfx_attack_blunt", null, "blunt_attack.mp3")
         //         .Execute(choiceContext);
         // }
@@ -69,7 +69,7 @@ namespace marisamod.Scripts.Cards
         {
             await base.OnPlay(choiceContext, cardPlay);
             ArgumentNullException.ThrowIfNull(cardPlay.Target);
-            await DamageCmd.Attack(DynamicVars.Damage.BaseValue).FromCard(this).Targeting(cardPlay.Target)
+            await DamageCmd.Attack(DynamicVars.Damage.BaseValue).FromCard(this,cardPlay).Targeting(cardPlay.Target)
                 //.WithHitFx("vfx/vfx_attack_slash")
                 .WithHitVfxNode((Creature t) => SparkHitVfx.Create(NCombatRoom.Instance?.GetCreatureNode(t)!,"BurstSpark"))
                 .Execute(choiceContext);

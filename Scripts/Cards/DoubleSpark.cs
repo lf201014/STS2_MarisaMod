@@ -41,7 +41,7 @@ namespace marisamod.Scripts.Cards
         protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
         {
             ArgumentNullException.ThrowIfNull(cardPlay.Target);
-            await DamageCmd.Attack(DynamicVars.Damage.BaseValue).FromCard(this).Targeting(cardPlay.Target)
+            await DamageCmd.Attack(DynamicVars.Damage.BaseValue).FromCard(this,cardPlay).Targeting(cardPlay.Target)
                 //.WithHitVfxNode((Creature t) => VfxSparkProjectile.Create(this,new(0.4f,0.8f,0.8f,1.0f),NCombatRoom.Instance?.GetCreatureNode(t)!))
                 .BeforeDamage(async delegate
                     {

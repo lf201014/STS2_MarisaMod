@@ -93,7 +93,7 @@
   "MARISAMOD-INITIATOR.title": "Initiator",
   "MARISAMOD-INITIATOR.description": "Deal {Damage:diff()} damage.Add up to {Cards:diff()} random Attacks from your [gold]Draw Pile[/gold] to your [gold]Hand[/gold],increase their damage by unblocked damage dealt and they cost {Energy:energyIcons()} less this turn .",
   "MARISAMOD-LUMINES_STRIKE.title": "Luminous Strike",
-  "MARISAMOD-LUMINES_STRIKE.description": "Add a [gold]Burn[/gold] into your [gold]Hand[/gold].\n Deal {CalculatedDamage:diff()} to All Enemies.Deal {ExtraDamage:diff()} additional damage for each [gold]Burn[/gold] you created.",
+  "MARISAMOD-LUMINES_STRIKE.description": "Deal {CalculatedDamage:diff()} to All Enemies.Deal {ExtraDamage:diff()} additional damage for each [gold]Burn[/gold] you created.\nAdd a [gold]Burn[/gold] into your [gold]Hand[/gold].",
   "MARISAMOD-MACHINE_GUN_SPARK.title": "Machine Gun Spark",
   "MARISAMOD-MACHINE_GUN_SPARK.description": "Deal {Damage:diff()} damage {Repeat:diff()} times.",
   "MARISAMOD-MAGICAL_R360.title": "Magical R360",

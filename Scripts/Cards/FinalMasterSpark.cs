@@ -34,7 +34,7 @@ public class FinalMasterSpark : AbstractAmplifiedCard
     {
         await base.OnPlay(choiceContext, cardPlay);
         var damage = !AmplifiedInPlay ? DynamicVars.Damage : DynamicVars["DamageAmplified"];
-        await DamageCmd.Attack(damage.BaseValue).FromCard(this).TargetingAllOpponents(CombatState!)
+        await DamageCmd.Attack(damage.BaseValue).FromCard(this,cardPlay).TargetingAllOpponents(CombatState!)
             .WithHitFx("vfx/vfx_attack_slash", null, "blunt_attack.mp3").WithAttackerAnim(Owner.Character is MarisaCharacter ? "Spark" : "Cast", 0.3f)
             .BeforeDamage(async delegate
             {

@@ -23,7 +23,7 @@ public class MysteriousBeam : AbstractMarisaCard
     {
         ArgumentNullException.ThrowIfNull(cardPlay.Target);
 
-        await DamageCmd.Attack(DynamicVars.Damage.BaseValue).FromCard(this).Targeting(cardPlay.Target)
+        await DamageCmd.Attack(DynamicVars.Damage.BaseValue).FromCard(this,cardPlay).Targeting(cardPlay.Target)
             .WithHitFx("vfx/vfx_attack_slash")
             .Execute(choiceContext);
         var card =
@@ -62,7 +62,7 @@ public class MysteriousBeam : AbstractMarisaCard
 
             DynamicVars.Damage.BaseValue = damage;
 
-            // await DamageCmd.Attack(damage).FromCard(this).Targeting(cardPlay.Target)
+            // await DamageCmd.Attack(damage).FromCard(this,cardPlay).Targeting(cardPlay.Target)
             //     .WithHitFx("vfx/vfx_attack_slash")
             //     .Execute(choiceContext);
         }

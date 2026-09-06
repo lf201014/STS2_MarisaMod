@@ -48,7 +48,7 @@ namespace marisamod.Scripts.Cards
             var vfx = VfxSparkProjectile.Create(this, new Vector4(1f, 1f, 1f, 1.0f),
                 NCombatRoom.Instance.GetCreatureNode(cardPlay.Target)!);
             var damage = !AmplifiedInPlay ? DynamicVars.Damage.BaseValue : DynamicVars["DamageAmplified"].BaseValue;
-            var dmgCmd = await DamageCmd.Attack(damage).FromCard(this).Targeting(cardPlay.Target)
+            var dmgCmd = await DamageCmd.Attack(damage).FromCard(this,cardPlay).Targeting(cardPlay.Target)
                 .WithHitFx("vfx/vfx_attack_slash")
                 .BeforeDamage(async delegate
                 {

@@ -52,12 +52,12 @@ public class UnstableBomb : AbstractAmplifiedCard //AbstractMarisaCard
         // {
         //     var damage = RunState!.Rng.CombatCardSelection.NextInt(minDmg, maxDmg + 1);
         //
-        //     await DamageCmd.Attack(damage).FromCard(this)
+        //     await DamageCmd.Attack(damage).FromCard(this,cardPlay)
         //         .TargetingRandomOpponents(CombatState!)
         //         .WithHitFx("vfx/vfx_attack_slash")
         //         .Execute(choiceContext);
         // }
-        await DamageCmd.Attack(DynamicVars.CalculatedDamage).FromCard(this).WithHitCount(hit).BeforeDamage(() =>
+        await DamageCmd.Attack(DynamicVars.CalculatedDamage).FromCard(this,cardPlay).WithHitCount(hit).BeforeDamage(() =>
             {
                 DynamicVars["DamageOnPlay"].BaseValue = RunState!.Rng.CombatCardSelection.NextInt(DynamicVars.Damage.IntValue, DynamicVars["DamageAmplified"].IntValue + 1);
                 return Task.CompletedTask;
