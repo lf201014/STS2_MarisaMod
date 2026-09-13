@@ -58,7 +58,10 @@ namespace marisamod.Scripts.Cards
                 }
 
                 var stars = card.GetStarCostWithModifiers();
-                await PlayerCmd.GainStars(stars, Owner);
+                if (stars > 0)
+                {
+                    await PlayerCmd.GainStars(stars, Owner);
+                }
             }
         }
     }
