@@ -1,0 +1,8 @@
+{
+  "MARISAMOD-SPARK.description": "このカードはスパークのカードである。",
+  "MARISAMOD-SPARK.title": "スパーク",
+  "MARISAMOD-AMPLIFY.description": "エナジーが足りている場合、追加のエナジーを消費して効果を発動する。",
+  "MARISAMOD-AMPLIFY.title": "増幅",
+  "MARISAMOD-STEAL.description": "ほかのすべてのプレイヤーの[gold]山札[/gold]からカードを1枚盗む。\nトークンは盗まない。[blue]エンチャント[/blue]されていないカードを優先する。レアリティの優先順位は、[blue]アンコモン[/blue]、[gold]レア[/gold]・コモン・[green]イベント[/green]、基本・[purple]タスク[/purple]、[gold]古代[/gold]または[blue]エンチャント[/blue]されたカードの順。該当するカードがない場合、[gold]山札[/gold]のトークン以外からランダムに1枚選ぶ。",
+  "MARISAMOD-STEAL.title": "カードを盗む"
+}
