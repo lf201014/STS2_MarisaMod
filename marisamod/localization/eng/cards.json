@@ -135,7 +135,7 @@
   "MARISAMOD-ORRERYS_SUN.title": "Orrery's Sun",
   "MARISAMOD-ORRERYS_SUN.description": "Whenever your [gold]Charge-Up[/gold] is consumed, gain {Power:diff()} [gold]Block[/gold].",
   "MARISAMOD-ORRERYS_UNIVERSE.title": "Orrery's Universe",
-  "MARISAMOD-ORRERYS_UNIVERSE.description": "Whenever you gain [gold]Starlit[/gold], increase the damage of Attacks in your Hand have by {Power:diff()}.",
+  "MARISAMOD-ORRERYS_UNIVERSE.description": "Whenever you gain [gold]Starlit[/gold], deal {Power:diff()} damage to a random enemy.",
   "MARISAMOD-POLARIS_UNIQUE.title": "Polaris Unique",
   "MARISAMOD-POLARIS_UNIQUE.description": "You can only play one [gold]Polaris Unique[/gold] each turn.\nChoose a card in your [gold]Hand[/gold],increase its cost by 1.\nGain {Energy:energyIcons()} and draw {Cards:diff()} {Cards:plural:card|cards}.",
   "MARISAMOD-POLARIS_UNIQUE.selectionScreenPrompt": "Choose a card.",

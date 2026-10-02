@@ -135,7 +135,7 @@
   "MARISAMOD-ORRERYS_SUN.title": "太阳仪",
   "MARISAMOD-ORRERYS_SUN.description": "当你消耗[gold]蓄力[/gold]，获得{Power:diff()}点[gold]格挡[/gold]。",
   "MARISAMOD-ORRERYS_UNIVERSE.title": "宇宙仪",
-  "MARISAMOD-ORRERYS_UNIVERSE.description": "每当你获得[gold]星彩[/gold]，使你手中攻击牌的伤害增加{Power:diff()}点。",
+  "MARISAMOD-ORRERYS_UNIVERSE.description": "每当你获得[gold]星彩[/gold]，对随机敌人造成{Power:diff()}点伤害。",
   "MARISAMOD-POLARIS_UNIQUE.title": "唯一的北极星",
   "MARISAMOD-POLARIS_UNIQUE.description": "你每回合只能打出一张[gold]唯一的北极星[/gold]。\n选择一张[gold]手牌[/gold]，使其耗能加1。获得{Energy:energyIcons()}并抽{Cards:diff()}张牌。",
   "MARISAMOD-POLARIS_UNIQUE.selectionScreenPrompt": "选择一张牌",

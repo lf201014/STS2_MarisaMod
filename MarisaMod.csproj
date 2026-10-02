@@ -46,6 +46,17 @@
     <Content Include="marisamod\localization\eng\powers.json" />
     <Content Include="marisamod\localization\eng\relics.json" />
     <Content Include="marisamod\localization\eng\settings_ui.json" />
+    <Content Include="marisamod\localization\jpn\ancients.json" />
+    <Content Include="marisamod\localization\jpn\cards.json" />
+    <Content Include="marisamod\localization\jpn\card_keywords.json" />
+    <Content Include="marisamod\localization\jpn\characters.json" />
+    <Content Include="marisamod\localization\jpn\enchantments.json" />
+    <Content Include="marisamod\localization\jpn\events.json" />
+    <Content Include="marisamod\localization\jpn\potions.json" />
+    <Content Include="marisamod\localization\jpn\powers.json" />
+    <Content Include="marisamod\localization\jpn\relics.json" />
+    <Content Include="marisamod\localization\jpn\settings_ui.json" />
+    <Content Include="marisamod\localization\jpn\static_hover_tips.json" />
     <Content Include="marisamod\localization\zhs\cards.json" />
     <Content Include="marisamod\localization\zhs\card_keywords.json" />
     <Content Include="marisamod\localization\zhs\characters.json" />
