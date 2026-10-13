@@ -19,13 +19,13 @@ using MegaCrit.Sts2.Core.ValueProps;
 namespace marisamod.Scripts.Cards;
 
 [Pool(typeof(TokenCardPool))]
-public class TabooSpark :AbstractAmplifiedCard
+public class TabooSpark : AbstractAmplifiedCard
 {
     public TabooSpark() : base(0, 1, CardType.Attack, CardRarity.Token, TargetType.AnyEnemy)
     {
     }
 
-    protected override IEnumerable<DynamicVar> CanonicalVars  =>
+    protected override IEnumerable<DynamicVar> CanonicalVars =>
     [
         new DamageVar(6, ValueProp.Move),
         new CalculationBaseVar(6),
@@ -33,15 +33,21 @@ public class TabooSpark :AbstractAmplifiedCard
         new CalculatedDamageVar(ValueProp.Move).WithMultiplier((_, monster) => monster?.GetPowerAmount<HoukaiPower>() ?? 0),
         //new CardsVar(1)
     ];
-    
-    
+
+
+    protected override void OnUpgrade()
+    {
+        DynamicVars.Damage.UpgradeValueBy(3);
+        DynamicVars.CalculationBase.UpgradeValueBy(3);
+    }
+
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
         await base.OnPlay(choiceContext, cardPlay);
         ArgumentNullException.ThrowIfNull(cardPlay.Target);
         var damage = !AmplifiedInPlay ? DynamicVars.Damage.BaseValue : DynamicVars.CalculatedDamage.BaseValue;
         await DamageCmd.Attack(damage).FromCard(this).Targeting(cardPlay.Target)
-            .WithHitVfxNode(t => SparkHitVfx.Create(NCombatRoom.Instance?.GetCreatureNode(t)!,"BurstSpark"))
+            .WithHitVfxNode(t => SparkHitVfx.Create(NCombatRoom.Instance?.GetCreatureNode(t)!, "BurstSpark"))
             .BeforeDamage(async delegate
             {
                 NSweepingBeamVfx nSweepingBeamVfx = NSweepingBeamVfx.Create(Owner.Creature, [cardPlay.Target])!;
