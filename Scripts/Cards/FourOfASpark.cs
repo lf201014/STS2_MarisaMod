@@ -1,9 +1,11 @@
-﻿using marisamod.Scripts.Powers;
+﻿using marisamod.Scripts.Cards.Colorless;
+using marisamod.Scripts.Powers;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Context;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.Entities.Creatures;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
+using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.ValueProps;
 
@@ -14,6 +16,7 @@ public class FourOfASpark : AbstractMarisaCard
     public FourOfASpark() : base(1, CardType.Attack, CardRarity.Uncommon, TargetType.AnyEnemy)
     {
     }
+
     public override CardMultiplayerConstraint MultiplayerConstraint => CardMultiplayerConstraint.MultiplayerOnly;
 
     protected override IEnumerable<DynamicVar> CanonicalVars =>
@@ -26,6 +29,8 @@ public class FourOfASpark : AbstractMarisaCard
         DynamicVars.Damage.UpgradeValueBy(4);
     }
 
+    protected override IEnumerable<IHoverTip> ExtraHoverTips => [HoverTipFactory.FromPower<HoukaiPower>(), HoverTipFactory.FromCard<TabooSpark>()];
+
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
         ArgumentNullException.ThrowIfNull(cardPlay.Target, "cardPlay.Target");
@@ -37,7 +42,7 @@ public class FourOfASpark : AbstractMarisaCard
         {
             await PowerCmd.Apply<HoukaiPower>(choiceContext, cardPlay.Target, amount, Owner.Creature, this);
         }
-        
+
         IEnumerable<Creature> enumerable = from c in CombatState?.GetTeammatesOf(base.Owner.Creature)
             where c is { IsAlive: true, IsPlayer: true }
             select c;

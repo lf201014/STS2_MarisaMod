@@ -1,22 +1,18 @@
 ﻿using BaseLib.Utils;
 using marisamod.Scenes.Vfx.HitVfx;
 using marisamod.Scripts.Powers;
-using MegaCrit.Sts2.Core.Combat;
-using MegaCrit.Sts2.Core.Combat.History.Entries;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
-using MegaCrit.Sts2.Core.Entities.Creatures;
-using MegaCrit.Sts2.Core.Entities.Players;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Helpers;
+using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.Models.CardPools;
-using MegaCrit.Sts2.Core.Models.Cards;
 using MegaCrit.Sts2.Core.Nodes.Rooms;
 using MegaCrit.Sts2.Core.Nodes.Vfx;
 using MegaCrit.Sts2.Core.ValueProps;
 
-namespace marisamod.Scripts.Cards;
+namespace marisamod.Scripts.Cards.Colorless;
 
 [Pool(typeof(TokenCardPool))]
 public class TabooSpark : AbstractAmplifiedCard
@@ -34,6 +30,7 @@ public class TabooSpark : AbstractAmplifiedCard
         //new CardsVar(1)
     ];
 
+    protected override IEnumerable<IHoverTip> ExtraHoverTips => [HoverTipFactory.FromCard<TabooSpark>()];
 
     protected override void OnUpgrade()
     {
@@ -50,7 +47,7 @@ public class TabooSpark : AbstractAmplifiedCard
             .WithHitVfxNode(t => SparkHitVfx.Create(NCombatRoom.Instance?.GetCreatureNode(t)!, "BurstSpark"))
             .BeforeDamage(async delegate
             {
-                NSweepingBeamVfx nSweepingBeamVfx = NSweepingBeamVfx.Create(Owner.Creature, [cardPlay.Target])!;
+                var nSweepingBeamVfx = NSweepingBeamVfx.Create(Owner.Creature, [cardPlay.Target])!;
                 NCombatRoom.Instance?.CombatVfxContainer.AddChildSafely(nSweepingBeamVfx);
                 await Cmd.Wait(0.5f);
             }).Execute(choiceContext);

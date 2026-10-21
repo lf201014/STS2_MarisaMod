@@ -198,5 +198,13 @@
   "MARISAMOD-WITCH_OF_GREED.title": "Witch of Greed",
   "MARISAMOD-WITCH_OF_GREED.description": "At the end of combat, gain {Gold:diff()} Gold.\nAmplify {Energy:energyIcons()}:Also obtain a [gold]Potion[/gold].",
   "MARISAMOD-CARD_SWIPER.description": "Steal cards from other players. Return after combat.",
-  "MARISAMOD-CARD_SWIPER.title": "Brazen Borrower"
+  "MARISAMOD-CARD_SWIPER.title": "Brazen Borrower",
+  "MARISAMOD-FOUR_OF_A_SPARK.description": "Deal {Damage:diff()} damage, apply [gold]Houkai[/gold] equal to unblocked damage dealt to the enemy.\nAdd a [gold]Taboo Spark[/gold] randomly into every player's [gold]Draw Pile[/gold].",
+  "MARISAMOD-FOUR_OF_A_SPARK.title": "Four of a Spark",
+  "MARISAMOD-TABOO_SPARK.description": "Deal {Damage:diff()} damage.\nAmplify {Energy:energyIcons()}: Deal {ExtraDamage:diff()} additional damage for each [gold]Houkai[/gold] on the enemy.",
+  "MARISAMOD-TABOO_SPARK.title": "Taboo Spark",
+  "MARISAMOD-PRISMATIC_NEBULAR.description": "Until end of your turn, whenever you apply [gold]Starlit[/gold] to yourself, apply {IfUpgraded:show:that amount plus 1| same amount} [gold]Starlit[/gold] to other players.",
+  "MARISAMOD-PRISMATIC_NEBULAR.title": "Prismatic Nebular",
+  "MARISAMOD-HEAT_DEATH_OF_UNIVERSE.description": "Every player choose any number of card to [gold]Exhaust[/gold].\nFor each card [gold]Exhausted[/gold] this way, you gain [blue]1[/blue] [gold]Charge-up[/gold]。",
+  "MARISAMOD-HEAT_DEATH_OF_UNIVERSE.title": "Heat Death of Universe"
 }

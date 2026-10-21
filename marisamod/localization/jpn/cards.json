@@ -135,7 +135,7 @@
   "MARISAMOD-ORRERYS_SUN.title": "オーレリーズサン",
   "MARISAMOD-ORRERYS_SUN.description": "[gold]チャージアップ[/gold]が消費されるたび、[gold]ブロック[/gold]を{Power:diff()}得る。",
   "MARISAMOD-ORRERYS_UNIVERSE.title": "天球儀の宇宙",
-  "MARISAMOD-ORRERYS_UNIVERSE.description": "[gold]星明かり[/gold]を得るたび、手札のアタックのダメージを{Power:diff()}増やす。",
+  "MARISAMOD-ORRERYS_UNIVERSE.description": "[gold]星明かり[/gold]を得るたび、ランダムな敵に{Power:diff()}ダメージを与える。",
   "MARISAMOD-POLARIS_UNIQUE.title": "ポラリスユニーク",
   "MARISAMOD-POLARIS_UNIQUE.description": "各ターンに使用できる[gold]ポラリスユニーク[/gold]は1枚だけ。\n[gold]手札[/gold]からカードを1枚選び、コストを1増やす。\n{Energy:energyIcons()}を得て、カードを{Cards:diff()}枚引く。",
   "MARISAMOD-POLARIS_UNIQUE.selectionScreenPrompt": "カードを1枚選ぶ。",

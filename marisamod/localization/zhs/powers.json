@@ -94,5 +94,11 @@
   "MARISAMOD-WALPURGISNACHT_AMP_POWER.smartDescription": "在你回合开始时，为[blue]{Amount}[/blue]张你的随机手牌添加[gold]附魔[/gold][gold]星彩[/gold]。",
   "MARISAMOD-SWIPED_CARD_POWER.description": "有卡牌失窃，战斗结束后拿回。",
   "MARISAMOD-SWIPED_CARD_POWER.smartDescription": "有卡牌失窃，战斗结束后拿回。",
-  "MARISAMOD-SWIPED_CARD_POWER.title": "卡牌失窃"
+  "MARISAMOD-SWIPED_CARD_POWER.title": "卡牌失窃",
+  "MARISAMOD-HOUKAI_POWER.description": "This creature will take extra damage from certain attack.",
+  "MARISAMOD-HOUKAI_POWER.smartDescription": "This creature will take extra damage from certain attack.",
+  "MARISAMOD-HOUKAI_POWER.title": "Houkai",
+  "MARISAMOD-PRISMATIC_NEBULAR_POWER.description": "Whenever you apply [gold]Starlit[/gold] to yourself, apply {Amount:plural:same amount|that amount plus ({Amount}-1)} [gold]Starlit[/gold] to other players.",
+  "MARISAMOD-PRISMATIC_NEBULAR_POWER.smartDescription": "Whenever you apply [gold]Starlit[/gold] to yourself, apply to other players too.",
+  "MARISAMOD-PRISMATIC_NEBULAR_POWER.title": "Prismatic Nebular"
 }
