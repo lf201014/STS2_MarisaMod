@@ -95,10 +95,10 @@
   "MARISAMOD-SWIPED_CARD_POWER.description": "有卡牌失窃，战斗结束后拿回。",
   "MARISAMOD-SWIPED_CARD_POWER.smartDescription": "有卡牌失窃，战斗结束后拿回。",
   "MARISAMOD-SWIPED_CARD_POWER.title": "卡牌失窃",
-  "MARISAMOD-HOUKAI_POWER.description": "This creature will take extra damage from certain attack.",
-  "MARISAMOD-HOUKAI_POWER.smartDescription": "This creature will take extra damage from certain attack.",
-  "MARISAMOD-HOUKAI_POWER.title": "Houkai",
-  "MARISAMOD-PRISMATIC_NEBULAR_POWER.description": "Whenever you apply [gold]Starlit[/gold] to yourself, apply {Amount:plural:same amount|that amount plus ({Amount}-1)} [gold]Starlit[/gold] to other players.",
-  "MARISAMOD-PRISMATIC_NEBULAR_POWER.smartDescription": "Whenever you apply [gold]Starlit[/gold] to yourself, apply to other players too.",
-  "MARISAMOD-PRISMATIC_NEBULAR_POWER.title": "Prismatic Nebular"
+  "MARISAMOD-HOUKAI_POWER.description": "增幅的[gold]禁忌火花[/gold]对这个生物造成的伤害增加",
+  "MARISAMOD-HOUKAI_POWER.smartDescription": "增幅的[gold]禁忌火花[/gold]对这个生物造成的伤害增加[blue]{Amount}[/blue]点",
+  "MARISAMOD-HOUKAI_POWER.title": "崩坏",
+  "MARISAMOD-PRISMATIC_NEBULAR_POWER.description": "本回合，当你给与自己[gold]星彩[/gold]，给与所有队友[gold]星彩[/gold]。",
+  "MARISAMOD-PRISMATIC_NEBULAR_POWER.smartDescription": "本回合，你给与自己[gold]星彩[/gold]，给与所有队友{Amount:plural:等量|那个数量加上({Amount}-1)}层[gold]星彩[/gold]。",
+  "MARISAMOD-PRISMATIC_NEBULAR_POWER.title": "虹彩星云"
 }

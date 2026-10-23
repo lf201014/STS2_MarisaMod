@@ -95,10 +95,10 @@
   "MARISAMOD-SWIPED_CARD_POWER.description": "Card was stolen. Return after combat",
   "MARISAMOD-SWIPED_CARD_POWER.smartDescription": "Card was stolen. Return after combat",
   "MARISAMOD-SWIPED_CARD_POWER.title": "Card swiped",
-  "MARISAMOD-HOUKAI_POWER.description": "This creature will take extra damage from certain attack.",
-  "MARISAMOD-HOUKAI_POWER.smartDescription": "This creature will take extra damage from certain attack.",
+  "MARISAMOD-HOUKAI_POWER.description": "This creature will take extra damage from amplified [gold]Taboo Spark[/gold].",
+  "MARISAMOD-HOUKAI_POWER.smartDescription": "This creature will take [blue]{Amount}[/blue] extra damage from amplified [gold]Taboo Spark[/gold].",
   "MARISAMOD-HOUKAI_POWER.title": "Houkai",
-  "MARISAMOD-PRISMATIC_NEBULAR_POWER.description": "Whenever you apply [gold]Starlit[/gold] to yourself, apply {Amount:plural:same amount|that amount plus ({Amount}-1)} [gold]Starlit[/gold] to other players.",
-  "MARISAMOD-PRISMATIC_NEBULAR_POWER.smartDescription": "Whenever you apply [gold]Starlit[/gold] to yourself, apply to other players too.",
+  "MARISAMOD-PRISMATIC_NEBULAR_POWER.description": "Whenever you apply [gold]Starlit[/gold] to yourself, apply to other players too.",
+  "MARISAMOD-PRISMATIC_NEBULAR_POWER.smartDescription": "Whenever you apply [gold]Starlit[/gold] to yourself, apply {Amount:plural:same amount|that amount plus ({Amount}-1)} [gold]Starlit[/gold] to other players.",
   "MARISAMOD-PRISMATIC_NEBULAR_POWER.title": "Prismatic Nebular"
 }
