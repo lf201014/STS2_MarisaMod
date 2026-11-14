@@ -21,14 +21,14 @@ public class TabooSpark : AbstractAmplifiedCard
     {
     }
 
-    protected override IEnumerable<DynamicVar> CanonicalVars =>
+    protected override IEnumerable<DynamicVar> CanonicalVars => base.CanonicalVars.Concat(
     [
         new DamageVar(6, ValueProp.Move),
         new CalculationBaseVar(6),
         new ExtraDamageVar(1),
         new CalculatedDamageVar(ValueProp.Move).WithMultiplier((_, monster) => monster?.GetPowerAmount<HoukaiPower>() ?? 0),
         //new CardsVar(1)
-    ];
+    ]);
 
     protected override IEnumerable<IHoverTip> ExtraHoverTips => [HoverTipFactory.FromPower<HoukaiPower>()];
 
@@ -44,14 +44,23 @@ public class TabooSpark : AbstractAmplifiedCard
     {
         await base.OnPlay(choiceContext, cardPlay);
         ArgumentNullException.ThrowIfNull(cardPlay.Target);
-        var damage = !AmplifiedInPlay ? DynamicVars.Damage.BaseValue : DynamicVars.CalculatedDamage.BaseValue;
-        await DamageCmd.Attack(damage).FromCard(this).Targeting(cardPlay.Target)
-            .WithHitVfxNode(t => SparkHitVfx.Create(NCombatRoom.Instance?.GetCreatureNode(t)!, "BurstSpark"))
-            .BeforeDamage(async delegate
-            {
-                var nSweepingBeamVfx = NSweepingBeamVfx.Create(Owner.Creature, [cardPlay.Target])!;
-                NCombatRoom.Instance?.CombatVfxContainer.AddChildSafely(nSweepingBeamVfx);
-                await Cmd.Wait(0.5f);
-            }).Execute(choiceContext);
+        if (AmplifiedInPlay)
+            await DamageCmd.Attack(DynamicVars.CalculatedDamage).FromCard(this).Targeting(cardPlay.Target)
+                .WithHitVfxNode(t => SparkHitVfx.Create(NCombatRoom.Instance?.GetCreatureNode(t)!, "BurstSpark"))
+                .BeforeDamage(async delegate
+                {
+                    var nSweepingBeamVfx = NSweepingBeamVfx.Create(Owner.Creature, [cardPlay.Target])!;
+                    NCombatRoom.Instance?.CombatVfxContainer.AddChildSafely(nSweepingBeamVfx);
+                    await Cmd.Wait(0.5f);
+                }).Execute(choiceContext);
+        else
+            await DamageCmd.Attack(DynamicVars.Damage.BaseValue).FromCard(this).Targeting(cardPlay.Target)
+                .WithHitVfxNode(t => SparkHitVfx.Create(NCombatRoom.Instance?.GetCreatureNode(t)!, "BurstSpark"))
+                .BeforeDamage(async delegate
+                {
+                    var nSweepingBeamVfx = NSweepingBeamVfx.Create(Owner.Creature, [cardPlay.Target])!;
+                    NCombatRoom.Instance?.CombatVfxContainer.AddChildSafely(nSweepingBeamVfx);
+                    await Cmd.Wait(0.5f);
+                }).Execute(choiceContext);
     }
 }

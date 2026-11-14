@@ -11,7 +11,7 @@ public class PrismaticNebularPower : AbstractMarisaPower
 {
     public override PowerType Type => PowerType.Buff;
     public override PowerStackType StackType => PowerStackType.Counter;
-    
+
     public override async Task AfterSideTurnEnd(PlayerChoiceContext choiceContext, CombatSide side, IEnumerable<Creature> participants)
     {
         if (side == Owner.Side)
@@ -23,7 +23,7 @@ public class PrismaticNebularPower : AbstractMarisaPower
 
     public override decimal ModifyPowerAmountGivenAdditive(PowerModel power, Creature giver, decimal amount, Creature? target, CardModel? cardSource)
     {
-        if (power is StarlitPower && giver == Owner && amount > 0)
+        if (power is StarlitPower && giver == Owner && target == Owner && amount > 0)
         {
             var enumerable = CombatState.GetTeammatesOf(Owner).Where(c => c is { IsAlive: true, IsPlayer: true } && c != Owner);
             foreach (var creature in enumerable)

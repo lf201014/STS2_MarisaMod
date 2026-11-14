@@ -100,5 +100,9 @@
   "MARISAMOD-HOUKAI_POWER.title": "崩坏",
   "MARISAMOD-PRISMATIC_NEBULAR_POWER.description": "本回合，当你给与自己[gold]星彩[/gold]，给与所有队友[gold]星彩[/gold]。",
   "MARISAMOD-PRISMATIC_NEBULAR_POWER.smartDescription": "本回合，你给与自己[gold]星彩[/gold]，给与所有队友{Amount:plural:等量|那个数量加上({Amount}-1)}层[gold]星彩[/gold]。",
-  "MARISAMOD-PRISMATIC_NEBULAR_POWER.title": "虹彩星云"
+  "MARISAMOD-PRISMATIC_NEBULAR_POWER.title": "虹彩星云",
+  "MARISAMOD-HEAT_DEATH_OF_UNIVERSE_POWER.description": "回合结束时选择任意牌[gold]消耗[/gold]。",
+  "MARISAMOD-HEAT_DEATH_OF_UNIVERSE_POWER.smartDescription": "回合结束时选择任意牌[gold]消耗[/gold]。",
+  "MARISAMOD-HEAT_DEATH_OF_UNIVERSE_POWER.title": "宇宙热寂",
+  "MARISAMOD-HEAT_DEATH_OF_UNIVERSE_POWER.selectionScreenPrompt": "选择任意牌[gold]消耗[/gold]"
 }
