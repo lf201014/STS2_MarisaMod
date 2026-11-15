@@ -40,7 +40,7 @@ namespace marisamod.Scripts.Powers
             if (Owner.Player != null)
                 foreach (CardModel item in CardPile.GetCards(Owner.Player, PileType.Hand).ToList())
                 {
-                    await CardCmd.Exhaust(choiceContext, item);
+                    await CardCmd.Exhaust(choiceContext, item,causedByEthereal:true);
                 }
         }
         // public override async Task BeforeSideTurnEnd(PlayerChoiceContext choiceContext, CombatSide side, IEnumerable<Creature> participants)

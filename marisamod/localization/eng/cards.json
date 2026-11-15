@@ -93,7 +93,7 @@
   "MARISAMOD-INITIATOR.title": "Initiator",
   "MARISAMOD-INITIATOR.description": "Deal {Damage:diff()} damage.Add up to {Cards:diff()} random Attacks from your [gold]Draw Pile[/gold] to your [gold]Hand[/gold],increase their damage by unblocked damage dealt and they cost {Energy:energyIcons()} less this turn .",
   "MARISAMOD-LUMINES_STRIKE.title": "Luminous Strike",
-  "MARISAMOD-LUMINES_STRIKE.description": "Deal {CalculatedDamage:diff()} to All Enemies.Deal {ExtraDamage:diff()} additional damage for each [gold]Burn[/gold] you created.\nAdd a [gold]Burn[/gold] into your [gold]Hand[/gold].",
+  "MARISAMOD-LUMINES_STRIKE.description": "Deal {CalculatedDamage:diff()} to All Enemies.Deal {ExtraDamage:diff()} additional damage for each [gold]Burn[/gold] you created.",
   "MARISAMOD-MACHINE_GUN_SPARK.title": "Machine Gun Spark",
   "MARISAMOD-MACHINE_GUN_SPARK.description": "Deal {Damage:diff()} damage {Repeat:diff()} times.",
   "MARISAMOD-MAGICAL_R360.title": "Magical R360",
@@ -205,6 +205,6 @@
   "MARISAMOD-TABOO_SPARK.title": "Taboo Spark",
   "MARISAMOD-PRISMATIC_NEBULAR.description": "Until end of your turn, whenever you apply [gold]Starlit[/gold] to yourself, apply {IfUpgraded:show:that amount plus 1| same amount} [gold]Starlit[/gold] to other players.",
   "MARISAMOD-PRISMATIC_NEBULAR.title": "Prismatic Nebular",
-  "MARISAMOD-HEAT_DEATH_OF_UNIVERSE.description": "Every player choose any number of card to [gold]Exhaust[/gold].\nFor each card [gold]Exhausted[/gold] this way, you gain [blue]1[/blue] [gold]Charge-up[/gold]。",
+  "MARISAMOD-HEAT_DEATH_OF_UNIVERSE.description": "Every player choose any number of card to [gold]Exhaust[/gold] at the end of this round.\nFor each card [gold]Exhausted[/gold] this way, you gain [blue]1[/blue] [gold]Charge-up[/gold]。",
   "MARISAMOD-HEAT_DEATH_OF_UNIVERSE.title": "Heat Death of Universe"
 }
