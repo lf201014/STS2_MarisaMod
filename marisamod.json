@@ -10,7 +10,7 @@
   "dependencies": [
     {
       "id":"BaseLib",
-      "version":"v3.4.1"
+      "version":"v3.5.1"
     }
   ],
   "affects_gameplay": true

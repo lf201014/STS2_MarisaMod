@@ -55,8 +55,8 @@
   "MARISAMOD-ORRERYS_GALAXY_DAMAGE_POWER.description": "[gold]Starlit[/gold] deals more damage.",
   "MARISAMOD-ORRERYS_GALAXY_DAMAGE_POWER.smartDescription": "[gold]Starlit[/gold] deals [blue]{Amount}[/blue] more damage per stack.",
   "MARISAMOD-ORRERYS_UNIVERSE_POWER.title": "Orrery's Universe",
-  "MARISAMOD-ORRERYS_UNIVERSE_POWER.description": "Whenever you gain [gold]Starlit[/gold], increase the damage of Attacks in your Hand have by 1.",
-  "MARISAMOD-ORRERYS_UNIVERSE_POWER.smartDescription": "Whenever you gain [gold]Starlit[/gold], increase the damage of Attacks in your Hand have by {Amount}.",
+  "MARISAMOD-ORRERYS_UNIVERSE_POWER.description": "Whenever you gain [gold]Starlit[/gold], deal damage to a random enemy.",
+  "MARISAMOD-ORRERYS_UNIVERSE_POWER.smartDescription": "Whenever you gain [gold]Starlit[/gold], deal [blue]{Amount}[/blue] damage to a random enemy.",
   "MARISAMOD-MAGIC_AND_RED_DREAM_POWER.title": "Magic and Red Dream",
   "MARISAMOD-MAGIC_AND_RED_DREAM_POWER.description": "Whenever you activate an [gold]Amplify[/gold] or [gold]Charge-Up[/gold] effect, draw 2 cards",
   "MARISAMOD-MAGIC_AND_RED_DREAM_POWER.smartDescription": "Whenever you activate an [gold]Amplify[/gold] or [gold]Charge-Up[/gold] effect, draw {Amount} {Amount:plural:card|cards}.",
@@ -94,5 +94,11 @@
   "MARISAMOD-WALPURGISNACHT_AMP_POWER.smartDescription": "At the start of your turn, [gold]Enchant[/gold] [blue]{Amount}[/blue] random {Amount:plural:card|cards} in your hand with [gold]Starlit[/gold].",
   "MARISAMOD-SWIPED_CARD_POWER.description": "Card was stolen. Return after combat",
   "MARISAMOD-SWIPED_CARD_POWER.smartDescription": "Card was stolen. Return after combat",
-  "MARISAMOD-SWIPED_CARD_POWER.title": "Card swiped"
+  "MARISAMOD-SWIPED_CARD_POWER.title": "Card swiped",
+  "MARISAMOD-HOUKAI_POWER.description": "This creature will take extra damage from amplified [gold]Taboo Spark[/gold].",
+  "MARISAMOD-HOUKAI_POWER.smartDescription": "This creature will take [blue]{Amount}[/blue] extra damage from amplified [gold]Taboo Spark[/gold].",
+  "MARISAMOD-HOUKAI_POWER.title": "Houkai",
+  "MARISAMOD-PRISMATIC_NEBULAR_POWER.description": "Whenever you apply [gold]Starlit[/gold] to yourself, apply to other players too.",
+  "MARISAMOD-PRISMATIC_NEBULAR_POWER.smartDescription": "Whenever you apply [gold]Starlit[/gold] to yourself, apply {Amount:plural:same amount|that amount plus ({Amount}-1)} [gold]Starlit[/gold] to other players.",
+  "MARISAMOD-PRISMATIC_NEBULAR_POWER.title": "Prismatic Nebular"
 }

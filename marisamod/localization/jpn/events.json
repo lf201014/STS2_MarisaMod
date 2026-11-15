@@ -1,0 +1,15 @@
+{
+  "MARISAMOD-HUNGRY_FOR_MUSHROOMS_MARISA.loss": "{character}は[gold]{event}[/gold]に夢中になり、{pronounSubject}が口にしてはいけないものまで食べてしまった。",
+  "MARISAMOD-HUNGRY_FOR_MUSHROOMS_MARISA.pages.BIG_MUSHROOM.description": "[orange]大きなキノコ[/orange]にかぶりついた。歯ごたえがあり、ほくほくとして食べごたえも十分。食べるほどに空腹が増していく。まるでキノコがあなたの飢えを糧にしているかのようだ。\n\n[sine]おいしい……そしてあなたは[red]食べ過ぎで意識が遠のく[/red]。[/sine]\nこの食い意地の代償は高くつくだろう。",
+  "MARISAMOD-HUNGRY_FOR_MUSHROOMS_MARISA.pages.FRAGRANT_MUSHROOM.description": "[green]香り高いキノコ[/green]を味見した。小ぶりで木のような質感があり、貝を思わせるほのかな香りがする……。\n\n力がみなぎり、走り、跳び、[gold]猛烈に鍛錬したくなる[/gold]！\nだが突然、体内で生きたキノコが最後のあがきを見せ、[red][jitter]刺すような痛み[/jitter][/red]が襲ってきた。",
+  "MARISAMOD-HUNGRY_FOR_MUSHROOMS_MARISA.pages.INITIAL.description": "[sine]最後に食べたのはいつだったか……。\n……待てよ、このすばらしい匂いは？[/sine]\n\n匂いをたどると、居心地のよい野営地に着いた。そこではさまざまな[green]おいしそうなキノコ[/green]が調理されている！　空腹のあまり、食べても安全かどうか考える余裕はない。\n（亡くなった冒険者にも気づかないほど腹が減っている）",
+  "MARISAMOD-HUNGRY_FOR_MUSHROOMS_MARISA.pages.INITIAL.options.BIG_MUSHROOM.title": "大きなキノコ",
+  "MARISAMOD-HUNGRY_FOR_MUSHROOMS_MARISA.pages.INITIAL.options.FRAGRANT_MUSHROOM.title": "香り高いキノコ",
+  "MARISAMOD-HUNGRY_FOR_MUSHROOMS_MARISA.pages.MEDLEY.description": "[green]キノコの盛り合わせ[/green]が一番おいしそうだ。あなたはそれに手を伸ばす。\n\n[red][jitter]「私のキノコが！！」[/jitter][/red]\n\n死んだはずの冒険者が襲いかかってきた！　あなたは冒険者を気絶させ、罪悪感を隠し味に残りのごちそうを平らげた。",
+  "MARISAMOD-HUNGRY_FOR_MUSHROOMS_MARISA.title": "キノコが食べたい",
+  "MARISAMOD-HUNGRY_FOR_MUSHROOMS_MARISA.pages.PACK_THEM_ALL.description": "キノコを全部袋に詰め、その場を後にした。\n歩き出すと、謎の[sine]空腹[/sine]は跡形もなく消えていた。\nキノコをただ口に入れるより、ずっと面白い使い道があるはずだ。",
+  "MARISAMOD-HUNGRY_FOR_MUSHROOMS_MARISA.options.PACK_THEM_ALL.description": "一つだけ選ぶ必要なんてある？　全部持っていこう。",
+  "MARISAMOD-HUNGRY_FOR_MUSHROOMS_MARISA.options.PACK_THEM_ALL.title": "全部詰め込む",
+  "MARISAMOD-HUNGRY_FOR_MUSHROOMS_MARISA.options.LOCKED.description": "そこまで欲張りではない。",
+  "MARISAMOD-HUNGRY_FOR_MUSHROOMS_MARISA.options.LOCKED.title": "選択不可"
+}

@@ -25,7 +25,7 @@ namespace marisamod.Scripts.Cards;
 
 public class CardSwiper : AbstractMarisaCard
 {
-    public CardSwiper() : base(1, CardType.Skill, CardRarity.Rare, TargetType.AllAllies)
+    public CardSwiper() : base(1, CardType.Power, CardRarity.Rare, TargetType.AllAllies)
     {
     }
     public override bool CanBeGeneratedInCombat => false;
@@ -47,7 +47,7 @@ public class CardSwiper : AbstractMarisaCard
     
     public override CardMultiplayerConstraint MultiplayerConstraint => CardMultiplayerConstraint.MultiplayerOnly;
     public override IEnumerable<CardKeyword> CanonicalKeywords => base.CanonicalKeywords.Concat([
-        CardKeyword.Exhaust,
+        //CardKeyword.Exhaust,
         MarisaCardKeyWords.Steal,
     ]);
     protected override void OnUpgrade()
