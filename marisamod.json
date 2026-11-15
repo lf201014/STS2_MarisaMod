@@ -1,12 +1,12 @@
 {
-  "id": "marisamod",
-  "name": "marisamod",
+  "id": "marisamod_beta",
+  "name": "marisamod_beta",
   "author": "Flynn, Hell, Hohner_257, Kishin, Samsara",
-  "description": "marisa mod",
-  "version": "0.4.2b",
+  "description": "marisa mod beta version",
+  "version": "0.4.3b",
   "has_pck": true,
   "has_dll": true,
-  "min_game_version":"0.111.0",
+  "min_game_version":"0.113.0",
   "dependencies": [
     {
       "id":"BaseLib",

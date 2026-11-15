@@ -103,6 +103,6 @@ public class LuminesStrike : AbstractMarisaCard
         await DamageCmd.Attack(DynamicVars.CalculatedDamage).FromCard(this,cardPlay).TargetingAllOpponents(CombatState!)
             .WithHitFx("vfx/vfx_attack_blunt", null, "heavy_attack.mp3")
             .Execute(choiceContext);
-        await CardPileCmd.AddGeneratedCardToCombat(CombatState!.CreateCard<Burn>(Owner), PileType.Hand, Owner);
+        //await CardPileCmd.AddGeneratedCardToCombat(CombatState!.CreateCard<Burn>(Owner), PileType.Hand, Owner);
     }
 }

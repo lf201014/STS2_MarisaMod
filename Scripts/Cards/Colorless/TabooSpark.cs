@@ -1,5 +1,6 @@
 ﻿using BaseLib.Utils;
 using marisamod.Scenes.Vfx.HitVfx;
+using marisamod.Scripts.PatchesNModels;
 using marisamod.Scripts.Powers;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
@@ -8,6 +9,7 @@ using MegaCrit.Sts2.Core.Helpers;
 using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.Models.CardPools;
+using MegaCrit.Sts2.Core.Models.Cards;
 using MegaCrit.Sts2.Core.Nodes.Rooms;
 using MegaCrit.Sts2.Core.Nodes.Vfx;
 using MegaCrit.Sts2.Core.ValueProps;
@@ -20,16 +22,15 @@ public class TabooSpark : AbstractAmplifiedCard
     public TabooSpark() : base(0, 1, CardType.Attack, CardRarity.Token, TargetType.AnyEnemy)
     {
     }
-
     protected override IEnumerable<DynamicVar> CanonicalVars =>
-    [
+        base.CanonicalVars.Concat([
         new DamageVar(6, ValueProp.Move),
         new CalculationBaseVar(6),
         new ExtraDamageVar(1),
         new CalculatedDamageVar(ValueProp.Move).WithMultiplier((_, monster) => monster?.GetPowerAmount<HoukaiPower>() ?? 0),
         //new CardsVar(1)
-    ];
-
+    ]);
+    protected override HashSet<CardTag> CanonicalTags => [MarisaCardTags.Spark];
     protected override IEnumerable<IHoverTip> ExtraHoverTips => [HoverTipFactory.FromPower<HoukaiPower>()];
 
     public override IEnumerable<CardKeyword> CanonicalKeywords => [CardKeyword.Exhaust];
@@ -44,14 +45,29 @@ public class TabooSpark : AbstractAmplifiedCard
     {
         await base.OnPlay(choiceContext, cardPlay);
         ArgumentNullException.ThrowIfNull(cardPlay.Target);
-        var damage = !AmplifiedInPlay ? DynamicVars.Damage.BaseValue : DynamicVars.CalculatedDamage.BaseValue;
-        await DamageCmd.Attack(damage).FromCard(this,cardPlay).Targeting(cardPlay.Target)
-            .WithHitVfxNode(t => SparkHitVfx.Create(NCombatRoom.Instance?.GetCreatureNode(t)!, "BurstSpark"))
-            .BeforeDamage(async delegate
-            {
-                var nSweepingBeamVfx = NSweepingBeamVfx.Create(Owner.Creature, [cardPlay.Target])!;
-                NCombatRoom.Instance?.CombatVfxContainer.AddChildSafely(nSweepingBeamVfx);
-                await Cmd.Wait(0.5f);
-            }).Execute(choiceContext);
+        if (AmplifiedInPlay)
+        {
+            await DamageCmd.Attack(DynamicVars.CalculatedDamage).FromCard(this,cardPlay).Targeting(cardPlay.Target)
+                .WithHitVfxNode(t => SparkHitVfx.Create(NCombatRoom.Instance?.GetCreatureNode(t)!, "BurstSpark"))
+                .BeforeDamage(async delegate
+                {
+                    var nSweepingBeamVfx = NSweepingBeamVfx.Create(Owner.Creature, [cardPlay.Target])!;
+                    NCombatRoom.Instance?.CombatVfxContainer.AddChildSafely(nSweepingBeamVfx);
+                    await Cmd.Wait(0.5f);
+                }).Execute(choiceContext);
+        }
+        else
+        {
+            await DamageCmd.Attack(DynamicVars.CalculationBase.BaseValue).FromCard(this,cardPlay).Targeting(cardPlay.Target)
+                .WithHitVfxNode(t => SparkHitVfx.Create(NCombatRoom.Instance?.GetCreatureNode(t)!, "BurstSpark"))
+                .BeforeDamage(async delegate
+                {
+                    var nSweepingBeamVfx = NSweepingBeamVfx.Create(Owner.Creature, [cardPlay.Target])!;
+                    NCombatRoom.Instance?.CombatVfxContainer.AddChildSafely(nSweepingBeamVfx);
+                    await Cmd.Wait(0.5f);
+                }).Execute(choiceContext);
+        }
+        //var damage = !AmplifiedInPlay ? DynamicVars.Damage.BaseValue : DynamicVars.CalculatedDamage.BaseValue;
+        
     }
 }

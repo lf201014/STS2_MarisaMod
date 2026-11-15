@@ -1,4 +1,5 @@
 ﻿using marisamod.Scripts.Cards.Colorless;
+using marisamod.Scripts.PatchesNModels;
 using marisamod.Scripts.Powers;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Context;
@@ -18,7 +19,7 @@ public class FourOfASpark : AbstractMarisaCard
     }
 
     public override CardMultiplayerConstraint MultiplayerConstraint => CardMultiplayerConstraint.MultiplayerOnly;
-
+    protected override HashSet<CardTag> CanonicalTags => [MarisaCardTags.Spark];
     protected override IEnumerable<DynamicVar> CanonicalVars =>
     [
         new DamageVar(10m, ValueProp.Move)
