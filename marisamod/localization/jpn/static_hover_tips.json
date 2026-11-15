@@ -1,0 +1,6 @@
+{
+  "MARISAMOD-STARLIT_POWER.tile": "星明かり",
+  "MARISAMOD-STARLIT_POWER.description": "ターン終了時、[gold]ブロック[/gold]を得て敵全体にダメージを与える。",
+  "MARISAMOD-STARLIT_ENCHANTMENT.tile": "星明かり",
+  "MARISAMOD-STARLIT_ENCHANTMENT.description": "[gold]星明かり[/gold]を持つカードをプレイすると、自身に[gold]星明かり[/gold]を付与する。"
+}

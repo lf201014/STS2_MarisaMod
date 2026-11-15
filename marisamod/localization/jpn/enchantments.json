@@ -1,0 +1,5 @@
+{
+  "STARLIT_ENCHANTMENT.description": "[gold]星明かり[/gold]を[blue]1[/blue]得る。このカードをプレイするときに消費した{energyPrefix:energyIcons(1)}1つにつき、得る量が2倍になる。",
+  "STARLIT_ENCHANTMENT.extraCardText": "星明かり。",
+  "STARLIT_ENCHANTMENT.title": "星明かり"
+}

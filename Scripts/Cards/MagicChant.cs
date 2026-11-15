@@ -23,9 +23,9 @@ public class MagicChant : AbstractMarisaCard
 
     public override IEnumerable<CardKeyword> CanonicalKeywords => [CardKeyword.Exhaust];
 
-    protected override IEnumerable<IHoverTip> ExtraHoverTips =>
-        HoverTipFactory.FromEnchantment<StarlitEnchantment>().Concat(
-            [HoverTipFactory.FromPower<StarlitPower>()]);
+    // protected override IEnumerable<IHoverTip> ExtraHoverTips =>
+    //     HoverTipFactory.FromEnchantment<StarlitEnchantment>().Concat(
+    //         [HoverTipFactory.FromPower<StarlitPower>()]);
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {

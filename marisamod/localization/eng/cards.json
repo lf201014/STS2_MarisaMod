@@ -93,7 +93,7 @@
   "MARISAMOD-INITIATOR.title": "Initiator",
   "MARISAMOD-INITIATOR.description": "Deal {Damage:diff()} damage.Add up to {Cards:diff()} random Attacks from your [gold]Draw Pile[/gold] to your [gold]Hand[/gold],increase their damage by unblocked damage dealt and they cost {Energy:energyIcons()} less this turn .",
   "MARISAMOD-LUMINES_STRIKE.title": "Luminous Strike",
-  "MARISAMOD-LUMINES_STRIKE.description": "Deal {CalculatedDamage:diff()} to All Enemies.Deal {ExtraDamage:diff()} additional damage for each [gold]Burn[/gold] you created.\nAdd a [gold]Burn[/gold] into your [gold]Hand[/gold].",
+  "MARISAMOD-LUMINES_STRIKE.description": "Deal {CalculatedDamage:diff()} to All Enemies.Deal {ExtraDamage:diff()} additional damage for each [gold]Burn[/gold] you created.",
   "MARISAMOD-MACHINE_GUN_SPARK.title": "Machine Gun Spark",
   "MARISAMOD-MACHINE_GUN_SPARK.description": "Deal {Damage:diff()} damage {Repeat:diff()} times.",
   "MARISAMOD-MAGICAL_R360.title": "Magical R360",
@@ -135,7 +135,7 @@
   "MARISAMOD-ORRERYS_SUN.title": "Orrery's Sun",
   "MARISAMOD-ORRERYS_SUN.description": "Whenever your [gold]Charge-Up[/gold] is consumed, gain {Power:diff()} [gold]Block[/gold].",
   "MARISAMOD-ORRERYS_UNIVERSE.title": "Orrery's Universe",
-  "MARISAMOD-ORRERYS_UNIVERSE.description": "Whenever you gain [gold]Starlit[/gold], increase the damage of Attacks in your Hand have by {Power:diff()}.",
+  "MARISAMOD-ORRERYS_UNIVERSE.description": "Whenever you gain [gold]Starlit[/gold], deal {Power:diff()} damage to a random enemy.",
   "MARISAMOD-POLARIS_UNIQUE.title": "Polaris Unique",
   "MARISAMOD-POLARIS_UNIQUE.description": "You can only play one [gold]Polaris Unique[/gold] each turn.\nChoose a card in your [gold]Hand[/gold],increase its cost by 1.\nGain {Energy:energyIcons()} and draw {Cards:diff()} {Cards:plural:card|cards}.",
   "MARISAMOD-POLARIS_UNIQUE.selectionScreenPrompt": "Choose a card.",
@@ -198,5 +198,13 @@
   "MARISAMOD-WITCH_OF_GREED.title": "Witch of Greed",
   "MARISAMOD-WITCH_OF_GREED.description": "At the end of combat, gain {Gold:diff()} Gold.\nAmplify {Energy:energyIcons()}:Also obtain a [gold]Potion[/gold].",
   "MARISAMOD-CARD_SWIPER.description": "Steal cards from other players. Return after combat.",
-  "MARISAMOD-CARD_SWIPER.title": "Brazen Borrower"
+  "MARISAMOD-CARD_SWIPER.title": "Brazen Borrower",
+  "MARISAMOD-FOUR_OF_A_SPARK.description": "Deal {Damage:diff()} damage, apply [gold]Houkai[/gold] equal to unblocked damage dealt to the enemy.\nAdd a [gold]Taboo Spark[/gold] randomly into every player's [gold]Draw Pile[/gold].",
+  "MARISAMOD-FOUR_OF_A_SPARK.title": "Four of a Spark",
+  "MARISAMOD-TABOO_SPARK.description": "Deal {Damage:diff()} damage.\nAmplify {Energy:energyIcons()}: Deal {ExtraDamage:diff()} additional damage for each [gold]Houkai[/gold] on the enemy.(deal {CalculatedDamage:diff()} damage)",
+  "MARISAMOD-TABOO_SPARK.title": "Taboo Spark",
+  "MARISAMOD-PRISMATIC_NEBULAR.description": "Until end of your turn, whenever you apply [gold]Starlit[/gold] to yourself, apply {IfUpgraded:show:that amount plus 1| same amount} [gold]Starlit[/gold] to other players.",
+  "MARISAMOD-PRISMATIC_NEBULAR.title": "Prismatic Nebular",
+  "MARISAMOD-HEAT_DEATH_OF_UNIVERSE.description": "Every player choose any number of card to [gold]Exhaust[/gold] at the end of this round.\nFor each card [gold]Exhausted[/gold] this way, you gain [blue]1[/blue] [gold]Charge-up[/gold]。",
+  "MARISAMOD-HEAT_DEATH_OF_UNIVERSE.title": "Heat Death of Universe"
 }

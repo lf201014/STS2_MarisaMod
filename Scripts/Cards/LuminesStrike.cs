@@ -3,6 +3,7 @@ using MegaCrit.Sts2.Core.Combat.History.Entries;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
+using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.Models.Cards;
 using MegaCrit.Sts2.Core.ValueProps;
@@ -89,6 +90,8 @@ public class LuminesStrike : AbstractMarisaCard
         new CardsVar(1)
     ];
 
+    protected override IEnumerable<IHoverTip> ExtraHoverTips => [HoverTipFactory.FromCard<Burn>()];
+
     protected override void OnUpgrade()
     {
         DynamicVars.ExtraDamage.UpgradeValueBy(2m);
@@ -100,6 +103,6 @@ public class LuminesStrike : AbstractMarisaCard
         await DamageCmd.Attack(DynamicVars.CalculatedDamage).FromCard(this,cardPlay).TargetingAllOpponents(CombatState!)
             .WithHitFx("vfx/vfx_attack_blunt", null, "heavy_attack.mp3")
             .Execute(choiceContext);
-        await CardPileCmd.AddGeneratedCardToCombat(CombatState!.CreateCard<Burn>(Owner), PileType.Hand, Owner);
+        //await CardPileCmd.AddGeneratedCardToCombat(CombatState!.CreateCard<Burn>(Owner), PileType.Hand, Owner);
     }
 }
