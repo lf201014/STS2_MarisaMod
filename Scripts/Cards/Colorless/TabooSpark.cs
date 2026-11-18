@@ -1,5 +1,6 @@
 ﻿using BaseLib.Utils;
 using marisamod.Scenes.Vfx.HitVfx;
+using marisamod.Scripts.PatchesNModels;
 using marisamod.Scripts.Powers;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
@@ -32,6 +33,8 @@ public class TabooSpark : AbstractAmplifiedCard
 
     protected override IEnumerable<IHoverTip> ExtraHoverTips => [HoverTipFactory.FromPower<HoukaiPower>()];
 
+    protected override HashSet<CardTag> CanonicalTags => [MarisaCardTags.Spark];
+
     public override IEnumerable<CardKeyword> CanonicalKeywords => [CardKeyword.Exhaust];
 
     protected override void OnUpgrade()
@@ -45,7 +48,7 @@ public class TabooSpark : AbstractAmplifiedCard
         await base.OnPlay(choiceContext, cardPlay);
         ArgumentNullException.ThrowIfNull(cardPlay.Target);
         if (AmplifiedInPlay)
-            await DamageCmd.Attack(DynamicVars.CalculatedDamage).FromCard(this).Targeting(cardPlay.Target)
+            await DamageCmd.Attack(DynamicVars.CalculatedDamage).FromCard(this, cardPlay).Targeting(cardPlay.Target)
                 .WithHitVfxNode(t => SparkHitVfx.Create(NCombatRoom.Instance?.GetCreatureNode(t)!, "BurstSpark"))
                 .BeforeDamage(async delegate
                 {
@@ -54,7 +57,7 @@ public class TabooSpark : AbstractAmplifiedCard
                     await Cmd.Wait(0.5f);
                 }).Execute(choiceContext);
         else
-            await DamageCmd.Attack(DynamicVars.Damage.BaseValue).FromCard(this).Targeting(cardPlay.Target)
+            await DamageCmd.Attack(DynamicVars.Damage.BaseValue).FromCard(this, cardPlay).Targeting(cardPlay.Target)
                 .WithHitVfxNode(t => SparkHitVfx.Create(NCombatRoom.Instance?.GetCreatureNode(t)!, "BurstSpark"))
                 .BeforeDamage(async delegate
                 {

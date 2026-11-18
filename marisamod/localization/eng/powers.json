@@ -99,7 +99,7 @@
   "MARISAMOD-HOUKAI_POWER.smartDescription": "This creature will take [blue]{Amount}[/blue] extra damage from amplified [gold]Taboo Spark[/gold].",
   "MARISAMOD-HOUKAI_POWER.title": "Houkai",
   "MARISAMOD-PRISMATIC_NEBULAR_POWER.description": "Whenever you apply [gold]Starlit[/gold] to yourself, apply to other players too.",
-  "MARISAMOD-PRISMATIC_NEBULAR_POWER.smartDescription": "Whenever you apply [gold]Starlit[/gold] to yourself, apply {Amount:plural:same amount|that amount plus ({Amount}-1)} [gold]Starlit[/gold] to other players.",
+  "MARISAMOD-PRISMATIC_NEBULAR_POWER.smartDescription": "Whenever you apply [gold]Starlit[/gold] to yourself, apply {Amount:plural:same amount|{Amount} times that amount} [gold]Starlit[/gold] to other players.",
   "MARISAMOD-PRISMATIC_NEBULAR_POWER.title": "Prismatic Nebular",
   "MARISAMOD-HEAT_DEATH_OF_UNIVERSE_POWER.description": "Choose any number of cards to [gold]Exhaust[/gold] at the end of this turn.",
   "MARISAMOD-HEAT_DEATH_OF_UNIVERSE_POWER.smartDescription": "Choose any number of cards to [gold]Exhaust[/gold] at the end of this turn.",

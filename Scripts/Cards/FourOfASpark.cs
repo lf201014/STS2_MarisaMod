@@ -1,4 +1,5 @@
 ﻿using marisamod.Scripts.Cards.Colorless;
+using marisamod.Scripts.PatchesNModels;
 using marisamod.Scripts.Powers;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Context;
@@ -30,11 +31,12 @@ public class FourOfASpark : AbstractMarisaCard
     }
 
     protected override IEnumerable<IHoverTip> ExtraHoverTips => [HoverTipFactory.FromPower<HoukaiPower>(), HoverTipFactory.FromCard<TabooSpark>()];
+    protected override HashSet<CardTag> CanonicalTags => [MarisaCardTags.Spark];
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
         ArgumentNullException.ThrowIfNull(cardPlay.Target, "cardPlay.Target");
-        var attackCommand = await DamageCmd.Attack(DynamicVars.Damage.BaseValue).FromCard(this).Targeting(cardPlay.Target)
+        var attackCommand = await DamageCmd.Attack(DynamicVars.Damage.BaseValue).FromCard(this,cardPlay).Targeting(cardPlay.Target)
             .WithHitFx("vfx/vfx_attack_slash")
             .Execute(choiceContext);
         var amount = attackCommand.Results.SelectMany(r => r).Sum(r => r.UnblockedDamage);

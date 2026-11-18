@@ -24,13 +24,13 @@ namespace marisamod.Scripts.Cards
         protected override IEnumerable<DynamicVar> CanonicalVars =>
         [
             new DamageVar(1m, ValueProp.Move),
-        new RepeatVar(6)
+            new RepeatVar(6)
         ];
 
         public override IEnumerable<CardKeyword> CanonicalKeywords => base.CanonicalKeywords.Concat([
             CardKeyword.Exhaust
         ]);
-        
+
         protected override HashSet<CardTag> CanonicalTags => [MarisaCardTags.Spark];
 
         protected override void OnUpgrade()
@@ -45,30 +45,33 @@ namespace marisamod.Scripts.Cards
             CleanVfx();
             CreateVfx();
             await Cmd.Wait(0.1f);
-            await DamageCmd.Attack(DynamicVars.Damage.BaseValue).WithHitCount(DynamicVars["Repeat"].IntValue).FromCard(this)
+            await DamageCmd.Attack(DynamicVars.Damage.BaseValue).WithHitCount(DynamicVars["Repeat"].IntValue).FromCard(this, cardPlay)
                 .Targeting(cardPlay.Target)
                 .WithHitVfxNode(InvokeVfx)
                 .WithHitFx(null, null, "blunt_attack.mp3")
                 .Execute(choiceContext);
             CleanVfx();
         }
+
         private List<VfxSparkProjectile> _vfx = [];
+
         private void CleanVfx()
         {
             if (_vfx.Count == 0) return;
             foreach (var vfx in _vfx.Where(GodotObject.IsInstanceValid)) vfx.StartFading();
             _vfx.Clear();
         }
+
         private void CreateVfx()
         {
             var count = DynamicVars["Repeat"].IntValue;
             _vfx = new List<VfxSparkProjectile>(count);
             var color = new Vector4(0.9f, 0.8f, 0.35f, 1.0f);
             var player = NCombatRoom.Instance?.GetCreatureNode(Owner.Creature);
-            if (player == null ) return;
+            if (player == null) return;
             for (var i = 0; i < count; i++)
             {
-                var vfx = VfxSparkProjectile.Create(player!,color);
+                var vfx = VfxSparkProjectile.Create(player!, color);
                 vfx.ApplySizeFromDamage((int)DynamicVars.Damage.PreviewValue);
                 _vfx.Add(vfx);
                 NCombatRoom.Instance?.CombatVfxContainer.AddChildSafely(_vfx[i]);
@@ -84,6 +87,7 @@ namespace marisamod.Scripts.Cards
                 _vfx.RemoveAt(0);
                 return null;
             }
+
             vfx.Target = (NCombatRoom.Instance?.GetCreatureNode(target)!).VfxSpawnPosition;
             vfx.GetParent()?.RemoveChild(vfx);
             vfx.StartChasing();

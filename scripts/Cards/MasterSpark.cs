@@ -35,7 +35,7 @@ namespace marisamod.Scripts.Cards
             await base.OnPlay(choiceContext, cardPlay);
             ArgumentNullException.ThrowIfNull(cardPlay.Target);
             var damage = !AmplifiedInPlay ? DynamicVars.Damage.BaseValue : DynamicVars["DamageAmplified"].BaseValue;
-            await DamageCmd.Attack(damage).FromCard(this).Targeting(cardPlay.Target)
+            await DamageCmd.Attack(damage).FromCard(this,cardPlay).Targeting(cardPlay.Target)
                 .WithHitVfxNode((Creature t) => SparkHitVfx.Create(NCombatRoom.Instance?.GetCreatureNode(t)!,"BurstSpark"))
                 .BeforeDamage(async delegate
                 {

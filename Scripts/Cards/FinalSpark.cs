@@ -47,7 +47,7 @@ public class FinalSpark : AbstractMarisaCard
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
-        await DamageCmd.Attack(DynamicVars.Damage.BaseValue).FromCard(this).TargetingAllOpponents(CombatState!)
+        await DamageCmd.Attack(DynamicVars.Damage.BaseValue).FromCard(this, cardPlay).TargetingAllOpponents(CombatState!)
             .WithHitFx("vfx/vfx_attack_slash").WithAttackerAnim(Owner.Character is MarisaCharacter ? "Spark" : "Cast", 0.3f)
             .BeforeDamage(async delegate
             {
@@ -55,7 +55,7 @@ public class FinalSpark : AbstractMarisaCard
                 var vfx = VfxFinalSpark.Create(Owner.Creature, enemies.Last());
                 if (vfx != null)
                 {
-                    vfx.ApplySizeFromDamage((int)DynamicVars.Damage.PreviewValue,40);
+                    vfx.ApplySizeFromDamage((int)DynamicVars.Damage.PreviewValue, 40);
                     vfx.SetRainbowRatio(0.05f);
                     NCombatRoom.Instance?.CombatVfxContainer.AddChildSafely(vfx);
                     await Cmd.Wait(VfxFinalSpark.VfxTime);

@@ -9,6 +9,7 @@ using marisamod.Scripts.Relics;
 using MegaCrit.Sts2.Core.Animation;
 using MegaCrit.Sts2.Core.Bindings.MegaSpine;
 using MegaCrit.Sts2.Core.Entities.Characters;
+using MegaCrit.Sts2.Core.Entities.Creatures;
 using MegaCrit.Sts2.Core.Models;
 
 namespace marisamod.Scripts.Characters;
@@ -123,7 +124,7 @@ public class MarisaCharacter : PlaceholderCharacterModel
     //     return card.Enchantment;
     // }
     
-    public override CreatureAnimator GenerateAnimator(MegaSprite controller)
+    public override CreatureAnimator GenerateAnimator(MegaSprite controller, Creature creature)
     {
         var animState = new AnimState("idle_loop", isLooping: true);
         var animState2 = new AnimState("cast");

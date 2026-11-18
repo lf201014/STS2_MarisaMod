@@ -28,7 +28,7 @@ public class PrismaticNebularPower : AbstractMarisaPower
             var enumerable = CombatState.GetTeammatesOf(Owner).Where(c => c is { IsAlive: true, IsPlayer: true } && c != Owner);
             foreach (var creature in enumerable)
             {
-                _ = PowerCmd.Apply<StarlitPower>(new ThrowingPlayerChoiceContext(), creature, amount + Amount - 1, Owner, null);
+                _ = PowerCmd.Apply<StarlitPower>(new ThrowingPlayerChoiceContext(), creature, amount * Amount, Owner, null);
             }
         }
 

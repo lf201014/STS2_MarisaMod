@@ -15,14 +15,15 @@ namespace marisamod.Scripts.Cards
 
         public override bool GainsBlock => true;
 
-        protected override IEnumerable<DynamicVar> CanonicalVars => [
+        protected override IEnumerable<DynamicVar> CanonicalVars =>
+        [
             new DamageVar(5m, ValueProp.Move)
-            ];
+        ];
 
         protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
         {
             ArgumentNullException.ThrowIfNull(cardPlay.Target, "cardPlay.Target");
-            var attackCommand = await DamageCmd.Attack(DynamicVars.Damage.BaseValue).FromCard(this).Targeting(cardPlay.Target)
+            var attackCommand = await DamageCmd.Attack(DynamicVars.Damage.BaseValue).FromCard(this, cardPlay).Targeting(cardPlay.Target)
                 .WithHitFx("vfx/vfx_attack_slash")
                 .Execute(choiceContext);
             await CreatureCmd.GainBlock(Owner.Creature, attackCommand.Results.SelectMany(r => r).Sum((DamageResult r) => r.UnblockedDamage), ValueProp.Move, cardPlay);

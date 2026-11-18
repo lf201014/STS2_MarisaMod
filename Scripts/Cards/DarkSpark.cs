@@ -37,7 +37,7 @@ namespace marisamod.Scripts.Cards
 
         protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
         {
-            await DamageCmd.Attack(DynamicVars.CalculatedDamage).FromCard(this).TargetingAllOpponents(CombatState!)
+            await DamageCmd.Attack(DynamicVars.CalculatedDamage).FromCard(this,cardPlay).TargetingAllOpponents(CombatState!)
                 .WithHitFx("vfx/vfx_attack_slash", null, "blunt_attack.mp3").WithAttackerAnim(Owner.Character is MarisaCharacter ? "Spark" : "Cast", 0.3f)
                 .BeforeDamage(async delegate
                 {

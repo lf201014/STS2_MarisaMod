@@ -27,7 +27,7 @@ namespace marisamod.Scripts.Cards
             if (HasGeneratedCard)
                 repeat = 2;
             var damage = DynamicVars.Damage.BaseValue;
-            await DamageCmd.Attack(damage).FromCard(this).TargetingAllOpponents(CombatState!).WithHitCount(repeat)
+            await DamageCmd.Attack(damage).FromCard(this, cardPlay).TargetingAllOpponents(CombatState!).WithHitCount(repeat)
                 .WithHitFx("vfx/vfx_attack_blunt", null, "heavy_attack.mp3")
                 .Execute(choiceContext);
             // await DamageCmd.Attack(damage).FromCard(this)

@@ -73,9 +73,11 @@ public class DarkMatter : AbstractMarisaCard
                 EnergySpent = 0,
                 EnergyValue = card.EnergyCost.GetAmountToSpend(),
                 StarsSpent = 0,
-                StarValue = Math.Max(0, card.GetStarCostWithModifiers())
+                StarValue = Math.Max(0,
+                    card.GetStarCostWithModifiers())
             },
-            ResultPile = PileType.Exhaust
+            ResultPile = PileType.Exhaust,
+            Player = Owner
         };
         for (var i = 0; i < playCount; i++)
             await CreatureCmd.GainBlock(Owner.Creature, DynamicVars.Block, cardPlay);
