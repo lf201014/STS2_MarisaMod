@@ -29,7 +29,8 @@ public class PrismaticNebular : AbstractMarisaCard
 
     protected override void OnUpgrade()
     {
-        DynamicVars["Power"].UpgradeValueBy(1);
+        //DynamicVars["Power"].UpgradeValueBy(1);
+        AddKeyword(CardKeyword.Retain);
     }
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)

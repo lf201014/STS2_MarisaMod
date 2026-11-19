@@ -203,7 +203,7 @@
   "MARISAMOD-FOUR_OF_A_SPARK.title": "Four of a Spark",
   "MARISAMOD-TABOO_SPARK.description": "Deal {Damage:diff()} damage.\nAmplify {Energy:energyIcons()}: Deal {ExtraDamage:diff()} additional damage for each [gold]Houkai[/gold] on the enemy.(deal {CalculatedDamage:diff()} damage)",
   "MARISAMOD-TABOO_SPARK.title": "Taboo Spark",
-  "MARISAMOD-PRISMATIC_NEBULAR.description": "Until end of your turn, whenever you apply [gold]Starlit[/gold] to yourself, apply {IfUpgraded:show:that amount plus 1| same amount} [gold]Starlit[/gold] to other players.",
+  "MARISAMOD-PRISMATIC_NEBULAR.description": "Until end of your turn, whenever you apply [gold]Starlit[/gold] to yourself, apply that amount of [gold]Starlit[/gold] to other players.",
   "MARISAMOD-PRISMATIC_NEBULAR.title": "Prismatic Nebular",
   "MARISAMOD-HEAT_DEATH_OF_UNIVERSE.description": "Every player choose any number of card to [gold]Exhaust[/gold] at the end of this round.\nFor each card [gold]Exhausted[/gold] this way, you gain [blue]1[/blue] [gold]Charge-up[/gold]。",
   "MARISAMOD-HEAT_DEATH_OF_UNIVERSE.title": "Heat Death of Universe"

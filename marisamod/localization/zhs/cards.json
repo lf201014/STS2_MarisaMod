@@ -203,7 +203,7 @@
   "MARISAMOD-FOUR_OF_A_SPARK.title": "多重火花",
   "MARISAMOD-TABOO_SPARK.description": "造成{Damage:diff()}点伤害。\n增幅{Energy:energyIcons()}：该敌人身上每有一层[gold]崩坏[/gold]就额外造成{ExtraDamage:diff()}点伤害。(造成{CalculatedDamage:diff()}点伤害)",
   "MARISAMOD-TABOO_SPARK.title": "禁忌火花",
-  "MARISAMOD-PRISMATIC_NEBULAR.description": "直到回合结束，每当你给与自己[gold]星彩[/gold]，给与所有队友{IfUpgraded:show:等于那个层数+1|相同层数}的[gold]星彩[/gold]。",
+  "MARISAMOD-PRISMATIC_NEBULAR.description": "直到回合结束，每当你给与自己[gold]星彩[/gold]，给与所有队友相同层数的[gold]星彩[/gold]。",
   "MARISAMOD-PRISMATIC_NEBULAR.title": "虹彩星云",
   "MARISAMOD-HEAT_DEATH_OF_UNIVERSE.description": "所有玩家在本回合结束时选择任意数量手牌[gold]消耗[/gold]。\n每[gold]消耗[/gold]一张牌，你获得1层[gold]蓄力[/gold]。",
   "MARISAMOD-HEAT_DEATH_OF_UNIVERSE.title": "宇宙热寂"
