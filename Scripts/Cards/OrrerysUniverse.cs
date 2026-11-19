@@ -53,7 +53,7 @@ public class OrrerysUniverse : AbstractMarisaCard
     protected override void OnUpgrade()
     {
         //DynamicVars["PowerDamage"].UpgradeValueBy(1);
-        DynamicVars["Power"].UpgradeValueBy(7);
+        DynamicVars["Power"].UpgradeValueBy(2);
         //EnergyCost.UpgradeBy(-1);
     }
 
