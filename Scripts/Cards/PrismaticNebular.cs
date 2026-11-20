@@ -20,10 +20,10 @@ public class PrismaticNebular : AbstractMarisaCard
         new("Power", 1)
     ];
 
-    public override IEnumerable<CardKeyword> CanonicalKeywords =>
-    [
-        CardKeyword.Retain
-    ];
+    // public override IEnumerable<CardKeyword> CanonicalKeywords =>
+    // [
+    //     CardKeyword.Retain
+    // ];
 
     protected override IEnumerable<IHoverTip> ExtraHoverTips => [HoverTipFactory.FromPower<StarlitPower>()];
 
