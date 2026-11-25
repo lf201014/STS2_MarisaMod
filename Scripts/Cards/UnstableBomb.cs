@@ -1,8 +1,8 @@
 ﻿using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
-using MegaCrit.Sts2.Core.Extensions;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
+using MegaCrit.Sts2.Core.Logging;
 using MegaCrit.Sts2.Core.ValueProps;
 
 namespace marisamod.Scripts.Cards;
@@ -59,7 +59,9 @@ public class UnstableBomb : AbstractAmplifiedCard //AbstractMarisaCard
         // }
         await DamageCmd.Attack(DynamicVars.CalculatedDamage).FromCard(this,cardPlay).WithHitCount(hit).BeforeDamage(() =>
             {
+                DynamicVars.CalculationBase.BaseValue = 0;
                 DynamicVars["DamageOnPlay"].BaseValue = RunState!.Rng.CombatCardSelection.NextInt(DynamicVars.Damage.IntValue, DynamicVars["DamageAmplified"].IntValue + 1);
+                Log.Info($"UnstableBomb.OnPlay:{DynamicVars.Damage.IntValue}: {DynamicVars["DamageAmplified"].IntValue}: {DynamicVars["DamageOnPlay"].BaseValue}");
                 return Task.CompletedTask;
             })
             .TargetingRandomOpponents(CombatState!)

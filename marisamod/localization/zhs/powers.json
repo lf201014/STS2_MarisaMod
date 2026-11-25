@@ -55,8 +55,8 @@
   "MARISAMOD-ORRERYS_SUN_POWER.description": "当你消耗[gold]蓄力[/gold]，获得[gold]格挡[/gold]。",
   "MARISAMOD-ORRERYS_SUN_POWER.smartDescription": "当你消耗[gold]蓄力[/gold]，获得[blue]{Amount}[/blue]点[gold]格挡[/gold]。",
   "MARISAMOD-ORRERYS_UNIVERSE_POWER.title": "宇宙仪",
-  "MARISAMOD-ORRERYS_UNIVERSE_POWER.description": "每当你获得[gold]星彩[/gold]，使你手中攻击牌的伤害增加[blue]1[/blue]点。",
-  "MARISAMOD-ORRERYS_UNIVERSE_POWER.smartDescription": "每当你获得[gold]星彩[/gold]，使你手中攻击牌的伤害增加[blue]{Amount}[/blue]点。",
+  "MARISAMOD-ORRERYS_UNIVERSE_POWER.description": "每当你获得[gold]星彩[/gold]，对随机敌人造成伤害。",
+  "MARISAMOD-ORRERYS_UNIVERSE_POWER.smartDescription": "每当你获得[gold]星彩[/gold]，对随机敌人造成[blue]{Amount}[/blue]点伤害。",
   "MARISAMOD-MAGIC_AND_RED_DREAM_POWER.title": "魔法与红梦",
   "MARISAMOD-MAGIC_AND_RED_DREAM_POWER.description": "每当你触发[gold]增幅[/gold]或[gold]蓄力[/gold]，抽2张牌。",
   "MARISAMOD-MAGIC_AND_RED_DREAM_POWER.smartDescription": "每当你触发[gold]增幅[/gold]或[gold]蓄力[/gold]，抽{Amount}张牌。",
@@ -94,5 +94,15 @@
   "MARISAMOD-WALPURGISNACHT_AMP_POWER.smartDescription": "在你回合开始时，为[blue]{Amount}[/blue]张你的随机手牌添加[gold]附魔[/gold][gold]星彩[/gold]。",
   "MARISAMOD-SWIPED_CARD_POWER.description": "有卡牌失窃，战斗结束后拿回。",
   "MARISAMOD-SWIPED_CARD_POWER.smartDescription": "有卡牌失窃，战斗结束后拿回。",
-  "MARISAMOD-SWIPED_CARD_POWER.title": "卡牌失窃"
+  "MARISAMOD-SWIPED_CARD_POWER.title": "卡牌失窃",
+  "MARISAMOD-HOUKAI_POWER.description": "增幅的[gold]禁忌火花[/gold]对这个生物造成的伤害增加",
+  "MARISAMOD-HOUKAI_POWER.smartDescription": "增幅的[gold]禁忌火花[/gold]对这个生物造成的伤害增加[blue]{Amount}[/blue]点",
+  "MARISAMOD-HOUKAI_POWER.title": "崩坏",
+  "MARISAMOD-PRISMATIC_NEBULAR_POWER.description": "本回合，当你给予自己[gold]星彩[/gold]时，会给予所有队友[gold]星彩[/gold]。",
+  "MARISAMOD-PRISMATIC_NEBULAR_POWER.smartDescription": "本回合，你给予自己[gold]星彩[/gold]时，给予所有队友{Amount}倍层数的[gold]星彩[/gold]。",
+  "MARISAMOD-PRISMATIC_NEBULAR_POWER.title": "虹彩星云",
+  "MARISAMOD-HEAT_DEATH_OF_UNIVERSE_POWER.description": "回合结束时选择任意牌[gold]消耗[/gold]。",
+  "MARISAMOD-HEAT_DEATH_OF_UNIVERSE_POWER.smartDescription": "回合结束时选择任意牌[gold]消耗[/gold]。",
+  "MARISAMOD-HEAT_DEATH_OF_UNIVERSE_POWER.title": "宇宙热寂",
+  "MARISAMOD-HEAT_DEATH_OF_UNIVERSE_POWER.selectionScreenPrompt": "选择任意牌[gold]消耗[/gold]"
 }

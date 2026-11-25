@@ -1,0 +1,11 @@
+{
+  "MARISAMOD-BOTTLED_SPARK.description": "[gold]スパーク[/gold]を[blue]3[/blue]枚[gold]手札[/gold]に加える。",
+  "MARISAMOD-BOTTLED_SPARK.selectionScreenPrompt": "[gold]廃棄[/gold]するカードを好きな枚数選ぶ。",
+  "MARISAMOD-BOTTLED_SPARK.title": "星屑の小瓶",
+  "MARISAMOD-LOVE_COLOURED_POTION.description": "[gold]チャージアップ[/gold]を[blue]8[/blue]得る。",
+  "MARISAMOD-LOVE_COLOURED_POTION.selectionScreenPrompt": "[gold]廃棄[/gold]するカードを好きな枚数選ぶ。",
+  "MARISAMOD-LOVE_COLOURED_POTION.title": "恋色ポーション",
+  "MARISAMOD-SHROOM_BREW.description": "[gold]手札[/gold]のカードを1枚[gold]廃棄[/gold]する。\nこのポーションの効果は[gold]廃棄[/gold]したカードの種類によって変わる。\n[gold]アタック[/gold]: [gold]筋力[/gold]を[blue]3[/blue]得る。\n[gold]スキル[/gold]: [gold]敏捷性[/gold]を[blue]3[/blue]得る。\n[gold]パワー[/gold]: カードを[blue]2[/blue]枚引き、{Energy:energyIcons()}を得る。\n[gold]状態異常[/gold]: [gold]再生[/gold]を[blue]5[/blue]得る。\n[gold]呪い[/gold]: [gold]バッファー[/gold]を[blue]1[/blue]得る。\n[gold]クエスト[/gold]: [gold]ゴールド[/gold]を[blue]70[/blue]得る。",
+  "MARISAMOD-SHROOM_BREW.selectionScreenPrompt": "[gold]廃棄[/gold]するカードを1枚選ぶ。",
+  "MARISAMOD-SHROOM_BREW.title": "キノコ茶"
+}

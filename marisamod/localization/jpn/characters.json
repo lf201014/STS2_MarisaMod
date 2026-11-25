@@ -1,0 +1,17 @@
+{
+  "MARISAMOD-MARISA_CHARACTER.aromaPrinciple": "[sine][blue]……[/blue][/sine]",
+  "MARISAMOD-MARISA_CHARACTER.banter.alive.endTurnPing": "……",
+  "MARISAMOD-MARISA_CHARACTER.banter.dead.endTurnPing": "……",
+  "MARISAMOD-MARISA_CHARACTER.cardsModifierDescription": "魔理沙のカードが報酬やショップに出現するようになる。",
+  "MARISAMOD-MARISA_CHARACTER.cardsModifierTitle": "魔理沙のカード",
+  "MARISAMOD-MARISA_CHARACTER.description": "魔法の森に住む魔法使い。\n光と熱の魔法を得意とする。",
+  "MARISAMOD-MARISA_CHARACTER.eventDeathPrevention": "生きて帰らなきゃ、戦利品を持ち帰れないぜ……。",
+  "MARISAMOD-MARISA_CHARACTER.goldMonologue": "[sine]ゴールドだ！　ほかにもお宝があるかもしれないな……。[/sine]",
+  "MARISAMOD-MARISA_CHARACTER.possessiveAdjective": "彼女の",
+  "MARISAMOD-MARISA_CHARACTER.pronounObject": "彼女",
+  "MARISAMOD-MARISA_CHARACTER.pronounPossessive": "彼女のもの",
+  "MARISAMOD-MARISA_CHARACTER.pronounSubject": "彼女",
+  "MARISAMOD-MARISA_CHARACTER.title": "魔理沙",
+  "MARISAMOD-MARISA_CHARACTER.titleObject": "魔理沙",
+  "MARISAMOD-MARISA_CHARACTER.unlockText": "[pink]{Prerequisite}[/pink]で1回プレイすると、このキャラクターが解放される。"
+}
