@@ -39,7 +39,6 @@ using MegaCrit.Sts2.Core.Nodes.Screens;
 using MegaCrit.Sts2.Core.Runs;
 using MegaCrit.Sts2.Core.Saves.Managers;
 using MegaCrit.Sts2.Core.TestSupport;
-
 // ReSharper disable InconsistentNaming
 
 namespace marisamod.Scripts;
@@ -224,7 +223,7 @@ public class Entry
         }
     }
 
-
+    
     [HarmonyPatch(typeof(TheArchitect), "WinRun")]
     internal static class TheArchitectWinRunPatch
     {

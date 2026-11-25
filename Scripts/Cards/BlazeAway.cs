@@ -56,6 +56,12 @@ namespace marisamod.Scripts.Cards
                 {
                     await PlayerCmd.GainEnergy(energyGain, Owner);
                 }
+
+                var stars = card.GetStarCostWithModifiers();
+                if (stars > 0)
+                {
+                    await PlayerCmd.GainStars(stars, Owner);
+                }
             }
         }
     }

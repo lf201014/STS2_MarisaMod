@@ -16,11 +16,12 @@ public class DarkMatter : AbstractMarisaCard
 
     protected override IEnumerable<DynamicVar> CanonicalVars =>
     [
-        new BlockVar(5m, ValueProp.Move),
+        //new BlockVar(5m, ValueProp.Move),
+        new BlockVar(5M, ValueProp.Unpowered),
         new CardsVar(1)
     ];
 
-    //public override bool GainsBlock => true;
+    public override bool GainsBlock => false;
 
     public override IEnumerable<CardKeyword> CanonicalKeywords => base.CanonicalKeywords.Concat([
         CardKeyword.Ethereal

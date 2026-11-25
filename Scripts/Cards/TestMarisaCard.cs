@@ -43,7 +43,7 @@
 //     {
 //         ArgumentNullException.ThrowIfNull(cardPlay.Target);
 //         await DamageCmd.Attack(DynamicVars.Damage.BaseValue) // 造成伤害，数值来源于卡牌的基础伤害属性
-//             .FromCard(this) // 伤害来源于这张卡牌
+//             .FromCard(this,cardPlay) // 伤害来源于这张卡牌
 //             .Targeting(cardPlay.Target) // 伤害目标是玩家选择的目标
 //             .Execute(choiceContext);
 //         await CardPileCmd.Draw(choiceContext, DynamicVars.Cards.BaseValue, Owner);

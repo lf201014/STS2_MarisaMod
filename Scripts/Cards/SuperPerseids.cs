@@ -32,7 +32,7 @@
 //
 //     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
 //     {
-//         await DamageCmd.Attack(DynamicVars.Damage.BaseValue).WithHitCount(DynamicVars.Repeat.IntValue).FromCard(this)
+//         await DamageCmd.Attack(DynamicVars.Damage.BaseValue).WithHitCount(DynamicVars.Repeat.IntValue).FromCard(this,cardPlay)
 //             .TargetingRandomOpponents(CombatState!)
 //             .WithHitFx("vfx/vfx_attack_slash")
 //             .Execute(choiceContext);
@@ -60,7 +60,7 @@
 //     // {
 //     //     if (card == this)
 //     //     {
-//     //         await DamageCmd.Attack(DynamicVars.Damage.BaseValue).WithHitCount(DynamicVars.Repeat.IntValue).FromCard(this)
+//     //         await DamageCmd.Attack(DynamicVars.Damage.BaseValue).WithHitCount(DynamicVars.Repeat.IntValue).FromCard(this,cardPlay)
 //     //             .TargetingRandomOpponents(CombatState!)
 //     //             .WithHitFx("vfx/vfx_attack_slash")
 //     //             .Execute(choiceContext);

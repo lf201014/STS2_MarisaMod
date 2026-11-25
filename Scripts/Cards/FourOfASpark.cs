@@ -19,7 +19,7 @@ public class FourOfASpark : AbstractMarisaCard
     }
 
     public override CardMultiplayerConstraint MultiplayerConstraint => CardMultiplayerConstraint.MultiplayerOnly;
-
+    protected override HashSet<CardTag> CanonicalTags => [MarisaCardTags.Spark];
     protected override IEnumerable<DynamicVar> CanonicalVars =>
     [
         new DamageVar(10m, ValueProp.Move)
@@ -31,7 +31,6 @@ public class FourOfASpark : AbstractMarisaCard
     }
 
     protected override IEnumerable<IHoverTip> ExtraHoverTips => [HoverTipFactory.FromPower<HoukaiPower>(), HoverTipFactory.FromCard<TabooSpark>()];
-    protected override HashSet<CardTag> CanonicalTags => [MarisaCardTags.Spark];
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {

@@ -19,7 +19,7 @@ public class CollectingQuirk : AbstractMarisaCard
         new DynamicVar("Div", 4),
         new CalculationBaseVar(0),
         new CalculationExtraVar(1m),
-        new CalculatedVar("CalculatedHits").WithMultiplier((card, _) =>
+        new CalculatedVar("CalculatedHits").WithMultiplier((card, _) => 
             Mathf.FloorToInt(card.Owner.Relics.Count / (float)card.DynamicVars["Div"].IntValue))
     ];
 
@@ -30,7 +30,7 @@ public class CollectingQuirk : AbstractMarisaCard
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
-        await DamageCmd.Attack(DynamicVars.Damage.BaseValue).WithHitCount((int)((CalculatedVar)DynamicVars["CalculatedHits"]).Calculate(null)).FromCard(this, cardPlay)
+        await DamageCmd.Attack(DynamicVars.Damage.BaseValue).WithHitCount((int)((CalculatedVar)DynamicVars["CalculatedHits"]).Calculate(null)).FromCard(this,cardPlay)
             .TargetingRandomOpponents(CombatState!)
             .WithHitFx("vfx/vfx_attack_slash")
             .Execute(choiceContext);

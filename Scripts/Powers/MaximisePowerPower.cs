@@ -22,7 +22,7 @@ namespace marisamod.Scripts.Powers
             new DynamicVar("Mult", 200)
         ];
 
-        public override decimal ModifyDamageMultiplicative(Creature? target, decimal amount, ValueProp props, Creature? dealer, CardModel? cardSource, CardPlay? cardPlay)
+        public override decimal ModifyDamageMultiplicative(Creature? target, decimal amount, ValueProp props, Creature? dealer, CardModel? cardSource,CardPlay? cardPlay)
         {
             if (dealer != Owner && dealer != null && !Owner.Pets.Contains(dealer))
             {

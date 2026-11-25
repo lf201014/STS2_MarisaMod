@@ -123,29 +123,39 @@ public class MarisaCharacter : PlaceholderCharacterModel
     //
     //     return card.Enchantment;
     // }
-    
     public override CreatureAnimator GenerateAnimator(MegaSprite controller, Creature creature)
     {
-        var animState = new AnimState("idle_loop", isLooping: true);
-        var animState2 = new AnimState("cast");
-        var animState3 = new AnimState("attack");
-        var animState4 = new AnimState("hurt");
-        var state = new AnimState("die");
-        var animState5 = new AnimState("spark");
-        var animState6 = new AnimState("relaxed_loop", isLooping: true);
-        animState2.NextState = animState;
-        animState3.NextState = animState;
-        animState4.NextState = animState;
-        animState5.NextState = animState;
-        animState6.AddBranch("Idle", animState);
-        var creatureAnimator = new CreatureAnimator(animState, controller);
-        creatureAnimator.AddAnyState("Idle", animState);
-        creatureAnimator.AddAnyState("Dead", state);
-        creatureAnimator.AddAnyState("Hit", animState4);
-        creatureAnimator.AddAnyState("Attack", animState3);
-        creatureAnimator.AddAnyState("Cast", animState2);
-        creatureAnimator.AddAnyState("Spark", animState5);
-        creatureAnimator.AddAnyState("Relaxed", animState6);
+        var idle = new AnimState("idle_loop", isLooping: true);
+        var lowHpIdle = new AnimState("idle_loop", isLooping: true);
+
+        var cast = NonIdle("cast");
+        var attack = NonIdle("attack");
+        var hurt = NonIdle("hurt");
+        var dead = new AnimState("die");
+        //var dead = new AnimState("idle_loop");
+        var spark = NonIdle("spark");
+        var relaxes = NonIdle("relaxed_loop", isLooping: true);
+        cast.NextState = idle;
+        attack.NextState = idle;
+        hurt.NextState = idle;
+        spark.NextState = idle;
+        relaxes.AddBranch("Idle", idle);
+        var creatureAnimator = new CreatureAnimator(IsLowHealth(creature)? lowHpIdle : idle, controller);
+        creatureAnimator.AddAnyState("Idle", idle,(Func<bool>) (() => !IsLowHealth(creature)));
+        creatureAnimator.AddAnyState("Idle", lowHpIdle,(Func<bool>) (() => IsLowHealth(creature)));
+        creatureAnimator.AddAnyState("Dead", dead);
+        creatureAnimator.AddAnyState("Hit", hurt);
+        creatureAnimator.AddAnyState("Attack", attack);
+        creatureAnimator.AddAnyState("Cast", cast);
+        creatureAnimator.AddAnyState("Spark", spark);
+        creatureAnimator.AddAnyState("Relaxed", relaxes);
         return creatureAnimator;
+        AnimState NonIdle(string id, bool isLooping = false)
+        {
+            var animState = new AnimState(id,isLooping);
+            animState.AddNextState(idle, (Func<bool>) (() => !this.IsLowHealth(creature)));
+            animState.AddNextState(lowHpIdle, (Func<bool>) (() => !this.IsLowHealth(creature)));
+            return animState;
+        }
     }
 }
